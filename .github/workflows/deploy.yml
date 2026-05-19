@@ -1,0 +1,61 @@
+name: Deploy
+
+on:
+  push:
+    branches: [prod]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build images
+        run: |
+          docker buildx build -f apps/web/Dockerfile --target web -t banana-web:latest --load .
+          docker buildx build -f apps/web/Dockerfile --target migrate -t banana-migrate:latest --load .
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Transfer images to server
+        run: |
+          docker save banana-web:latest | gzip | ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "gunzip | docker load"
+          docker save banana-migrate:latest | gzip | ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "gunzip | docker load"
+
+      - name: Transfer compose file
+        run: rsync -avz -e "ssh -i ~/.ssh/deploy_key" docker-compose.yml ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+
+      - name: Deploy with rollback
+        run: |
+          ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} <<DEPLOY
+          cd ${{ secrets.DEPLOY_PATH }}
+          docker compose up -d --no-start
+          docker tag banana-web:latest banana-web:candidate 2>/dev/null || true
+          docker tag banana-migrate:latest banana-migrate:candidate 2>/dev/null || true
+          docker compose start -d web migrate 2>/dev/null || true
+          if ! timeout 30 docker compose logs -f --tail=0 web 2>/dev/null | grep -m1 -q "Ready"; then
+            echo "Health check failed, rolling back"
+            docker compose down
+            docker tag banana-web:previous banana-web:latest 2>/dev/null || true
+            docker tag banana-migrate:previous banana-migrate:latest 2>/dev/null || true
+            docker compose up -d
+          else
+            docker tag banana-web:candidate banana-web:previous
+            docker tag banana-migrate:candidate banana-migrate:previous
+          fi
+          DEPLOY
+
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
