@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { t } from "@lingui/core/macro";
-import { HiOutlineRectangleStack, HiOutlineStar, HiStar } from "react-icons/hi2";
+import { useState, useRef, useEffect } from "react";
+import { HiOutlinePencil, HiOutlineRectangleStack, HiOutlineStar, HiStar } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import Button from "~/components/Button";
+import Input from "~/components/Input";
 import PatternedBackground from "~/components/PatternedBackground";
 import { Tooltip } from "~/components/Tooltip";
 import { usePermissions } from "~/hooks/usePermissions";
@@ -30,6 +32,17 @@ export function BoardsList({ isTemplate, archived = false }: { isTemplate?: bool
     },
     { enabled: workspace.publicId ? true : false },
   );
+
+  const [editingBoardId, setEditingBoardId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (editingBoardId && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [editingBoardId]);
 
   const handleToggleFavorite = (
     e: React.MouseEvent,
@@ -83,6 +96,29 @@ export function BoardsList({ isTemplate, archived = false }: { isTemplate?: bool
       </div>
     );
 
+  const handleStartRename = (e: React.MouseEvent, boardPublicId: string, currentName: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setEditingBoardId(boardPublicId);
+    setEditingName(currentName);
+  };
+
+  const handleFinishRename = (boardPublicId: string) => {
+    const trimmed = editingName.trim();
+    if (trimmed) {
+      updateBoard.mutate({ boardPublicId, name: trimmed });
+    }
+    setEditingBoardId(null);
+  };
+
+  const handleRenameKeyDown = (e: React.KeyboardEvent, boardPublicId: string) => {
+    if (e.key === "Enter") {
+      handleFinishRename(boardPublicId);
+    } else if (e.key === "Escape") {
+      setEditingBoardId(null);
+    }
+  };
+
   return (
     <motion.div
       className="3xl:grid-cols-4 grid h-fit w-full grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3"
@@ -122,9 +158,28 @@ export function BoardsList({ isTemplate, archived = false }: { isTemplate?: bool
                   <HiOutlineStar className="h-5 w-5 text-neutral-700 dark:text-dark-800" />
                 )}
               </button>
-              <p className="px-4 text-[14px] font-bold text-neutral-700 dark:text-dark-1000">
-                {board.name}
-              </p>
+              <button
+                onClick={(e) => handleStartRename(e, board.publicId, board.name)}
+                className="absolute left-3 top-3 z-10 rounded p-1 transition-all hover:bg-light-300 dark:hover:bg-dark-200 md:opacity-0 md:group-hover:opacity-100"
+                aria-label="Rename board"
+              >
+                <HiOutlinePencil className="h-4 w-4 text-light-700 dark:text-dark-800" />
+              </button>
+              {editingBoardId === board.publicId ? (
+                <div onClick={(e) => e.stopPropagation()} className="z-10 w-4/5">
+                  <Input
+                    ref={inputRef}
+                    value={editingName}
+                    onChange={(e) => setEditingName(e.target.value)}
+                    onBlur={() => handleFinishRename(board.publicId)}
+                    onKeyDown={(e) => handleRenameKeyDown(e, board.publicId)}
+                  />
+                </div>
+              ) : (
+                <p className="px-4 text-[14px] font-bold text-neutral-700 dark:text-dark-1000">
+                  {board.name}
+                </p>
+              )}
             </div>
           </Link>
         </motion.div>
