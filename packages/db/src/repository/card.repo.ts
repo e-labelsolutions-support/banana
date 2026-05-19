@@ -5,8 +5,11 @@ import {
   desc,
   eq,
   gt,
+  gte,
   inArray,
+  isNotNull,
   isNull,
+  lte,
   sql,
 } from "drizzle-orm";
 
@@ -23,6 +26,7 @@ import {
   lists,
   workspaceMembers,
   workspaces,
+  boards,
 } from "@banana/db/schema";
 import { generateUID } from "@banana/shared/utils";
 
@@ -1033,4 +1037,79 @@ export const getWorkspaceAndCardIdByCardPublicId = async (
         boardName: result.list.board.name,
       }
     : null;
+};
+
+export const getCalendarCards = async (
+  db: dbClient,
+  args: {
+    workspaceId: number;
+    boardId?: number;
+    startDate: Date;
+    endDate: Date;
+  },
+) => {
+  const conditions = [
+    isNotNull(cards.dueDate),
+    isNull(cards.deletedAt),
+    gte(cards.dueDate, args.startDate),
+    lte(cards.dueDate, args.endDate),
+    isNull(lists.deletedAt),
+    isNull(boards.deletedAt),
+    eq(boards.workspaceId, args.workspaceId),
+  ];
+
+  if (args.boardId) {
+    conditions.push(eq(boards.id, args.boardId));
+  }
+
+  const rows = await db
+    .select({
+      publicId: cards.publicId,
+      title: cards.title,
+      dueDate: cards.dueDate,
+      boardPublicId: boards.publicId,
+      boardName: boards.name,
+      labelName: labels.name,
+      labelColourCode: labels.colourCode,
+    })
+    .from(cards)
+    .innerJoin(lists, eq(cards.listId, lists.id))
+    .innerJoin(boards, eq(lists.boardId, boards.id))
+    .leftJoin(cardsToLabels, eq(cards.id, cardsToLabels.cardId))
+    .leftJoin(labels, eq(cardsToLabels.labelId, labels.id))
+    .where(and(...conditions))
+    .orderBy(asc(cards.dueDate), asc(cards.index));
+
+  const cardMap = new Map<
+    string,
+    {
+      publicId: string;
+      title: string;
+      dueDate: Date | null;
+      boardPublicId: string;
+      boardName: string;
+      labels: { name: string; colourCode: string | null }[];
+    }
+  >();
+
+  for (const row of rows) {
+    if (!cardMap.has(row.publicId)) {
+      cardMap.set(row.publicId, {
+        publicId: row.publicId,
+        title: row.title,
+        dueDate: row.dueDate,
+        boardPublicId: row.boardPublicId,
+        boardName: row.boardName,
+        labels: [],
+      });
+    }
+    if (row.labelName) {
+      cardMap.get(row.publicId)!.labels.push({
+        name: row.labelName,
+        colourCode: row.labelColourCode,
+      });
+    }
+  }
+
+  return Array.from(cardMap.values());
 };
