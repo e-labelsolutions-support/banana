@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import {
   HiOutlineBarsArrowDown,
   HiOutlineBarsArrowUp,
+  HiOutlineCheckCircle,
+  HiPlus,
   HiXMark,
 } from "react-icons/hi2";
 
@@ -32,6 +34,12 @@ type NewCardFormInput = NewCardInput & {
   isCreateAnotherEnabled: boolean;
   dueDate?: Date | null;
 };
+
+interface ChecklistDraft {
+  id: string;
+  name: string;
+  items: string[];
+}
 
 interface QueryParams {
   boardPublicId: string;
@@ -88,6 +96,8 @@ export function NewCardForm({
   const description = watch("description");
   const dueDate = watch("dueDate");
   const [isDateSelectorOpen, setIsDateSelectorOpen] = useState(false);
+  const [checklistDrafts, setChecklistDrafts] = useState<ChecklistDraft[]>([]);
+  const [newItemTexts, setNewItemTexts] = useState<Record<string, string>>({});
 
   // saving form state whenever form values change
   useEffect(() => {
@@ -201,6 +211,8 @@ export function NewCardForm({
         closeModal();
       } else {
         // reset form for creating another card
+        setChecklistDrafts([]);
+        setNewItemTexts({});
         const newFormState = {
           title: "",
           description: "",
@@ -268,6 +280,10 @@ export function NewCardForm({
       memberPublicIds: data.memberPublicIds,
       position: data.position,
       dueDate: data.dueDate ?? null,
+      checklists: checklistDrafts.map((cl) => ({
+        name: cl.name || "Checklist",
+        items: cl.items.filter((item) => item.trim().length > 0),
+      })),
     });
   };
 
@@ -299,6 +315,34 @@ export function NewCardForm({
       newLabelPublicIds.splice(currentIndex, 1);
       setValue("labelPublicIds", newLabelPublicIds);
     }
+  };
+
+  const addChecklist = () => {
+    const id = generateUID();
+    setChecklistDrafts([...checklistDrafts, { id, name: "Checklist", items: [] }]);
+  };
+
+  const removeChecklist = (id: string) => {
+    setChecklistDrafts(checklistDrafts.filter((cl) => cl.id !== id));
+  };
+
+  const updateChecklistName = (id: string, name: string) => {
+    setChecklistDrafts(checklistDrafts.map((cl) => cl.id === id ? { ...cl, name } : cl));
+  };
+
+  const addChecklistItem = (clId: string) => {
+    const text = (newItemTexts[clId] ?? "").trim();
+    if (!text) return;
+    setChecklistDrafts(checklistDrafts.map((cl) =>
+      cl.id === clId ? { ...cl, items: [...cl.items, text] } : cl
+    ));
+    setNewItemTexts({ ...newItemTexts, [clId]: "" });
+  };
+
+  const removeChecklistItem = (clId: string, index: number) => {
+    setChecklistDrafts(checklistDrafts.map((cl) =>
+      cl.id === clId ? { ...cl, items: cl.items.filter((_, i) => i !== index) } : cl
+    ));
   };
 
   const selectedList = formattedLists.find((item) => item.selected);
@@ -518,6 +562,83 @@ export function NewCardForm({
             ) : (
               <HiOutlineBarsArrowDown size={14} />
             )}
+          </button>
+        </div>
+
+        {checklistDrafts.length > 0 && (
+          <div className="mt-3 space-y-3">
+            {checklistDrafts.map((cl) => (
+              <div key={cl.id} className="rounded-md border-[1px] border-light-400 bg-light-100 p-3 dark:border-dark-500 dark:bg-dark-300">
+                <div className="flex items-center gap-2">
+                  <HiOutlineCheckCircle className="h-4 w-4 text-light-700 dark:text-dark-800" />
+                  <input
+                    type="text"
+                    value={cl.name}
+                    onChange={(e) => updateChecklistName(cl.id, e.target.value)}
+                    className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 outline-none dark:text-dark-1000"
+                    placeholder="Checklist name"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removeChecklist(cl.id)}
+                    className="rounded p-0.5 hover:bg-light-300 dark:hover:bg-dark-400"
+                  >
+                    <HiXMark size={14} className="text-light-800 dark:text-dark-800" />
+                  </button>
+                </div>
+                {cl.items.length > 0 && (
+                  <div className="mt-2 space-y-1">
+                    {cl.items.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 pl-6">
+                        <div className="h-3.5 w-3.5 rounded-[3px] border border-light-500 dark:border-dark-600" />
+                        <span className="flex-1 text-xs text-neutral-800 dark:text-dark-900">{item}</span>
+                        <button
+                          type="button"
+                          onClick={() => removeChecklistItem(cl.id, i)}
+                          className="rounded p-0.5 hover:bg-light-300 dark:hover:bg-dark-400"
+                        >
+                          <HiXMark size={12} className="text-light-800 dark:text-dark-800" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <div className="mt-2 flex items-center gap-2 pl-6">
+                  <div className="h-3.5 w-3.5 rounded-[3px] border border-light-500 dark:border-dark-600" />
+                  <input
+                    type="text"
+                    value={newItemTexts[cl.id] ?? ""}
+                    onChange={(e) => setNewItemTexts({ ...newItemTexts, [cl.id]: e.target.value })}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        addChecklistItem(cl.id);
+                      }
+                    }}
+                    placeholder="Add item"
+                    className="flex-1 bg-transparent text-xs text-neutral-800 outline-none placeholder:text-light-800 dark:text-dark-900 dark:placeholder:text-dark-800"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => addChecklistItem(cl.id)}
+                    className="rounded p-0.5 hover:bg-light-300 dark:hover:bg-dark-400"
+                  >
+                    <HiPlus size={12} className="text-light-800 dark:text-dark-800" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-2">
+          <button
+            type="button"
+            onClick={addChecklist}
+            className="flex items-center gap-1.5 rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-xs text-light-800 hover:bg-light-300 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
+          >
+            <HiOutlineCheckCircle className="h-3.5 w-3.5" />
+            {t`Checklist`}
           </button>
         </div>
       </div>
