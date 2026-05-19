@@ -268,6 +268,18 @@
     ],
     "translation": "14 day free trial · Switch plans or cancel anytime"
   },
+  "awQEBS": {
+    "translation": "404 - Page Not Found | banana.bn",
+    "message": "404 - Page Not Found | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/pages/404.tsx",
+        11
+      ]
+    ]
+  },
   "4obmDr": {
     "message": "404 - Page Not Found | banana.bn",
     "placeholders": {},
@@ -278,7 +290,8 @@
         11
       ]
     ],
-    "translation": "404 - Page Not Found | banana.bn"
+    "translation": "404 - Page Not Found | banana.bn",
+    "obsolete": true
   },
   "/rn4RE": {
     "message": "A powerful, flexible kanban app that helps you organise work, track progress, and deliver results—all in one place.",
@@ -340,6 +353,18 @@
     ],
     "translation": "Actions"
   },
+  "BGvy/m": {
+    "translation": "Activate | banana.bn",
+    "message": "Activate | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/pages/partner/activate.tsx",
+        46
+      ]
+    ]
+  },
   "JEt3q7": {
     "message": "Activate | banana.bn",
     "placeholders": {},
@@ -350,7 +375,8 @@
         46
       ]
     ],
-    "translation": "Activate | banana.bn"
+    "translation": "Activate | banana.bn",
+    "obsolete": true
   },
   "mkehy7": {
     "message": "Activate your account",
@@ -2399,7 +2425,6 @@
     "translation": "Choose a plan"
   },
   "5EMoSo": {
-    "translation": "Choose plan",
     "message": "Choose plan",
     "placeholders": {},
     "comments": [],
@@ -2412,7 +2437,8 @@
         "src/views/settings/BillingSettings.tsx",
         80
       ]
-    ]
+    ],
+    "translation": "Choose plan"
   },
   "VHS0aJ": {
     "message": "Clear all custom permissions?",
@@ -5025,7 +5051,6 @@
     "translation": "Free"
   },
   "8LLt89": {
-    "translation": "Free (1 member)",
     "message": "Free (1 member)",
     "placeholders": {},
     "comments": [],
@@ -5034,7 +5059,8 @@
         "src/views/settings/BillingSettings.tsx",
         31
       ]
-    ]
+    ],
+    "translation": "Free (1 member)"
   },
   "uP4V6I": {
     "message": "Free for everyone",
@@ -5937,7 +5963,6 @@
     "translation": "Invite member"
   },
   "M2zwdn": {
-    "translation": "Inviting members requires a Team or Pro plan. You'll be redirected to upgrade your workspace.",
     "message": "Inviting members requires a Team or Pro plan. You'll be redirected to upgrade your workspace.",
     "placeholders": {},
     "comments": [],
@@ -5946,7 +5971,8 @@
         "src/views/members/components/InviteMemberForm.tsx",
         310
       ]
-    ]
+    ],
+    "translation": "Inviting members requires a Team or Pro plan. You'll be redirected to upgrade your workspace."
   },
   "qPP4lD": {
     "message": "Inviting members requires a Team Plan. You'll be redirected to upgrade your workspace.",
@@ -5977,6 +6003,18 @@
     ],
     "translation": "Join workspace"
   },
+  "riAhnG": {
+    "translation": "Join workspace | banana.bn",
+    "message": "Join workspace | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/invite/index.tsx",
+        91
+      ]
+    ]
+  },
   "A23Y7X": {
     "message": "Join workspace | banana.bn",
     "placeholders": {},
@@ -5987,7 +6025,8 @@
         91
       ]
     ],
-    "translation": "Join workspace | banana.bn"
+    "translation": "Join workspace | banana.bn",
+    "obsolete": true
   },
   "wM8xd8": {
     "message": "Junior",
@@ -6366,6 +6405,18 @@
     ],
     "translation": "Loading..."
   },
+  "LDNfSb": {
+    "translation": "Login | banana.bn",
+    "message": "Login | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/auth/login/index.tsx",
+        33
+      ]
+    ]
+  },
   "N/bcWA": {
     "message": "Login | banana.bn",
     "placeholders": {},
@@ -6376,7 +6427,8 @@
         33
       ]
     ],
-    "translation": "Login | banana.bn"
+    "translation": "Login | banana.bn",
+    "obsolete": true
   },
   "nOhz3x": {
     "message": "Logout",
@@ -6531,7 +6583,6 @@
     "translation": "Medium Priority"
   },
   "NwiNTb": {
-    "translation": "member",
     "message": "member",
     "placeholders": {},
     "comments": [],
@@ -6540,7 +6591,8 @@
         "src/views/settings/BillingSettings.tsx",
         40
       ]
-    ]
+    ],
+    "translation": "member"
   },
   "OvoEq7": {
     "message": "Member",
@@ -6563,7 +6615,6 @@
     "translation": "Member"
   },
   "GnG6Oy": {
-    "translation": "members",
     "message": "members",
     "placeholders": {},
     "comments": [],
@@ -6572,7 +6623,8 @@
         "src/views/settings/BillingSettings.tsx",
         40
       ]
-    ]
+    ],
+    "translation": "members"
   },
   "wlQNTg": {
     "message": "Members",
@@ -7658,7 +7710,6 @@
     "translation": "Pick a plan to get started. All paid plans include a 14-day free trial."
   },
   "GdgCoi": {
-    "translation": "Plan",
     "message": "Plan",
     "placeholders": {},
     "comments": [],
@@ -7667,7 +7718,8 @@
         "src/views/settings/BillingSettings.tsx",
         66
       ]
-    ]
+    ],
+    "translation": "Plan"
   },
   "Iqh0Uv": {
     "message": "Planned",
@@ -8745,7 +8797,6 @@
     "translation": "Search boards and cards..."
   },
   "MpFIca": {
-    "translation": "seats",
     "message": "seats",
     "placeholders": {},
     "comments": [],
@@ -8754,7 +8805,8 @@
         "src/views/members/index.tsx",
         311
       ]
-    ]
+    ],
+    "translation": "seats"
   },
   "e1v+J3": {
     "message": "Secret (optional)",
@@ -9145,7 +9197,6 @@
     "translation": "Sign In"
   },
   "jbGGzf": {
-    "translation": "Sign in or create an account to activate your {partnerName} license",
     "message": "Sign in or create an account to activate your {partnerName} license",
     "placeholders": {
       "partnerName": [
@@ -9158,7 +9209,8 @@
         "src/pages/partner/activate.tsx",
         62
       ]
-    ]
+    ],
+    "translation": "Sign in or create an account to activate your {partnerName} license"
   },
   "4dGN6E": {
     "message": "Sign in or create an account to activate your license",
@@ -9200,6 +9252,22 @@
     ],
     "translation": "Sign Up"
   },
+  "5lNTpw": {
+    "translation": "Sign up | banana.bn",
+    "message": "Sign up | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/auth/signup/index.tsx",
+        36
+      ],
+      [
+        "src/views/auth/signup/index.tsx",
+        61
+      ]
+    ]
+  },
   "sUZo7y": {
     "message": "Sign up | banana.bn",
     "placeholders": {},
@@ -9214,7 +9282,8 @@
         61
       ]
     ],
-    "translation": "Sign up | banana.bn"
+    "translation": "Sign up | banana.bn",
+    "obsolete": true
   },
   "WRkpB1": {
     "message": "Sign up disabled",
@@ -9401,7 +9470,6 @@
     "translation": "Start 14 day free trial"
   },
   "4+JaWo": {
-    "translation": "Start free trial",
     "message": "Start free trial",
     "placeholders": {},
     "comments": [],
@@ -9418,7 +9486,8 @@
         "src/components/SideNavigation.tsx",
         236
       ]
-    ]
+    ],
+    "translation": "Start free trial"
   },
   "Y8yzGg": {
     "message": "Start free. Upgrade as your team grows. No hidden fees, no contracts.",
@@ -10949,7 +11018,6 @@
     "translation": "Unlimited lists"
   },
   "uXKtPH": {
-    "translation": "unlimited members",
     "message": "unlimited members",
     "placeholders": {},
     "comments": [],
@@ -10958,7 +11026,8 @@
         "src/views/settings/BillingSettings.tsx",
         35
       ]
-    ]
+    ],
+    "translation": "unlimited members"
   },
   "mx8+1u": {
     "message": "Unlimited members",
@@ -10997,7 +11066,6 @@
     "translation": "Unlimited members and a custom workspace username for teams ready to scale."
   },
   "i5yNAO": {
-    "translation": "Unlimited seats",
     "message": "Unlimited seats",
     "placeholders": {},
     "comments": [],
@@ -11006,7 +11074,8 @@
         "src/views/members/index.tsx",
         310
       ]
-    ]
+    ],
+    "translation": "Unlimited seats"
   },
   "Ws+3X+": {
     "message": "Unlimited seats and advanced features for growing teams.",
@@ -12017,6 +12086,18 @@
     ],
     "translation": "You can always change these later in settings."
   },
+  "HmE44M": {
+    "translation": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
+    "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home/components/Faqs.tsx",
+        67
+      ]
+    ]
+  },
   "aelko+": {
     "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
     "placeholders": {},
@@ -12027,7 +12108,8 @@
         67
       ]
     ],
-    "translation": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!"
+    "translation": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
+    "obsolete": true
   },
   "kSxwQL": {
     "message": "You can invite team members by clicking the \"Invite\" button in the top right corner of the <0>members page</0> and entering their email address. They will receive an email with a link to join the workspace.",
@@ -12165,6 +12247,18 @@
     ],
     "translation": "You signed in without a password. Set a password to enable password-based login."
   },
+  "2TX7RD": {
+    "translation": "You've been invited to join a workspace on banana.bn.",
+    "message": "You've been invited to join a workspace on banana.bn.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/invite/index.tsx",
+        134
+      ]
+    ]
+  },
   "2SePRT": {
     "message": "You've been invited to join a workspace on banana.bn.",
     "placeholders": {},
@@ -12175,7 +12269,8 @@
         134
       ]
     ],
-    "translation": "You've been invited to join a workspace on banana.bn."
+    "translation": "You've been invited to join a workspace on banana.bn.",
+    "obsolete": true
   },
   "uOqaMC": {
     "message": "You've been invited to join a workspace.",
