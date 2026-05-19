@@ -34,7 +34,7 @@ RUN git fetch --tags --unshallow 2>/dev/null || git fetch --tags 2>/dev/null || 
     echo "unknown") && \
     echo "$AUTO_VERSION" > /app/AUTO_VERSION
 
-RUN turbo prune --scope=@kan/web --scope=@kan/db --docker
+RUN turbo prune --scope=@banana/web --scope=@banana/db --docker
 
 # ============================================
 # Stage 3: Install dependencies
@@ -66,7 +66,7 @@ ENV NEXT_PUBLIC_USE_STANDALONE_OUTPUT=true
 ENV CI=true
 
 RUN VERSION="${APP_VERSION:-$(cat /tmp/AUTO_VERSION 2>/dev/null | tr -d '\n\r' || echo 'unknown')}" && \
-    NEXT_PUBLIC_APP_VERSION="$VERSION" pnpm build --filter=@kan/web
+    NEXT_PUBLIC_APP_VERSION="$VERSION" pnpm build --filter=@banana/web
 
 # ============================================
 # Stage 5: Migration image (run-once container)
@@ -100,9 +100,9 @@ RUN npm init -y && \
 CMD ["npx", "drizzle-kit", "migrate"]
 
 # ============================================
-# Stage 6: Production web image (distroless)
+# Stage 6: Production web image
 # ============================================
-FROM ${DISTROLESS_NODE_IMAGE} AS web
+FROM node:${NODE_VERSION}-alpine AS web
 WORKDIR /app
 
 ENV NODE_ENV=production
