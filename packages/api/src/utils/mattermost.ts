@@ -39,8 +39,7 @@ async function mattermostApi(
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      const text = await response.text();
-      log.error({ path, status: response.status, body: text }, "Mattermost API error");
+      log.error({ path, status: response.status }, "Mattermost API error");
       return null;
     }
 

@@ -1,6 +1,10 @@
+import crypto from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { z } from "zod";
 
 import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
 import * as boardRepo from "@banana/db/repository/board.repo";
 import * as cardRepo from "@banana/db/repository/card.repo";
 import * as checklistRepo from "@banana/db/repository/checklist.repo";
@@ -14,7 +18,28 @@ type MattermostResponse = {
   text: string;
 };
 
-export default async function handler(
+const MAX_TASK_TITLE = 2000;
+const MAX_BOARD_NAME = 255;
+const MAX_PLAN_DESCRIPTION = 2000;
+const MAX_TASKS_PER_PLAN = 20;
+
+const planTaskSchema = z.object({
+  title: z.string().min(1).max(MAX_TASK_TITLE),
+  description: z.string().max(10000).optional(),
+  checklist: z.array(z.string().min(1).max(500)).max(50).optional(),
+});
+
+const planResponseSchema = z.array(planTaskSchema).min(1).max(MAX_TASKS_PER_PLAN);
+
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) {
+    crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b));
+    return false;
+  }
+  return crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b));
+}
+
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<MattermostResponse>,
 ) {
@@ -24,20 +49,19 @@ export default async function handler(
 
   const commandToken = process.env.MATTERMOST_COMMAND_TOKEN;
   if (!commandToken) {
-    return res.status(500).json({ text: "Mattermost command token not configured." });
+    return res.status(500).json({ text: "Mattermost command not configured." });
   }
 
   const token = req.body.token;
-  if (token !== commandToken) {
+  if (typeof token !== "string" || !timingSafeEqual(token, commandToken)) {
     return res.status(401).json({ text: "Invalid command token." });
   }
 
-  const commandText: string = (req.body.text ?? "").trim();
-  const userEmail: string = req.body.user_email ?? "";
-  const userName: string = req.body.user_name ?? "";
+  const commandText: string = String(req.body.text ?? "").trim().slice(0, MAX_PLAN_DESCRIPTION);
+  const userEmail: string = String(req.body.user_email ?? "").trim();
 
   if (!userEmail) {
-    return res.json({ text: "Could not determine your email from Mattermost." });
+    return res.json({ text: "Could not determine your identity from Mattermost." });
   }
 
   const { db } = await createNextApiContext(req);
@@ -47,11 +71,11 @@ export default async function handler(
     const subcommand = parts[0]?.toLowerCase();
 
     if (subcommand === "create") {
-      return await handleCreate(req, res, db, parts.slice(1), userEmail, userName);
+      return await handleCreate(res, db, parts.slice(1), userEmail);
     }
 
     if (subcommand === "plan") {
-      return await handlePlan(req, res, db, parts.slice(1), userEmail, userName);
+      return await handlePlan(res, db, parts.slice(1), userEmail);
     }
 
     return res.json({
@@ -74,7 +98,7 @@ function parseQuotedArgs(text: string): string[] {
   const regex = /"([^"]+)"/g;
   let match;
   while ((match = regex.exec(text)) !== null) {
-    args.push(match[1]);
+    args.push(match[1].slice(0, MAX_TASK_TITLE));
   }
   return args;
 }
@@ -92,13 +116,52 @@ async function findBoardByName(db: import("@banana/db/client").dbClient, workspa
   );
 }
 
+async function resolveBoardAndList(
+  db: import("@banana/db/client").dbClient,
+  workspace: NonNullable<Awaited<ReturnType<typeof resolveUserWorkspace>>>,
+  userId: string,
+  boardName: string | undefined,
+) {
+  if (boardName) {
+    const board = await findBoardByName(db, workspace.id, userId, boardName.slice(0, MAX_BOARD_NAME));
+    if (!board) return { error: `Board "${boardName}" not found.` };
+    const firstList = board.lists?.[0];
+    if (!firstList) return { error: `Board "${boardName}" has no lists.` };
+    const list = await db.query.lists.findFirst({
+      where: (l, { eq }) => eq(l.publicId, firstList.publicId),
+      columns: { id: true, workspaceId: true },
+    });
+    if (!list) return { error: "Could not resolve list." };
+    return { listId: list.id, workspaceId: list.workspaceId };
+  }
+
+  const boards = await boardRepo.getAllByWorkspaceId(db, workspace.id, userId);
+  if (!boards.length || !boards[0].lists?.length) {
+    return { error: "No boards found in your workspace." };
+  }
+  const list = await db.query.lists.findFirst({
+    where: (l, { eq }) => eq(l.publicId, boards[0].lists![0].publicId),
+    columns: { id: true, workspaceId: true },
+  });
+  if (!list) return { error: "Could not resolve list." };
+  return { listId: list.id, workspaceId: list.workspaceId };
+}
+
+async function resolveUserId(db: import("@banana/db/client").dbClient, email: string) {
+  const members = await db.query.workspaceMembers.findMany({
+    where: (m, { eq, and, isNull }) =>
+      and(eq(m.email, email), isNull(m.deletedAt)),
+    limit: 1,
+    columns: { userId: true },
+  });
+  return members[0]?.userId ?? null;
+}
+
 async function handleCreate(
-  _req: NextApiRequest,
   res: NextApiResponse<MattermostResponse>,
   db: import("@banana/db/client").dbClient,
   parts: string[],
   userEmail: string,
-  _userName: string,
 ) {
   const text = parts.join(" ");
   const args = parseQuotedArgs(text);
@@ -115,63 +178,22 @@ async function handleCreate(
     return res.json({ text: "You don't have a Banana workspace. Please log in to Banana first." });
   }
 
-  // Resolve user ID from email
-  const members = await db.query.workspaceMembers.findMany({
-    where: (m, { eq, and, isNull }) =>
-      and(eq(m.email, userEmail), isNull(m.deletedAt)),
-    limit: 1,
-    columns: { userId: true },
-  });
-  const userId = members[0]?.userId;
+  const userId = await resolveUserId(db, userEmail);
   if (!userId) {
-    return res.json({ text: "Could not find your user account in Banana." });
+    return res.json({ text: "Could not find your user account." });
   }
 
-  let listId: number;
-  let workspaceId: number;
-
-  if (boardName) {
-    const board = await findBoardByName(db, workspace.id, userId, boardName);
-    if (!board) {
-      return res.json({ text: `Board "${boardName}" not found.` });
-    }
-    const firstList = board.lists?.[0];
-    if (!firstList) {
-      return res.json({ text: `Board "${boardName}" has no lists.` });
-    }
-    // Get the full list with internal ID
-    const list = await db.query.lists.findFirst({
-      where: (l, { eq }) => eq(l.publicId, firstList.publicId),
-      columns: { id: true, workspaceId: true },
-    });
-    if (!list) {
-      return res.json({ text: "Could not resolve list." });
-    }
-    listId = list.id;
-    workspaceId = list.workspaceId;
-  } else {
-    // Use the first board's first list
-    const boards = await boardRepo.getAllByWorkspaceId(db, workspace.id, userId);
-    if (!boards.length || !boards[0].lists?.length) {
-      return res.json({ text: "No boards found in your workspace." });
-    }
-    const list = await db.query.lists.findFirst({
-      where: (l, { eq }) => eq(l.publicId, boards[0].lists![0].publicId),
-      columns: { id: true, workspaceId: true },
-    });
-    if (!list) {
-      return res.json({ text: "Could not resolve list." });
-    }
-    listId = list.id;
-    workspaceId = list.workspaceId;
+  const resolved = await resolveBoardAndList(db, workspace, userId, boardName);
+  if ("error" in resolved) {
+    return res.json({ text: resolved.error });
   }
 
   const card = await cardRepo.create(db, {
     title: taskTitle,
-    description: `Created via Mattermost by ${userEmail}`,
+    description: "Created via Mattermost",
     createdBy: userId,
-    listId,
-    workspaceId,
+    listId: resolved.listId,
+    workspaceId: resolved.workspaceId,
     position: "end",
   });
 
@@ -189,16 +211,14 @@ async function handleCreate(
 }
 
 async function handlePlan(
-  _req: NextApiRequest,
   res: NextApiResponse<MattermostResponse>,
   db: import("@banana/db/client").dbClient,
   parts: string[],
   userEmail: string,
-  _userName: string,
 ) {
   const zaiApiKey = process.env.ZAI_API_KEY;
   if (!zaiApiKey) {
-    return res.json({ text: "Z.ai integration is not configured. Set `ZAI_API_KEY` to enable planning." });
+    return res.json({ text: "Z.ai integration is not configured." });
   }
 
   const text = parts.join(" ");
@@ -216,56 +236,16 @@ async function handlePlan(
     return res.json({ text: "You don't have a Banana workspace. Please log in to Banana first." });
   }
 
-  // Resolve user ID from email
-  const members = await db.query.workspaceMembers.findMany({
-    where: (m, { eq, and, isNull }) =>
-      and(eq(m.email, userEmail), isNull(m.deletedAt)),
-    limit: 1,
-    columns: { userId: true },
-  });
-  const userId = members[0]?.userId;
+  const userId = await resolveUserId(db, userEmail);
   if (!userId) {
-    return res.json({ text: "Could not find your user account in Banana." });
+    return res.json({ text: "Could not find your user account." });
   }
 
-  let listId: number;
-  let workspaceId: number;
-
-  if (boardName) {
-    const board = await findBoardByName(db, workspace.id, userId, boardName);
-    if (!board) {
-      return res.json({ text: `Board "${boardName}" not found.` });
-    }
-    const firstList = board.lists?.[0];
-    if (!firstList) {
-      return res.json({ text: `Board "${boardName}" has no lists.` });
-    }
-    const list = await db.query.lists.findFirst({
-      where: (l, { eq }) => eq(l.publicId, firstList.publicId),
-      columns: { id: true, workspaceId: true },
-    });
-    if (!list) {
-      return res.json({ text: "Could not resolve list." });
-    }
-    listId = list.id;
-    workspaceId = list.workspaceId;
-  } else {
-    const boards = await boardRepo.getAllByWorkspaceId(db, workspace.id, userId);
-    if (!boards.length || !boards[0].lists?.length) {
-      return res.json({ text: "No boards found in your workspace." });
-    }
-    const list = await db.query.lists.findFirst({
-      where: (l, { eq }) => eq(l.publicId, boards[0].lists![0].publicId),
-      columns: { id: true, workspaceId: true },
-    });
-    if (!list) {
-      return res.json({ text: "Could not resolve list." });
-    }
-    listId = list.id;
-    workspaceId = list.workspaceId;
+  const resolved = await resolveBoardAndList(db, workspace, userId, boardName);
+  if ("error" in resolved) {
+    return res.json({ text: resolved.error });
   }
 
-  // Call Z.ai to generate a plan
   const systemPrompt = `You are a project planning assistant. Given a procedure description, break it into concrete, actionable tasks with checklists.
 
 Return ONLY valid JSON (no markdown, no code fences) as an array of objects:
@@ -277,8 +257,10 @@ Return ONLY valid JSON (no markdown, no code fences) as an array of objects:
 
 Keep tasks specific and actionable. Each task should have 3-8 checklist items.`;
 
+  const zaiUrl = process.env.ZAI_API_URL || "https://api.zai.chat/v1/chat/completions";
+
   try {
-    const response = await fetch("https://api.zai.chat/v1/chat/completions", {
+    const response = await fetch(zaiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -295,8 +277,7 @@ Keep tasks specific and actionable. Each task should have 3-8 checklist items.`;
     });
 
     if (!response.ok) {
-      const errText = await response.text();
-      log.error({ status: response.status, body: errText }, "Z.ai API error");
+      log.error({ status: response.status }, "Z.ai API error");
       return res.json({ text: `Z.ai API error: ${response.status}. Please try again later.` });
     }
 
@@ -307,35 +288,37 @@ Keep tasks specific and actionable. Each task should have 3-8 checklist items.`;
       return res.json({ text: "Z.ai returned an empty response." });
     }
 
-    // Parse the JSON response
-    let tasks: { title: string; description: string; checklist: string[] }[];
+    let parsed: unknown;
     try {
       const cleaned = content.replace(/```json?\n?/g, "").replace(/```/g, "").trim();
-      tasks = JSON.parse(cleaned);
+      parsed = JSON.parse(cleaned);
     } catch {
-      log.error({ content }, "Failed to parse Z.ai response as JSON");
+      log.error("Failed to parse Z.ai response as JSON");
       return res.json({ text: "Failed to parse the AI plan. Please try again." });
     }
 
-    if (!Array.isArray(tasks) || tasks.length === 0) {
-      return res.json({ text: "The AI plan was empty. Please try a more specific description." });
+    const validationResult = planResponseSchema.safeParse(parsed);
+    if (!validationResult.success) {
+      log.error({ issues: validationResult.error.issues }, "Z.ai response failed validation");
+      return res.json({ text: "The AI plan format was invalid. Please try again." });
     }
 
-    // Create all tasks with checklists
+    const tasks = validationResult.data;
+
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const createdCards: { title: string; url: string }[] = [];
 
     for (const task of tasks) {
       const card = await cardRepo.create(db, {
         title: task.title,
-        description: task.description || `Created via Mattermost plan: ${planDescription}`,
+        description: task.description || "Created via Mattermost plan",
         createdBy: userId,
-        listId,
-        workspaceId,
+        listId: resolved.listId,
+        workspaceId: resolved.workspaceId,
         position: "end",
       });
 
-      if (card && task.checklist?.length > 0) {
+      if (card && task.checklist?.length) {
         const checklist = await checklistRepo.create(db, {
           cardId: card.id,
           name: "Checklist",
@@ -376,3 +359,8 @@ Keep tasks specific and actionable. Each task should have 3-8 checklist items.`;
     return res.json({ text: "Failed to generate plan. Please try again later." });
   }
 }
+
+export default withRateLimit(
+  { points: 20, duration: 60 },
+  withApiLogging(handler),
+);
