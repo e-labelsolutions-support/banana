@@ -1,5 +1,5 @@
 {
-  "name": "@kan/tailwind-config",
+  "name": "@banana/tailwind-config",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -20,12 +20,12 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@kan/eslint-config": "workspace:*",
-    "@kan/prettier-config": "workspace:*",
-    "@kan/tsconfig": "workspace:*",
+    "@banana/eslint-config": "workspace:*",
+    "@banana/prettier-config": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

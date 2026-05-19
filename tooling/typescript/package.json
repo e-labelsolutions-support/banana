@@ -1,5 +1,5 @@
 {
-  "name": "@kan/tsconfig",
+  "name": "@banana/tsconfig",
   "private": true,
   "version": "0.1.0",
   "files": [

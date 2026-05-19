@@ -91,7 +91,7 @@ const Pricing = ({
     {
       name: t`Enterprise`,
       id: "tier-enterprise",
-      href: "mailto:support@kan.bn?subject=Enterprise Inquiry",
+      href: "mailto:support@banana.bn?subject=Enterprise Inquiry",
       buttonText: t`Contact Sales`,
       price: { monthly: t`Contact us`, annually: t`Contact us` },
       description: t`Advanced security, compliance, and dedicated support for large organizations.`,

@@ -4,21 +4,21 @@ vi.mock("next-runtime-env", () => ({
   env: vi.fn(),
 }));
 
-vi.mock("@kan/db/repository/member.repo", () => ({
+vi.mock("@banana/db/repository/member.repo", () => ({
   getByEmailAndStatus: vi.fn(),
   getByPublicId: vi.fn(),
   acceptInvite: vi.fn(),
 }));
 
-vi.mock("@kan/db/repository/user.repo", () => ({
+vi.mock("@banana/db/repository/user.repo", () => ({
   update: vi.fn(),
 }));
 
-vi.mock("@kan/email", () => ({
+vi.mock("@banana/email", () => ({
   notificationClient: null,
 }));
 
-vi.mock("@kan/shared", () => ({
+vi.mock("@banana/shared", () => ({
   createEmailUnsubscribeLink: vi.fn(),
   createS3Client: vi.fn(),
 }));
@@ -32,7 +32,7 @@ vi.mock("@novu/api/models/components", () => ({
 }));
 
 import { env } from "next-runtime-env";
-import * as memberRepo from "@kan/db/repository/member.repo";
+import * as memberRepo from "@banana/db/repository/member.repo";
 import { createDatabaseHooks } from "./hooks";
 
 const mockEnv = env as ReturnType<typeof vi.fn>;

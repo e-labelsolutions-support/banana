@@ -10,7 +10,7 @@ import {
   TbLayoutSidebarRightExpand,
 } from "react-icons/tb";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import { useClickOutside } from "~/hooks/useClickOutside";
 import { useModal } from "~/providers/modal";

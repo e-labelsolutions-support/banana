@@ -9,8 +9,8 @@ import {
   HiXMark,
 } from "react-icons/hi2";
 
-import type { NewCardInput } from "@kan/api/types";
-import { generateUID } from "@kan/shared/utils";
+import type { NewCardInput } from "@banana/api/types";
+import { generateUID } from "@banana/shared/utils";
 
 import type { WorkspaceMember } from "~/components/Editor";
 import Avatar from "~/components/Avatar";

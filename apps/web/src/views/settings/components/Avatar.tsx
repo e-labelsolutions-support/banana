@@ -6,7 +6,7 @@ import ReactCrop from "react-image-crop";
 
 import "react-image-crop/dist/ReactCrop.css";
 
-import { generateUID } from "@kan/shared/utils";
+import { generateUID } from "@banana/shared/utils";
 
 import Button from "~/components/Button";
 import Modal from "~/components/modal";

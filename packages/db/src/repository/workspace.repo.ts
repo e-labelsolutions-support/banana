@@ -11,20 +11,20 @@ import {
   sql,
 } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import type { Permission, Role } from "@kan/shared";
+import type { dbClient } from "@banana/db/client";
+import type { Permission, Role } from "@banana/shared";
 import {
   boards,
   cards,
   lists,
   workspaceMembers,
   workspaces,
-} from "@kan/db/schema";
+} from "@banana/db/schema";
 import {
   generateUID,
   generateWorkspacePrefix,
   getDefaultPermissions,
-} from "@kan/shared";
+} from "@banana/shared";
 
 import * as permissionRepo from "./permission.repo";
 

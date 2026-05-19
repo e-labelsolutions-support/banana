@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 
-import { permissionCategories, roles } from "@kan/shared";
-import type { Permission, Role } from "@kan/shared";
+import { permissionCategories, roles } from "@banana/shared";
+import type { Permission, Role } from "@banana/shared";
 
 import { useWorkspace } from "~/providers/workspace";
 import { api } from "~/utils/api";

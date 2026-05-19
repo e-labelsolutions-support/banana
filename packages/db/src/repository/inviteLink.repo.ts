@@ -1,8 +1,8 @@
 import { and, count, eq } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { workspaceInviteLinks } from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import { workspaceInviteLinks } from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 export const getActiveCount = async (db: dbClient) => {
   const result = await db

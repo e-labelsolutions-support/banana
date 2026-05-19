@@ -22,7 +22,7 @@ export const JoinWorkspaceTemplate = ({
 }) => (
   <Html>
     <Head />
-    <Preview>Join {workspaceName ?? "workspace"} on kan.bn</Preview>
+    <Preview>Join {workspaceName ?? "workspace"} on banana.bn</Preview>
     <Body style={{ backgroundColor: "white" }}>
       <Container
         style={{

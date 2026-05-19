@@ -1,5 +1,5 @@
 {
-  "name": "@kan/api",
+  "name": "@banana/api",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -49,12 +49,12 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@kan/auth": "workspace:*",
-    "@kan/db": "workspace:*",
-    "@kan/email": "workspace:^",
-    "@kan/logger": "workspace:^",
-    "@kan/shared": "workspace:^",
-    "@kan/stripe": "workspace:^",
+    "@banana/auth": "workspace:*",
+    "@banana/db": "workspace:*",
+    "@banana/email": "workspace:^",
+    "@banana/logger": "workspace:^",
+    "@banana/shared": "workspace:^",
+    "@banana/stripe": "workspace:^",
     "@trpc/server": "catalog:",
     "rate-limiter-flexible": "^9.0.1",
     "superjson": "2.2.1",
@@ -62,13 +62,13 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@kan/eslint-config": "workspace:*",
-    "@kan/prettier-config": "workspace:*",
-    "@kan/tsconfig": "workspace:*",
+    "@banana/eslint-config": "workspace:*",
+    "@banana/prettier-config": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
     "vitest": "^3.0.0"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

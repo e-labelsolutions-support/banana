@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import * as userRepo from "@kan/db/repository/user.repo";
-import { createS3Client } from "@kan/shared/utils";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import * as userRepo from "@banana/db/repository/user.repo";
+import { createS3Client } from "@banana/shared/utils";
 
 import { env } from "~/env";
 

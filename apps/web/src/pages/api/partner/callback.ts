@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import * as subscriptionRepo from "@kan/db/repository/subscription.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { createLogger } from "@kan/logger";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import * as subscriptionRepo from "@banana/db/repository/subscription.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { createLogger } from "@banana/logger";
 
 import { tierConfig } from "./_utils";
 

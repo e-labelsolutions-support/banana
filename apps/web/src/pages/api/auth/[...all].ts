@@ -1,8 +1,8 @@
 import { toNodeHandler } from "better-auth/node";
 
-import { initAuth } from "@kan/auth/server";
-import { createDrizzleClient } from "@kan/db/client";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
+import { initAuth } from "@banana/auth/server";
+import { createDrizzleClient } from "@banana/db/client";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
 
 export const config = { api: { bodyParser: false } };
 

@@ -1,5 +1,5 @@
 {
-  "extends": "@kan/tsconfig/internal-package.json",
+  "extends": "@banana/tsconfig/internal-package.json",
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {

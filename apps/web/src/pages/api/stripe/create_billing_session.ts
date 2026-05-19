@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { env } from "next-runtime-env";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import { createStripeClient } from "@kan/stripe";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import { createStripeClient } from "@banana/stripe";
 
 export default withRateLimit(
   { points: 100, duration: 60 },

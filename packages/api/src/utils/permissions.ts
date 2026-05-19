@@ -1,10 +1,10 @@
 import { TRPCError } from "@trpc/server";
 
-import type { dbClient } from "@kan/db/client";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as permissionRepo from "@kan/db/repository/permission.repo";
-import type { Permission, Role } from "@kan/shared";
-import { canManageRole, getDefaultPermissions } from "@kan/shared";
+import type { dbClient } from "@banana/db/client";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as permissionRepo from "@banana/db/repository/permission.repo";
+import type { Permission, Role } from "@banana/shared";
+import { canManageRole, getDefaultPermissions } from "@banana/shared";
 
 /**
  * Get effective permissions for a member by combining role permissions with overrides

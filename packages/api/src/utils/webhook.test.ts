@@ -7,15 +7,15 @@ const { mockLogger } = vi.hoisted(() => ({
   },
 }));
 
-vi.mock("@kan/db/repository/webhook.repo", () => ({
+vi.mock("@banana/db/repository/webhook.repo", () => ({
   getActiveByWorkspaceId: vi.fn(),
 }));
 
-vi.mock("@kan/logger", () => ({
+vi.mock("@banana/logger", () => ({
   createLogger: vi.fn(() => mockLogger),
 }));
 
-import * as webhookRepo from "@kan/db/repository/webhook.repo";
+import * as webhookRepo from "@banana/db/repository/webhook.repo";
 import {
   sendWebhookToUrl,
   sendWebhooksForWorkspace,

@@ -156,11 +156,11 @@
     "translation": "Teste gratuito de 14 dias · Mude de plano ou cancele a qualquer momento"
   },
   "4obmDr": {
-    "message": "404 - Page Not Found | kan.bn",
+    "message": "404 - Page Not Found | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [["src/pages/404.tsx", 11]],
-    "translation": "404 - Página Não Encontrada | kan.bn"
+    "translation": "404 - Página Não Encontrada | banana.bn"
   },
   "/rn4RE": {
     "message": "A powerful, flexible kanban app that helps you organise work, track progress, and deliver results—all in one place.",
@@ -202,11 +202,11 @@
     "translation": "Ações"
   },
   "JEt3q7": {
-    "message": "Activate | kan.bn",
+    "message": "Activate | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [["src/pages/partner/activate.tsx", 46]],
-    "translation": "Ativar | kan.bn"
+    "translation": "Ativar | banana.bn"
   },
   "mkehy7": {
     "message": "Activate your account",
@@ -3559,11 +3559,11 @@
     "translation": "Entrar no workspace"
   },
   "A23Y7X": {
-    "message": "Join workspace | kan.bn",
+    "message": "Join workspace | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [["src/views/invite/index.tsx", 91]],
-    "translation": "Entrar no workspace | kan.bn"
+    "translation": "Entrar no workspace | banana.bn"
   },
   "wM8xd8": {
     "message": "Junior",
@@ -3789,11 +3789,11 @@
     "translation": "Carregando..."
   },
   "N/bcWA": {
-    "message": "Login | kan.bn",
+    "message": "Login | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [["src/views/auth/login/index.tsx", 33]],
-    "translation": "Login | kan.bn"
+    "translation": "Login | banana.bn"
   },
   "nOhz3x": {
     "message": "Logout",
@@ -5394,14 +5394,14 @@
     "translation": "Cadastrar"
   },
   "sUZo7y": {
-    "message": "Sign up | kan.bn",
+    "message": "Sign up | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [
       ["src/views/auth/signup/index.tsx", 36],
       ["src/views/auth/signup/index.tsx", 61]
     ],
-    "translation": "Cadastrar | kan.bn"
+    "translation": "Cadastrar | banana.bn"
   },
   "WRkpB1": {
     "message": "Sign up disabled",
@@ -7094,11 +7094,11 @@
     "translation": "Você pode alterar isso depois nas configurações."
   },
   "aelko+": {
-    "message": "You can get a custom workspace URL, like <0>kan.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
+    "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
     "placeholders": {},
     "comments": [],
     "origin": [["src/views/home/components/Faqs.tsx", 67]],
-    "translation": "Você pode obter uma URL personalizada para o workspace, como <0>kan.bn/kan</0>, acessando as <1>configurações do workspace</1> e adquirindo uma assinatura pro do workspace. Todas as assinaturas ajudam a financiar o desenvolvimento do projeto!"
+    "translation": "Você pode obter uma URL personalizada para o workspace, como <0>banana.bn/kan</0>, acessando as <1>configurações do workspace</1> e adquirindo uma assinatura pro do workspace. Todas as assinaturas ajudam a financiar o desenvolvimento do projeto!"
   },
   "kSxwQL": {
     "message": "You can invite team members by clicking the \"Invite\" button in the top right corner of the <0>members page</0> and entering their email address. They will receive an email with a link to join the workspace.",
@@ -7175,11 +7175,11 @@
     "translation": "Você fez login sem uma senha. Defina uma senha para habilitar o login por senha."
   },
   "2SePRT": {
-    "message": "You've been invited to join a workspace on kan.bn.",
+    "message": "You've been invited to join a workspace on banana.bn.",
     "placeholders": {},
     "comments": [],
     "origin": [["src/views/invite/index.tsx", 134]],
-    "translation": "Você foi convidado para entrar em um workspace no kan.bn."
+    "translation": "Você foi convidado para entrar em um workspace no banana.bn."
   },
   "uOqaMC": {
     "message": "You've been invited to join a workspace.",

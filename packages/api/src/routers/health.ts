@@ -4,27 +4,27 @@ import { sql } from "drizzle-orm";
 import { env } from "next-runtime-env";
 import { z } from "zod";
 
-import type { dbClient } from "@kan/db/client";
-import * as boardRepo from "@kan/db/repository/board.repo";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as cardActivityRepo from "@kan/db/repository/cardActivity.repo";
-import * as cardAttachmentRepo from "@kan/db/repository/cardAttachment.repo";
-import * as cardCommentRepo from "@kan/db/repository/cardComment.repo";
-import * as checklistRepo from "@kan/db/repository/checklist.repo";
-import * as importRepo from "@kan/db/repository/import.repo";
-import * as inviteLinkRepo from "@kan/db/repository/inviteLink.repo";
-import * as labelRepo from "@kan/db/repository/label.repo";
-import * as listRepo from "@kan/db/repository/list.repo";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as userRepo from "@kan/db/repository/user.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
+import type { dbClient } from "@banana/db/client";
+import * as boardRepo from "@banana/db/repository/board.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
+import * as cardAttachmentRepo from "@banana/db/repository/cardAttachment.repo";
+import * as cardCommentRepo from "@banana/db/repository/cardComment.repo";
+import * as checklistRepo from "@banana/db/repository/checklist.repo";
+import * as importRepo from "@banana/db/repository/import.repo";
+import * as inviteLinkRepo from "@banana/db/repository/inviteLink.repo";
+import * as labelRepo from "@banana/db/repository/label.repo";
+import * as listRepo from "@banana/db/repository/list.repo";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as userRepo from "@banana/db/repository/user.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 
 import {
   adminProtectedProcedure,
   createTRPCRouter,
   publicProcedure,
 } from "../trpc";
-import { createS3Client } from "@kan/shared/utils";
+import { createS3Client } from "@banana/shared/utils";
 
 const checkDatabaseConnection = async (db: dbClient) => {
   try {

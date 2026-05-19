@@ -2,12 +2,12 @@ import { createHmac, timingSafeEqual } from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { Readable } from "node:stream";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import * as subscriptionRepo from "@kan/db/repository/subscription.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { createLogger } from "@kan/logger";
-import { getActiveSubscriptions } from "@kan/shared/utils";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import * as subscriptionRepo from "@banana/db/repository/subscription.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { createLogger } from "@banana/logger";
+import { getActiveSubscriptions } from "@banana/shared/utils";
 
 import { tierConfig } from "./_utils";
 

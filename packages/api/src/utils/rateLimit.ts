@@ -4,8 +4,8 @@ import {
   RateLimiterMemory,
 } from "rate-limiter-flexible";
 
-import { getRedisClient } from "@kan/db/redis";
-import { createLogger } from "@kan/logger";
+import { getRedisClient } from "@banana/db/redis";
+import { createLogger } from "@banana/logger";
 
 const log = createLogger("rateLimit");
 

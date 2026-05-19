@@ -9,7 +9,7 @@ import {
   HiOutlineTrash,
 } from "react-icons/hi2";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Dropdown from "~/components/Dropdown";
 import { Tooltip } from "~/components/Tooltip";

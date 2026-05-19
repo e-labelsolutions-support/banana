@@ -1,5 +1,5 @@
 {
-  "name": "@kan/email",
+  "name": "@banana/email",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -23,20 +23,20 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@kan/logger": "workspace:^",
+    "@banana/logger": "workspace:^",
     "@novu/api": "^3.11.0",
     "@react-email/components": "^1.0.1",
     "nodemailer": "^7.0.3",
     "react-email": "^5.0.6"
   },
   "devDependencies": {
-    "@kan/eslint-config": "workspace:*",
-    "@kan/prettier-config": "workspace:*",
-    "@kan/tsconfig": "workspace:*",
+    "@banana/eslint-config": "workspace:*",
+    "@banana/prettier-config": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "@types/nodemailer": "^6.4.17",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

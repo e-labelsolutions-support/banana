@@ -3,12 +3,12 @@ import { ChatOrPushProviderEnum } from "@novu/api/models/components";
 import { createAuthMiddleware } from "better-auth/api";
 import { env } from "next-runtime-env";
 
-import type { dbClient } from "@kan/db/client";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as userRepo from "@kan/db/repository/user.repo";
-import { notificationClient } from "@kan/email";
-import { createLogger } from "@kan/logger";
-import { createEmailUnsubscribeLink, createS3Client } from "@kan/shared";
+import type { dbClient } from "@banana/db/client";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as userRepo from "@banana/db/repository/user.repo";
+import { notificationClient } from "@banana/email";
+import { createLogger } from "@banana/logger";
+import { createEmailUnsubscribeLink, createS3Client } from "@banana/shared";
 
 const log = createLogger("auth");
 

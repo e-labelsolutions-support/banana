@@ -1,5 +1,5 @@
 {
-  "name": "@kan/prettier-config",
+  "name": "@banana/prettier-config",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -17,8 +17,8 @@
     "prettier-plugin-tailwindcss": "^0.6.9"
   },
   "devDependencies": {
-    "@kan/tsconfig": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "typescript": "catalog:"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

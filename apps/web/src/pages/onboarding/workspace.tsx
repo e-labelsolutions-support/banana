@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { env } from "next-runtime-env";
 import { useEffect } from "react";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import { PageHead } from "~/components/PageHead";
 import WorkspaceDetailsView from "~/views/onboarding/workspace-details";
@@ -21,7 +21,7 @@ export default function WorkspaceDetailsPage() {
 
   return (
     <>
-      <PageHead title="Create workspace | kan.bn" />
+      <PageHead title="Create workspace | banana.bn" />
       <WorkspaceDetailsView />
     </>
   );

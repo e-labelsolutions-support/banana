@@ -6,7 +6,7 @@ import { useState } from "react";
 import { HiUser } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Button from "~/components/Button";
 import { api } from "~/utils/api";

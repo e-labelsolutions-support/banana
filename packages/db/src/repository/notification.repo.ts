@@ -1,9 +1,9 @@
 import { and, count, eq, isNull } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import type { NotificationType } from "@kan/db/schema";
-import { notifications } from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import type { NotificationType } from "@banana/db/schema";
+import { notifications } from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 export const create = async (
   db: dbClient,

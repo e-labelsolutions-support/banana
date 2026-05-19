@@ -12,8 +12,8 @@ import {
 } from "react-icons/tb";
 import { twMerge } from "tailwind-merge";
 
-import type { Subscription } from "@kan/shared/utils";
-import { hasActiveSubscription } from "@kan/shared/utils";
+import type { Subscription } from "@banana/shared/utils";
+import { hasActiveSubscription } from "@banana/shared/utils";
 
 import type { KeyboardShortcut } from "~/providers/keyboard-shortcuts";
 import boardsIconDark from "~/assets/boards-dark.json";
@@ -160,7 +160,7 @@ export default function SideNavigation({
             {!isCollapsed && (
               <Link href="/" className="block">
                 <h1 className="pl-2 text-[16px] font-bold tracking-tight text-neutral-900 dark:text-dark-1000">
-                  kan.bn
+                  banana.bn
                 </h1>
               </Link>
             )}

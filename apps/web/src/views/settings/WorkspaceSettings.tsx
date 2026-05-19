@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 
-import type { Subscription } from "@kan/shared/utils";
+import type { Subscription } from "@banana/shared/utils";
 
 import Button from "~/components/Button";
 import FeedbackModal from "~/components/FeedbackModal";

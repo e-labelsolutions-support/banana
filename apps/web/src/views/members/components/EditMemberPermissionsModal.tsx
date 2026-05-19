@@ -1,8 +1,8 @@
 import { t } from "@lingui/core/macro";
 import { HiXMark } from "react-icons/hi2";
 
-import type { Permission } from "@kan/shared";
-import { permissionCategories } from "@kan/shared";
+import type { Permission } from "@banana/shared";
+import { permissionCategories } from "@banana/shared";
 
 import Button from "~/components/Button";
 import Toggle from "~/components/Toggle";

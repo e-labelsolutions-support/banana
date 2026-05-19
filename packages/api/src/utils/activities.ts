@@ -1,5 +1,5 @@
-import type { PaginatedActivitiesResult } from "@kan/db/repository/cardActivity.repo";
-import type { ActivityType } from "@kan/db/schema";
+import type { PaginatedActivitiesResult } from "@banana/db/repository/cardActivity.repo";
+import type { ActivityType } from "@banana/db/schema";
 
 type ActivityBase = PaginatedActivitiesResult["activities"][number];
 

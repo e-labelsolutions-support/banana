@@ -6,7 +6,7 @@ import { drizzle as drizzlePgLite } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { Pool } from "pg";
 
-import { createLogger } from "@kan/logger";
+import { createLogger } from "@banana/logger";
 
 import * as schema from "./schema";
 

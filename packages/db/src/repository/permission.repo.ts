@@ -1,14 +1,14 @@
 import { and, eq, isNull, inArray } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
+import type { dbClient } from "@banana/db/client";
 import {
   workspaceMemberPermissions,
   workspaceMembers,
   workspaceRolePermissions,
   workspaceRoles,
-} from "@kan/db/schema";
-import type { Permission, Role } from "@kan/shared";
-import { generateUID, getDefaultPermissions } from "@kan/shared";
+} from "@banana/db/schema";
+import type { Permission, Role } from "@banana/shared";
+import { generateUID, getDefaultPermissions } from "@banana/shared";
 
 /**
  * Get permissions by role ID

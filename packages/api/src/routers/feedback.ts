@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as feedbackRepo from "@kan/db/repository/feedback.repo";
+import * as feedbackRepo from "@banana/db/repository/feedback.repo";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 

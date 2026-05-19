@@ -1,5 +1,5 @@
-import type { dbClient } from "@kan/db/client";
-import { feedback } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import { feedback } from "@banana/db/schema";
 
 export const create = async (
   db: dbClient,

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { TRPCError } from "@trpc/server";
 
-vi.mock("@kan/db/repository/webhook.repo", () => ({
+vi.mock("@banana/db/repository/webhook.repo", () => ({
   getAllByWorkspaceId: vi.fn(),
   getByPublicId: vi.fn(),
   create: vi.fn(),
@@ -9,7 +9,7 @@ vi.mock("@kan/db/repository/webhook.repo", () => ({
   hardDelete: vi.fn(),
 }));
 
-vi.mock("@kan/db/repository/workspace.repo", () => ({
+vi.mock("@banana/db/repository/workspace.repo", () => ({
   getByPublicId: vi.fn(),
 }));
 
@@ -17,8 +17,8 @@ vi.mock("../utils/permissions", () => ({
   assertPermission: vi.fn(),
 }));
 
-import * as webhookRepo from "@kan/db/repository/webhook.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
+import * as webhookRepo from "@banana/db/repository/webhook.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 import { assertPermission } from "../utils/permissions";
 
 const mockGetAllByWorkspaceId = webhookRepo.getAllByWorkspaceId as ReturnType<typeof vi.fn>;

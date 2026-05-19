@@ -1,16 +1,16 @@
 import { env } from "next-runtime-env";
 
-import type { dbClient } from "@kan/db/client";
-import { createLogger } from "@kan/logger";
+import type { dbClient } from "@banana/db/client";
+import { createLogger } from "@banana/logger";
 
 const log = createLogger("notifications");
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as notificationRepo from "@kan/db/repository/notification.repo";
-import * as userRepo from "@kan/db/repository/user.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { sendEmail } from "@kan/email";
-import { parseMentionsFromHTML } from "@kan/shared/utils";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as notificationRepo from "@banana/db/repository/notification.repo";
+import * as userRepo from "@banana/db/repository/user.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { sendEmail } from "@banana/email";
+import { parseMentionsFromHTML } from "@banana/shared/utils";
 
 /**
  * Sends mention notification emails to mentioned members

@@ -1,7 +1,7 @@
 import { and, eq, gte } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { integrations } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import { integrations } from "@banana/db/schema";
 
 export const isProviderAvailableForUser = async (
   db: dbClient,

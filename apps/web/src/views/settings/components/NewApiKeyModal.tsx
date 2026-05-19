@@ -11,7 +11,7 @@ import {
 } from "react-icons/hi2";
 import { z } from "zod";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";

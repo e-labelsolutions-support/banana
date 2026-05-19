@@ -1,13 +1,13 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as cardActivityRepo from "@kan/db/repository/cardActivity.repo";
-import * as cardCommentRepo from "@kan/db/repository/cardComment.repo";
-import * as checklistRepo from "@kan/db/repository/checklist.repo";
-import * as labelRepo from "@kan/db/repository/label.repo";
-import * as listRepo from "@kan/db/repository/list.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
+import * as cardCommentRepo from "@banana/db/repository/cardComment.repo";
+import * as checklistRepo from "@banana/db/repository/checklist.repo";
+import * as labelRepo from "@banana/db/repository/label.repo";
+import * as listRepo from "@banana/db/repository/list.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import {
@@ -21,7 +21,7 @@ import {
 import { mergeActivities } from "../utils/activities";
 import { sendMentionEmails } from "../utils/notifications";
 import { assertCanDelete, assertCanEdit, assertPermission } from "../utils/permissions";
-import { generateAttachmentUrl, generateAvatarUrl } from "@kan/shared/utils";
+import { generateAttachmentUrl, generateAvatarUrl } from "@banana/shared/utils";
 import {
   createCardWebhookPayload,
   sendWebhooksForWorkspace,

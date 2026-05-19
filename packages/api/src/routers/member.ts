@@ -2,18 +2,18 @@ import { TRPCError } from "@trpc/server";
 import { env } from "next-runtime-env";
 import { z } from "zod";
 
-import * as inviteLinkRepo from "@kan/db/repository/inviteLink.repo";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as permissionRepo from "@kan/db/repository/permission.repo";
-import * as subscriptionRepo from "@kan/db/repository/subscription.repo";
-import * as userRepo from "@kan/db/repository/user.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
+import * as inviteLinkRepo from "@banana/db/repository/inviteLink.repo";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as permissionRepo from "@banana/db/repository/permission.repo";
+import * as subscriptionRepo from "@banana/db/repository/subscription.repo";
+import * as userRepo from "@banana/db/repository/user.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 import {
   generateUID,
   getSubscriptionByPlan,
   hasUnlimitedSeats,
-} from "@kan/shared";
-import { updateSubscriptionSeats } from "@kan/stripe";
+} from "@banana/shared";
+import { updateSubscriptionSeats } from "@banana/stripe";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { memberInviteResponseSchema } from "../schemas";

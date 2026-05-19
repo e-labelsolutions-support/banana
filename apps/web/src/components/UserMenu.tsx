@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { Fragment } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import { env } from "~/env";
 import { useIsMobile } from "~/hooks/useMediaQuery";
@@ -189,7 +189,7 @@ export default function UserMenu({
               </Menu.Item>
               <Menu.Item>
                 <Link
-                  href="mailto:support@kan.bn"
+                  href="mailto:support@banana.bn"
                   target="_blank"
                   rel="noreferrer"
                   onClick={handleLinkClick}
@@ -200,7 +200,7 @@ export default function UserMenu({
               </Menu.Item>
               <Menu.Item>
                 <Link
-                  href="https://docs.kan.bn"
+                  href="https://docs.banana.bn"
                   target="_blank"
                   rel="noreferrer"
                   onClick={handleLinkClick}

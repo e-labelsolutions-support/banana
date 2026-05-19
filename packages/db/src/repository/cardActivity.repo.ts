@@ -1,9 +1,9 @@
 import { and, asc, count, eq, gt, inArray, isNull, or } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import type { ActivityType } from "@kan/db/schema";
-import { cardActivities, comments } from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import type { ActivityType } from "@banana/db/schema";
+import { cardActivities, comments } from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 export const getCount = async (db: dbClient) => {
   const result = await db.select({ count: count() }).from(cardActivities);

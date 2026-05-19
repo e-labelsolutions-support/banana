@@ -2,9 +2,9 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { env } from "next-runtime-env";
 
-import type { dbClient } from "@kan/db/client";
-import * as schema from "@kan/db/schema";
-import { sendEmail } from "@kan/email";
+import type { dbClient } from "@banana/db/client";
+import * as schema from "@banana/db/schema";
+import { sendEmail } from "@banana/email";
 
 import { createDatabaseHooks, createMiddlewareHooks } from "./hooks";
 import { createPlugins } from "./plugins";

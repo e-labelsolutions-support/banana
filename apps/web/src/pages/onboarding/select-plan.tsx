@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { env } from "next-runtime-env";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import { PageHead } from "~/components/PageHead";
 import SelectPlanView from "~/views/onboarding/select-plan";
@@ -24,7 +24,7 @@ export default function SelectPlanPage() {
 
   return (
     <>
-      <PageHead title="Select plan | kan.bn" />
+      <PageHead title="Select plan | banana.bn" />
       <SelectPlanView />
     </>
   );

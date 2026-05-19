@@ -8,7 +8,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@kan/db": resolve(__dirname, "../db/src"),
+      "@banana/db": resolve(__dirname, "../db/src"),
     },
   },
 });

@@ -1,6 +1,6 @@
 import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { createLogger } from "@kan/logger";
+import { createLogger } from "@banana/logger";
 
 const log = createLogger("email");
 

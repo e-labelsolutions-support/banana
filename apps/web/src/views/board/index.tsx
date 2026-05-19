@@ -14,7 +14,7 @@ import {
   HiOutlineSquare3Stack3D,
 } from "react-icons/hi2";
 
-import type { UpdateBoardInput } from "@kan/api/types";
+import type { UpdateBoardInput } from "@banana/api/types";
 
 import type { CardContextMenuAction } from "./components/CardContextMenu";
 import Button from "~/components/Button";

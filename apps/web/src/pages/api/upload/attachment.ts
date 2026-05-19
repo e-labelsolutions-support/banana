@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Upload } from "@aws-sdk/lib-storage";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { assertPermission } from "@kan/api/utils/permissions";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as cardActivityRepo from "@kan/db/repository/cardActivity.repo";
-import * as cardAttachmentRepo from "@kan/db/repository/cardAttachment.repo";
-import { createS3Client, generateUID } from "@kan/shared/utils";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { assertPermission } from "@banana/api/utils/permissions";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
+import * as cardAttachmentRepo from "@banana/db/repository/cardAttachment.repo";
+import { createS3Client, generateUID } from "@banana/shared/utils";
 
 import { env } from "~/env";
 

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import ContentEditable from "react-contenteditable";
 import { useForm } from "react-hook-form";
 
-import { generateUID } from "@kan/shared/utils";
+import { generateUID } from "@banana/shared/utils";
 
 import { usePopup } from "~/providers/popup";
 import { api } from "~/utils/api";

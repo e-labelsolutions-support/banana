@@ -46,7 +46,7 @@ export const MentionTemplate = ({
             color: "#232323",
           }}
         >
-          kan.bn
+          banana.bn
         </Heading>
         <Heading
           style={{ fontSize: "24px", fontWeight: "bold", color: "#232323" }}

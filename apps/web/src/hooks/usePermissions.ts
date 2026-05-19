@@ -1,4 +1,4 @@
-import type { Permission } from "@kan/shared";
+import type { Permission } from "@banana/shared";
 import { useContext } from "react";
 
 import { WorkspaceContext } from "~/providers/workspace";

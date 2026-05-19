@@ -1,11 +1,11 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as permissionRepo from "@kan/db/repository/permission.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import type { Permission } from "@kan/shared";
-import { allPermissions } from "@kan/shared";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as permissionRepo from "@banana/db/repository/permission.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import type { Permission } from "@banana/shared";
+import { allPermissions } from "@banana/shared";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import {

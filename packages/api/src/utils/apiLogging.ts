@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { createLogger } from "@kan/logger";
+import { createLogger } from "@banana/logger";
 
 import { createNextApiContext } from "../trpc";
 

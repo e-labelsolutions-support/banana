@@ -55,7 +55,7 @@ importers:
 
   .:
     devDependencies:
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
       '@turbo/gen':
@@ -94,19 +94,19 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.10.0(react-hook-form@7.62.0(react@18.3.1))
-      '@kan/api':
+      '@banana/api':
         specifier: workspace:*
         version: link:../../packages/api
-      '@kan/auth':
+      '@banana/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@kan/db':
+      '@banana/db':
         specifier: workspace:^
         version: link:../../packages/db
-      '@kan/logger':
+      '@banana/logger':
         specifier: workspace:^
         version: link:../../packages/logger
-      '@kan/shared':
+      '@banana/shared':
         specifier: workspace:^
         version: link:../../packages/shared
       '@lingui/babel-preset-react':
@@ -239,19 +239,19 @@ importers:
         specifier: 'catalog:'
         version: 3.25.76
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/stripe':
+      '@banana/stripe':
         specifier: workspace:*
         version: link:../../packages/stripe
-      '@kan/tailwind-config':
+      '@banana/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@lingui/cli':
@@ -305,22 +305,22 @@ importers:
 
   packages/api:
     dependencies:
-      '@kan/auth':
+      '@banana/auth':
         specifier: workspace:*
         version: link:../auth
-      '@kan/db':
+      '@banana/db':
         specifier: workspace:*
         version: link:../db
-      '@kan/email':
+      '@banana/email':
         specifier: workspace:^
         version: link:../email
-      '@kan/logger':
+      '@banana/logger':
         specifier: workspace:^
         version: link:../logger
-      '@kan/shared':
+      '@banana/shared':
         specifier: workspace:^
         version: link:../shared
-      '@kan/stripe':
+      '@banana/stripe':
         specifier: workspace:^
         version: link:../stripe
       '@trpc/server':
@@ -339,13 +339,13 @@ importers:
         specifier: 'catalog:'
         version: 3.25.76
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -366,32 +366,32 @@ importers:
       '@better-auth/stripe':
         specifier: ^1.4.6
         version: 1.4.6(@better-auth/core@1.4.6(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.5(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0))(better-auth@1.4.6(next@16.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(stripe@18.5.0(@types/node@25.0.0))
-      '@kan/logger':
+      '@banana/logger':
         specifier: workspace:^
         version: link:../logger
       better-auth:
         specifier: ^1.4.6
         version: 1.4.6(next@16.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@kan/db':
+      '@banana/db':
         specifier: workspace:*
         version: link:../db
-      '@kan/email':
+      '@banana/email':
         specifier: workspace:*
         version: link:../email
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/shared':
+      '@banana/shared':
         specifier: workspace:*
         version: link:../shared
-      '@kan/stripe':
+      '@banana/stripe':
         specifier: workspace:*
         version: link:../stripe
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -409,10 +409,10 @@ importers:
       '@electric-sql/pglite':
         specifier: ^0.3.7
         version: 0.3.7
-      '@kan/logger':
+      '@banana/logger':
         specifier: workspace:^
         version: link:../logger
-      '@kan/shared':
+      '@banana/shared':
         specifier: workspace:^
         version: link:../shared
       drizzle-orm:
@@ -434,13 +434,13 @@ importers:
         specifier: 'catalog:'
         version: 3.25.76
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/pg':
@@ -464,7 +464,7 @@ importers:
 
   packages/email:
     dependencies:
-      '@kan/logger':
+      '@banana/logger':
         specifier: workspace:^
         version: link:../logger
       '@novu/api':
@@ -480,13 +480,13 @@ importers:
         specifier: ^5.0.6
         version: 5.0.6
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/nodemailer':
@@ -514,13 +514,13 @@ importers:
         specifier: ^13.1.3
         version: 13.1.3
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -554,13 +554,13 @@ importers:
         specifier: ^1.7.2
         version: 1.8.0
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -579,13 +579,13 @@ importers:
         specifier: ^18.2.0
         version: 18.5.0(@types/node@25.0.0)
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -625,10 +625,10 @@ importers:
         specifier: ^8.15.0
         version: 8.41.0(eslint@9.34.0(jiti@2.6.1))(typescript@5.9.2)
     devDependencies:
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@types/eslint__js':
@@ -656,7 +656,7 @@ importers:
         specifier: ^0.6.9
         version: 0.6.14(@ianvs/prettier-plugin-sort-imports@4.7.0(prettier@3.6.2))(prettier@3.6.2)
     devDependencies:
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       typescript:
@@ -678,13 +678,13 @@ importers:
         specifier: 'catalog:'
         version: 3.4.17(ts-node@10.9.2(@types/node@25.0.0)(typescript@5.9.2))
     devDependencies:
-      '@kan/eslint-config':
+      '@banana/eslint-config':
         specifier: workspace:*
         version: link:../eslint
-      '@kan/prettier-config':
+      '@banana/prettier-config':
         specifier: workspace:*
         version: link:../prettier
-      '@kan/tsconfig':
+      '@banana/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       eslint:

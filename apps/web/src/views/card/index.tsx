@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { HiXMark } from "react-icons/hi2";
 import { IoChevronForwardSharp } from "react-icons/io5";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Avatar from "~/components/Avatar";
 import Editor from "~/components/Editor";

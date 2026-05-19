@@ -1,9 +1,9 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as webhookRepo from "@kan/db/repository/webhook.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { webhookEvents } from "@kan/db/schema";
+import * as webhookRepo from "@banana/db/repository/webhook.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { webhookEvents } from "@banana/db/schema";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { assertPermission } from "../utils/permissions";

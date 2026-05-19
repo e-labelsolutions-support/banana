@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { subscription } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import { subscription } from "@banana/db/schema";
 
 export const updateById = async (
   db: dbClient,

@@ -12,8 +12,8 @@ import {
   or,
 } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import type { BoardVisibilityStatus } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import type { BoardVisibilityStatus } from "@banana/db/schema";
 import {
   boards,
   cardActivities,
@@ -28,8 +28,8 @@ import {
   lists,
   userBoardFavorites,
   workspaceMembers,
-} from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+} from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 export const getCount = async (db: dbClient) => {
   const result = await db

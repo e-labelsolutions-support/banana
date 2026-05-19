@@ -3,7 +3,7 @@ import { t } from "@lingui/core/macro";
 import { env } from "next-runtime-env";
 import { useEffect, useState } from "react";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Button from "~/components/Button";
 import LoadingSpinner from "~/components/LoadingSpinner";
@@ -88,7 +88,7 @@ export default function InvitePage() {
   const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
       <>
-        <PageHead title={t`Join workspace | kan.bn`} />
+        <PageHead title={t`Join workspace | banana.bn`} />
         {children}
       </>
     );
@@ -131,7 +131,7 @@ export default function InvitePage() {
             {!error ? (
               <p className="mt-4 text-center text-sm text-light-900 dark:text-dark-800">
                 {isCloudEnv
-                  ? t`You've been invited to join a workspace on kan.bn.`
+                  ? t`You've been invited to join a workspace on banana.bn.`
                   : t`You've been invited to join a workspace.`}
               </p>
             ) : (

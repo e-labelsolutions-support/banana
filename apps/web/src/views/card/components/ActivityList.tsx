@@ -20,8 +20,8 @@ import {
 import type {
   GetCardActivitiesOutput,
   GetCardByIdOutput,
-} from "@kan/api/types";
-import { authClient } from "@kan/auth/client";
+} from "@banana/api/types";
+import { authClient } from "@banana/auth/client";
 
 import Avatar from "~/components/Avatar";
 import { useLocalisation } from "~/hooks/useLocalisation";

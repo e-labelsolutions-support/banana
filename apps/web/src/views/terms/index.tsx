@@ -27,13 +27,13 @@ export default function TermsView() {
   );
 
   const NAME = "Open Engineering";
-  const DOMAIN = "https://kan.bn";
+  const DOMAIN = "https://banana.bn";
   const PRIVACY_URL = `${DOMAIN}/privacy`;
-  const CONTACT_EMAIL = "support@kan.bn";
+  const CONTACT_EMAIL = "support@banana.bn";
 
   return (
     <Layout>
-      <PageHead title="Terms of Service | kan.bn" />
+      <PageHead title="Terms of Service | banana.bn" />
       <div className="flex flex-col items-center">
         <div className="mb-20 flex h-full w-full max-w-[800px] flex-col lg:pt-[5rem]">
           <div className="flex items-center justify-center py-36 text-4xl font-bold tracking-tight text-light-1000 dark:text-dark-1000">
@@ -606,9 +606,9 @@ export default function TermsView() {
               contact us at{" "}
               <Link
                 className="line-height text-md mb-4 text-light-1000 dark:text-dark-900"
-                href="mailto:support@kan.bn"
+                href="mailto:support@banana.bn"
               >
-                support@kan.bn
+                support@banana.bn
               </Link>
             </Text>
           </div>

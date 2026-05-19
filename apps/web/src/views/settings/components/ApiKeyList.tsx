@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { HiEllipsisHorizontal } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import Dropdown from "~/components/Dropdown";
 import { useModal } from "~/providers/modal";

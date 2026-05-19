@@ -513,7 +513,7 @@ export function ImportBoardsForm() {
             {t`New import`}
           </h2>
           <Link
-            href="https://docs.kan.bn/imports/trello"
+            href="https://docs.banana.bn/imports/trello"
             target="_blank"
             className="ml-2 text-neutral-500 hover:text-neutral-700 dark:text-dark-900 dark:hover:text-dark-700"
           >

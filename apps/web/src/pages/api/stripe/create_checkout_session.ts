@@ -2,14 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { env } from "next-runtime-env";
 import { z } from "zod";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { assertPermission } from "@kan/api/utils/permissions";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import * as subscriptionRepo from "@kan/db/repository/subscription.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { generateUID } from "@kan/shared/utils";
-import { createStripeClient } from "@kan/stripe";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { assertPermission } from "@banana/api/utils/permissions";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import * as subscriptionRepo from "@banana/db/repository/subscription.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { generateUID } from "@banana/shared/utils";
+import { createStripeClient } from "@banana/stripe";
 
 const workspaceSlugSchema = z
   .string()

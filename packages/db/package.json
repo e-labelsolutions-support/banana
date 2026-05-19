@@ -1,5 +1,5 @@
 {
-  "name": "@kan/db",
+  "name": "@banana/db",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -43,9 +43,9 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@banana/logger": "workspace:^",
+    "@banana/shared": "workspace:^",
     "@electric-sql/pglite": "^0.3.7",
-    "@kan/logger": "workspace:^",
-    "@kan/shared": "workspace:^",
     "drizzle-orm": "^0.42.0",
     "drizzle-zod": "^0.5.1",
     "ioredis": "^5.9.2",
@@ -54,9 +54,9 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@kan/eslint-config": "workspace:*",
-    "@kan/prettier-config": "workspace:*",
-    "@kan/tsconfig": "workspace:*",
+    "@banana/eslint-config": "workspace:*",
+    "@banana/prettier-config": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "@types/pg": "^8.10.9",
     "dotenv-cli": "^7.4.4",
     "drizzle-kit": "^0.28.1",
@@ -64,5 +64,5 @@
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

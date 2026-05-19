@@ -11,9 +11,9 @@ import {
 } from "react-icons/hi2";
 import { z } from "zod";
 
-import type { InviteMemberInput } from "@kan/api/types";
-import type { Subscription } from "@kan/shared/utils";
-import { getSubscriptionByPlan } from "@kan/shared/utils";
+import type { InviteMemberInput } from "@banana/api/types";
+import type { Subscription } from "@banana/shared/utils";
+import { getSubscriptionByPlan } from "@banana/shared/utils";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";

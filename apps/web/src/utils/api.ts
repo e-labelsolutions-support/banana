@@ -6,7 +6,7 @@ import { createTRPCNext } from "@trpc/next";
 import { observable } from "@trpc/server/observable";
 import superjson from "superjson";
 
-import type { AppRouter } from "@kan/api/root";
+import type { AppRouter } from "@banana/api/root";
 
 /**
  * This is the client-side entrypoint for your tRPC API. It is used to create the `api` object which

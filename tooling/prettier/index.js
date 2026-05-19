@@ -20,7 +20,7 @@ const config = {
     "<THIRD_PARTY_MODULES>",
     "",
     "<TYPES>^@kan",
-    "^@kan/(.*)$",
+    "^@banana/(.*)$",
     "",
     "<TYPES>^[.|..|~]",
     "^~/",

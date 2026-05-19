@@ -4,7 +4,7 @@ import { Fragment, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HiChevronUpDown, HiXMark } from "react-icons/hi2";
 
-import { colours } from "@kan/shared/constants";
+import { colours } from "@banana/shared/constants";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";

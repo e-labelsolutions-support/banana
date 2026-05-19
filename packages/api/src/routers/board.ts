@@ -1,19 +1,19 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as boardRepo from "@kan/db/repository/board.repo";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as activityRepo from "@kan/db/repository/cardActivity.repo";
-import * as labelRepo from "@kan/db/repository/label.repo";
-import * as listRepo from "@kan/db/repository/list.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { colours } from "@kan/shared/constants";
+import * as boardRepo from "@banana/db/repository/board.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as activityRepo from "@banana/db/repository/cardActivity.repo";
+import * as labelRepo from "@banana/db/repository/label.repo";
+import * as listRepo from "@banana/db/repository/list.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { colours } from "@banana/shared/constants";
 import {
   convertDueDateFiltersToRanges,
   generateAvatarUrl,
   generateSlug,
   generateUID,
-} from "@kan/shared/utils";
+} from "@banana/shared/utils";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import {

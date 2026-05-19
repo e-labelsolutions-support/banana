@@ -1,17 +1,17 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as boardRepo from "@kan/db/repository/board.repo";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as cardActivityRepo from "@kan/db/repository/cardActivity.repo";
-import * as checklistRepo from "@kan/db/repository/checklist.repo";
-import * as importRepo from "@kan/db/repository/import.repo";
-import * as integrationsRepo from "@kan/db/repository/integration.repo";
-import * as labelRepo from "@kan/db/repository/label.repo";
-import * as listRepo from "@kan/db/repository/list.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { colours } from "@kan/shared/constants";
-import { generateSlug, generateUID } from "@kan/shared/utils";
+import * as boardRepo from "@banana/db/repository/board.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
+import * as checklistRepo from "@banana/db/repository/checklist.repo";
+import * as importRepo from "@banana/db/repository/import.repo";
+import * as integrationsRepo from "@banana/db/repository/integration.repo";
+import * as labelRepo from "@banana/db/repository/label.repo";
+import * as listRepo from "@banana/db/repository/list.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { colours } from "@banana/shared/constants";
+import { generateSlug, generateUID } from "@banana/shared/utils";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { assertPermission } from "../utils/permissions";

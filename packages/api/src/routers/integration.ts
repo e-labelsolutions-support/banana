@@ -2,7 +2,7 @@ import { TRPCError } from "@trpc/server";
 import { env } from "next-runtime-env";
 import { z } from "zod";
 
-import * as integrationsRepo from "@kan/db/repository/integration.repo";
+import * as integrationsRepo from "@banana/db/repository/integration.repo";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 

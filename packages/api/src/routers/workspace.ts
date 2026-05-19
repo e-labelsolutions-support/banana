@@ -2,9 +2,9 @@ import { TRPCError } from "@trpc/server";
 import { env } from "next-runtime-env";
 import { z } from "zod";
 
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import * as workspaceSlugRepo from "@kan/db/repository/workspaceSlug.repo";
-import { generateAvatarUrl, generateUID } from "@kan/shared/utils";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import * as workspaceSlugRepo from "@banana/db/repository/workspaceSlug.repo";
+import { generateAvatarUrl, generateUID } from "@banana/shared/utils";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import {

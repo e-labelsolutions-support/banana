@@ -1,10 +1,10 @@
 import crypto from "crypto";
 import { z } from "zod";
 
-import type { dbClient } from "@kan/db/client";
-import type { WebhookEvent } from "@kan/db/schema";
-import * as webhookRepo from "@kan/db/repository/webhook.repo";
-import { createLogger } from "@kan/logger";
+import type { dbClient } from "@banana/db/client";
+import type { WebhookEvent } from "@banana/db/schema";
+import * as webhookRepo from "@banana/db/repository/webhook.repo";
+import { createLogger } from "@banana/logger";
 
 const log = createLogger("webhook");
 

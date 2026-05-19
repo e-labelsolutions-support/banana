@@ -1,5 +1,5 @@
 {
-  "name": "@kan/stripe",
+  "name": "@banana/stripe",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -16,14 +16,14 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "devDependencies": {
-    "@kan/eslint-config": "workspace:*",
-    "@kan/prettier-config": "workspace:*",
-    "@kan/tsconfig": "workspace:*",
+    "@banana/eslint-config": "workspace:*",
+    "@banana/prettier-config": "workspace:*",
+    "@banana/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@kan/prettier-config",
+  "prettier": "@banana/prettier-config",
   "dependencies": {
     "stripe": "^18.2.0"
   }

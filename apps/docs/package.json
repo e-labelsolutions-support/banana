@@ -1,5 +1,5 @@
 {
-  "name": "@kan/docs",
+  "name": "@banana/docs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,5 +15,5 @@
   "dependencies": {
     "mintlify": "^3.0.0"
   },
-  "prettier": "@kan/prettier-config"
+  "prettier": "@banana/prettier-config"
 }

@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { slugChecks, slugs } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import { slugChecks, slugs } from "@banana/db/schema";
 
 export const getWorkspaceSlug = (db: dbClient, slug: string) => {
   return db.query.slugs.findFirst({

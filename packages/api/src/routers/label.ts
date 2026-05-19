@@ -1,9 +1,9 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as boardRepo from "@kan/db/repository/board.repo";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as labelRepo from "@kan/db/repository/label.repo";
+import * as boardRepo from "@banana/db/repository/board.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as labelRepo from "@banana/db/repository/label.repo";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { assertPermission } from "../utils/permissions";

@@ -1,5 +1,5 @@
 {
-  "extends": "@kan/tsconfig/base.json",
+  "extends": "@banana/tsconfig/base.json",
   "include": ["."],
   "exclude": ["node_modules"]
 }

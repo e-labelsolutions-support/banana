@@ -30,7 +30,7 @@ export default function PrivacyView() {
 
   return (
     <Layout>
-      <PageHead title="Privacy Policy | kan.bn" />
+      <PageHead title="Privacy Policy | banana.bn" />
       <div className="flex flex-col items-center">
         <div className="mb-20 flex h-full w-full max-w-[800px] flex-col lg:pt-[5rem]">
           <div className="flex items-center justify-center py-36 text-4xl font-bold tracking-tight text-light-1000 dark:text-dark-1000">
@@ -335,9 +335,9 @@ export default function PrivacyView() {
             </Text>
             <Link
               className="line-height text-md mb-4 text-light-1000 dark:text-dark-900"
-              href="mailto:support@kan.bn"
+              href="mailto:support@banana.bn"
             >
-              support@kan.bn
+              support@banana.bn
             </Link>
           </div>
         </div>

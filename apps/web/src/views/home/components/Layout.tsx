@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 
-import { authClient } from "@kan/auth/client";
+import { authClient } from "@banana/auth/client";
 
 import PatternedBackground from "~/components/PatternedBackground";
 import Footer from "./Footer";

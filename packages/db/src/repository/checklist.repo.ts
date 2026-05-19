@@ -1,8 +1,8 @@
 import { and, count, desc, eq, isNull, sql } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { checklistItems, checklists } from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import { checklistItems, checklists } from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 export const getCount = async (db: dbClient) => {
   const result = await db

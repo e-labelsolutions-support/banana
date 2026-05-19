@@ -1,10 +1,10 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "kan.bn",
+  "name": "banana.bn",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
-    "href": "https://kan.bn"
+    "href": "https://banana.bn"
   },
   "favicon": "./favicon.png",
   "colors": {
@@ -19,17 +19,17 @@
   "topbarLinks": [
     {
       "name": "Sign in",
-      "url": "https://kan.bn/login"
+      "url": "https://banana.bn/login"
     }
   ],
   "topbarCtaButton": {
     "name": "Go to app",
-    "url": "https://kan.bn/boards"
+    "url": "https://banana.bn/boards"
   },
   "anchors": [
     {
       "name": "API Reference",
-      "openapi": "https://kan.bn/api/v1/openapi.json",
+      "openapi": "https://banana.bn/api/v1/openapi.json",
       "url": "api-reference",
       "icon": "square-terminal"
     },

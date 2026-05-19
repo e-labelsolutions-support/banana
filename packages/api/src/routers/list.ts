@@ -1,10 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as boardRepo from "@kan/db/repository/board.repo";
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as activityRepo from "@kan/db/repository/cardActivity.repo";
-import * as listRepo from "@kan/db/repository/list.repo";
+import * as boardRepo from "@banana/db/repository/board.repo";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as activityRepo from "@banana/db/repository/cardActivity.repo";
+import * as listRepo from "@banana/db/repository/list.repo";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { listCreateResponseSchema, listUpdateResponseSchema } from "../schemas";

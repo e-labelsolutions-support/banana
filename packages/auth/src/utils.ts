@@ -1,11 +1,11 @@
 import type { Subscription } from "@better-auth/stripe";
 import type Stripe from "stripe";
 
-import type { dbClient } from "@kan/db/client";
-import * as userRepo from "@kan/db/repository/user.repo";
-import { notificationClient } from "@kan/email";
-import { createLogger } from "@kan/logger";
-import { createEmailUnsubscribeLink } from "@kan/shared";
+import type { dbClient } from "@banana/db/client";
+import * as userRepo from "@banana/db/repository/user.repo";
+import { notificationClient } from "@banana/email";
+import { createLogger } from "@banana/logger";
+import { createEmailUnsubscribeLink } from "@banana/shared";
 
 const log = createLogger("auth");
 

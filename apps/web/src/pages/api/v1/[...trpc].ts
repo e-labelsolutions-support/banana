@@ -2,11 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import cors from "nextjs-cors";
 import { createOpenApiNextHandler } from "trpc-to-openapi";
 
-import { appRouter } from "@kan/api";
-import { createRESTContext } from "@kan/api/trpc";
+import { appRouter } from "@banana/api";
+import { createRESTContext } from "@banana/api/trpc";
 
 import { env } from "~/env";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
 
 export default withRateLimit(
   { points: 100, duration: 60 },

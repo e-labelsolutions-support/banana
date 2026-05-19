@@ -1,8 +1,8 @@
 import { and, count, desc, eq, isNotNull } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
 
-import type { dbClient } from "@kan/db/client";
-import { account, apikey, users } from "@kan/db/schema";
+import type { dbClient } from "@banana/db/client";
+import { account, apikey, users } from "@banana/db/schema";
 
 const PROVIDER_CREDENTIAL = "credential";
 const PROVIDER_MAGIC_LINK = "magic-link";

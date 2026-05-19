@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { HiXMark } from "react-icons/hi2";
 
-import type { NewListInput } from "@kan/api/types";
-import { generateUID } from "@kan/shared/utils";
+import type { NewListInput } from "@banana/api/types";
+import { generateUID } from "@banana/shared/utils";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";

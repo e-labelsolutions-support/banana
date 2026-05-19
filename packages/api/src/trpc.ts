@@ -7,10 +7,10 @@ import { env } from "next-runtime-env";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import type { dbClient } from "@kan/db/client";
-import { initAuth } from "@kan/auth/server";
-import { createDrizzleClient } from "@kan/db/client";
-import { createLogger } from "@kan/logger";
+import type { dbClient } from "@banana/db/client";
+import { initAuth } from "@banana/auth/server";
+import { createDrizzleClient } from "@banana/db/client";
+import { createLogger } from "@banana/logger";
 
 const log = createLogger("api");
 

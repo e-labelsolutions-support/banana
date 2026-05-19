@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { addYears } from "date-fns";
 
-import { createNextApiContext } from "@kan/api/trpc";
-import { withApiLogging } from "@kan/api/utils/apiLogging";
-import { withRateLimit } from "@kan/api/utils/rateLimit";
-import { integrations } from "@kan/db/schema";
+import { createNextApiContext } from "@banana/api/trpc";
+import { withApiLogging } from "@banana/api/utils/apiLogging";
+import { withRateLimit } from "@banana/api/utils/rateLimit";
+import { integrations } from "@banana/db/schema";
 
 export default withRateLimit(
   { points: 100, duration: 60 },

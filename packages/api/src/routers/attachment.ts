@@ -1,16 +1,16 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import * as cardRepo from "@kan/db/repository/card.repo";
-import * as cardActivityRepo from "@kan/db/repository/cardActivity.repo";
-import * as cardAttachmentRepo from "@kan/db/repository/cardAttachment.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { generateUID } from "@kan/shared/utils";
+import * as cardRepo from "@banana/db/repository/card.repo";
+import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
+import * as cardAttachmentRepo from "@banana/db/repository/cardAttachment.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { generateUID } from "@banana/shared/utils";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { attachmentConfirmResponseSchema } from "../schemas";
 import { assertPermission } from "../utils/permissions";
-import { deleteObject, generateUploadUrl } from "@kan/shared/utils";
+import { deleteObject, generateUploadUrl } from "@banana/shared/utils";
 
 export const attachmentRouter = createTRPCRouter({
   generateUploadUrl: protectedProcedure

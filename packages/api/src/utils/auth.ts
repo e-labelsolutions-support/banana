@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server";
 
-import type { dbClient } from "@kan/db/client";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
+import type { dbClient } from "@banana/db/client";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 
 export async function assertUserInWorkspace(
   db: dbClient,

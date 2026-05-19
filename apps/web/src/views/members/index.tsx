@@ -9,9 +9,9 @@ import {
 } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
-import type { Subscription } from "@kan/shared/utils";
-import { authClient } from "@kan/auth/client";
-import { getSubscriptionByPlan, hasUnlimitedSeats } from "@kan/shared/utils";
+import type { Subscription } from "@banana/shared/utils";
+import { authClient } from "@banana/auth/client";
+import { getSubscriptionByPlan, hasUnlimitedSeats } from "@banana/shared/utils";
 
 import Avatar from "~/components/Avatar";
 import Button from "~/components/Button";

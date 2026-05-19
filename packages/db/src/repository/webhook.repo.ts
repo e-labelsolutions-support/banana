@@ -1,8 +1,8 @@
 import { and, eq } from "drizzle-orm";
 
-import type { dbClient } from "@kan/db/client";
-import { workspaceWebhooks } from "@kan/db/schema";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import { workspaceWebhooks } from "@banana/db/schema";
+import { generateUID } from "@banana/shared/utils";
 
 import type { WebhookEvent } from "../schema/webhooks";
 
