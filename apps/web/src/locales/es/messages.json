@@ -107,7 +107,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        462
+        506
       ]
     ],
     "translation": "{0} etiquetas"
@@ -269,7 +269,6 @@
     "translation": "Prueba gratuita de 14 días · Cambia de plan o cancela en cualquier momento"
   },
   "awQEBS": {
-    "translation": "404 - Página no encontrada | banana.bn",
     "message": "404 - Page Not Found | banana.bn",
     "placeholders": {},
     "comments": [],
@@ -278,7 +277,8 @@
         "src/pages/404.tsx",
         11
       ]
-    ]
+    ],
+    "translation": "404 - Página no encontrada | banana.bn"
   },
   "4obmDr": {
     "message": "404 - Page Not Found | banana.bn",
@@ -354,7 +354,6 @@
     "translation": "Acciones"
   },
   "BGvy/m": {
-    "translation": "Activar | banana.bn",
     "message": "Activate | banana.bn",
     "placeholders": {},
     "comments": [],
@@ -363,7 +362,8 @@
         "src/pages/partner/activate.tsx",
         46
       ]
-    ]
+    ],
+    "translation": "Activar | banana.bn"
   },
   "JEt3q7": {
     "message": "Activate | banana.bn",
@@ -855,6 +855,22 @@
       ]
     ],
     "translation": "Seguridad avanzada, cumplimiento normativo y soporte dedicado para grandes organizaciones."
+  },
+  "me3LEG": {
+    "translation": "",
+    "message": "All boards",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/calendar/index.tsx",
+        55
+      ],
+      [
+        "src/views/calendar/index.tsx",
+        88
+      ]
+    ]
   },
   "h2ztFt": {
     "message": "All Free features +",
@@ -1695,7 +1711,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        97
+        99
       ],
       [
         "src/views/pricing/components/FeatureComparisonTable.tsx",
@@ -1711,7 +1727,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        66
+        68
       ]
     ],
     "translation": "Los tableros que archives aparecerán aquí."
@@ -1751,6 +1767,38 @@
       ]
     ],
     "translation": "Reporte de error"
+  },
+  "AjVXBS": {
+    "translation": "",
+    "message": "Calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/components/SideNavigation.tsx",
+        111
+      ],
+      [
+        "src/views/calendar/index.tsx",
+        65
+      ]
+    ]
+  },
+  "jPZgnG": {
+    "translation": "",
+    "message": "Calendar | {0}",
+    "placeholders": {
+      "0": [
+        "workspace.name ?? t`Workspace`"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/calendar/index.tsx",
+        60
+      ]
+    ]
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2259,7 +2307,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        328
+        372
       ]
     ],
     "translation": "Título de la tarjeta"
@@ -2383,6 +2431,18 @@
       ]
     ],
     "translation": "Revisa tu bandeja de entrada"
+  },
+  "ANtE4t": {
+    "translation": "",
+    "message": "Checklist",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/NewCardForm.tsx",
+        641
+      ]
+    ]
   },
   "GnRmu4": {
     "message": "Checklist name",
@@ -2886,7 +2946,8 @@
         442
       ]
     ],
-    "translation": "Continuar con "
+    "translation": "Continuar con ",
+    "obsolete": true
   },
   "gkzAEM": {
     "message": "Continue with {0}",
@@ -3051,7 +3112,7 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        527
+        648
       ],
       [
         "src/views/board/components/NewListForm.tsx",
@@ -3079,7 +3140,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        537
+        658
       ]
     ],
     "translation": "Crear tarjeta"
@@ -3143,7 +3204,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        80
+        82
       ],
       [
         "src/views/boards/index.tsx",
@@ -3171,7 +3232,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        424
+        468
       ],
       [
         "src/views/card/components/LabelSelector.tsx",
@@ -3968,7 +4029,7 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        479
+        523
       ],
       [
         "src/views/card/index.tsx",
@@ -4195,7 +4256,8 @@
         443
       ]
     ],
-    "translation": "email"
+    "translation": "email",
+    "obsolete": true
   },
   "O3oNi5": {
     "message": "Email",
@@ -4351,7 +4413,8 @@
         407
       ]
     ],
-    "translation": "Introduce tu dirección de email"
+    "translation": "Introduce tu dirección de email",
+    "obsolete": true
   },
   "n9V+ps": {
     "message": "Enter your name",
@@ -4363,7 +4426,8 @@
         395
       ]
     ],
-    "translation": "Introduce tu nombre"
+    "translation": "Introduce tu nombre",
+    "obsolete": true
   },
   "0StR7t": {
     "message": "Enter your new password",
@@ -4387,7 +4451,8 @@
         421
       ]
     ],
-    "translation": "Introduce tu contraseña"
+    "translation": "Introduce tu contraseña",
+    "obsolete": true
   },
   "GpB8YV": {
     "message": "Enterprise",
@@ -5217,7 +5282,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        66
+        68
       ]
     ],
     "translation": "Comienza creando un nuevo {0}"
@@ -5357,7 +5422,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        105
+        107
       ],
       [
         "src/pages/404.tsx",
@@ -5365,6 +5430,18 @@
       ]
     ],
     "translation": "Ir a tableros"
+  },
+  "I8DG8X": {
+    "translation": "",
+    "message": "Go to calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/components/SideNavigation.tsx",
+        119
+      ]
+    ]
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5385,7 +5462,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        129
+        143
       ]
     ],
     "translation": "Ir a miembros"
@@ -5397,7 +5474,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        141
+        155
       ]
     ],
     "translation": "Ir a configuración"
@@ -5409,7 +5486,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        117
+        131
       ]
     ],
     "translation": "Ir a plantillas"
@@ -6004,7 +6081,6 @@
     "translation": "Unirse al espacio de trabajo"
   },
   "riAhnG": {
-    "translation": "Unirse al espacio de trabajo | banana.bn",
     "message": "Join workspace | banana.bn",
     "placeholders": {},
     "comments": [],
@@ -6013,7 +6089,8 @@
         "src/views/invite/index.tsx",
         91
       ]
-    ]
+    ],
+    "translation": "Unirse al espacio de trabajo | banana.bn"
   },
   "A23Y7X": {
     "message": "Join workspace | banana.bn",
@@ -6107,7 +6184,7 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        428
+        472
       ],
       [
         "src/views/card/index.tsx",
@@ -6406,7 +6483,6 @@
     "translation": "Cargando..."
   },
   "LDNfSb": {
-    "translation": "Iniciar sesión | banana.bn",
     "message": "Login | banana.bn",
     "placeholders": {},
     "comments": [],
@@ -6415,7 +6491,8 @@
         "src/views/auth/login/index.tsx",
         33
       ]
-    ]
+    ],
+    "translation": "Iniciar sesión | banana.bn"
   },
   "N/bcWA": {
     "message": "Login | banana.bn",
@@ -6488,7 +6565,8 @@
         443
       ]
     ],
-    "translation": "enlace mágico"
+    "translation": "enlace mágico",
+    "obsolete": true
   },
   "DbZgsJ": {
     "message": "Make template",
@@ -6633,7 +6711,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        121
+        135
       ],
       [
         "src/views/board/components/Filters.tsx",
@@ -6641,7 +6719,7 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        386
+        430
       ],
       [
         "src/views/card/index.tsx",
@@ -6900,7 +6978,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        311
+        355
       ]
     ],
     "translation": "Nueva tarjeta"
@@ -7064,7 +7142,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        63
+        65
       ]
     ],
     "translation": "No hay {0}"
@@ -7076,7 +7154,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        63
+        65
       ]
     ],
     "translation": "No hay tableros archivados"
@@ -7371,7 +7449,8 @@
         385
       ]
     ],
-    "translation": "o"
+    "translation": "o",
+    "obsolete": true
   },
   "ZqDqbi": {
     "message": "Organize and find cards quickly with powerful filtering tools.",
@@ -7783,7 +7862,8 @@
         411
       ]
     ],
-    "translation": "Por favor, introduce una dirección de correo electrónico válida"
+    "translation": "Por favor, introduce una dirección de correo electrónico válida",
+    "obsolete": true
   },
   "CJ3zUq": {
     "message": "Please enter a valid name",
@@ -7795,7 +7875,8 @@
         399
       ]
     ],
-    "translation": "Por favor, introduce un nombre válido"
+    "translation": "Por favor, introduce un nombre válido",
+    "obsolete": true
   },
   "7b2yuC": {
     "message": "Please enter a valid password",
@@ -7807,7 +7888,8 @@
         426
       ]
     ],
-    "translation": "Por favor, introduce una contraseña válida"
+    "translation": "Por favor, introduce una contraseña válida",
+    "obsolete": true
   },
   "jEw0Mr": {
     "message": "Please enter a valid URL",
@@ -7872,7 +7954,7 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        193
+        203
       ],
       [
         "src/views/board/components/NewListForm.tsx",
@@ -9071,7 +9153,7 @@
       ],
       [
         "src/components/SideNavigation.tsx",
-        133
+        147
       ]
     ],
     "translation": "Configuración"
@@ -9253,7 +9335,6 @@
     "translation": "Registrarse"
   },
   "5lNTpw": {
-    "translation": "Registrarse | banana.bn",
     "message": "Sign up | banana.bn",
     "placeholders": {},
     "comments": [],
@@ -9266,7 +9347,8 @@
         "src/views/auth/signup/index.tsx",
         61
       ]
-    ]
+    ],
+    "translation": "Registrarse | banana.bn"
   },
   "sUZo7y": {
     "message": "Sign up | banana.bn",
@@ -9319,7 +9401,8 @@
         442
       ]
     ],
-    "translation": "Registrarse con "
+    "translation": "Registrarse con ",
+    "obsolete": true
   },
   "m2nk0i": {
     "message": "Simple pricing",
@@ -9476,15 +9559,15 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        225
+        239
       ],
       [
         "src/components/SideNavigation.tsx",
-        226
+        240
       ],
       [
         "src/components/SideNavigation.tsx",
-        236
+        250
       ]
     ],
     "translation": "Iniciar prueba gratuita"
@@ -9724,7 +9807,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        109
+        123
       ],
       [
         "src/views/home/components/Features.tsx",
@@ -10420,7 +10503,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        190
+        200
       ]
     ],
     "translation": "No se pudo crear la tarjeta"
@@ -11779,6 +11862,10 @@
         48
       ],
       [
+        "src/views/calendar/index.tsx",
+        60
+      ],
+      [
         "src/views/members/index.tsx",
         270
       ],
@@ -12087,7 +12174,6 @@
     "translation": "Siempre puedes cambiar esto más tarde en la configuración."
   },
   "HmE44M": {
-    "translation": "Puedes obtener una URL personalizada del espacio de trabajo, como <0>banana.bn/kan</0>, yendo a la <1>configuración del espacio de trabajo</1> y comprando una suscripción Pro. ¡Todas las suscripciones ayudan a financiar el proyecto!",
     "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
     "placeholders": {},
     "comments": [],
@@ -12096,7 +12182,8 @@
         "src/views/home/components/Faqs.tsx",
         67
       ]
-    ]
+    ],
+    "translation": "Puedes obtener una URL personalizada del espacio de trabajo, como <0>banana.bn/kan</0>, yendo a la <1>configuración del espacio de trabajo</1> y comprando una suscripción Pro. ¡Todas las suscripciones ayudan a financiar el proyecto!"
   },
   "aelko+": {
     "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
@@ -12162,7 +12249,7 @@
       ],
       [
         "src/views/boards/components/BoardsList.tsx",
-        71
+        73
       ],
       [
         "src/views/boards/index.tsx",
@@ -12248,7 +12335,6 @@
     "translation": "Iniciaste sesión sin contraseña. Establece una contraseña para habilitar el inicio de sesión con contraseña."
   },
   "2TX7RD": {
-    "translation": "Has sido invitado a unirte a un espacio de trabajo en banana.bn.",
     "message": "You've been invited to join a workspace on banana.bn.",
     "placeholders": {},
     "comments": [],
@@ -12257,7 +12343,8 @@
         "src/views/invite/index.tsx",
         134
       ]
-    ]
+    ],
+    "translation": "Has sido invitado a unirte a un espacio de trabajo en banana.bn."
   },
   "2SePRT": {
     "message": "You've been invited to join a workspace on banana.bn.",
