@@ -4,8 +4,11 @@ import { createAuthMiddleware } from "better-auth/api";
 import { env } from "next-runtime-env";
 
 import type { dbClient } from "@banana/db/client";
+import { count, desc, eq, isNull, and } from "drizzle-orm";
 import * as memberRepo from "@banana/db/repository/member.repo";
+import * as permissionRepo from "@banana/db/repository/permission.repo";
 import * as userRepo from "@banana/db/repository/user.repo";
+import { workspaces, workspaceMembers } from "@banana/db/schema";
 import { notificationClient } from "@banana/email";
 import { createLogger } from "@banana/logger";
 import { createEmailUnsubscribeLink, createS3Client } from "@banana/shared";
@@ -141,6 +144,48 @@ export function createDatabaseHooks(db: dbClient) {
             } catch (error) {
               log.error({ err: error }, "Error adding user to notification client");
             }
+          }
+
+          // Auto-join the workspace with the most members
+          try {
+            const [topWorkspace] = await db
+              .select({
+                workspaceId: workspaceMembers.workspaceId,
+                memberCount: count(),
+              })
+              .from(workspaceMembers)
+              .where(
+                and(
+                  eq(workspaceMembers.status, "active"),
+                  isNull(workspaceMembers.deletedAt),
+                ),
+              )
+              .groupBy(workspaceMembers.workspaceId)
+              .orderBy(desc(count()))
+              .limit(1);
+
+            if (topWorkspace) {
+              const memberRole = await permissionRepo.getRoleByWorkspaceIdAndName(
+                db,
+                topWorkspace.workspaceId,
+                "member",
+              );
+              await memberRepo.create(db, {
+                userId: user.id,
+                email: user.email,
+                workspaceId: topWorkspace.workspaceId,
+                createdBy: user.id,
+                role: "member",
+                roleId: memberRole?.id ?? null,
+                status: "active",
+              });
+              log.info(
+                { userId: user.id, workspaceId: topWorkspace.workspaceId },
+                "Auto-joined workspace",
+              );
+            }
+          } catch (error) {
+            log.error({ err: error }, "Error auto-joining workspace");
           }
         },
       },

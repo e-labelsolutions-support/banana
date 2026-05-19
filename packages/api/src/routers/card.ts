@@ -20,6 +20,7 @@ import {
 } from "../schemas";
 import { mergeActivities } from "../utils/activities";
 import { sendMentionEmails } from "../utils/notifications";
+import { sendMattermostNotification } from "../utils/mattermost";
 import { assertCanDelete, assertCanEdit, assertPermission } from "../utils/permissions";
 import { generateAttachmentUrl, generateAvatarUrl } from "@banana/shared/utils";
 import {
@@ -28,6 +29,62 @@ import {
 } from "../utils/webhook";
 
 export const cardRouter = createTRPCRouter({
+  calendar: protectedProcedure
+    .input(
+      z.object({
+        workspacePublicId: z.string().min(12),
+        boardPublicId: z.string().min(12).optional(),
+        month: z.number().int().min(0).max(11),
+        year: z.number().int().min(2020),
+      }),
+    )
+    .output(
+      z.array(
+        z.object({
+          publicId: z.string(),
+          title: z.string(),
+          dueDate: z.date().nullable(),
+          boardPublicId: z.string(),
+          boardName: z.string(),
+          labels: z.array(
+            z.object({
+              name: z.string(),
+              colourCode: z.string().nullable(),
+            }),
+          ),
+        }),
+      ),
+    )
+    .query(async ({ ctx, input }) => {
+      const userId = ctx.user?.id;
+      if (!userId)
+        throw new TRPCError({ message: "User not authenticated", code: "UNAUTHORIZED" });
+
+      const workspace = await workspaceRepo.getByPublicId(ctx.db, input.workspacePublicId);
+      if (!workspace)
+        throw new TRPCError({ message: "Workspace not found", code: "NOT_FOUND" });
+
+      await assertPermission(ctx.db, userId, workspace.id, "card:view");
+
+      const startDate = new Date(input.year, input.month, 1);
+      const endDate = new Date(input.year, input.month + 1, 0, 23, 59, 59, 999);
+
+      let boardId: number | undefined;
+      if (input.boardPublicId) {
+        const board = await ctx.db.query.boards.findFirst({
+          columns: { id: true },
+          where: (b, { eq }) => eq(b.publicId, input.boardPublicId!),
+        });
+        boardId = board?.id;
+      }
+
+      return cardRepo.getCalendarCards(ctx.db, {
+        workspaceId: workspace.id,
+        boardId,
+        startDate,
+        endDate,
+      });
+    }),
   create: protectedProcedure
     .meta({
       openapi: {
@@ -48,6 +105,10 @@ export const cardRouter = createTRPCRouter({
         memberPublicIds: z.array(z.string().min(12)),
         position: z.enum(["start", "end"]),
         dueDate: z.date().nullable().optional(),
+        checklists: z.array(z.object({
+          name: z.string().min(1).max(255),
+          items: z.array(z.string().min(1).max(500)),
+        })).optional().default([]),
       }),
     )
     .output(cardCreateResponseSchema)
@@ -168,6 +229,36 @@ export const cardRouter = createTRPCRouter({
         await cardActivityRepo.bulkCreate(ctx.db, cardActivitesInsert);
       }
 
+      if (input.checklists.length > 0) {
+        for (const cl of input.checklists) {
+          const checklist = await checklistRepo.create(ctx.db, {
+            cardId: newCardId,
+            name: cl.name,
+            createdBy: userId,
+          });
+
+          if (checklist && cl.items.length > 0) {
+            await checklistRepo.bulkCreateItems(
+              ctx.db,
+              cl.items.map((title, i) => ({
+                checklistId: checklist.id,
+                title,
+                createdBy: userId,
+                index: i,
+                completed: false,
+              })),
+            );
+          }
+
+          await cardActivityRepo.create(ctx.db, {
+            type: "card.updated.checklist.added",
+            cardId: newCardId,
+            toTitle: cl.name,
+            createdBy: userId,
+          });
+        }
+      }
+
       if (input.description) {
         sendMentionEmails({
           db: ctx.db,
@@ -276,6 +367,17 @@ export const cardRouter = createTRPCRouter({
         commentId: newComment.id,
       }).catch((error) => {
         console.error("Failed to send mention emails:", error);
+      });
+
+      sendMattermostNotification(
+        ctx.db,
+        card.id,
+        input.cardPublicId,
+        userId,
+        ctx.user?.name ?? "Someone",
+        "commented",
+      ).catch((error) => {
+        console.error("Failed to send Mattermost notification:", error);
       });
 
       return newComment;
@@ -634,6 +736,17 @@ export const cardRouter = createTRPCRouter({
         cardId: card.id,
         workspaceMemberId: member.id,
         createdBy: userId,
+      });
+
+      sendMattermostNotification(
+        ctx.db,
+        card.id,
+        input.cardPublicId,
+        userId,
+        ctx.user?.name ?? "Someone",
+        "assigned you to",
+      ).catch((error) => {
+        console.error("Failed to send Mattermost notification:", error);
       });
 
       return { newMember: true };
@@ -1094,6 +1207,31 @@ export const cardRouter = createTRPCRouter({
         console.error("Webhook delivery failed:", error);
       });
 
+      // Determine notification action text
+      let mmAction: string | undefined;
+      if (movedToNewList) {
+        mmAction = `moved from **${existingCard.list.name}** to **${newList?.name}**`;
+      } else if (input.title && existingCard.title !== input.title) {
+        mmAction = "renamed the card";
+      } else if (input.dueDate !== undefined && previousDueDate?.getTime() !== input.dueDate?.getTime()) {
+        mmAction = !previousDueDate ? "set a due date on" : input.dueDate ? "updated the due date of" : "removed the due date from";
+      } else if (input.description && existingCard.description !== input.description) {
+        mmAction = "updated the description of";
+      }
+
+      if (mmAction) {
+        sendMattermostNotification(
+          ctx.db,
+          result.id,
+          input.cardPublicId,
+          userId,
+          ctx.user?.name ?? "Someone",
+          mmAction,
+        ).catch((error) => {
+          console.error("Failed to send Mattermost notification:", error);
+        });
+      }
+
       return result;
     }),
   delete: protectedProcedure
@@ -1186,6 +1324,17 @@ export const cardRouter = createTRPCRouter({
           console.error("Webhook delivery failed:", error);
         });
       }
+
+      sendMattermostNotification(
+        ctx.db,
+        card.id,
+        input.cardPublicId,
+        userId,
+        ctx.user?.name ?? "Someone",
+        "archived",
+      ).catch((error) => {
+        console.error("Failed to send Mattermost notification:", error);
+      });
 
       return { success: true };
     }),
