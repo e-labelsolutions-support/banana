@@ -2,17 +2,17 @@ import { stripe } from "@better-auth/stripe";
 import { apiKey, genericOAuth } from "better-auth/plugins";
 import { magicLink } from "better-auth/plugins/magic-link";
 
-import type { dbClient } from "@kan/db/client";
-import * as memberRepo from "@kan/db/repository/member.repo";
-import * as subscriptionRepo from "@kan/db/repository/subscription.repo";
-import * as userRepo from "@kan/db/repository/user.repo";
-import * as workspaceRepo from "@kan/db/repository/workspace.repo";
-import { sendEmail } from "@kan/email";
-import { createLogger } from "@kan/logger";
-import { generateUID } from "@kan/shared/utils";
+import type { dbClient } from "@banana/db/client";
+import * as memberRepo from "@banana/db/repository/member.repo";
+import * as subscriptionRepo from "@banana/db/repository/subscription.repo";
+import * as userRepo from "@banana/db/repository/user.repo";
+import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { sendEmail } from "@banana/email";
+import { createLogger } from "@banana/logger";
+import { generateUID } from "@banana/shared/utils";
 
 const log = createLogger("auth");
-import { createStripeClient } from "@kan/stripe";
+import { createStripeClient } from "@banana/stripe";
 
 import { socialProvidersPlugin } from "./providers";
 import { triggerWorkflow } from "./utils";
@@ -250,7 +250,7 @@ export function createPlugins(db: dbClient) {
     // Generic OIDC provider
     ...(process.env.OIDC_CLIENT_ID &&
     process.env.OIDC_CLIENT_SECRET &&
-    process.env.OIDC_DISCOVERY_URL
+    process.env.OIDC_AUTHORIZATION_URL
       ? [
           genericOAuth({
             config: [
@@ -258,38 +258,32 @@ export function createPlugins(db: dbClient) {
                 providerId: "oidc",
                 clientId: process.env.OIDC_CLIENT_ID,
                 clientSecret: process.env.OIDC_CLIENT_SECRET,
-                discoveryUrl: process.env.OIDC_DISCOVERY_URL,
+                authorizationUrl: process.env.OIDC_AUTHORIZATION_URL,
+                tokenUrl: process.env.OIDC_TOKEN_URL,
                 scopes: ["openid", "email", "profile"],
                 pkce: true,
-                mapProfileToUser: (profile: {
-                  name?: string;
-                  display_name?: string;
-                  preferred_username?: string;
-                  given_name?: string;
-                  family_name?: string;
-                  email?: string;
-                  email_verified?: boolean;
-                  sub?: string;
-                  picture?: string;
-                  avatar?: string;
-                }) => {
+                getUserInfo: async (tokens) => {
+                  const res = await fetch(
+                    process.env.OIDC_USER_INFO_URL!,
+                    {
+                      headers: { Authorization: `Bearer ${tokens.accessToken!}` },
+                    },
+                  );
+                  if (!res.ok) {
+                    log.error({ status: res.status, statusText: res.statusText }, "Failed to fetch user info");
+                    return null;
+                  }
+                  const profile = (await res.json()) as Record<string, unknown>;
                   log.debug({ profile }, "OIDC profile received");
 
-                  const name =
-                    profile.name ??
-                    profile.display_name ??
-                    profile.preferred_username ??
-                    (profile.given_name && profile.family_name
-                      ? `${profile.given_name} ${profile.family_name}`.trim()
-                      : (profile.given_name ?? profile.family_name)) ??
-                    profile.sub ??
-                    "";
-
                   return {
-                    email: profile.email,
-                    name: name,
-                    emailVerified: profile.email_verified ?? false,
-                    image: profile.picture ?? profile.avatar ?? null,
+                    id: ((profile.id ?? profile.sub) as string) || "",
+                    email: (profile.email as string) || "",
+                    name:
+                      ((profile.name || profile.display_name || profile.nickname || profile.username || [profile.first_name, profile.last_name].filter(Boolean).join(" ")) as string) ||
+                      "",
+                    emailVerified: (profile.email_verified as boolean) ?? false,
+                    image: ((profile.picture ?? profile.avatar) as string) || undefined,
                   };
                 },
               },

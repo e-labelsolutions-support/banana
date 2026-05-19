@@ -57,7 +57,9 @@ export const env = createEnv({
     // Generic OIDC Provider
     OIDC_CLIENT_ID: z.string().optional(),
     OIDC_CLIENT_SECRET: z.string().optional(),
-    OIDC_DISCOVERY_URL: z.string().optional(),
+    OIDC_AUTHORIZATION_URL: z.string().optional(),
+    OIDC_TOKEN_URL: z.string().optional(),
+    OIDC_USER_INFO_URL: z.string().optional(),
     REDDIT_CLIENT_ID: z.string().optional(),
     REDDIT_CLIENT_SECRET: z.string().optional(),
     ROBLOX_CLIENT_ID: z.string().optional(),
