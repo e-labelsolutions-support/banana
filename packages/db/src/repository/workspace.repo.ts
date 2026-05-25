@@ -318,6 +318,7 @@ export const getMemberByPublicId = (db: dbClient, memberPublicId: string) => {
   return db.query.workspaceMembers.findFirst({
     columns: {
       id: true,
+      email: true,
     },
     where: eq(workspaceMembers.publicId, memberPublicId),
   });

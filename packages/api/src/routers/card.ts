@@ -745,6 +745,8 @@ export const cardRouter = createTRPCRouter({
         userId,
         ctx.user?.name ?? "Someone",
         "assigned you to",
+        undefined,
+        member.email ?? undefined,
       ).catch((error) => {
         console.error("Failed to send Mattermost notification:", error);
       });

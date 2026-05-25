@@ -148,6 +148,7 @@ export async function sendMattermostNotification(
   actorName: string,
   action: string,
   details?: string,
+  targetEmail?: string,
 ): Promise<void> {
   const config = getMattermostConfig();
   if (!config) return;
@@ -156,11 +157,13 @@ export async function sendMattermostNotification(
     const fullCard = await cardRepo.getByPublicId(db, cardPublicId);
     const cardTitle = fullCard?.title ?? "Card";
 
-    const memberEmails = await getCardMemberEmails(db, cardId, actorUserId);
+    const memberEmails = targetEmail
+      ? [targetEmail]
+      : await getCardMemberEmails(db, cardId, actorUserId);
     if (memberEmails.length === 0) return;
 
     const baseUrl = env("NEXT_PUBLIC_BASE_URL");
-    const cardUrl = `${baseUrl}/boards?card=${cardPublicId}`;
+    const cardUrl = `${baseUrl}/cards/${cardPublicId}`;
 
     let message = `**${actorName}** ${action} on [${cardTitle}](${cardUrl})`;
     if (details) {
@@ -170,8 +173,12 @@ export async function sendMattermostNotification(
     const results = await Promise.allSettled(
       memberEmails.map(async (email) => {
         const mmUserId = await getMattermostUserIdByEmail(config, email);
-        if (!mmUserId) return;
-        await sendMattermostDM(config, mmUserId, message);
+        if (!mmUserId) {
+          log.warn({ email: email.replace(/@.*/, "@***") }, "Mattermost user not found for email");
+          return;
+        }
+        const sent = await sendMattermostDM(config, mmUserId, message);
+        log.info({ sent }, "Mattermost DM result");
       }),
     );
 
