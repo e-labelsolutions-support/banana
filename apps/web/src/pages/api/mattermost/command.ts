@@ -165,12 +165,14 @@ function parseQuotedArgs(text: string): string[] {
 
 const GENERIC_AUTH_ERROR = "Could not find your account. Please log in to Banana first.";
 
-type ResolvedWorkspace = Awaited<ReturnType<typeof workspaceRepo.getWorkspaceByEmail>>;
+type ResolvedWorkspace = Awaited<ReturnType<typeof workspaceRepo.getAllByUserEmail>>[number];
 
-async function resolveUserWorkspace(db: import("@banana/db/client").dbClient, email: string) {
+async function resolveUserWorkspaces(db: import("@banana/db/client").dbClient, email: string) {
   const parsed = emailSchema.safeParse(email);
   if (!parsed.success) return null;
-  return workspaceRepo.getWorkspaceByEmail(db, email);
+  const workspaces = await workspaceRepo.getAllByUserEmail(db, email);
+  if (!workspaces || workspaces.length === 0) return null;
+  return workspaces;
 }
 
 async function resolveUserId(db: import("@banana/db/client").dbClient, email: string) {
@@ -183,24 +185,26 @@ async function resolveUserId(db: import("@banana/db/client").dbClient, email: st
   return members[0]?.userId ?? null;
 }
 
-async function findBoardByName(db: import("@banana/db/client").dbClient, workspaceId: number, userId: string, boardName: string) {
-  const boards = await boardRepo.getAllByWorkspaceId(db, workspaceId, userId);
-  return boards.find(
-    (b) => b.name.toLowerCase() === boardName.toLowerCase(),
-  );
+async function findBoardByName(db: import("@banana/db/client").dbClient, workspaceIds: number[], userId: string, boardName: string) {
+  for (const wsId of workspaceIds) {
+    const boards = await boardRepo.getAllByWorkspaceId(db, wsId, userId);
+    const match = boards.find((b) => b.name.toLowerCase() === boardName.toLowerCase());
+    if (match) return match;
+  }
+  return null;
 }
 
 async function resolveBoardAndList(
   db: import("@banana/db/client").dbClient,
-  workspace: NonNullable<ResolvedWorkspace>,
+  workspaces: NonNullable<Awaited<ReturnType<typeof resolveUserWorkspaces>>>,
   userId: string,
   boardName: string | undefined,
 ) {
-  const wsId = workspace.workspace.id;
+  const wsIds = workspaces.map((w) => w.workspace.id);
 
   if (boardName) {
     const safeName = boardName.slice(0, MAX_BOARD_NAME);
-    const board = await findBoardByName(db, wsId, userId, safeName);
+    const board = await findBoardByName(db, wsIds, userId, safeName);
     if (!board) return { error: `Board "${sanitizeMarkdown(safeName)}" not found.` };
     const firstList = board.lists?.[0];
     if (!firstList) return { error: `Board "${sanitizeMarkdown(safeName)}" has no lists.` };
@@ -212,16 +216,17 @@ async function resolveBoardAndList(
     return { listId: list.id, workspaceId: list.workspaceId };
   }
 
-  const boards = await boardRepo.getAllByWorkspaceId(db, wsId, userId);
-  if (!boards.length || !boards[0].lists?.length) {
-    return { error: "No boards found in your workspace." };
+  for (const wsId of wsIds) {
+    const boards = await boardRepo.getAllByWorkspaceId(db, wsId, userId);
+    if (boards.length && boards[0].lists?.length) {
+      const list = await db.query.lists.findFirst({
+        where: (l, { eq }) => eq(l.publicId, boards[0].lists![0].publicId),
+        columns: { id: true, workspaceId: true },
+      });
+      if (list) return { listId: list.id, workspaceId: list.workspaceId };
+    }
   }
-  const list = await db.query.lists.findFirst({
-    where: (l, { eq }) => eq(l.publicId, boards[0].lists![0].publicId),
-    columns: { id: true, workspaceId: true },
-  });
-  if (!list) return { error: "Could not resolve list." };
-  return { listId: list.id, workspaceId: list.workspaceId };
+  return { error: "No boards found in your workspaces." };
 }
 
 async function handleCreate(
@@ -240,8 +245,8 @@ async function handleCreate(
     return res.json({ text: "Please provide a task title: `/banana create \"Task title\" in \"Board name\"`" });
   }
 
-  const workspace = await resolveUserWorkspace(db, userEmail);
-  if (!workspace) {
+  const workspaces = await resolveUserWorkspaces(db, userEmail);
+  if (!workspaces) {
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
@@ -250,7 +255,7 @@ async function handleCreate(
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
-  const resolved = await resolveBoardAndList(db, workspace, userId, boardName);
+  const resolved = await resolveBoardAndList(db, workspaces, userId, boardName);
   if ("error" in resolved) {
     return res.json({ text: resolved.error });
   }
@@ -298,8 +303,8 @@ async function handlePlan(
     return res.json({ text: "Please provide a description: `/banana plan \"Procedure description\" in \"Board name\"`" });
   }
 
-  const workspace = await resolveUserWorkspace(db, userEmail);
-  if (!workspace) {
+  const workspaces = await resolveUserWorkspaces(db, userEmail);
+  if (!workspaces) {
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
@@ -308,7 +313,7 @@ async function handlePlan(
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
-  const resolved = await resolveBoardAndList(db, workspace, userId, boardName);
+  const resolved = await resolveBoardAndList(db, workspaces, userId, boardName);
   if ("error" in resolved) {
     return res.json({ text: resolved.error });
   }
