@@ -202,7 +202,7 @@ async function handleCreate(
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const cardUrl = `${baseUrl}/boards/${card.publicId}`;
+  const cardUrl = `${baseUrl}/cards/${card.publicId}`;
 
   return res.json({
     response_type: "in_channel",
@@ -342,7 +342,7 @@ Keep tasks specific and actionable. Each task should have 3-8 checklist items.`;
       }
 
       if (card) {
-        createdCards.push({ title: task.title, url: `${baseUrl}/boards/${card.publicId}` });
+        createdCards.push({ title: task.title, url: `${baseUrl}/cards/${card.publicId}` });
       }
     }
 
