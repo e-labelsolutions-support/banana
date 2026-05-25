@@ -15,6 +15,14 @@ function getMattermostConfig() {
   return { url: url.replace(/\/$/, ""), token };
 }
 
+function redactEmail(email: string): string {
+  const atIndex = email.indexOf("@");
+  if (atIndex < 1) return "***";
+  const local = email.slice(0, atIndex);
+  const domain = email.slice(atIndex + 1);
+  return `${local[0]}***@${domain[0] ?? "*"}***`;
+}
+
 type MattermostConfig = NonNullable<ReturnType<typeof getMattermostConfig>>;
 
 async function mattermostApi(
@@ -30,9 +38,9 @@ async function mattermostApi(
     const response = await fetch(url, {
       ...options,
       headers: {
-        Authorization: `Bearer ${config.token}`,
         "Content-Type": "application/json",
         ...options.headers,
+        Authorization: `Bearer ${config.token}`,
       },
       signal: controller.signal,
     });
@@ -174,7 +182,7 @@ export async function sendMattermostNotification(
       memberEmails.map(async (email) => {
         const mmUserId = await getMattermostUserIdByEmail(config, email);
         if (!mmUserId) {
-          log.warn({ email: email.replace(/@.*/, "@***") }, "Mattermost user not found for email");
+          log.warn({ email: redactEmail(email) }, "Mattermost user not found for email");
           return;
         }
         const sent = await sendMattermostDM(config, mmUserId, message);

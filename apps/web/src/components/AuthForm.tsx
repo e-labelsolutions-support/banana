@@ -376,7 +376,6 @@ export function Auth({
             <div className="h-[1px] w-1/3 bg-light-600 dark:bg-dark-600" />
           </div>
         )}
-      {/* Email/password login hidden — using Mattermost SSO only
       {(isCredentialsEnabled || isMagicLinkAvailable) && (
         <form onSubmit={handleSubmit(onSubmit)}>
           {socialProviders?.length !== 0 && (
@@ -446,7 +445,6 @@ export function Auth({
           </div>
         </form>
       )}
-      */}
       {!(isCredentialsEnabled || isMagicLinkAvailable) && loginError && (
         <p className="mt-2 text-xs text-red-400">{loginError}</p>
       )}

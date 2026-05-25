@@ -146,7 +146,11 @@ export function createDatabaseHooks(db: dbClient) {
             }
           }
 
-          // Auto-join the workspace with the most members
+          // Skip auto-join unless explicitly enabled
+          if (process.env.AUTO_JOIN_WORKSPACE?.toLowerCase() !== "true") {
+            return;
+          }
+
           try {
             const [topWorkspace] = await db
               .select({
