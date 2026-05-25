@@ -165,12 +165,22 @@ function parseQuotedArgs(text: string): string[] {
 
 const GENERIC_AUTH_ERROR = "Could not find your account. Please log in to Banana first.";
 
+type ResolvedWorkspace = Awaited<ReturnType<typeof workspaceRepo.getWorkspaceByEmail>>;
+
 async function resolveUserWorkspace(db: import("@banana/db/client").dbClient, email: string) {
   const parsed = emailSchema.safeParse(email);
   if (!parsed.success) return null;
-  const workspaces = await workspaceRepo.getAllByUserId(db, email);
-  if (!workspaces || workspaces.length === 0) return null;
-  return workspaces[0];
+  return workspaceRepo.getWorkspaceByEmail(db, email);
+}
+
+async function resolveUserId(db: import("@banana/db/client").dbClient, email: string) {
+  const members = await db.query.workspaceMembers.findMany({
+    where: (m, { eq, and, isNull }) =>
+      and(eq(m.email, email), isNull(m.deletedAt)),
+    limit: 1,
+    columns: { userId: true },
+  });
+  return members[0]?.userId ?? null;
 }
 
 async function findBoardByName(db: import("@banana/db/client").dbClient, workspaceId: number, userId: string, boardName: string) {
@@ -182,13 +192,15 @@ async function findBoardByName(db: import("@banana/db/client").dbClient, workspa
 
 async function resolveBoardAndList(
   db: import("@banana/db/client").dbClient,
-  workspace: NonNullable<Awaited<ReturnType<typeof resolveUserWorkspace>>>,
+  workspace: NonNullable<ResolvedWorkspace>,
   userId: string,
   boardName: string | undefined,
 ) {
+  const wsId = workspace.workspace.id;
+
   if (boardName) {
     const safeName = boardName.slice(0, MAX_BOARD_NAME);
-    const board = await findBoardByName(db, workspace.id, userId, safeName);
+    const board = await findBoardByName(db, wsId, userId, safeName);
     if (!board) return { error: `Board "${sanitizeMarkdown(safeName)}" not found.` };
     const firstList = board.lists?.[0];
     if (!firstList) return { error: `Board "${sanitizeMarkdown(safeName)}" has no lists.` };
@@ -200,7 +212,7 @@ async function resolveBoardAndList(
     return { listId: list.id, workspaceId: list.workspaceId };
   }
 
-  const boards = await boardRepo.getAllByWorkspaceId(db, workspace.id, userId);
+  const boards = await boardRepo.getAllByWorkspaceId(db, wsId, userId);
   if (!boards.length || !boards[0].lists?.length) {
     return { error: "No boards found in your workspace." };
   }
@@ -210,16 +222,6 @@ async function resolveBoardAndList(
   });
   if (!list) return { error: "Could not resolve list." };
   return { listId: list.id, workspaceId: list.workspaceId };
-}
-
-async function resolveUserId(db: import("@banana/db/client").dbClient, email: string) {
-  const members = await db.query.workspaceMembers.findMany({
-    where: (m, { eq, and, isNull }) =>
-      and(eq(m.email, email), isNull(m.deletedAt)),
-    limit: 1,
-    columns: { userId: true },
-  });
-  return members[0]?.userId ?? null;
 }
 
 async function handleCreate(
