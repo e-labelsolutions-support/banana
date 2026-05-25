@@ -314,6 +314,30 @@ export const getAllByUserId = async (db: dbClient, userId: string) => {
   return result.filter((member) => !member.workspace.deletedAt);
 };
 
+export const getAllByUserEmail = async (db: dbClient, email: string) => {
+  const result = await db.query.workspaceMembers.findMany({
+    columns: {
+      role: true,
+    },
+    with: {
+      workspace: {
+        columns: {
+          id: true,
+          publicId: true,
+          name: true,
+          slug: true,
+        },
+      },
+    },
+    where: and(
+      eq(workspaceMembers.email, email),
+      eq(workspaceMembers.status, "active"),
+      isNull(workspaceMembers.deletedAt),
+    ),
+  });
+  return result.filter((member) => member.workspace);
+};
+
 export const getWorkspaceByEmail = async (db: dbClient, email: string) => {
   const result = await db.query.workspaceMembers.findFirst({
     columns: {
