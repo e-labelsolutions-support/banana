@@ -33,10 +33,9 @@ function getMattermostConfig() {
   return { url, token };
 }
 
-async function verifyMattermostUserEmail(
+async function fetchMattermostUserEmail(
   config: { url: string; token: string },
   mmUserId: string,
-  claimedEmail: string,
 ): Promise<string | null> {
   try {
     const controller = new AbortController();
@@ -49,8 +48,7 @@ async function verifyMattermostUserEmail(
 
     if (!response.ok) return null;
     const user = await response.json() as { email?: string } | undefined;
-    if (!user?.email || user.email.toLowerCase() !== claimedEmail.toLowerCase()) return null;
-    return user.email;
+    return user?.email ?? null;
   } catch {
     return null;
   }
@@ -110,25 +108,23 @@ async function handler(
 
   const commandText: string = String(req.body.text ?? "").trim().slice(0, MAX_PLAN_DESCRIPTION);
   const mmUserId: string = String(req.body.user_id ?? "").trim();
-  const mmUserEmail: string = String(req.body.user_email ?? "").trim();
 
-  if (!mmUserId || !mmUserEmail) {
+  if (!mmUserId) {
     return res.json({ text: "Could not determine your identity from Mattermost." });
   }
 
   const { db } = await createNextApiContext(req);
 
-  // Verify the user identity via Mattermost API rather than trusting the request body
   const config = getMattermostConfig();
   if (!config) {
     return res.status(500).json({ text: "Mattermost integration is not configured." });
   }
 
-  const verifiedEmail = await verifyMattermostUserEmail(config, mmUserId, mmUserEmail);
-  if (!verifiedEmail) {
+  // Fetch user email from Mattermost API using the user_id from the signed payload
+  const userEmail = await fetchMattermostUserEmail(config, mmUserId);
+  if (!userEmail) {
     return res.json({ text: "Could not verify your identity. Please try again." });
   }
-  const userEmail = verifiedEmail;
 
   try {
     const parts = commandText.split(/\s+/);
