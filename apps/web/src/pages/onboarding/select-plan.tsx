@@ -15,6 +15,9 @@ export default function SelectPlanPage() {
     if (!isPending && !session?.user) {
       router.push("/login");
     }
+    if (!isPending && env("NEXT_PUBLIC_SINGLE_WORKSPACE") === "true") {
+      router.push("/home");
+    }
     if (!isPending && env("NEXT_PUBLIC_KAN_ENV") !== "cloud") {
       router.push("/boards");
     }

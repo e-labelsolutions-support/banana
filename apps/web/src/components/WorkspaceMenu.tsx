@@ -1,13 +1,10 @@
-import { Button, Menu, Transition } from "@headlessui/react";
+import { Button } from "@headlessui/react";
 import { t } from "@lingui/core/macro";
-import { useRouter } from "next/navigation";
-import { env } from "next-runtime-env";
-import { Fragment, useState } from "react";
-import { HiCheck, HiMagnifyingGlass } from "react-icons/hi2";
+import { useState } from "react";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
 import { useKeyboardShortcut } from "~/providers/keyboard-shortcuts";
-import { useModal } from "~/providers/modal";
 import { useWorkspace } from "~/providers/workspace";
 import CommandPallette from "./CommandPallette";
 import { Tooltip } from "./Tooltip";
@@ -17,10 +14,7 @@ export default function WorkspaceMenu({
 }: {
   isCollapsed?: boolean;
 }) {
-  const { workspace, isLoading, availableWorkspaces, switchWorkspace } =
-    useWorkspace();
-  const { openModal } = useModal();
-  const router = useRouter();
+  const { workspace, isLoading } = useWorkspace();
   const [isOpen, setIsOpen] = useState(false);
 
   const { tooltipContent: commandPaletteShortcutTooltipContent } =
@@ -38,7 +32,7 @@ export default function WorkspaceMenu({
   return (
     <>
       <CommandPallette isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      <Menu as="div" className="relative inline-block w-full pb-3 text-left">
+      <div className="relative inline-block w-full pb-3 text-left">
         <div>
           {isLoading ? (
             <div className={twMerge("mb-1 flex", isCollapsed && "md:p-1.5")}>
@@ -57,9 +51,9 @@ export default function WorkspaceMenu({
                 isCollapsed && "md:flex-col-reverse md:items-center",
               )}
             >
-              <Menu.Button
+              <div
                 className={twMerge(
-                  "mb-1 flex h-[34px] min-w-0 flex-1 items-center justify-start rounded-md p-1.5 hover:bg-light-200 dark:hover:bg-dark-200",
+                  "mb-1 flex h-[34px] min-w-0 flex-1 items-center justify-start rounded-md p-1.5",
                   isCollapsed &&
                     "md:mb-1.5 md:h-9 md:w-9 md:flex-none md:justify-center md:p-0",
                 )}
@@ -88,7 +82,7 @@ export default function WorkspaceMenu({
                     Pro
                   </span>
                 )}
-              </Menu.Button>
+              </div>
               <Tooltip content={commandPaletteShortcutTooltipContent}>
                 <Button
                   className={twMerge(
@@ -103,67 +97,7 @@ export default function WorkspaceMenu({
             </div>
           )}
         </div>
-
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <Menu.Items
-            className={twMerge(
-              "absolute left-0 z-10 origin-top-left rounded-md border border-light-600 bg-light-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-dark-600 dark:bg-dark-300",
-              isCollapsed ? "w-48" : "w-full",
-            )}
-          >
-            <div className="p-1">
-              {availableWorkspaces.map((availableWorkspace) => (
-                <div key={availableWorkspace.publicId} className="flex">
-                  <Menu.Item>
-                    <button
-                      onClick={() => switchWorkspace(availableWorkspace)}
-                      className="flex w-full items-center justify-between rounded-[5px] px-3 py-2 text-left text-sm text-neutral-900 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
-                    >
-                      <div className="flex min-w-0 flex-1 items-center">
-                        <span className="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-[5px] bg-indigo-700">
-                          <span className="text-xs font-medium leading-none text-white">
-                            {availableWorkspace.name.charAt(0).toUpperCase()}
-                          </span>
-                        </span>
-                        <span className="ml-2 truncate text-xs font-medium">
-                          {availableWorkspace.name}
-                        </span>
-                      </div>
-                      {workspace.publicId === availableWorkspace.publicId && (
-                        <span>
-                          <HiCheck className="h-4 w-4" aria-hidden="true" />
-                        </span>
-                      )}
-                    </button>
-                  </Menu.Item>
-                </div>
-              ))}
-            </div>
-            <div className="border-t-[1px] border-light-600 p-1 dark:border-dark-500">
-              <Menu.Item>
-                <button
-                  onClick={() =>
-                    env("NEXT_PUBLIC_KAN_ENV") === "cloud"
-                      ? router.push(`/onboarding/select-plan?returnUrl=${encodeURIComponent(window.location.pathname)}`)
-                      : openModal("NEW_WORKSPACE")
-                  }
-                  className="flex w-full items-center justify-between rounded-[5px] px-3 py-2 text-left text-xs text-neutral-900 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
-                >
-                  {t`Create workspace`}
-                </button>
-              </Menu.Item>
-            </div>
-          </Menu.Items>
-        </Transition>
-      </Menu>
+      </div>
     </>
   );
 }

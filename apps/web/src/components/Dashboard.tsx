@@ -1,6 +1,5 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { t } from "@lingui/core/macro";
-import { env } from "next-runtime-env";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -49,7 +48,7 @@ export default function Dashboard({
 }: DashboardProps) {
   const { resolvedTheme } = useTheme();
   const { openModal, closeModal, modalContentType } = useModal();
-  const { availableWorkspaces, hasLoaded } = useWorkspace();
+  const { availableWorkspaces } = useWorkspace();
   const { showPopup } = usePopup();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -137,18 +136,6 @@ export default function Dashboard({
       router.replace(`?${params.toString()}`);
     }
   }, [searchParams, showPopup, router]);
-
-  useEffect(() => {
-    if (hasLoaded && availableWorkspaces.length === 0) {
-      if (env("NEXT_PUBLIC_KAN_ENV") === "cloud") {
-        router.push(
-          `/onboarding/select-plan?returnUrl=${encodeURIComponent(window.location.pathname)}`,
-        );
-      } else {
-        openModal("NEW_WORKSPACE", undefined, undefined, false);
-      }
-    }
-  }, [hasLoaded, availableWorkspaces.length, openModal, router]);
 
   useEffect(() => {
     const isCredentialsEnabled =
