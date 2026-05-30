@@ -222,6 +222,14 @@ export const workspaceRouter = createTRPCRouter({
           code: "UNAUTHORIZED",
         });
 
+      // Block workspace creation in single-workspace mode
+      if (process.env.AUTO_JOIN_WORKSPACE?.toLowerCase() === "true") {
+        throw new TRPCError({
+          message: "Workspace creation is disabled in single-workspace mode",
+          code: "FORBIDDEN",
+        });
+      }
+
       // Check if slug is provided in cloud environment
       if (input.slug && env("NEXT_PUBLIC_KAN_ENV") === "cloud") {
         throw new TRPCError({
