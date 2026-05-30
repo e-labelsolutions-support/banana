@@ -1113,3 +1113,117 @@ export const getCalendarCards = async (
 
   return Array.from(cardMap.values());
 };
+
+export const getAssignedCardsByUserId = async (
+  db: dbClient,
+  args: {
+    workspaceId: number;
+    userId: string;
+    limit: number;
+    cursor?: Date;
+  },
+) => {
+  // First find the workspace member ID for this user in this workspace
+  const [member] = await db
+    .select({ id: workspaceMembers.id })
+    .from(workspaceMembers)
+    .where(
+      and(
+        eq(workspaceMembers.userId, args.userId),
+        eq(workspaceMembers.workspaceId, args.workspaceId),
+        eq(workspaceMembers.status, "active"),
+        isNull(workspaceMembers.deletedAt),
+      ),
+    )
+    .limit(1);
+
+  if (!member) return [];
+
+  const conditions = [
+    isNull(cards.deletedAt),
+    isNull(lists.deletedAt),
+    isNull(boards.deletedAt),
+    eq(boards.workspaceId, args.workspaceId),
+  ];
+
+  if (args.cursor) {
+    conditions.push(gt(cards.updatedAt, args.cursor));
+  }
+
+  const rows = await db
+    .select({
+      publicId: cards.publicId,
+      title: cards.title,
+      dueDate: cards.dueDate,
+      updatedAt: cards.updatedAt,
+      boardPublicId: boards.publicId,
+      boardName: boards.name,
+      listPublicId: lists.publicId,
+      listName: lists.name,
+      labelName: labels.name,
+      labelColourCode: labels.colourCode,
+    })
+    .from(cardToWorkspaceMembers)
+    .innerJoin(cards, eq(cardToWorkspaceMembers.cardId, cards.id))
+    .innerJoin(lists, eq(cards.listId, lists.id))
+    .innerJoin(boards, eq(lists.boardId, boards.id))
+    .leftJoin(cardsToLabels, eq(cards.id, cardsToLabels.cardId))
+    .leftJoin(labels, eq(cardsToLabels.labelId, labels.id))
+    .where(
+      and(
+        eq(cardToWorkspaceMembers.workspaceMemberId, member.id),
+        ...conditions,
+      ),
+    )
+    .orderBy(desc(cards.updatedAt))
+    .limit(args.limit + 1);
+
+  const hasMore = rows.length > args.limit;
+  const items = rows.slice(0, args.limit);
+  const nextCursor = hasMore
+    ? items[items.length - 1]?.updatedAt
+    : undefined;
+
+  const cardMap = new Map<
+    string,
+    {
+      publicId: string;
+      title: string;
+      dueDate: Date | null;
+      updatedAt: Date | null;
+      boardPublicId: string;
+      boardName: string;
+      listPublicId: string;
+      listName: string;
+      labels: { name: string; colourCode: string | null }[];
+    }
+  >();
+
+  for (const row of items) {
+    if (!cardMap.has(row.publicId)) {
+      cardMap.set(row.publicId, {
+        publicId: row.publicId,
+        title: row.title,
+        dueDate: row.dueDate,
+        updatedAt: row.updatedAt,
+        boardPublicId: row.boardPublicId,
+        boardName: row.boardName,
+        listPublicId: row.listPublicId,
+        listName: row.listName,
+        labels: [],
+      });
+    }
+    if (row.labelName) {
+      cardMap.get(row.publicId)!.labels.push({
+        name: row.labelName,
+        colourCode: row.labelColourCode,
+      });
+    }
+  }
+
+  return {
+    cards: Array.from(cardMap.values()),
+    hasMore,
+    nextCursor,
+  };
+};

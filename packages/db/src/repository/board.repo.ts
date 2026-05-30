@@ -999,3 +999,32 @@ export const removeUserFavorite = async (
     )
     .returning();
 };
+
+export const getCreatedByUserId = async (
+  db: dbClient,
+  args: {
+    workspaceId: number;
+    userId: string;
+    limit: number;
+  },
+) => {
+  return db.query.boards.findMany({
+    columns: {
+      publicId: true,
+      name: true,
+      slug: true,
+      updatedAt: true,
+      createdAt: true,
+      visibility: true,
+      isArchived: true,
+    },
+    where: and(
+      eq(boards.workspaceId, args.workspaceId),
+      eq(boards.createdBy, args.userId),
+      eq(boards.type, "regular"),
+      isNull(boards.deletedAt),
+    ),
+    orderBy: desc(boards.updatedAt),
+    limit: args.limit,
+  });
+};
