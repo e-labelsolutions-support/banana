@@ -22,6 +22,7 @@ export const getById = async (db: dbClient, userId: string) => {
         email: true,
         image: true,
         stripeCustomerId: true,
+        type: true,
       },
       with: {
         apiKeys: {
@@ -90,13 +91,15 @@ export const getByEmail = (db: dbClient, email: string) => {
 
 export const create = async (
   db: dbClient,
-  user: { id?: string; email: string; stripeCustomerId?: string },
+  user: { id?: string; email: string; name?: string; type?: "human" | "bot"; stripeCustomerId?: string },
 ) => {
   const [result] = await db
     .insert(users)
     .values({
       id: user.id ?? uuidv4(),
       email: user.email,
+      name: user.name,
+      type: user.type ?? "human",
       stripeCustomerId: user.stripeCustomerId,
       emailVerified: false,
     })

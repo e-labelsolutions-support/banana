@@ -1,6 +1,7 @@
 import { relations, sql } from "drizzle-orm";
 import {
   boolean,
+  pgEnum,
   pgTable,
   timestamp,
   uuid,
@@ -15,6 +16,10 @@ import { lists } from "./lists";
 import { workspaceMembers, workspaces } from "./workspaces";
 import { integrations } from "./integrations";
 
+export const userTypeStatuses = ["human", "bot"] as const;
+export type UserType = (typeof userTypeStatuses)[number];
+export const userTypeEnum = pgEnum("user_type", userTypeStatuses);
+
 export const users = pgTable("user", {
   id: uuid("id")
     .notNull()
@@ -27,6 +32,7 @@ export const users = pgTable("user", {
   createdAt: timestamp("createdAt").notNull().defaultNow(),
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
   stripeCustomerId: varchar("stripeCustomerId", { length: 255 }),
+  type: userTypeEnum("type").notNull().default("human"),
 }).enableRLS();
 
 export const usersRelations = relations(users, ({ many }) => ({
