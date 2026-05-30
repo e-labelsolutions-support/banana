@@ -26,7 +26,10 @@ export default function LoginPage() {
 
   const { data } = authClient.useSession();
 
-  if (data?.user.id) router.push("/boards");
+  if (data?.user.id) {
+    const defaultPath = env("NEXT_PUBLIC_SINGLE_WORKSPACE") === "true" ? "/home" : "/boards";
+    router.push(redirect ?? defaultPath);
+  }
 
   return (
     <>
