@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { env } from "next-runtime-env";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { api } from "~/utils/api";
@@ -67,6 +68,9 @@ export const WorkspaceProvider: React.FC<{ children: ReactNode }> = ({
   const utils = api.useUtils();
 
   const switchWorkspace = (_workspace: Workspace) => {
+    // In single-workspace mode, switching is a no-op
+    if (env("NEXT_PUBLIC_SINGLE_WORKSPACE") === "true") return;
+
     localStorage.setItem("workspacePublicId", _workspace.publicId);
 
     setWorkspace(_workspace);
@@ -131,7 +135,8 @@ export const WorkspaceProvider: React.FC<{ children: ReactNode }> = ({
       });
 
       if (workspacePublicId) {
-        router.push(`/boards`);
+        const defaultPath = env("NEXT_PUBLIC_SINGLE_WORKSPACE") === "true" ? "/home" : "/boards";
+        router.push(defaultPath);
         localStorage.setItem("workspacePublicId", workspacePublicId);
       }
     } else {
