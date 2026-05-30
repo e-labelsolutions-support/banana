@@ -787,7 +787,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        213
+        217
       ]
     ],
     "translation": "Administrador"
@@ -857,7 +857,6 @@
     "translation": "Seguridad avanzada, cumplimiento normativo y soporte dedicado para grandes organizaciones."
   },
   "me3LEG": {
-    "translation": "",
     "message": "All boards",
     "placeholders": {},
     "comments": [],
@@ -870,7 +869,8 @@
         "src/views/calendar/index.tsx",
         88
       ]
-    ]
+    ],
+    "translation": ""
   },
   "h2ztFt": {
     "message": "All Free features +",
@@ -955,7 +955,7 @@
       ],
       [
         "src/views/auth/signup/index.tsx",
-        90
+        93
       ]
     ],
     "translation": "¿Ya tienes una cuenta? <0><1>Inicia sesión</1></0>"
@@ -1711,7 +1711,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        99
+        111
       ],
       [
         "src/views/pricing/components/FeatureComparisonTable.tsx",
@@ -1727,10 +1727,22 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        68
+        79
       ]
     ],
     "translation": "Los tableros que archives aparecerán aquí."
+  },
+  "LGvHaQ": {
+    "translation": "",
+    "message": "Bot account",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/components/BotBadge.tsx",
+        19
+      ]
+    ]
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -1769,23 +1781,22 @@
     "translation": "Reporte de error"
   },
   "AjVXBS": {
-    "translation": "",
     "message": "Calendar",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        111
+        123
       ],
       [
         "src/views/calendar/index.tsx",
         65
       ]
-    ]
+    ],
+    "translation": ""
   },
   "jPZgnG": {
-    "translation": "",
     "message": "Calendar | {0}",
     "placeholders": {
       "0": [
@@ -1798,7 +1809,8 @@
         "src/views/calendar/index.tsx",
         60
       ]
-    ]
+    ],
+    "translation": ""
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2423,17 +2435,16 @@
       ],
       [
         "src/views/auth/login/index.tsx",
-        43
+        46
       ],
       [
         "src/views/auth/signup/index.tsx",
-        71
+        74
       ]
     ],
     "translation": "Revisa tu bandeja de entrada"
   },
   "ANtE4t": {
-    "translation": "",
     "message": "Checklist",
     "placeholders": {},
     "comments": [],
@@ -2442,7 +2453,8 @@
         "src/views/board/components/NewCardForm.tsx",
         641
       ]
-    ]
+    ],
+    "translation": ""
   },
   "GnRmu4": {
     "message": "Checklist name",
@@ -2563,11 +2575,11 @@
     "origin": [
       [
         "src/views/auth/login/index.tsx",
-        48
+        51
       ],
       [
         "src/views/auth/signup/index.tsx",
-        76
+        79
       ]
     ],
     "translation": "Haz clic en el enlace que hemos enviado a {magicLinkRecipient} para iniciar sesión."
@@ -2579,7 +2591,7 @@
     "origin": [
       [
         "src/components/Dashboard.tsx",
-        281
+        269
       ],
       [
         "src/views/card/index.tsx",
@@ -2943,11 +2955,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        442
+        443
       ]
     ],
-    "translation": "Continuar con ",
-    "obsolete": true
+    "translation": "Continuar con "
   },
   "gkzAEM": {
     "message": "Continue with {0}",
@@ -2960,7 +2971,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        360
+        361
       ]
     ],
     "translation": "Continuar con {0}"
@@ -3204,7 +3215,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        82
+        93
       ],
       [
         "src/views/boards/index.tsx",
@@ -3289,10 +3300,6 @@
       [
         "src/components/NewWorkspaceForm.tsx",
         227
-      ],
-      [
-        "src/components/WorkspaceMenu.tsx",
-        160
       ]
     ],
     "translation": "Crear espacio de trabajo"
@@ -3308,6 +3315,22 @@
       ]
     ],
     "translation": "Creado"
+  },
+  "MXSt4t": {
+    "translation": "",
+    "message": "Created {0}",
+    "placeholders": {
+      "0": [
+        "formatRelativeDate(board.createdAt)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        69
+      ]
+    ]
   },
   "f8lDFq": {
     "message": "created the card",
@@ -3957,7 +3980,7 @@
     "origin": [
       [
         "src/views/auth/login/index.tsx",
-        63
+        66
       ]
     ],
     "translation": "¿No tienes una cuenta? <0><1>Regístrate</1></0>"
@@ -4193,7 +4216,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        236
+        240
       ]
     ],
     "translation": "Editar permisos"
@@ -4253,11 +4276,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        443
+        444
       ]
     ],
-    "translation": "email",
-    "obsolete": true
+    "translation": "email"
   },
   "O3oNi5": {
     "message": "Email",
@@ -4410,11 +4432,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        407
+        408
       ]
     ],
-    "translation": "Introduce tu dirección de email",
-    "obsolete": true
+    "translation": "Introduce tu dirección de email"
   },
   "n9V+ps": {
     "message": "Enter your name",
@@ -4423,11 +4444,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        395
+        396
       ]
     ],
-    "translation": "Introduce tu nombre",
-    "obsolete": true
+    "translation": "Introduce tu nombre"
   },
   "0StR7t": {
     "message": "Enter your new password",
@@ -4448,11 +4468,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        421
+        422
       ]
     ],
-    "translation": "Introduce tu contraseña",
-    "obsolete": true
+    "translation": "Introduce tu contraseña"
   },
   "GpB8YV": {
     "message": "Enterprise",
@@ -4866,7 +4885,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        296
+        297
       ]
     ],
     "translation": "No se pudo iniciar sesión con {0}. Por favor, inténtalo de nuevo."
@@ -5150,7 +5169,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        303
+        307
       ]
     ],
     "translation": "Plan gratuito"
@@ -5230,7 +5249,7 @@
     "origin": [
       [
         "src/views/auth/signup/index.tsx",
-        71
+        74
       ],
       [
         "src/views/home/components/Cta.tsx",
@@ -5282,7 +5301,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        68
+        79
       ]
     ],
     "translation": "Comienza creando un nuevo {0}"
@@ -5422,7 +5441,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        107
+        119
       ],
       [
         "src/pages/404.tsx",
@@ -5432,14 +5451,26 @@
     "translation": "Ir a tableros"
   },
   "I8DG8X": {
-    "translation": "",
     "message": "Go to calendar",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        119
+        131
+      ]
+    ],
+    "translation": ""
+  },
+  "TzFLgd": {
+    "translation": "",
+    "message": "Go to home",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/components/SideNavigation.tsx",
+        107
       ]
     ]
   },
@@ -5462,7 +5493,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        143
+        155
       ]
     ],
     "translation": "Ir a miembros"
@@ -5474,7 +5505,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        155
+        167
       ]
     ],
     "translation": "Ir a configuración"
@@ -5486,7 +5517,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        131
+        143
       ]
     ],
     "translation": "Ir a plantillas"
@@ -5542,7 +5573,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        215
+        219
       ]
     ],
     "translation": "Invitado"
@@ -5582,6 +5613,34 @@
       ]
     ],
     "translation": "Secreto HMAC para verificación de firma"
+  },
+  "i0qMbr": {
+    "translation": "",
+    "message": "Home",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/components/SideNavigation.tsx",
+        99
+      ],
+      [
+        "src/views/home-dashboard/index.tsx",
+        36
+      ]
+    ]
+  },
+  "AUhER1": {
+    "translation": "",
+    "message": "Home | banana.bn",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/index.tsx",
+        33
+      ]
+    ]
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5966,7 +6025,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        322
+        326
       ]
     ],
     "translation": "Invitar"
@@ -6489,7 +6548,7 @@
     "origin": [
       [
         "src/views/auth/login/index.tsx",
-        33
+        36
       ]
     ],
     "translation": "Iniciar sesión | banana.bn"
@@ -6562,11 +6621,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        443
+        444
       ]
     ],
-    "translation": "enlace mágico",
-    "obsolete": true
+    "translation": "enlace mágico"
   },
   "DbZgsJ": {
     "message": "Make template",
@@ -6687,7 +6745,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        214
+        218
       ]
     ],
     "translation": "Miembro"
@@ -6711,7 +6769,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        135
+        147
       ],
       [
         "src/views/board/components/Filters.tsx",
@@ -6727,7 +6785,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        275
+        279
       ],
       [
         "src/views/pricing/components/FeatureComparisonTable.tsx",
@@ -6747,7 +6805,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        270
+        274
       ]
     ],
     "translation": "Miembros | {0}"
@@ -6862,6 +6920,30 @@
       ]
     ],
     "translation": "movió la tarjeta a otra lista"
+  },
+  "eNj27B": {
+    "translation": "",
+    "message": "My Boards",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        28
+      ]
+    ]
+  },
+  "oFLZ3C": {
+    "translation": "",
+    "message": "My Cards",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyCardsSection.tsx",
+        35
+      ]
+    ]
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7142,7 +7224,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        65
+        76
       ]
     ],
     "translation": "No hay {0}"
@@ -7154,7 +7236,7 @@
     "origin": [
       [
         "src/views/boards/components/BoardsList.tsx",
-        65
+        76
       ]
     ],
     "translation": "No hay tableros archivados"
@@ -7166,7 +7248,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        374
+        375
       ]
     ],
     "translation": "No hay métodos de autenticación disponibles actualmente"
@@ -7182,6 +7264,30 @@
       ]
     ],
     "translation": "No se encontraron tableros"
+  },
+  "PDVw/v": {
+    "translation": "",
+    "message": "No boards yet. Create one to get started!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        42
+      ]
+    ]
+  },
+  "0/h2j3": {
+    "translation": "",
+    "message": "No cards assigned to you yet.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyCardsSection.tsx",
+        49
+      ]
+    ]
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7278,6 +7384,18 @@
       ]
     ],
     "translation": "No se encontraron proyectos"
+  },
+  "qeh+i+": {
+    "translation": "",
+    "message": "No recent activity on your cards.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/RecentActivitySection.tsx",
+        73
+      ]
+    ]
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7398,7 +7516,7 @@
     "origin": [
       [
         "src/components/WorkspaceMenu.tsx",
-        34
+        28
       ]
     ],
     "translation": "Abrir menú de comandos"
@@ -7446,11 +7564,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        385
+        386
       ]
     ],
-    "translation": "o",
-    "obsolete": true
+    "translation": "o"
   },
   "ZqDqbi": {
     "message": "Organize and find cards quickly with powerful filtering tools.",
@@ -7547,7 +7664,7 @@
     "origin": [
       [
         "src/components/Dashboard.tsx",
-        271
+        259
       ]
     ],
     "translation": "Contraseña ya establecida"
@@ -7571,7 +7688,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        263
+        264
       ]
     ],
     "translation": "Se requiere contraseña para iniciar sesión."
@@ -7583,7 +7700,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        262
+        263
       ]
     ],
     "translation": "Se requiere contraseña para registrarse."
@@ -7631,7 +7748,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        222
+        226
       ]
     ],
     "translation": "Pausado"
@@ -7659,7 +7776,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        222
+        226
       ]
     ],
     "translation": "Pendiente"
@@ -7859,11 +7976,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        411
+        412
       ]
     ],
-    "translation": "Por favor, introduce una dirección de correo electrónico válida",
-    "obsolete": true
+    "translation": "Por favor, introduce una dirección de correo electrónico válida"
   },
   "CJ3zUq": {
     "message": "Please enter a valid name",
@@ -7872,11 +7988,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        399
+        400
       ]
     ],
-    "translation": "Por favor, introduce un nombre válido",
-    "obsolete": true
+    "translation": "Por favor, introduce un nombre válido"
   },
   "7b2yuC": {
     "message": "Please enter a valid password",
@@ -7885,11 +8000,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        426
+        427
       ]
     ],
-    "translation": "Por favor, introduce una contraseña válida",
-    "obsolete": true
+    "translation": "Por favor, introduce una contraseña válida"
   },
   "jEw0Mr": {
     "message": "Please enter a valid URL",
@@ -8086,7 +8200,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        66
+        67
       ],
       [
         "src/views/onboarding/workspace-details/index.tsx",
@@ -8306,7 +8420,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        300
+        304
       ]
     ],
     "translation": "Plan Pro"
@@ -8407,6 +8521,18 @@
     ],
     "translation": "Victoria rápida"
   },
+  "XxlcGv": {
+    "translation": "",
+    "message": "Recent Activity",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/RecentActivitySection.tsx",
+        59
+      ]
+    ]
+  },
   "6EWT6T": {
     "message": "Recruitment",
     "placeholders": {},
@@ -8474,7 +8600,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        245
+        249
       ]
     ],
     "translation": "Eliminar miembro"
@@ -8745,7 +8871,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        344
+        348
       ]
     ],
     "translation": "Rol"
@@ -8757,7 +8883,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        58
+        59
       ]
     ],
     "translation": "Rol actualizado"
@@ -8885,7 +9011,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        311
+        315
       ]
     ],
     "translation": "puestos"
@@ -9153,7 +9279,7 @@
       ],
       [
         "src/components/SideNavigation.tsx",
-        147
+        159
       ]
     ],
     "translation": "Configuración"
@@ -9341,11 +9467,11 @@
     "origin": [
       [
         "src/views/auth/signup/index.tsx",
-        36
+        39
       ],
       [
         "src/views/auth/signup/index.tsx",
-        61
+        64
       ]
     ],
     "translation": "Registrarse | banana.bn"
@@ -9374,7 +9500,7 @@
     "origin": [
       [
         "src/views/auth/signup/index.tsx",
-        46
+        49
       ]
     ],
     "translation": "Registro deshabilitado"
@@ -9386,7 +9512,7 @@
     "origin": [
       [
         "src/views/auth/signup/index.tsx",
-        49
+        52
       ]
     ],
     "translation": "El registro está actualmente deshabilitado. Por favor, inténtalo de nuevo más tarde."
@@ -9398,11 +9524,10 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        442
+        443
       ]
     ],
-    "translation": "Registrarse con ",
-    "obsolete": true
+    "translation": "Registrarse con "
   },
   "m2nk0i": {
     "message": "Simple pricing",
@@ -9559,15 +9684,15 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        239
+        251
       ],
       [
         "src/components/SideNavigation.tsx",
-        240
+        252
       ],
       [
         "src/components/SideNavigation.tsx",
-        250
+        262
       ]
     ],
     "translation": "Iniciar prueba gratuita"
@@ -9615,11 +9740,11 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        220
+        221
       ],
       [
         "src/components/AuthForm.tsx",
-        237
+        238
       ]
     ],
     "translation": "Éxito"
@@ -9711,7 +9836,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        302
+        306
       ]
     ],
     "translation": "Plan de equipo"
@@ -9807,7 +9932,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        123
+        135
       ],
       [
         "src/views/home/components/Features.tsx",
@@ -10007,7 +10132,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        59
+        60
       ]
     ],
     "translation": "El rol del miembro se ha actualizado."
@@ -10911,7 +11036,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        65
+        66
       ]
     ],
     "translation": "No se pudo actualizar el rol"
@@ -11155,7 +11280,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        310
+        314
       ]
     ],
     "translation": "Puestos ilimitados"
@@ -11228,6 +11353,22 @@
     ],
     "translation": "Actualizar etiqueta"
   },
+  "4Y9aig": {
+    "translation": "",
+    "message": "Updated {0}",
+    "placeholders": {
+      "0": [
+        "formatRelativeDate(board.updatedAt)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        68
+      ]
+    ]
+  },
   "L5ZPjz": {
     "message": "updated a checklist item",
     "placeholders": {},
@@ -11299,7 +11440,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        287
+        291
       ],
       [
         "src/views/onboarding/select-plan/index.tsx",
@@ -11467,7 +11608,7 @@
     "origin": [
       [
         "src/views/members/index.tsx",
-        338
+        342
       ]
     ],
     "translation": "Usuario"
@@ -11791,7 +11932,7 @@
     "origin": [
       [
         "src/views/auth/login/index.tsx",
-        43
+        46
       ]
     ],
     "translation": "Bienvenido de nuevo"
@@ -11867,7 +12008,7 @@
       ],
       [
         "src/views/members/index.tsx",
-        270
+        274
       ],
       [
         "src/views/public/board/index.tsx",
@@ -12249,7 +12390,7 @@
       ],
       [
         "src/views/boards/components/BoardsList.tsx",
-        73
+        84
       ],
       [
         "src/views/boards/index.tsx",
@@ -12269,7 +12410,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        238
+        239
       ]
     ],
     "translation": "Has iniciado sesión correctamente."
@@ -12281,7 +12422,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        221
+        222
       ]
     ],
     "translation": "Te has registrado correctamente."
@@ -12378,7 +12519,7 @@
     "origin": [
       [
         "src/components/Dashboard.tsx",
-        273
+        261
       ]
     ],
     "translation": "Tu cuenta ya tiene una contraseña. Puedes cambiarla desde la configuración de tu cuenta."
