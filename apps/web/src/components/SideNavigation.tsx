@@ -96,6 +96,18 @@ export default function SideNavigation({
     keyboardShortcut: KeyboardShortcut;
   }[] = [
     {
+      name: t`Home`,
+      href: "/home",
+      icon: isDarkMode ? activityLogsIconDark : activityLogsIconLight,
+      keyboardShortcut: {
+        type: "SEQUENCE",
+        strokes: [{ key: "G" }, { key: "H" }],
+        action: () => router.push("/home"),
+        group: "NAVIGATION",
+        description: t`Go to home`,
+      },
+    },
+    {
       name: t`Boards`,
       href: "/boards",
       icon: isDarkMode ? boardsIconDark : boardsIconLight,
