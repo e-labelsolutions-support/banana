@@ -53,7 +53,7 @@ export const boards = pgTable(
     workspaceId: bigint("workspaceId", { mode: "number" })
       .notNull()
       .references(() => workspaces.id, { onDelete: "cascade" }),
-    visibility: boardVisibilityEnum("visibility").notNull().default("private"),
+    visibility: boardVisibilityEnum("visibility").notNull().default("public"),
     type: boardTypeEnum("type").notNull().default("regular"),
     isArchived: boolean("isArchived").notNull().default(false),
     sourceBoardId: bigint("sourceBoardId", { mode: "number" }),
