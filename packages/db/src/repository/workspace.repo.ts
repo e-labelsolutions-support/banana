@@ -228,6 +228,7 @@ export const getByPublicIdWithMembers = (
               name: true,
               email: true,
               image: true,
+              type: true,
             },
           },
         },

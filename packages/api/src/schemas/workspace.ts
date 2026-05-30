@@ -30,6 +30,7 @@ const workspaceMemberDetailSchema = z.object({
       name: z.string().nullable(),
       email: z.string().optional(),
       image: z.string().nullable(),
+      type: z.enum(["human", "bot"]).optional(),
     })
     .nullable(),
 });

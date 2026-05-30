@@ -14,6 +14,7 @@ import { authClient } from "@banana/auth/client";
 import { getSubscriptionByPlan, hasUnlimitedSeats } from "@banana/shared/utils";
 
 import Avatar from "~/components/Avatar";
+import BotBadge from "~/components/BotBadge";
 import Button from "~/components/Button";
 import Dropdown from "~/components/Dropdown";
 import FeedbackModal from "~/components/FeedbackModal";
@@ -97,6 +98,7 @@ export default function MembersPage() {
     memberImage,
     memberRole,
     memberStatus,
+    memberType,
     isLastRow,
     showSkeleton,
     showPendingIcon,
@@ -108,6 +110,7 @@ export default function MembersPage() {
     memberImage?: string | null | undefined;
     memberRole?: string;
     memberStatus?: string;
+    memberType?: "human" | "bot" | null;
     isLastRow?: boolean;
     showSkeleton?: boolean;
     showPendingIcon?: boolean;
@@ -144,10 +147,10 @@ export default function MembersPage() {
             </div>
             <div className="ml-2 min-w-0 flex-1">
               <div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-1.5">
                   <p
                     className={twMerge(
-                      "mr-2 truncate text-xs font-medium text-neutral-900 dark:text-dark-1000 sm:text-sm",
+                      "truncate text-xs font-medium text-neutral-900 dark:text-dark-1000 sm:text-sm",
                       showSkeleton &&
                         "md mb-2 h-3 w-[125px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-200",
                       showPendingIcon &&
@@ -156,6 +159,7 @@ export default function MembersPage() {
                   >
                     {memberName}
                   </p>
+                  {memberType === "bot" && <BotBadge />}
                 </div>
                 {(workspace.role === "admin" ||
                   data?.showEmailsToMembers === true ||
@@ -360,6 +364,7 @@ export default function MembersPage() {
                             memberImage={member.user?.image}
                             memberRole={member.role}
                             memberStatus={member.status}
+                            memberType={member.user?.type}
                             isLastRow={index === data.members.length - 1}
                             showPendingIcon={isPendingInvite}
                           />
