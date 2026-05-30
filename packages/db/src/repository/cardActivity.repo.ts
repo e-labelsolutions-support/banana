@@ -1,8 +1,8 @@
-import { and, asc, count, eq, gt, inArray, isNull, or } from "drizzle-orm";
+import { and, asc, count, desc, eq, gt, inArray, isNull, or } from "drizzle-orm";
 
 import type { dbClient } from "@banana/db/client";
 import type { ActivityType } from "@banana/db/schema";
-import { cardActivities, comments } from "@banana/db/schema";
+import { cardActivities, cardToWorkspaceMembers, comments, workspaceMembers } from "@banana/db/schema";
 import { generateUID } from "@banana/shared/utils";
 
 export const getCount = async (db: dbClient) => {
@@ -220,3 +220,96 @@ export const getPaginatedActivities = async (
 export type PaginatedActivitiesResult = Awaited<
   ReturnType<typeof getPaginatedActivities>
 >;
+
+export const getRecentForUser = async (
+  db: dbClient,
+  args: {
+    workspaceId: number;
+    userId: string;
+    limit: number;
+    cursor?: Date;
+  },
+) => {
+  const limit = args.limit ?? 20;
+  const cursor = args.cursor;
+
+  // Find cards the user is assigned to via the junction table
+  const assignedCardIds = await db
+    .select({ cardId: cardToWorkspaceMembers.cardId })
+    .from(cardToWorkspaceMembers)
+    .innerJoin(
+      workspaceMembers,
+      eq(cardToWorkspaceMembers.workspaceMemberId, workspaceMembers.id),
+    )
+    .where(
+      and(
+        eq(workspaceMembers.userId, args.userId),
+        eq(workspaceMembers.workspaceId, args.workspaceId),
+        eq(workspaceMembers.status, "active"),
+        isNull(workspaceMembers.deletedAt),
+      ),
+    );
+
+  const cardIdList = assignedCardIds.map((r) => r.cardId);
+
+  if (cardIdList.length === 0) {
+    return { activities: [], hasMore: false, nextCursor: undefined };
+  }
+
+  const activities = await db.query.cardActivities.findMany({
+    columns: {
+      publicId: true,
+      type: true,
+      createdAt: true,
+      fromTitle: true,
+      toTitle: true,
+    },
+    where: and(
+      inArray(cardActivities.cardId, cardIdList),
+      cursor ? gt(cardActivities.createdAt, cursor) : undefined,
+    ),
+    with: {
+      card: {
+        columns: {
+          publicId: true,
+          title: true,
+        },
+      },
+      user: {
+        columns: {
+          id: true,
+          name: true,
+          image: true,
+        },
+      },
+      member: {
+        columns: {
+          publicId: true,
+        },
+        with: {
+          user: {
+            columns: {
+              id: true,
+              name: true,
+              image: true,
+            },
+          },
+        },
+      },
+    },
+    orderBy: desc(cardActivities.createdAt),
+    limit: limit + 1,
+  });
+
+  const hasMore = activities.length > limit;
+  const items = activities.slice(0, limit);
+  const nextCursor = hasMore
+    ? items[items.length - 1]?.createdAt
+    : undefined;
+
+  return {
+    activities: items,
+    hasMore,
+    nextCursor,
+  };
+};
