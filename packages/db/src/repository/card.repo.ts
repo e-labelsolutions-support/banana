@@ -1137,7 +1137,7 @@ export const getAssignedCardsByUserId = async (
     )
     .limit(1);
 
-  if (!member) return [];
+  if (!member) return { cards: [], hasMore: false, nextCursor: undefined };
 
   const conditions = [
     isNull(cards.deletedAt),
@@ -1180,8 +1180,8 @@ export const getAssignedCardsByUserId = async (
 
   const hasMore = rows.length > args.limit;
   const items = rows.slice(0, args.limit);
-  const nextCursor = hasMore
-    ? items[items.length - 1]?.updatedAt
+  const nextCursor = hasMore && items[items.length - 1]?.updatedAt
+    ? items[items.length - 1]!.updatedAt!
     : undefined;
 
   const cardMap = new Map<
