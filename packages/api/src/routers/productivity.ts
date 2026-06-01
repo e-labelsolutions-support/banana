@@ -20,12 +20,13 @@ export const productivityRouter = createTRPCRouter({
     if (!userId) throw new Error("User not authenticated");
     const today = todayDate();
 
-    const [checkin, streak] = await Promise.all([
+    const [checkin, streak, recentCheckins] = await Promise.all([
       productivityRepo.getTodayCheckin(ctx.db, { userId, date: today }),
       productivityRepo.calculateStreak(ctx.db, { userId }),
+      productivityRepo.getRecentCheckins(ctx.db, { userId, limit: 7 }),
     ]);
 
-    return { today: checkin, streak };
+    return { today: checkin, streak, recentCheckins };
   }),
 
   setEnergyCheckin: protectedProcedure

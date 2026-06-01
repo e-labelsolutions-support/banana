@@ -1,5 +1,5 @@
 import { t } from "@lingui/core/macro";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { HiSparkles } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
@@ -23,8 +23,40 @@ export default function EnergyCheckinSection() {
     data?.today?.energyLevel ?? null,
   );
 
+  // Re-sync local state from server data after mutations/refetches
+  useEffect(() => {
+    if (data?.today) {
+      setSelectedLevel(data.today.energyLevel);
+      setNote(data.today.note ?? "");
+    }
+  }, [data?.today]);
+
   const currentLevel = data?.today?.energyLevel ?? selectedLevel;
   const streak = data?.streak ?? 0;
+
+  // Last 7 days for weekly overview
+  const last7Days = useMemo(() => {
+    const days: { date: string; label: string; isToday: boolean }[] = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const dateStr = d.toISOString().split("T")[0];
+      days.push({
+        date: dateStr,
+        label: d.toLocaleDateString(undefined, { weekday: "short" }).slice(0, 2),
+        isToday: i === 0,
+      });
+    }
+    return days;
+  }, []);
+
+  const checkinByDate = useMemo(() => {
+    const map = new Map<string, { energyLevel: number }>();
+    for (const c of data?.recentCheckins ?? []) {
+      map.set(c.date, c);
+    }
+    return map;
+  }, [data?.recentCheckins]);
 
   const handleSelect = (level: number) => {
     setSelectedLevel(level);
@@ -65,6 +97,37 @@ export default function EnergyCheckinSection() {
             🔥 {streak} {streak === 1 ? "day" : "days"}
           </span>
         )}
+      </div>
+
+      {/* Weekly overview row */}
+      <div className="mb-3 flex justify-between gap-1">
+        {last7Days.map(({ date, label, isToday }) => {
+          const checkin = checkinByDate.get(date);
+          const emoji = checkin
+            ? ENERGY_LEVELS.find((e) => e.level === checkin.energyLevel)?.emoji
+            : null;
+          return (
+            <div
+              key={date}
+              className={twMerge(
+                "flex flex-1 flex-col items-center gap-0.5 rounded-md py-1.5 text-center",
+                isToday && "ring-2 ring-amber-400 dark:ring-amber-500",
+                checkin
+                  ? "bg-light-100 dark:bg-dark-200"
+                  : "bg-light-100/50 dark:bg-dark-200/50",
+              )}
+            >
+              <span className="text-[10px] font-medium uppercase tracking-wide text-light-900 dark:text-dark-900">
+                {label}
+              </span>
+              <span className="text-sm leading-none">
+                {emoji ?? (
+                  <span className="text-light-400 dark:text-dark-400">-</span>
+                )}
+              </span>
+            </div>
+          );
+        })}
       </div>
 
       {isLoading ? (
