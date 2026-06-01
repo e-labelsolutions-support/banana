@@ -119,18 +119,22 @@ export default function SideQuestsSection() {
             </div>
           ))}
 
-          <div className="flex gap-1 pt-1">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleAdd();
-              }}
-              placeholder={t`Something you're curious about...`}
-              maxLength={200}
-              className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-emerald-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-emerald-500"
-            />
+          <div className="pt-1">
+            <label className="mb-1 block text-xs text-light-900 dark:text-dark-900">
+              {t`Something you're curious about...`}
+            </label>
+            <div className="flex gap-1">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleAdd();
+                }}
+                placeholder={t`Add a quest...`}
+                maxLength={200}
+                className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-emerald-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-emerald-500"
+              />
             <button
               onClick={handleAdd}
               disabled={!input.trim()}
@@ -138,6 +142,7 @@ export default function SideQuestsSection() {
             >
               {t`Add`}
             </button>
+            </div>
           </div>
 
           {quests.length === 0 && !showExplored && (

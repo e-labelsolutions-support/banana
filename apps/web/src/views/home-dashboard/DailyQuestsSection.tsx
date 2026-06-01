@@ -143,30 +143,35 @@ export default function DailyQuestsSection() {
                     {quest.action}
                   </span>
                 ) : (
-                  <div className="flex min-w-0 flex-1 gap-1">
-                    <input
-                      type="text"
-                      value={inputs[key]}
-                      onChange={(e) =>
-                        setInputs((prev) => ({
-                          ...prev,
-                          [key]: e.target.value,
-                        }))
-                      }
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") handleSave(key);
-                      }}
-                      placeholder={placeholder}
-                      maxLength={200}
-                      className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1 text-xs text-neutral-900 placeholder:text-light-900 focus:border-indigo-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-indigo-500"
-                    />
-                    <button
-                      onClick={() => handleSave(key)}
-                      disabled={!inputs[key]?.trim()}
-                      className="flex-shrink-0 rounded px-2 py-1 text-xs text-indigo-600 hover:bg-indigo-50 disabled:opacity-40 dark:text-indigo-400 dark:hover:bg-indigo-900/20"
-                    >
-                      {t`Set`}
-                    </button>
+                  <div className="min-w-0 flex-1">
+                    <label className="mb-1 block text-xs text-light-900 dark:text-dark-900">
+                      {placeholder}
+                    </label>
+                    <div className="flex gap-1">
+                      <input
+                        type="text"
+                        value={inputs[key]}
+                        onChange={(e) =>
+                          setInputs((prev) => ({
+                            ...prev,
+                            [key]: e.target.value,
+                          }))
+                        }
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") handleSave(key);
+                        }}
+                        placeholder={t`Set an action...`}
+                        maxLength={200}
+                        className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1 text-xs text-neutral-900 placeholder:text-light-900 focus:border-indigo-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-indigo-500"
+                      />
+                      <button
+                        onClick={() => handleSave(key)}
+                        disabled={!inputs[key]?.trim()}
+                        className="flex-shrink-0 rounded px-2 py-1 text-xs text-indigo-600 hover:bg-indigo-50 disabled:opacity-40 dark:text-indigo-400 dark:hover:bg-indigo-900/20"
+                      >
+                        {t`Set`}
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

@@ -68,18 +68,22 @@ export default function WinsSection() {
           ))}
 
           {wins.length < MAX_WINS_PER_DAY && (
-            <div className="flex gap-1">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleAdd();
-                }}
-                placeholder={t`Something worth celebrating today...`}
-                maxLength={500}
-                className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-yellow-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-yellow-500"
-              />
+            <div>
+              <label className="mb-1 block text-xs text-light-900 dark:text-dark-900">
+                {t`Something worth celebrating today`}
+              </label>
+              <div className="flex gap-1">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleAdd();
+                  }}
+                  placeholder={t`Add a win...`}
+                  maxLength={500}
+                  className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-yellow-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-yellow-500"
+                />
               <button
                 onClick={handleAdd}
                 disabled={!input.trim()}
@@ -87,6 +91,7 @@ export default function WinsSection() {
               >
                 {t`Add`}
               </button>
+              </div>
             </div>
           )}
 
