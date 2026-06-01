@@ -41,10 +41,12 @@ export default function HomeDashboardView() {
           {t`Home`}
         </h1>
 
+        <WeeklyOverviewBar cards={cards?.cards ?? []} />
+
         <h2 className="mb-3 text-sm font-semibold text-light-900 dark:text-dark-900">
           {t`Feel Good Productivity`}
         </h2>
-        <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <EnergyCheckinSection />
           <DailyQuestsSection />
           <WinsSection />
