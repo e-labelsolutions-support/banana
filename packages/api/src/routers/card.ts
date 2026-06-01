@@ -20,7 +20,7 @@ import {
 } from "../schemas";
 import { mergeActivities } from "../utils/activities";
 import { sendMentionEmails } from "../utils/notifications";
-import { sendMattermostNotification } from "../utils/mattermost";
+import { sendMattermostNotification, getCommenterEmails } from "../utils/mattermost";
 import { assertCanDelete, assertCanEdit, assertPermission } from "../utils/permissions";
 import { generateAttachmentUrl, generateAvatarUrl } from "@banana/shared/utils";
 import {
@@ -227,6 +227,18 @@ export const cardRouter = createTRPCRouter({
         }));
 
         await cardActivityRepo.bulkCreate(ctx.db, cardActivitesInsert);
+
+        // Notify each assigned member via Mattermost
+        sendMattermostNotification(
+          ctx.db,
+          newCardId,
+          newCard.publicId,
+          userId,
+          ctx.user?.name ?? "Someone",
+          "assigned you to",
+        ).catch((error) => {
+          console.error("Failed to send Mattermost notification:", error);
+        });
       }
 
       if (input.checklists.length > 0) {
@@ -369,6 +381,13 @@ export const cardRouter = createTRPCRouter({
         console.error("Failed to send mention emails:", error);
       });
 
+      // Fetch past commenters so they also get notified
+      const commenterEmails = await getCommenterEmails(
+        ctx.db,
+        card.id,
+        userId,
+      ).catch(() => [] as string[]);
+
       sendMattermostNotification(
         ctx.db,
         card.id,
@@ -376,6 +395,9 @@ export const cardRouter = createTRPCRouter({
         userId,
         ctx.user?.name ?? "Someone",
         "commented",
+        undefined,
+        undefined,
+        commenterEmails,
       ).catch((error) => {
         console.error("Failed to send Mattermost notification:", error);
       });
