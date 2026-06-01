@@ -65,8 +65,8 @@ export default function MyBoardsSection({
                 </p>
                 <p className="text-xs text-light-900 dark:text-dark-900">
                   {board.updatedAt
-                    ? t`Updated ${formatRelativeDate(board.updatedAt)}`
-                    : t`Created ${formatRelativeDate(board.createdAt)}`}
+                    ? `Updated ${formatRelativeDate(board.updatedAt)}`
+                    : `Created ${formatRelativeDate(board.createdAt)}`}
                 </p>
               </div>
             </Link>
