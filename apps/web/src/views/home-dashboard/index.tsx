@@ -35,7 +35,7 @@ export default function HomeDashboardView() {
   return (
     <>
       <PageHead title={t`Home | banana.bn`} />
-      <div className="m-auto h-full max-w-[1100px] overflow-y-auto p-8 px-5 md:px-28 md:py-12">
+      <div className="h-full overflow-y-auto p-8 px-5 md:px-8 md:py-12">
         <h1 className="mb-8 font-bold tracking-tight text-neutral-900 dark:text-dark-1000 sm:text-[1.2rem]">
           {t`Home`}
         </h1>
