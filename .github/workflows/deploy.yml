@@ -40,20 +40,31 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} <<DEPLOY
           cd ${{ secrets.DEPLOY_PATH }}
-          docker compose up -d --no-start
           docker tag banana-web:latest banana-web:candidate 2>/dev/null || true
           docker tag banana-migrate:latest banana-migrate:candidate 2>/dev/null || true
-          docker compose start -d web migrate 2>/dev/null || true
-          if ! timeout 30 docker compose logs -f --tail=0 web 2>/dev/null | grep -m1 -q "Ready"; then
-            echo "Health check failed, rolling back"
+          docker compose up -d
+          # Wait for migrate to finish (it depends_on postgres healthy)
+          if ! docker compose logs --exit-code-from migrate migrate 2>/dev/null; then
+            echo "Migration failed, rolling back"
+            docker compose logs migrate 2>/dev/null || true
             docker compose down
             docker tag banana-web:previous banana-web:latest 2>/dev/null || true
             docker tag banana-migrate:previous banana-migrate:latest 2>/dev/null || true
             docker compose up -d
-          else
-            docker tag banana-web:candidate banana-web:previous
-            docker tag banana-migrate:candidate banana-migrate:previous
+            exit 1
           fi
+          # Wait for web to become ready
+          if ! timeout 30 docker compose logs -f --tail=0 web 2>/dev/null | grep -m1 -q "Ready"; then
+            echo "Health check failed, rolling back"
+            docker compose logs web 2>/dev/null || true
+            docker compose down
+            docker tag banana-web:previous banana-web:latest 2>/dev/null || true
+            docker tag banana-migrate:previous banana-migrate:latest 2>/dev/null || true
+            docker compose up -d
+            exit 1
+          fi
+          docker tag banana-web:candidate banana-web:previous
+          docker tag banana-migrate:candidate banana-migrate:previous
           DEPLOY
 
       - name: Cleanup SSH key
