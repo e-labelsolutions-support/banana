@@ -450,6 +450,22 @@
     ],
     "translation": "Activity logs"
   },
+  "m16xKo": {
+    "translation": "Add",
+    "message": "Add",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        139
+      ],
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        88
+      ]
+    ]
+  },
   "UGCIzB": {
     "message": "Add / edit label",
     "placeholders": {},
@@ -1733,7 +1749,6 @@
     "translation": "Boards you archive will appear here."
   },
   "LGvHaQ": {
-    "translation": "Bot account",
     "message": "Bot account",
     "placeholders": {},
     "comments": [],
@@ -1742,7 +1757,8 @@
         "src/components/BotBadge.tsx",
         19
       ]
-    ]
+    ],
+    "translation": "Bot account"
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -2712,6 +2728,18 @@
     ],
     "translation": "Complete control and ownership:"
   },
+  "2PsTzL": {
+    "translation": "completed",
+    "message": "completed",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        81
+      ]
+    ]
+  },
   "Lt+ZP3": {
     "message": "completed a checklist item",
     "placeholders": {},
@@ -3317,7 +3345,6 @@
     "translation": "Created"
   },
   "MXSt4t": {
-    "translation": "Created {0}",
     "message": "Created {0}",
     "placeholders": {
       "0": [
@@ -3330,7 +3357,8 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         69
       ]
-    ]
+    ],
+    "translation": "Created {0}"
   },
   "f8lDFq": {
     "message": "created the card",
@@ -3528,6 +3556,18 @@
       ]
     ],
     "translation": "Customer Support"
+  },
+  "Xu7ysi": {
+    "translation": "Daily Quests",
+    "message": "Daily Quests",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        77
+      ]
+    ]
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4345,6 +4385,18 @@
     ],
     "translation": "End of list"
   },
+  "sJ5WJw": {
+    "translation": "Energy Check-In",
+    "message": "Energy Check-In",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/EnergyCheckinSection.tsx",
+        60
+      ]
+    ]
+  },
   "SUXBxp": {
     "message": "Engineering",
     "placeholders": {},
@@ -5042,6 +5094,18 @@
     ],
     "translation": "Feedback sent"
   },
+  "vUDIdF": {
+    "translation": "Feel Good Productivity",
+    "message": "Feel Good Productivity",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/index.tsx",
+        44
+      ]
+    ]
+  },
   "F6m23G": {
     "message": "File uploads",
     "placeholders": {},
@@ -5077,6 +5141,18 @@
       ]
     ],
     "translation": "Find answers to common questions about Kan. Can't find what you're looking for? Feel free to <0>contact us</0>."
+  },
+  "kWEIUh": {
+    "translation": "Find the Win",
+    "message": "Find the Win",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        37
+      ]
+    ]
   },
   "q3il6U": {
     "message": "Font size",
@@ -5463,7 +5539,6 @@
     "translation": "Go to calendar"
   },
   "TzFLgd": {
-    "translation": "Go to home",
     "message": "Go to home",
     "placeholders": {},
     "comments": [],
@@ -5472,7 +5547,8 @@
         "src/components/SideNavigation.tsx",
         107
       ]
-    ]
+    ],
+    "translation": "Go to home"
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5578,6 +5654,18 @@
     ],
     "translation": "Guest"
   },
+  "2Ff4j6": {
+    "translation": "Hide explored",
+    "message": "Hide explored",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        71
+      ]
+    ]
+  },
   "CB/NpV": {
     "message": "High Priority",
     "placeholders": {},
@@ -5615,7 +5703,6 @@
     "translation": "HMAC secret for signature verification"
   },
   "i0qMbr": {
-    "translation": "Home",
     "message": "Home",
     "placeholders": {},
     "comments": [],
@@ -5626,21 +5713,22 @@
       ],
       [
         "src/views/home-dashboard/index.tsx",
-        36
+        40
       ]
-    ]
+    ],
+    "translation": "Home"
   },
   "AUhER1": {
-    "translation": "Home | banana.bn",
     "message": "Home | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/index.tsx",
-        33
+        37
       ]
-    ]
+    ],
+    "translation": "Home | banana.bn"
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5653,6 +5741,18 @@
       ]
     ],
     "translation": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data."
+  },
+  "V1j0aV": {
+    "translation": "How are you feeling? (optional)",
+    "message": "How are you feeling? (optional)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/EnergyCheckinSection.tsx",
+        105
+      ]
+    ]
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6922,7 +7022,6 @@
     "translation": "moved the card to another list"
   },
   "eNj27B": {
-    "translation": "My Boards",
     "message": "My Boards",
     "placeholders": {},
     "comments": [],
@@ -6931,10 +7030,10 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         28
       ]
-    ]
+    ],
+    "translation": "My Boards"
   },
   "oFLZ3C": {
-    "translation": "My Cards",
     "message": "My Cards",
     "placeholders": {},
     "comments": [],
@@ -6943,7 +7042,8 @@
         "src/views/home-dashboard/MyCardsSection.tsx",
         35
       ]
-    ]
+    ],
+    "translation": "My Cards"
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7266,7 +7366,6 @@
     "translation": "No boards found"
   },
   "PDVw/v": {
-    "translation": "No boards yet. Create one to get started!",
     "message": "No boards yet. Create one to get started!",
     "placeholders": {},
     "comments": [],
@@ -7275,10 +7374,10 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         42
       ]
-    ]
+    ],
+    "translation": "No boards yet. Create one to get started!"
   },
   "0/h2j3": {
-    "translation": "No cards assigned to you yet.",
     "message": "No cards assigned to you yet.",
     "placeholders": {},
     "comments": [],
@@ -7287,7 +7386,8 @@
         "src/views/home-dashboard/MyCardsSection.tsx",
         49
       ]
-    ]
+    ],
+    "translation": "No cards assigned to you yet."
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7386,7 +7486,6 @@
     "translation": "No projects found"
   },
   "qeh+i+": {
-    "translation": "No recent activity on your cards.",
     "message": "No recent activity on your cards.",
     "placeholders": {},
     "comments": [],
@@ -7395,7 +7494,8 @@
         "src/views/home-dashboard/RecentActivitySection.tsx",
         73
       ]
-    ]
+    ],
+    "translation": "No recent activity on your cards."
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7425,6 +7525,18 @@
     ],
     "translation": "No roles found for this workspace yet."
   },
+  "QsLCXD": {
+    "translation": "No side quests. Follow your curiosity!",
+    "message": "No side quests. Follow your curiosity!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        145
+      ]
+    ]
+  },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
     "placeholders": {},
@@ -7436,6 +7548,18 @@
       ]
     ],
     "translation": "No webhooks configured. Add a webhook to receive notifications."
+  },
+  "7hw65y": {
+    "translation": "No wins yet. Find something to celebrate!",
+    "message": "No wins yet. Find something to celebrate!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        95
+      ]
+    ]
   },
   "9h7RDh": {
     "message": "Offer",
@@ -8522,7 +8646,6 @@
     "translation": "Quick Win"
   },
   "XxlcGv": {
-    "translation": "Recent Activity",
     "message": "Recent Activity",
     "placeholders": {},
     "comments": [],
@@ -8531,7 +8654,8 @@
         "src/views/home-dashboard/RecentActivitySection.tsx",
         59
       ]
-    ]
+    ],
+    "translation": "Recent Activity"
   },
   "6EWT6T": {
     "message": "Recruitment",
@@ -9188,6 +9312,18 @@
     ],
     "translation": "Senior"
   },
+  "NfZUor": {
+    "translation": "Set",
+    "message": "Set",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        168
+      ]
+    ]
+  },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
     "placeholders": {},
@@ -9379,6 +9515,30 @@
       ]
     ],
     "translation": "Shortcuts"
+  },
+  "1pv3tl": {
+    "translation": "Show explored",
+    "message": "Show explored",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        71
+      ]
+    ]
+  },
+  "8RFEAq": {
+    "translation": "Side Quests",
+    "message": "Side Quests",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        64
+      ]
+    ]
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9640,6 +9800,30 @@
       ]
     ],
     "translation": "Something went wrong during license activation."
+  },
+  "jOOtqe": {
+    "translation": "Something worth celebrating today...",
+    "message": "Something worth celebrating today...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        79
+      ]
+    ]
+  },
+  "TV51s2": {
+    "translation": "Something you're curious about...",
+    "message": "Something you're curious about...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        130
+      ]
+    ]
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -11354,7 +11538,6 @@
     "translation": "Update label"
   },
   "4Y9aig": {
-    "translation": "Updated {0}",
     "message": "Updated {0}",
     "placeholders": {
       "0": [
@@ -11367,7 +11550,8 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         68
       ]
-    ]
+    ],
+    "translation": "Updated {0}"
   },
   "L5ZPjz": {
     "message": "updated a checklist item",

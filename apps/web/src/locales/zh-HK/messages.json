@@ -424,6 +424,22 @@
     ],
     "translation": "活動日誌"
   },
+  "m16xKo": {
+    "translation": "",
+    "message": "Add",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        139
+      ],
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        88
+      ]
+    ]
+  },
   "UGCIzB": {
     "message": "Add / edit label",
     "placeholders": {},
@@ -1707,7 +1723,6 @@
     "translation": "你封存嘅看板會喺呢度顯示。"
   },
   "LGvHaQ": {
-    "translation": "",
     "message": "Bot account",
     "placeholders": {},
     "comments": [],
@@ -1716,7 +1731,8 @@
         "src/components/BotBadge.tsx",
         19
       ]
-    ]
+    ],
+    "translation": ""
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -2686,6 +2702,18 @@
     ],
     "translation": "完全控制同埋擁有權："
   },
+  "2PsTzL": {
+    "translation": "",
+    "message": "completed",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        81
+      ]
+    ]
+  },
   "Lt+ZP3": {
     "message": "completed a checklist item",
     "placeholders": {},
@@ -3291,7 +3319,6 @@
     "translation": "已建立"
   },
   "MXSt4t": {
-    "translation": "",
     "message": "Created {0}",
     "placeholders": {
       "0": [
@@ -3304,7 +3331,8 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         69
       ]
-    ]
+    ],
+    "translation": ""
   },
   "f8lDFq": {
     "message": "created the card",
@@ -3489,6 +3517,18 @@
       ]
     ],
     "translation": "客戶支援"
+  },
+  "Xu7ysi": {
+    "translation": "",
+    "message": "Daily Quests",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        77
+      ]
+    ]
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4306,6 +4346,18 @@
     ],
     "translation": "列表末尾"
   },
+  "sJ5WJw": {
+    "translation": "",
+    "message": "Energy Check-In",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/EnergyCheckinSection.tsx",
+        60
+      ]
+    ]
+  },
   "SUXBxp": {
     "message": "Engineering",
     "placeholders": {},
@@ -4990,6 +5042,18 @@
     ],
     "translation": "意見回饋已發送"
   },
+  "vUDIdF": {
+    "translation": "",
+    "message": "Feel Good Productivity",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/index.tsx",
+        44
+      ]
+    ]
+  },
   "F6m23G": {
     "message": "File uploads",
     "placeholders": {},
@@ -5025,6 +5089,18 @@
       ]
     ],
     "translation": "喺度搵吓關於 Banana 嘅常見問題。搵唔到你想搵嘅？歡迎<0>聯絡我哋</0>。"
+  },
+  "kWEIUh": {
+    "translation": "",
+    "message": "Find the Win",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        37
+      ]
+    ]
   },
   "q3il6U": {
     "message": "Font size",
@@ -5411,7 +5487,6 @@
     "translation": ""
   },
   "TzFLgd": {
-    "translation": "",
     "message": "Go to home",
     "placeholders": {},
     "comments": [],
@@ -5420,7 +5495,8 @@
         "src/components/SideNavigation.tsx",
         107
       ]
-    ]
+    ],
+    "translation": ""
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5526,6 +5602,18 @@
     ],
     "translation": "訪客"
   },
+  "2Ff4j6": {
+    "translation": "",
+    "message": "Hide explored",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        71
+      ]
+    ]
+  },
   "CB/NpV": {
     "message": "High Priority",
     "placeholders": {},
@@ -5563,7 +5651,6 @@
     "translation": "用於簽名驗證嘅 HMAC 密鑰"
   },
   "i0qMbr": {
-    "translation": "",
     "message": "Home",
     "placeholders": {},
     "comments": [],
@@ -5574,21 +5661,22 @@
       ],
       [
         "src/views/home-dashboard/index.tsx",
-        36
+        40
       ]
-    ]
+    ],
+    "translation": ""
   },
   "AUhER1": {
-    "translation": "",
     "message": "Home | banana.bn",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/index.tsx",
-        33
+        37
       ]
-    ]
+    ],
+    "translation": ""
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5601,6 +5689,18 @@
       ]
     ],
     "translation": "喺你自己嘅基礎設施上託管 Banana。適合需要完全控制數據嘅組織。"
+  },
+  "V1j0aV": {
+    "translation": "",
+    "message": "How are you feeling? (optional)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/EnergyCheckinSection.tsx",
+        105
+      ]
+    ]
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6818,7 +6918,6 @@
     "translation": "將卡片移到另一個列表"
   },
   "eNj27B": {
-    "translation": "",
     "message": "My Boards",
     "placeholders": {},
     "comments": [],
@@ -6827,10 +6926,10 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         28
       ]
-    ]
+    ],
+    "translation": ""
   },
   "oFLZ3C": {
-    "translation": "",
     "message": "My Cards",
     "placeholders": {},
     "comments": [],
@@ -6839,7 +6938,8 @@
         "src/views/home-dashboard/MyCardsSection.tsx",
         35
       ]
-    ]
+    ],
+    "translation": ""
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7162,7 +7262,6 @@
     "translation": "搵唔到看板"
   },
   "PDVw/v": {
-    "translation": "",
     "message": "No boards yet. Create one to get started!",
     "placeholders": {},
     "comments": [],
@@ -7171,10 +7270,10 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         42
       ]
-    ]
+    ],
+    "translation": ""
   },
   "0/h2j3": {
-    "translation": "",
     "message": "No cards assigned to you yet.",
     "placeholders": {},
     "comments": [],
@@ -7183,7 +7282,8 @@
         "src/views/home-dashboard/MyCardsSection.tsx",
         49
       ]
-    ]
+    ],
+    "translation": ""
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7282,7 +7382,6 @@
     "translation": "搵唔到專案"
   },
   "qeh+i+": {
-    "translation": "",
     "message": "No recent activity on your cards.",
     "placeholders": {},
     "comments": [],
@@ -7291,7 +7390,8 @@
         "src/views/home-dashboard/RecentActivitySection.tsx",
         73
       ]
-    ]
+    ],
+    "translation": ""
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7321,6 +7421,18 @@
     ],
     "translation": "呢個工作區仲未有角色。"
   },
+  "QsLCXD": {
+    "translation": "",
+    "message": "No side quests. Follow your curiosity!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        145
+      ]
+    ]
+  },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
     "placeholders": {},
@@ -7332,6 +7444,18 @@
       ]
     ],
     "translation": "未設定 Webhook。新增 Webhook 以接收通知。"
+  },
+  "7hw65y": {
+    "translation": "",
+    "message": "No wins yet. Find something to celebrate!",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        95
+      ]
+    ]
   },
   "9h7RDh": {
     "message": "Offer",
@@ -8418,7 +8542,6 @@
     "translation": "快速勝利"
   },
   "XxlcGv": {
-    "translation": "",
     "message": "Recent Activity",
     "placeholders": {},
     "comments": [],
@@ -8427,7 +8550,8 @@
         "src/views/home-dashboard/RecentActivitySection.tsx",
         59
       ]
-    ]
+    ],
+    "translation": ""
   },
   "6EWT6T": {
     "message": "Recruitment",
@@ -9084,6 +9208,18 @@
     ],
     "translation": "資深"
   },
+  "NfZUor": {
+    "translation": "",
+    "message": "Set",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        168
+      ]
+    ]
+  },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
     "placeholders": {},
@@ -9275,6 +9411,30 @@
       ]
     ],
     "translation": "快捷鍵"
+  },
+  "1pv3tl": {
+    "translation": "",
+    "message": "Show explored",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        71
+      ]
+    ]
+  },
+  "8RFEAq": {
+    "translation": "",
+    "message": "Side Quests",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        64
+      ]
+    ]
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9519,6 +9679,30 @@
       ]
     ],
     "translation": "授權啟用期間出咗問題。"
+  },
+  "jOOtqe": {
+    "translation": "",
+    "message": "Something worth celebrating today...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        79
+      ]
+    ]
+  },
+  "TV51s2": {
+    "translation": "",
+    "message": "Something you're curious about...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        130
+      ]
+    ]
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -11233,7 +11417,6 @@
     "translation": "更新標籤"
   },
   "4Y9aig": {
-    "translation": "",
     "message": "Updated {0}",
     "placeholders": {
       "0": [
@@ -11246,7 +11429,8 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         68
       ]
-    ]
+    ],
+    "translation": ""
   },
   "L5ZPjz": {
     "message": "updated a checklist item",
