@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { createNextApiContext } from "@banana/api/trpc";
@@ -8,7 +8,7 @@ import { withRateLimit } from "@banana/api/utils/rateLimit";
 import * as memberRepo from "@banana/db/repository/member.repo";
 import * as permissionRepo from "@banana/db/repository/permission.repo";
 import * as userRepo from "@banana/db/repository/user.repo";
-import { users, workspaceMembers } from "@banana/db/schema";
+import { account, users, workspaceMembers } from "@banana/db/schema";
 import { createLogger } from "@banana/logger";
 
 const log = createLogger("user-mattermost-sync");
@@ -138,6 +138,23 @@ async function handler(
           .where(eq(users.id, existing.id));
       }
 
+      // Ensure OIDC account link exists
+      const existingAccount = await db.query.account.findFirst({
+        columns: { id: true },
+        where: (a, { eq: eqFn, and: andFn }) =>
+          andFn(eqFn(a.providerId, "oidc"), eqFn(a.userId, existing.id)),
+      }).catch(() => null);
+      if (!existingAccount) {
+        await db.insert(account).values({
+          accountId: mmUser.id,
+          providerId: "oidc",
+          userId: existing.id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+        log.info({ userId: existing.id, mattermostId: mmUser.id }, "Linked OIDC account for existing user");
+      }
+
       // Ensure they're in the workspace
       const membership = await db.query.workspaceMembers.findFirst({
         columns: { id: true },
@@ -179,6 +196,15 @@ async function handler(
       results.push({ email: mmUser.email, name: displayName, status: "error" });
       continue;
     }
+
+    // Create OIDC account link
+    await db.insert(account).values({
+      accountId: mmUser.id,
+      providerId: "oidc",
+      userId: user.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
 
     // Auto-join to workspace
     await memberRepo.create(db, {
