@@ -56,13 +56,13 @@ export default function HomeDashboardView() {
         <div className="mb-6 border-t border-light-300 dark:border-dark-300" />
 
         <div className="space-y-8">
-          <MyBoardsSection
-            boards={boards ?? []}
-            isLoading={boardsLoading}
-          />
           <MyCardsSection
             cards={cards?.cards ?? []}
             isLoading={cardsLoading}
+          />
+          <MyBoardsSection
+            boards={boards ?? []}
+            isLoading={boardsLoading}
           />
           <RecentActivitySection
             activities={activity?.activities ?? []}
