@@ -1,6 +1,9 @@
 import { t } from "@lingui/core/macro";
 import { HiArrowPath } from "react-icons/hi2";
 
+import { useWorkspace } from "~/providers/workspace";
+import { api } from "~/utils/api";
+
 interface Activity {
   publicId: string;
   type: string;
@@ -26,11 +29,6 @@ interface Activity {
   } | null;
 }
 
-interface RecentActivitySectionProps {
-  activities: Activity[];
-  isLoading: boolean;
-}
-
 const ACTIVITY_TYPE_LABELS: Record<string, string> = {
   "card.created": "created",
   "card.updated.title": "renamed",
@@ -49,10 +47,20 @@ const ACTIVITY_TYPE_LABELS: Record<string, string> = {
   "card.attachment.added": "added attachment to",
 };
 
-export default function RecentActivitySection({
-  activities,
-  isLoading,
-}: RecentActivitySectionProps) {
+export default function RecentActivitySection() {
+  const { workspace } = useWorkspace();
+
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    api.dashboard.recentActivity.useInfiniteQuery(
+      { workspacePublicId: workspace.publicId, limit: 5 },
+      {
+        enabled: !!workspace.publicId,
+        getNextPageParam: (lastPage) => lastPage.nextCursor,
+      },
+    );
+
+  const activities = data?.pages.flatMap((p) => p.activities) ?? [];
+
   return (
     <section>
       <h2 className="mb-3 text-sm font-semibold text-light-900 dark:text-dark-900">
@@ -102,6 +110,16 @@ export default function RecentActivitySection({
               </div>
             );
           })}
+
+          {hasNextPage && (
+            <button
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+              className="mt-2 w-full rounded-md px-3 py-1.5 text-xs text-light-900 hover:bg-light-200 disabled:opacity-50 dark:text-dark-900 dark:hover:bg-dark-200"
+            >
+              {isFetchingNextPage ? t`Loading...` : t`Load more`}
+            </button>
+          )}
         </div>
       )}
     </section>

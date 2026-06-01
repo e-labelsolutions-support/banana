@@ -27,12 +27,6 @@ export default function HomeDashboardView() {
       { enabled: !!workspace.publicId },
     );
 
-  const { data: activity, isLoading: activityLoading } =
-    api.dashboard.recentActivity.useQuery(
-      { workspacePublicId: workspace.publicId },
-      { enabled: !!workspace.publicId },
-    );
-
   return (
     <>
       <PageHead title={t`Home | banana.bn`} />
@@ -64,10 +58,7 @@ export default function HomeDashboardView() {
             boards={boards ?? []}
             isLoading={boardsLoading}
           />
-          <RecentActivitySection
-            activities={activity?.activities ?? []}
-            isLoading={activityLoading}
-          />
+          <RecentActivitySection />
         </div>
       </div>
     </>
