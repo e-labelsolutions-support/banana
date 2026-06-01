@@ -25,7 +25,7 @@ export default function MyBoardsSection({
   return (
     <section>
       <h2 className="mb-3 text-sm font-semibold text-light-900 dark:text-dark-900">
-        {t`My Boards`}
+        {t`Boards`}
       </h2>
 
       {isLoading ? (
@@ -39,7 +39,7 @@ export default function MyBoardsSection({
         </div>
       ) : boards.length === 0 ? (
         <p className="text-sm text-light-900 dark:text-dark-900">
-          {t`No boards yet. Create one to get started!`}
+          {t`No boards found.`}
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
