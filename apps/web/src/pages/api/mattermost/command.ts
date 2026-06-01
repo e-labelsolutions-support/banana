@@ -347,7 +347,7 @@ async function handleCreate(
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
-  const resolved = await resolveBoardAndList(db, workspace.id, userId, boardName);
+  const resolved = await resolveBoardAndList(db, workspace.workspace.id, userId, boardName);
   if ("error" in resolved) {
     return res.json({ text: resolved.error });
   }
@@ -416,7 +416,7 @@ async function handlePlan(
     return res.json({ text: GENERIC_AUTH_ERROR });
   }
 
-  const resolved = await resolveBoardAndList(db, workspace.id, userId, boardName);
+  const resolved = await resolveBoardAndList(db, workspace.workspace.id, userId, boardName);
   if ("error" in resolved) {
     return res.json({ text: resolved.error });
   }
