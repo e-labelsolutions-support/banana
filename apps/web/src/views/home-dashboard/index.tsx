@@ -9,6 +9,7 @@ import MyBoardsSection from "./MyBoardsSection";
 import MyCardsSection from "./MyCardsSection";
 import RecentActivitySection from "./RecentActivitySection";
 import SideQuestsSection from "./SideQuestsSection";
+import WeeklyOverviewBar from "./WeeklyOverviewBar";
 import WinsSection from "./WinsSection";
 
 export default function HomeDashboardView() {
