@@ -144,9 +144,6 @@ export default function DailyQuestsSection() {
                   </span>
                 ) : (
                   <div className="min-w-0 flex-1">
-                    <label className="mb-1 block text-xs text-light-900 dark:text-dark-900">
-                      {placeholder}
-                    </label>
                     <div className="flex gap-1">
                       <input
                         type="text"
@@ -160,6 +157,7 @@ export default function DailyQuestsSection() {
                         onKeyDown={(e) => {
                           if (e.key === "Enter") handleSave(key);
                         }}
+                        title={placeholder}
                         placeholder={t`Set an action...`}
                         maxLength={200}
                         className="min-w-0 flex-1 rounded border border-light-300 bg-transparent px-2 py-1 text-xs text-neutral-900 placeholder:text-light-900 focus:border-indigo-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-indigo-500"

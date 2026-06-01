@@ -160,23 +160,15 @@ export default function EnergyCheckinSection() {
           </div>
 
           {currentLevel && (
-            <div>
-              <label className="mb-1 block text-xs text-light-900 dark:text-dark-900">
-                {t`How are you feeling?`}{" "}
-                <span className="text-light-400 dark:text-dark-400">
-                  ({t`optional`})
-                </span>
-              </label>
-              <input
-                type="text"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                onBlur={handleNoteBlur}
-                placeholder={t`Add a note...`}
-                maxLength={280}
-                className="w-full rounded-md border border-light-300 bg-transparent px-3 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-amber-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-amber-500"
-              />
-            </div>
+            <input
+              type="text"
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              onBlur={handleNoteBlur}
+              placeholder={t`How are you feeling? (optional)`}
+              maxLength={280}
+              className="w-full rounded-md border border-light-300 bg-transparent px-3 py-1.5 text-xs text-neutral-900 placeholder:text-light-900 focus:border-amber-400 focus:outline-none dark:border-dark-300 dark:text-dark-1000 dark:placeholder:text-dark-900 dark:focus:border-amber-500"
+            />
           )}
         </>
       )}
