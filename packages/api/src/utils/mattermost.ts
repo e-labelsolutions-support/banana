@@ -1,8 +1,8 @@
-import { eq, and, isNull } from "drizzle-orm";
+import { eq, and, isNull, ne } from "drizzle-orm";
 
 import type { dbClient } from "@banana/db/client";
 import * as cardRepo from "@banana/db/repository/card.repo";
-import { cardToWorkspaceMembers, workspaceMembers } from "@banana/db/schema";
+import { cardToWorkspaceMembers, comments, workspaceMembers } from "@banana/db/schema";
 import { createLogger } from "@banana/logger";
 import { env } from "next-runtime-env";
 
@@ -148,6 +148,28 @@ async function getCardMemberEmails(
   return result.map((r) => r.email);
 }
 
+export async function getCommenterEmails(
+  db: dbClient,
+  cardId: number,
+  excludeUserId?: string,
+): Promise<string[]> {
+  const conditions = [eq(comments.cardId, cardId), isNull(comments.deletedAt)];
+  if (excludeUserId) {
+    conditions.push(ne(comments.createdBy, excludeUserId));
+  }
+
+  const result = await db
+    .selectDistinct({ email: workspaceMembers.email })
+    .from(comments)
+    .innerJoin(
+      workspaceMembers,
+      eq(comments.createdBy, workspaceMembers.userId),
+    )
+    .where(and(...conditions));
+
+  return result.map((r) => r.email).filter((e): e is string => !!e);
+}
+
 export async function sendMattermostNotification(
   db: dbClient,
   cardId: number,
@@ -157,6 +179,7 @@ export async function sendMattermostNotification(
   action: string,
   details?: string,
   targetEmail?: string,
+  additionalEmails?: string[],
 ): Promise<void> {
   const config = getMattermostConfig();
   if (!config) return;
@@ -165,9 +188,15 @@ export async function sendMattermostNotification(
     const fullCard = await cardRepo.getByPublicId(db, cardPublicId);
     const cardTitle = fullCard?.title ?? "Card";
 
-    const memberEmails = targetEmail
+    let memberEmails = targetEmail
       ? [targetEmail]
       : await getCardMemberEmails(db, cardId, actorUserId);
+
+    if (additionalEmails && additionalEmails.length > 0) {
+      const combined = new Set([...memberEmails, ...additionalEmails]);
+      memberEmails = [...combined];
+    }
+
     if (memberEmails.length === 0) return;
 
     const baseUrl = env("NEXT_PUBLIC_BASE_URL");
