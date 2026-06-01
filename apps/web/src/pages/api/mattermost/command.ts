@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { and, eq, isNull } from "drizzle-orm";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 
@@ -11,6 +12,7 @@ import * as cardRepo from "@banana/db/repository/card.repo";
 import * as checklistRepo from "@banana/db/repository/checklist.repo";
 import * as listRepo from "@banana/db/repository/list.repo";
 import * as workspaceRepo from "@banana/db/repository/workspace.repo";
+import { workspaceMembers } from "@banana/db/schema";
 import { createLogger } from "@banana/logger";
 
 const log = createLogger("mattermost-command");
@@ -246,12 +248,12 @@ async function resolveBotUserId(
   db: import("@banana/db/client").dbClient,
 ): Promise<string | null> {
   const botEmail = process.env.KAN_BOT_EMAIL ?? "banana@localhost";
-  const member = await db.query.workspaceMembers.findFirst({
-    columns: { userId: true },
-    where: (wm, { eq, isNull }) =>
-      and(eq(wm.email, botEmail), isNull(wm.deletedAt)),
-  });
-  return member?.userId ?? null;
+  const members = await db
+    .select({ userId: workspaceMembers.userId })
+    .from(workspaceMembers)
+    .where(and(eq(workspaceMembers.email, botEmail), isNull(workspaceMembers.deletedAt)))
+    .limit(1);
+  return members[0]?.userId ?? null;
 }
 
 async function resolveUserId(
