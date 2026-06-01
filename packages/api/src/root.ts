@@ -11,6 +11,7 @@ import { labelRouter } from "./routers/label";
 import { listRouter } from "./routers/list";
 import { memberRouter } from "./routers/member";
 import { permissionRouter } from "./routers/permission";
+import { productivityRouter } from "./routers/productivity";
 import { userRouter } from "./routers/user";
 import { webhookRouter } from "./routers/webhook";
 import { workspaceRouter } from "./routers/workspace";
@@ -29,6 +30,7 @@ export const appRouter = createTRPCRouter({
   member: memberRouter,
   import: importRouter,
   permission: permissionRouter,
+  productivity: productivityRouter,
   user: userRouter,
   webhook: webhookRouter,
   workspace: workspaceRouter,
