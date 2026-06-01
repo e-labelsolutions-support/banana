@@ -15,6 +15,12 @@ import { imports } from "./imports";
 import { lists } from "./lists";
 import { workspaceMembers, workspaces } from "./workspaces";
 import { integrations } from "./integrations";
+import {
+  userEnergyCheckin,
+  userDailyQuest,
+  userWin,
+  userSideQuest,
+} from "./productivity";
 
 export const userTypeStatuses = ["human", "bot"] as const;
 export type UserType = (typeof userTypeStatuses)[number];
@@ -63,6 +69,18 @@ export const usersRelations = relations(users, ({ many }) => ({
   }),
   apiKeys: many(apikey),
   integrations: many(integrations),
+  energyCheckins: many(userEnergyCheckin, {
+    relationName: "energyCheckinUser",
+  }),
+  dailyQuests: many(userDailyQuest, {
+    relationName: "dailyQuestUser",
+  }),
+  wins: many(userWin, {
+    relationName: "winUser",
+  }),
+  sideQuests: many(userSideQuest, {
+    relationName: "sideQuestUser",
+  }),
 }));
 
 export const usersToWorkspacesRelations = relations(
