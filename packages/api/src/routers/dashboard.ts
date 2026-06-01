@@ -14,9 +14,9 @@ export const dashboardRouter = createTRPCRouter({
       openapi: {
         method: "GET",
         path: "/dashboard/my-boards",
-        summary: "Get boards created by the current user",
+        summary: "Get boards in workspace",
         description:
-          "Retrieves boards created by the authenticated user in a workspace",
+          "Retrieves all active boards in the authenticated user's workspace",
         tags: ["Dashboard"],
         protect: true,
       },
@@ -54,9 +54,8 @@ export const dashboardRouter = createTRPCRouter({
 
       await assertPermission(ctx.db, userId, workspace.id, "board:view");
 
-      return boardRepo.getCreatedByUserId(ctx.db, {
+      return boardRepo.getActiveByWorkspaceId(ctx.db, {
         workspaceId: workspace.id,
-        userId,
         limit: input.limit,
       });
     }),

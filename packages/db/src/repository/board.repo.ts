@@ -1000,11 +1000,10 @@ export const removeUserFavorite = async (
     .returning();
 };
 
-export const getCreatedByUserId = async (
+export const getActiveByWorkspaceId = async (
   db: dbClient,
   args: {
     workspaceId: number;
-    userId: string;
     limit: number;
   },
 ) => {
@@ -1020,8 +1019,8 @@ export const getCreatedByUserId = async (
     },
     where: and(
       eq(boards.workspaceId, args.workspaceId),
-      eq(boards.createdBy, args.userId),
       eq(boards.type, "regular"),
+      eq(boards.isArchived, false),
       isNull(boards.deletedAt),
     ),
     orderBy: desc(boards.updatedAt),
