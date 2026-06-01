@@ -3,10 +3,10 @@ import { z } from "zod";
 import * as activityRepo from "@banana/db/repository/cardActivity.repo";
 import * as boardRepo from "@banana/db/repository/board.repo";
 import * as cardRepo from "@banana/db/repository/card.repo";
+import * as permissionRepo from "@banana/db/repository/permission.repo";
 import * as workspaceRepo from "@banana/db/repository/workspace.repo";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
-import { assertPermission } from "../utils/permissions";
 
 export const dashboardRouter = createTRPCRouter({
   myBoards: protectedProcedure
@@ -52,7 +52,14 @@ export const dashboardRouter = createTRPCRouter({
       if (!workspace)
         throw new Error("Workspace not found");
 
-      await assertPermission(ctx.db, userId, workspace.id, "board:view");
+      // Any workspace member can see the board list on their dashboard
+      const member = await permissionRepo.getMemberWithRole(
+        ctx.db,
+        userId,
+        workspace.id,
+      );
+      if (!member)
+        throw new Error("Not a member of this workspace");
 
       return boardRepo.getActiveByWorkspaceId(ctx.db, {
         workspaceId: workspace.id,
@@ -115,7 +122,14 @@ export const dashboardRouter = createTRPCRouter({
       if (!workspace)
         throw new Error("Workspace not found");
 
-      await assertPermission(ctx.db, userId, workspace.id, "card:view");
+      // Any workspace member can see their own assigned cards
+      const cardMember = await permissionRepo.getMemberWithRole(
+        ctx.db,
+        userId,
+        workspace.id,
+      );
+      if (!cardMember)
+        throw new Error("Not a member of this workspace");
 
       return cardRepo.getAssignedCardsByUserId(ctx.db, {
         workspaceId: workspace.id,
@@ -163,7 +177,14 @@ export const dashboardRouter = createTRPCRouter({
       if (!workspace)
         throw new Error("Workspace not found");
 
-      await assertPermission(ctx.db, userId, workspace.id, "card:view");
+      // Any workspace member can see activity on their cards
+      const activityMember = await permissionRepo.getMemberWithRole(
+        ctx.db,
+        userId,
+        workspace.id,
+      );
+      if (!activityMember)
+        throw new Error("Not a member of this workspace");
 
       return activityRepo.getRecentForUser(ctx.db, {
         workspaceId: workspace.id,
