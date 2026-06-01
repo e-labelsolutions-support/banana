@@ -77,8 +77,8 @@ WORKDIR /db
 COPY packages/db/drizzle.config.ts ./drizzle.config.ts
 COPY packages/db/migrations/ ./migrations/
 
-RUN npm init -y && \
-    npm install drizzle-kit drizzle-orm pg --save-exact && \
+RUN echo '{"name":"db-migrate","type":"module","version":"1.0.0"}' > package.json && \
+    npm install drizzle-kit@0.28.1 drizzle-orm@0.42.0 pg@8.16.3 && \
     # Strip unnecessary files from node_modules
     find node_modules -type f \( \
       -name '*.d.ts' -o \

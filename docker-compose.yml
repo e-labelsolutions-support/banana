@@ -22,6 +22,7 @@ services:
       dockerfile: apps/web/Dockerfile
       target: migrate
     environment:
+      - NODE_ENV=production
       - POSTGRES_URL=${POSTGRES_URL}
     depends_on:
       postgres:
