@@ -44,7 +44,7 @@ jobs:
           docker tag banana-migrate:latest banana-migrate:candidate 2>/dev/null || true
           docker compose up -d
           # Wait for migrate to finish and capture its exit code
-          MIGRATE_CID=\$(docker compose ps -q migrate)
+          MIGRATE_CID=\$(docker compose ps -aq migrate)
           MIGRATE_EXIT=\$(docker wait "\$MIGRATE_CID" 2>/dev/null || echo 1)
           if [ "\$MIGRATE_EXIT" != "0" ]; then
             echo "Migration failed (exit code \$MIGRATE_EXIT), rolling back"
