@@ -52,7 +52,10 @@ docker-compose.override.yml
 __ENV.js
 i18n.cache
 
-# pgdata
-/apps/web/pgdata
+# pgdata (local postgres data)
+pgdata/
+
+# pnpm store
+.pnpm-store/
 
 .claude
