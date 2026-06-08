@@ -129,7 +129,7 @@ volumes:
 docker compose up -d
 ```
 
-The `migrate` service will automatically run database migrations before the web service starts. The application will be available at http://localhost:3000 (or the port specified in `WEB_PORT`).
+The `migrate` service will automatically run database migrations before the web service starts. A `seed` service then creates a default dev account (`test@test.com` / `Test123`). The application will be available at http://localhost:3000 (or the port specified in `WEB_PORT`).
 
 **Managing containers:**
 
@@ -162,7 +162,13 @@ pnpm install
 pnpm db:migrate
 ```
 
-5. Start the development server
+5. Seed a local dev account (`test@test.com` / `Test123`) with boards and lists
+
+```bash
+pnpm db:seed
+```
+
+6. Start the development server
 
 ```bash
 pnpm dev
