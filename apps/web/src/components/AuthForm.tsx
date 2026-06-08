@@ -37,6 +37,9 @@ import { usePopup } from "~/providers/popup";
 
 type AuthProvider = SocialProvider | "oidc";
 
+const LOCAL_DEV_EMAIL = "test@test.com";
+const LOCAL_DEV_PASSWORD = "Test123";
+
 interface FormValues {
   name?: string;
   email: string;
@@ -191,6 +194,13 @@ export function Auth({
     watch,
   } = useForm<FormValues>({
     resolver: zodResolver(EmailSchema),
+    defaultValues:
+      process.env.NODE_ENV === "development"
+        ? {
+            email: LOCAL_DEV_EMAIL,
+            password: LOCAL_DEV_PASSWORD,
+          }
+        : undefined,
   });
 
   const { data: socialProviders } = useQuery({
