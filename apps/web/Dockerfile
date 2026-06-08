@@ -100,6 +100,17 @@ RUN echo '{"name":"db-migrate","type":"module","version":"1.0.0"}' > package.jso
 CMD ["npx", "drizzle-kit", "migrate"]
 
 # ============================================
+# Stage 5b: Local dev seed (run-once container)
+# ============================================
+FROM deps AS seed
+WORKDIR /app
+
+COPY --from=pruner /app/out/full/ .
+
+ENV NODE_ENV=production
+CMD ["pnpm", "exec", "tsx", "packages/db/scripts/seed-local.ts"]
+
+# ============================================
 # Stage 6: Production web image
 # ============================================
 FROM node:${NODE_VERSION}-alpine AS web

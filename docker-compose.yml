@@ -2,6 +2,8 @@ services:
   postgres:
     image: postgres:15
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: banana_db
       POSTGRES_USER: banana
@@ -27,6 +29,19 @@ services:
         condition: service_healthy
     restart: "no"
 
+  seed:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      target: seed
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_URL=${POSTGRES_URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+
   web:
     build:
       context: .
@@ -36,8 +51,11 @@ services:
       - "${WEB_PORT:-3000}:3000"
     env_file:
       - .env
+    environment:
+      - NEXT_PUBLIC_ALLOW_CREDENTIALS=true
+      - NEXT_PUBLIC_DISABLE_EMAIL=true
     depends_on:
-      migrate:
+      seed:
         condition: service_completed_successfully
     restart: unless-stopped
 
