@@ -1,3 +1,4 @@
+import type { Subscription } from "@banana/shared/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Button } from "@headlessui/react";
@@ -12,7 +13,6 @@ import {
 } from "react-icons/tb";
 import { twMerge } from "tailwind-merge";
 
-import type { Subscription } from "@banana/shared/utils";
 import { hasActiveSubscription } from "@banana/shared/utils";
 
 import type { KeyboardShortcut } from "~/providers/keyboard-shortcuts";
@@ -20,6 +20,8 @@ import activityLogsIconDark from "~/assets/activity-logs-dark.json";
 import activityLogsIconLight from "~/assets/activity-logs-light.json";
 import boardsIconDark from "~/assets/boards-dark.json";
 import boardsIconLight from "~/assets/boards-light.json";
+import homeIconDark from "~/assets/home-dark.json";
+import homeIconLight from "~/assets/home-light.json";
 import membersIconDark from "~/assets/members-dark.json";
 import membersIconLight from "~/assets/members-light.json";
 import settingsIconDark from "~/assets/settings-dark.json";
@@ -98,7 +100,7 @@ export default function SideNavigation({
     {
       name: t`Home`,
       href: "/home",
-      icon: isDarkMode ? activityLogsIconDark : activityLogsIconLight,
+      icon: isDarkMode ? homeIconDark : homeIconLight,
       keyboardShortcut: {
         type: "SEQUENCE",
         strokes: [{ key: "G" }, { key: "H" }],
