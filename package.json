@@ -15,6 +15,7 @@
     "db:push": "turbo -F @banana/db push",
     "db:studio": "turbo -F @banana/db studio",
     "dev": "turbo watch dev -F @banana/web...",
+    "dev:docker": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up",
     "dev:all": "turbo watch dev --continue",
     "dev:docs": "pnpm --filter @banana/docs start",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
