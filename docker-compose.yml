@@ -29,19 +29,6 @@ services:
         condition: service_healthy
     restart: "no"
 
-  seed:
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
-      target: seed
-    environment:
-      - NODE_ENV=production
-      - POSTGRES_URL=${POSTGRES_URL}
-    depends_on:
-      migrate:
-        condition: service_completed_successfully
-    restart: "no"
-
   web:
     build:
       context: .
@@ -55,7 +42,7 @@ services:
       - NEXT_PUBLIC_ALLOW_CREDENTIALS=true
       - NEXT_PUBLIC_DISABLE_EMAIL=true
     depends_on:
-      seed:
+      migrate:
         condition: service_completed_successfully
     restart: unless-stopped
 
