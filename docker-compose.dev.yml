@@ -1,0 +1,21 @@
+# Dev override: adds seed service for initial database population.
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  seed:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      target: seed
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_URL=${POSTGRES_URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+
+  web:
+    depends_on:
+      seed:
+        condition: service_completed_successfully
