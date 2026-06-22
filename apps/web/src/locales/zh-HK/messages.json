@@ -438,7 +438,7 @@
         90
       ]
     ],
-    "translation": ""
+    "translation": "新增"
   },
   "UGCIzB": {
     "message": "Add / edit label",
@@ -465,7 +465,7 @@
     "translation": "新增卡片"
   },
   "P06aiF": {
-    "translation": "",
+    "translation": "新增任務...",
     "message": "Add a quest...",
     "placeholders": {},
     "comments": [],
@@ -477,7 +477,7 @@
     ]
   },
   "145/oz": {
-    "translation": "",
+    "translation": "新增成就...",
     "message": "Add a win...",
     "placeholders": {},
     "comments": [],
@@ -884,7 +884,7 @@
         88
       ]
     ],
-    "translation": ""
+    "translation": "所有看板"
   },
   "h2ztFt": {
     "message": "All Free features +",
@@ -1760,7 +1760,7 @@
         19
       ]
     ],
-    "translation": ""
+    "translation": "機械人帳戶"
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -1812,7 +1812,7 @@
         65
       ]
     ],
-    "translation": ""
+    "translation": "日曆"
   },
   "jPZgnG": {
     "message": "Calendar | {0}",
@@ -1828,7 +1828,7 @@
         60
       ]
     ],
-    "translation": ""
+    "translation": "日曆 | {0}"
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2472,7 +2472,7 @@
         641
       ]
     ],
-    "translation": ""
+    "translation": "檢查清單"
   },
   "GnRmu4": {
     "message": "Checklist name",
@@ -2740,7 +2740,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "已完成"
   },
   "Lt+ZP3": {
     "message": "completed a checklist item",
@@ -3360,7 +3360,7 @@
         69
       ]
     ],
-    "translation": "",
+    "translation": "建立 {0}",
     "obsolete": true
   },
   "f8lDFq": {
@@ -3557,7 +3557,7 @@
         77
       ]
     ],
-    "translation": ""
+    "translation": "每日任務"
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4385,7 +4385,7 @@
         92
       ]
     ],
-    "translation": ""
+    "translation": "能量簽到"
   },
   "SUXBxp": {
     "message": "Engineering",
@@ -5081,7 +5081,7 @@
         41
       ]
     ],
-    "translation": ""
+    "translation": "快樂生產力"
   },
   "F6m23G": {
     "message": "File uploads",
@@ -5129,7 +5129,7 @@
         37
       ]
     ],
-    "translation": ""
+    "translation": "發掘成就"
   },
   "q3il6U": {
     "message": "Font size",
@@ -5513,7 +5513,7 @@
         133
       ]
     ],
-    "translation": ""
+    "translation": "前往日曆"
   },
   "TzFLgd": {
     "message": "Go to home",
@@ -5525,7 +5525,7 @@
         109
       ]
     ],
-    "translation": ""
+    "translation": "前往主頁"
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5641,7 +5641,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "隱藏已探索"
   },
   "CB/NpV": {
     "message": "High Priority",
@@ -5693,7 +5693,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "主頁"
   },
   "AUhER1": {
     "message": "Home | banana.bn",
@@ -5705,7 +5705,7 @@
         32
       ]
     ],
-    "translation": ""
+    "translation": "主頁 | banana.bn"
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5729,7 +5729,7 @@
         168
       ]
     ],
-    "translation": ""
+    "translation": "你感覺點啊？（可選）"
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6544,7 +6544,7 @@
     "translation": "列表"
   },
   "yQ2kGp": {
-    "translation": "",
+    "translation": "載入更多",
     "message": "Load more",
     "placeholders": {},
     "comments": [],
@@ -6972,7 +6972,7 @@
         28
       ]
     ],
-    "translation": "",
+    "translation": "我嘅看板",
     "obsolete": true
   },
   "oFLZ3C": {
@@ -6985,7 +6985,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "我嘅卡片"
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7308,7 +7308,7 @@
     "translation": "搵唔到看板"
   },
   "9fS0S/": {
-    "translation": "",
+    "translation": "搵唔到看板。",
     "message": "No boards found.",
     "placeholders": {},
     "comments": [],
@@ -7329,7 +7329,7 @@
         42
       ]
     ],
-    "translation": "",
+    "translation": "仲未有看板。建立一個嚟開始啦！",
     "obsolete": true
   },
   "0/h2j3": {
@@ -7342,7 +7342,7 @@
         49
       ]
     ],
-    "translation": ""
+    "translation": "仲未有指派俾你嘅卡片。"
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7450,7 +7450,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "你嘅卡片冇近期活動。"
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7490,7 +7490,7 @@
         148
       ]
     ],
-    "translation": ""
+    "translation": "冇支線任務。跟住你嘅好奇心！"
   },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
@@ -7514,7 +7514,7 @@
         98
       ]
     ],
-    "translation": ""
+    "translation": "仲未有成就。搵啲嘢嚟慶祝啦！"
   },
   "9h7RDh": {
     "message": "Offer",
@@ -8610,7 +8610,7 @@
         67
       ]
     ],
-    "translation": ""
+    "translation": "近期活動"
   },
   "6EWT6T": {
     "message": "Recruitment",
@@ -9277,7 +9277,7 @@
         170
       ]
     ],
-    "translation": ""
+    "translation": "設定"
   },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
@@ -9292,7 +9292,7 @@
     "translation": "設定密碼以啟用密碼登入。"
   },
   "O3wNI6": {
-    "translation": "",
+    "translation": "設定一個行動...",
     "message": "Set an action...",
     "placeholders": {},
     "comments": [],
@@ -9493,7 +9493,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "顯示已探索"
   },
   "8RFEAq": {
     "message": "Side Quests",
@@ -9505,7 +9505,7 @@
         64
       ]
     ],
-    "translation": ""
+    "translation": "支線任務"
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9752,7 +9752,7 @@
     "translation": "授權啟用期間出咗問題。"
   },
   "fUXc6L": {
-    "translation": "",
+    "translation": "今日值得慶祝嘅事",
     "message": "Something worth celebrating today",
     "placeholders": {},
     "comments": [],
@@ -9764,7 +9764,7 @@
     ]
   },
   "jOOtqe": {
-    "translation": "",
+    "translation": "今日值得慶祝嘅事...",
     "message": "Something worth celebrating today...",
     "placeholders": {},
     "comments": [],
@@ -9786,7 +9786,7 @@
         131
       ]
     ],
-    "translation": ""
+    "translation": "你好奇嘅嘢..."
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -11514,7 +11514,7 @@
         68
       ]
     ],
-    "translation": "",
+    "translation": "更新 {0}",
     "obsolete": true
   },
   "L5ZPjz": {

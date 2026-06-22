@@ -464,7 +464,7 @@
         90
       ]
     ],
-    "translation": ""
+    "translation": "Ajouter"
   },
   "UGCIzB": {
     "message": "Add / edit label",
@@ -491,7 +491,7 @@
     "translation": "Ajouter une carte"
   },
   "P06aiF": {
-    "translation": "",
+    "translation": "Ajouter une quête...",
     "message": "Add a quest...",
     "placeholders": {},
     "comments": [],
@@ -503,7 +503,7 @@
     ]
   },
   "145/oz": {
-    "translation": "",
+    "translation": "Ajouter une réussite...",
     "message": "Add a win...",
     "placeholders": {},
     "comments": [],
@@ -910,7 +910,7 @@
         88
       ]
     ],
-    "translation": ""
+    "translation": "Tous les tableaux"
   },
   "h2ztFt": {
     "message": "All Free features +",
@@ -1786,7 +1786,7 @@
         19
       ]
     ],
-    "translation": ""
+    "translation": "Compte bot"
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -1838,7 +1838,7 @@
         65
       ]
     ],
-    "translation": ""
+    "translation": "Calendrier"
   },
   "jPZgnG": {
     "message": "Calendar | {0}",
@@ -1854,7 +1854,7 @@
         60
       ]
     ],
-    "translation": ""
+    "translation": "Calendrier | {0}"
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2498,7 +2498,7 @@
         641
       ]
     ],
-    "translation": ""
+    "translation": "Checklist"
   },
   "GnRmu4": {
     "message": "Checklist name",
@@ -2766,7 +2766,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "terminé"
   },
   "Lt+ZP3": {
     "message": "completed a checklist item",
@@ -3386,7 +3386,7 @@
         69
       ]
     ],
-    "translation": "",
+    "translation": "Créé {0}",
     "obsolete": true
   },
   "f8lDFq": {
@@ -3596,7 +3596,7 @@
         77
       ]
     ],
-    "translation": ""
+    "translation": "Quêtes quotidiennes"
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4424,7 +4424,7 @@
         92
       ]
     ],
-    "translation": ""
+    "translation": "Bilan énergétique"
   },
   "SUXBxp": {
     "message": "Engineering",
@@ -5133,7 +5133,7 @@
         41
       ]
     ],
-    "translation": ""
+    "translation": "Productivité épanouissante"
   },
   "F6m23G": {
     "message": "File uploads",
@@ -5181,7 +5181,7 @@
         37
       ]
     ],
-    "translation": ""
+    "translation": "Trouvez la réussite"
   },
   "q3il6U": {
     "message": "Font size",
@@ -5565,7 +5565,7 @@
         133
       ]
     ],
-    "translation": ""
+    "translation": "Aller au calendrier"
   },
   "TzFLgd": {
     "message": "Go to home",
@@ -5577,7 +5577,7 @@
         109
       ]
     ],
-    "translation": ""
+    "translation": "Aller à l'accueil"
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5693,7 +5693,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "Masquer les explorés"
   },
   "CB/NpV": {
     "message": "High Priority",
@@ -5745,7 +5745,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "Accueil"
   },
   "AUhER1": {
     "message": "Home | banana.bn",
@@ -5757,7 +5757,7 @@
         32
       ]
     ],
-    "translation": ""
+    "translation": "Accueil | banana.bn"
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5781,7 +5781,7 @@
         168
       ]
     ],
-    "translation": ""
+    "translation": "Comment vous sentez-vous ? (facultatif)"
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6635,7 +6635,7 @@
     "translation": "Listes"
   },
   "yQ2kGp": {
-    "translation": "",
+    "translation": "Charger plus",
     "message": "Load more",
     "placeholders": {},
     "comments": [],
@@ -7076,7 +7076,7 @@
         28
       ]
     ],
-    "translation": "",
+    "translation": "Mes tableaux",
     "obsolete": true
   },
   "oFLZ3C": {
@@ -7089,7 +7089,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "Mes cartes"
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7412,7 +7412,7 @@
     "translation": "Aucun tableau trouvé"
   },
   "9fS0S/": {
-    "translation": "",
+    "translation": "Aucun tableau trouvé.",
     "message": "No boards found.",
     "placeholders": {},
     "comments": [],
@@ -7433,7 +7433,7 @@
         42
       ]
     ],
-    "translation": "",
+    "translation": "Aucun tableau pour l'instant. Créez-en un pour commencer !",
     "obsolete": true
   },
   "0/h2j3": {
@@ -7446,7 +7446,7 @@
         49
       ]
     ],
-    "translation": ""
+    "translation": "Aucune carte ne vous est encore attribuée."
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7554,7 +7554,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "Aucune activité récente sur vos cartes."
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7594,7 +7594,7 @@
         148
       ]
     ],
-    "translation": ""
+    "translation": "Aucune quête secondaire. Suivez votre curiosité !"
   },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
@@ -7618,7 +7618,7 @@
         98
       ]
     ],
-    "translation": ""
+    "translation": "Aucune réussite pour l'instant. Trouvez quelque chose à célébrer !"
   },
   "9h7RDh": {
     "message": "Offer",
@@ -8714,7 +8714,7 @@
         67
       ]
     ],
-    "translation": ""
+    "translation": "Activité récente"
   },
   "6EWT6T": {
     "message": "Recruitment",
@@ -9381,7 +9381,7 @@
         170
       ]
     ],
-    "translation": ""
+    "translation": "Définir"
   },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
@@ -9396,7 +9396,7 @@
     "translation": "Définissez un mot de passe pour activer la connexion par mot de passe."
   },
   "O3wNI6": {
-    "translation": "",
+    "translation": "Définir une action...",
     "message": "Set an action...",
     "placeholders": {},
     "comments": [],
@@ -9597,7 +9597,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "Afficher les explorés"
   },
   "8RFEAq": {
     "message": "Side Quests",
@@ -9609,7 +9609,7 @@
         64
       ]
     ],
-    "translation": ""
+    "translation": "Quêtes secondaires"
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9873,7 +9873,7 @@
     "translation": "Une erreur s'est produite lors de l'activation de la licence."
   },
   "fUXc6L": {
-    "translation": "",
+    "translation": "Quelque chose à célébrer aujourd'hui",
     "message": "Something worth celebrating today",
     "placeholders": {},
     "comments": [],
@@ -9885,7 +9885,7 @@
     ]
   },
   "jOOtqe": {
-    "translation": "",
+    "translation": "Quelque chose à célébrer aujourd'hui...",
     "message": "Something worth celebrating today...",
     "placeholders": {},
     "comments": [],
@@ -9907,7 +9907,7 @@
         131
       ]
     ],
-    "translation": ""
+    "translation": "Quelque chose qui éveille votre curiosité..."
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -11635,7 +11635,7 @@
         68
       ]
     ],
-    "translation": "",
+    "translation": "Mis à jour {0}",
     "obsolete": true
   },
   "L5ZPjz": {

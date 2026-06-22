@@ -464,7 +464,7 @@
         90
       ]
     ],
-    "translation": ""
+    "translation": "Hinzufügen"
   },
   "UGCIzB": {
     "message": "Add / edit label",
@@ -491,7 +491,7 @@
     "translation": "Karte hinzufügen"
   },
   "P06aiF": {
-    "translation": "",
+    "translation": "Quest hinzufügen...",
     "message": "Add a quest...",
     "placeholders": {},
     "comments": [],
@@ -503,7 +503,7 @@
     ]
   },
   "145/oz": {
-    "translation": "",
+    "translation": "Erfolg hinzufügen...",
     "message": "Add a win...",
     "placeholders": {},
     "comments": [],
@@ -910,7 +910,7 @@
         88
       ]
     ],
-    "translation": ""
+    "translation": "Alle Boards"
   },
   "h2ztFt": {
     "message": "All Free features +",
@@ -1786,7 +1786,7 @@
         19
       ]
     ],
-    "translation": ""
+    "translation": "Bot-Konto"
   },
   "ZDo4HN": {
     "message": "Brainstorming",
@@ -1838,7 +1838,7 @@
         65
       ]
     ],
-    "translation": ""
+    "translation": "Kalender"
   },
   "jPZgnG": {
     "message": "Calendar | {0}",
@@ -1854,7 +1854,7 @@
         60
       ]
     ],
-    "translation": ""
+    "translation": "Kalender | {0}"
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2498,7 +2498,7 @@
         641
       ]
     ],
-    "translation": ""
+    "translation": "Checkliste"
   },
   "GnRmu4": {
     "message": "Checklist name",
@@ -2766,7 +2766,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "abgeschlossen"
   },
   "Lt+ZP3": {
     "message": "completed a checklist item",
@@ -3386,7 +3386,7 @@
         69
       ]
     ],
-    "translation": "",
+    "translation": "Erstellt {0}",
     "obsolete": true
   },
   "f8lDFq": {
@@ -3596,7 +3596,7 @@
         77
       ]
     ],
-    "translation": ""
+    "translation": "Tägliche Quests"
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4424,7 +4424,7 @@
         92
       ]
     ],
-    "translation": ""
+    "translation": "Energie-Check-in"
   },
   "SUXBxp": {
     "message": "Engineering",
@@ -5133,7 +5133,7 @@
         41
       ]
     ],
-    "translation": ""
+    "translation": "Gute-Laune-Produktivität"
   },
   "F6m23G": {
     "message": "File uploads",
@@ -5181,7 +5181,7 @@
         37
       ]
     ],
-    "translation": ""
+    "translation": "Finde den Erfolg"
   },
   "q3il6U": {
     "message": "Font size",
@@ -5565,7 +5565,7 @@
         133
       ]
     ],
-    "translation": ""
+    "translation": "Zum Kalender"
   },
   "TzFLgd": {
     "message": "Go to home",
@@ -5577,7 +5577,7 @@
         109
       ]
     ],
-    "translation": ""
+    "translation": "Zur Startseite"
   },
   "XEoGkQ": {
     "message": "Go to homepage",
@@ -5693,7 +5693,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "Erkundete ausblenden"
   },
   "CB/NpV": {
     "message": "High Priority",
@@ -5745,7 +5745,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "Startseite"
   },
   "AUhER1": {
     "message": "Home | banana.bn",
@@ -5757,7 +5757,7 @@
         32
       ]
     ],
-    "translation": ""
+    "translation": "Startseite | banana.bn"
   },
   "LrcnbT": {
     "message": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data.",
@@ -5781,7 +5781,7 @@
         168
       ]
     ],
-    "translation": ""
+    "translation": "Wie fühlst du dich? (optional)"
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6635,7 +6635,7 @@
     "translation": "Listen"
   },
   "yQ2kGp": {
-    "translation": "",
+    "translation": "Weitere laden",
     "message": "Load more",
     "placeholders": {},
     "comments": [],
@@ -7076,7 +7076,7 @@
         28
       ]
     ],
-    "translation": "",
+    "translation": "Meine Boards",
     "obsolete": true
   },
   "oFLZ3C": {
@@ -7089,7 +7089,7 @@
         35
       ]
     ],
-    "translation": ""
+    "translation": "Meine Karten"
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -7412,7 +7412,7 @@
     "translation": "Keine Boards gefunden"
   },
   "9fS0S/": {
-    "translation": "",
+    "translation": "Keine Boards gefunden.",
     "message": "No boards found.",
     "placeholders": {},
     "comments": [],
@@ -7433,7 +7433,7 @@
         42
       ]
     ],
-    "translation": "",
+    "translation": "Noch keine Boards. Erstelle eines, um loszulegen!",
     "obsolete": true
   },
   "0/h2j3": {
@@ -7446,7 +7446,7 @@
         49
       ]
     ],
-    "translation": ""
+    "translation": "Dir sind noch keine Karten zugewiesen."
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7554,7 +7554,7 @@
         81
       ]
     ],
-    "translation": ""
+    "translation": "Keine aktuellen Aktivitäten auf deinen Karten."
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7594,7 +7594,7 @@
         148
       ]
     ],
-    "translation": ""
+    "translation": "Keine Nebenquests. Folge deiner Neugier!"
   },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
@@ -7618,7 +7618,7 @@
         98
       ]
     ],
-    "translation": ""
+    "translation": "Noch keine Erfolge. Finde etwas zum Feiern!"
   },
   "9h7RDh": {
     "message": "Offer",
@@ -8714,7 +8714,7 @@
         67
       ]
     ],
-    "translation": ""
+    "translation": "Letzte Aktivität"
   },
   "6EWT6T": {
     "message": "Recruitment",
@@ -9381,7 +9381,7 @@
         170
       ]
     ],
-    "translation": ""
+    "translation": "Festlegen"
   },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
@@ -9396,7 +9396,7 @@
     "translation": "Legen Sie ein Passwort fest, um die passwortbasierte Anmeldung zu aktivieren."
   },
   "O3wNI6": {
-    "translation": "",
+    "translation": "Aktion festlegen...",
     "message": "Set an action...",
     "placeholders": {},
     "comments": [],
@@ -9597,7 +9597,7 @@
         71
       ]
     ],
-    "translation": ""
+    "translation": "Erkundete anzeigen"
   },
   "8RFEAq": {
     "message": "Side Quests",
@@ -9609,7 +9609,7 @@
         64
       ]
     ],
-    "translation": ""
+    "translation": "Nebenquests"
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9873,7 +9873,7 @@
     "translation": "Bei der Lizenzaktivierung ist ein Fehler aufgetreten."
   },
   "fUXc6L": {
-    "translation": "",
+    "translation": "Etwas, das es heute zu feiern gilt",
     "message": "Something worth celebrating today",
     "placeholders": {},
     "comments": [],
@@ -9885,7 +9885,7 @@
     ]
   },
   "jOOtqe": {
-    "translation": "",
+    "translation": "Etwas, das es heute zu feiern gilt...",
     "message": "Something worth celebrating today...",
     "placeholders": {},
     "comments": [],
@@ -9907,7 +9907,7 @@
         131
       ]
     ],
-    "translation": ""
+    "translation": "Etwas, worüber du neugierig bist..."
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -11635,7 +11635,7 @@
         68
       ]
     ],
-    "translation": "",
+    "translation": "Aktualisiert {0}",
     "obsolete": true
   },
   "L5ZPjz": {
