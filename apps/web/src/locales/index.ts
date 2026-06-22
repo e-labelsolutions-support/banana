@@ -7,7 +7,7 @@ export const locales = [
   "nl",
   "ru",
   "pl",
-  "ptbr",
+  "pt-BR",
   "zh-HK",
 ] as const;
 
@@ -24,6 +24,6 @@ export const localeNames: Record<Locale, string> = {
   nl: "Nederlands",
   ru: "Русский",
   pl: "Polski",
-  ptbr: "Português",
+  "pt-BR": "Português",
   "zh-HK": "粵語",
 };

@@ -55,10 +55,15 @@ export function LinguiProviderWrapper({
   initializeI18n();
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem("locale") as Locale;
+    const rawLocale = localStorage.getItem("locale");
+    // Migrate legacy locale code "ptbr" -> "pt-BR" (see locales/index.ts)
+    const savedLocale = rawLocale === "ptbr" ? "pt-BR" : (rawLocale as Locale);
 
     if (savedLocale && locales.includes(savedLocale)) {
       setLocale(savedLocale);
+      if (rawLocale === "ptbr") {
+        localStorage.setItem("locale", savedLocale);
+      }
     } else {
       const detectedLocale = detectBrowserLocale(locales);
       setLocale(detectedLocale);
