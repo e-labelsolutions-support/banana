@@ -21,7 +21,7 @@
         102
       ]
     ],
-    "translation": "，或者睇吓我哋嘅"
+    "translation": "，或者看看我們的"
   },
   "J/hVSQ": {
     "message": "{0}",
@@ -78,7 +78,7 @@
         59
       ]
     ],
-    "translation": "{0} 已加入你嘅收藏。"
+    "translation": "{0} 已加入你的收藏。"
   },
   "bDI6VI": {
     "message": "{0} has been removed from your favorites.",
@@ -94,7 +94,7 @@
         60
       ]
     ],
-    "translation": "{0} 已從你嘅收藏中移除。"
+    "translation": "{0} 已從你的收藏中移除。"
   },
   "CJukzS": {
     "message": "{0} labels",
@@ -126,7 +126,7 @@
         557
       ]
     ],
-    "translation": "搵唔到 {0}"
+    "translation": "找不到 {0}"
   },
   "0xWkkH": {
     "message": "{boardCount, plural, one {Import board (1)} other {Import boards ({boardCount})}}",
@@ -290,7 +290,7 @@
         71
       ]
     ],
-    "translation": "強大而靈活嘅看板應用程式，幫你組織工作、追蹤進度、交付成果——一站式搞掂。"
+    "translation": "強大而靈活的看板應用程式，幫你組織工作、追蹤進度、交付成果——一站式搞定。"
   },
   "AeXO77": {
     "message": "Account",
@@ -362,7 +362,7 @@
         56
       ]
     ],
-    "translation": "啟用你嘅帳戶"
+    "translation": "啟用你的帳戶"
   },
   "F6pfE9": {
     "message": "Active",
@@ -625,7 +625,7 @@
         102
       ]
     ],
-    "translation": "新增咗 {0} 個標籤：<0>{labelList}</0>"
+    "translation": "新增了 {0} 個標籤：<0>{labelList}</0>"
   },
   "h4VV67": {
     "message": "added a checklist",
@@ -637,7 +637,7 @@
         132
       ]
     ],
-    "translation": "新增咗一個檢查清單"
+    "translation": "新增了一個檢查清單"
   },
   "O83K21": {
     "message": "added a checklist item",
@@ -649,7 +649,7 @@
         135
       ]
     ],
-    "translation": "新增咗一個檢查清單項目"
+    "translation": "新增了一個檢查清單項目"
   },
   "T21jY/": {
     "message": "added a label to the card",
@@ -661,7 +661,7 @@
         128
       ]
     ],
-    "translation": "為卡片新增咗一個標籤"
+    "translation": "為卡片新增了一個標籤"
   },
   "rs7L54": {
     "message": "added a member to the card",
@@ -673,7 +673,7 @@
         130
       ]
     ],
-    "translation": "為卡片新增咗一位成員"
+    "translation": "為卡片新增了一位成員"
   },
   "5y6qY8": {
     "message": "added an attachment",
@@ -685,7 +685,7 @@
         140
       ]
     ],
-    "translation": "新增咗一個附件"
+    "translation": "新增了一個附件"
   },
   "CujNX4": {
     "message": "added an attachment <0>{0}</0>",
@@ -701,7 +701,7 @@
         278
       ]
     ],
-    "translation": "新增咗附件 <0>{0}</0>"
+    "translation": "新增了附件 <0>{0}</0>"
   },
   "wakO3W": {
     "message": "added checklist <0>{0}</0>",
@@ -717,7 +717,7 @@
         208
       ]
     ],
-    "translation": "新增咗檢查清單 <0>{0}</0>"
+    "translation": "新增了檢查清單 <0>{0}</0>"
   },
   "E0t3jO": {
     "message": "added checklist item <0>{0}</0>",
@@ -733,7 +733,7 @@
         232
       ]
     ],
-    "translation": "新增咗檢查清單項目 <0>{0}</0>"
+    "translation": "新增了檢查清單項目 <0>{0}</0>"
   },
   "b5FKyH": {
     "message": "added label <0>{0}</0>",
@@ -749,7 +749,7 @@
         192
       ]
     ],
-    "translation": "新增咗標籤 <0>{0}</0>"
+    "translation": "新增了標籤 <0>{0}</0>"
   },
   "pL78ec": {
     "message": "Added to favorites",
@@ -780,7 +780,7 @@
         300
       ]
     ],
-    "translation": "新增成員將會產生額外 {price}（{billingType}）嘅每位成員費用。"
+    "translation": "新增成員將會產生額外 {price}（{billingType}）的每位成員費用。"
   },
   "D7/JvJ": {
     "message": "Adjust the square crop to fit your avatar.",
@@ -792,7 +792,7 @@
         256
       ]
     ],
-    "translation": "調整裁切範圍以配合你嘅頭像。"
+    "translation": "調整裁切範圍以配合你的頭像。"
   },
   "U3pytU": {
     "message": "Admin",
@@ -868,7 +868,7 @@
         97
       ]
     ],
-    "translation": "為大型組織提供進階安全、合規同埋專屬支援。"
+    "translation": "為大型組織提供進階安全、合規和專屬支援。"
   },
   "me3LEG": {
     "message": "All boards",
@@ -908,7 +908,7 @@
         26
       ]
     ],
-    "translation": "所有成員嘅自訂權限已重設為其角色預設值。"
+    "translation": "所有成員的自訂權限已重設為其角色預設值。"
   },
   "ZAs2NN": {
     "message": "All Pro features +",
@@ -956,7 +956,7 @@
         47
       ]
     ],
-    "translation": "允許工作區成員查看彼此嘅電郵地址"
+    "translation": "允許工作區成員查看彼此的電郵地址"
   },
   "WnEwDO": {
     "message": "Already have an account? <0><1>Sign in</1></0>",
@@ -984,7 +984,7 @@
         107
       ]
     ],
-    "translation": "連接你嘅 GitHub 帳戶時發生錯誤。"
+    "translation": "連接你的 GitHub 帳戶時發生錯誤。"
   },
   "Dz63YI": {
     "message": "An error occurred while disconnecting your GitHub account.",
@@ -996,7 +996,7 @@
         130
       ]
     ],
-    "translation": "中斷你嘅 GitHub 帳戶連接時發生錯誤。"
+    "translation": "中斷你的 GitHub 帳戶連接時發生錯誤。"
   },
   "WmPhYW": {
     "message": "An error occurred while disconnecting your Trello account.",
@@ -1008,7 +1008,7 @@
         87
       ]
     ],
-    "translation": "中斷你嘅 Trello 帳戶連接時發生錯誤。"
+    "translation": "中斷你的 Trello 帳戶連接時發生錯誤。"
   },
   "ZXSPJt": {
     "message": "An unexpected error occurred. Please try again later.",
@@ -1044,7 +1044,7 @@
         281
       ]
     ],
-    "translation": "任何有呢條連結嘅人都可以加入你嘅工作區"
+    "translation": "任何有這條連結的人都可以加入你的工作區"
   },
   "OZtEcz": {
     "message": "API",
@@ -1096,7 +1096,7 @@
         25
       ]
     ],
-    "translation": "API 金鑰名稱唔可以超過 30 個字元"
+    "translation": "API 金鑰名稱不可以超過 30 個字元"
   },
   "vbskQn": {
     "message": "API key name is required",
@@ -1108,7 +1108,7 @@
         24
       ]
     ],
-    "translation": "API 金鑰名稱係必填嘅"
+    "translation": "API 金鑰名稱是必填的"
   },
   "5h8ooz": {
     "message": "API keys",
@@ -1212,7 +1212,7 @@
         69
       ]
     ],
-    "translation": "確定要刪除 Webhook「{webhookName}」？呢個操作無法復原。"
+    "translation": "確定要刪除 Webhook「{webhookName}」？這個操作無法復原。"
   },
   "BhDZlc": {
     "message": "Are you sure you want to delete the workspace {0}?",
@@ -1244,7 +1244,7 @@
         36
       ]
     ],
-    "translation": "確定要刪除呢個 {0}？"
+    "translation": "確定要刪除這個 {0}？"
   },
   "ZT4Khw": {
     "message": "Are you sure you want to delete this card?",
@@ -1256,7 +1256,7 @@
         75
       ]
     ],
-    "translation": "確定要刪除呢張卡片？"
+    "translation": "確定要刪除這張卡片？"
   },
   "Fpci8b": {
     "message": "Are you sure you want to delete this checklist?",
@@ -1268,7 +1268,7 @@
         56
       ]
     ],
-    "translation": "確定要刪除呢個檢查清單？"
+    "translation": "確定要刪除這個檢查清單？"
   },
   "PRjvDT": {
     "message": "Are you sure you want to delete this comment?",
@@ -1280,7 +1280,7 @@
         66
       ]
     ],
-    "translation": "確定要刪除呢個留言？"
+    "translation": "確定要刪除這個留言？"
   },
   "kECVpo": {
     "message": "Are you sure you want to delete this label?",
@@ -1292,7 +1292,7 @@
         41
       ]
     ],
-    "translation": "確定要刪除呢個標籤？"
+    "translation": "確定要刪除這個標籤？"
   },
   "74F7N/": {
     "message": "Are you sure you want to delete your account?",
@@ -1304,7 +1304,7 @@
         54
       ]
     ],
-    "translation": "確定要刪除你嘅帳戶？"
+    "translation": "確定要刪除你的帳戶？"
   },
   "PyYD/v": {
     "message": "assigned <0>{0}</0> to the card",
@@ -1416,7 +1416,7 @@
         32
       ]
     ],
-    "translation": "最適合個人同埋獨立創作者起步"
+    "translation": "最適合個人和獨立創作者起步"
   },
   "wsy94z": {
     "message": "Best for large organizations with advanced needs",
@@ -1428,7 +1428,7 @@
         98
       ]
     ],
-    "translation": "最適合有進階需求嘅大型組織"
+    "translation": "最適合有進階需求的大型組織"
   },
   "UoSI+i": {
     "message": "Best for small and growing teams that need collaboration",
@@ -1440,7 +1440,7 @@
         53
       ]
     ],
-    "translation": "最適合需要協作嘅小型成長中團隊"
+    "translation": "最適合需要協作的小型成長中團隊"
   },
   "zt/6cS": {
     "message": "Best for small teams who want to collaborate and move faster together.",
@@ -1452,7 +1452,7 @@
         87
       ]
     ],
-    "translation": "最適合想協作同埋一齊加快進度嘅小團隊。"
+    "translation": "最適合想協作和一起加快進度的小團隊。"
   },
   "qaS+1/": {
     "message": "Best for teams that want to scale without limits",
@@ -1464,7 +1464,7 @@
         76
       ]
     ],
-    "translation": "最適合想無限制擴展嘅團隊"
+    "translation": "最適合想無限制擴展的團隊"
   },
   "ARvBT/": {
     "message": "billed annually",
@@ -1588,7 +1588,7 @@
         23
       ]
     ],
-    "translation": "看板名稱唔可以超過 100 個字元"
+    "translation": "看板名稱不可以超過 100 個字元"
   },
   "R1c3Mq": {
     "message": "Board name is required",
@@ -1600,7 +1600,7 @@
         22
       ]
     ],
-    "translation": "看板名稱係必填嘅"
+    "translation": "看板名稱是必填的"
   },
   "jwI32v": {
     "message": "Board not found",
@@ -1612,7 +1612,7 @@
         181
       ]
     ],
-    "translation": "搵唔到看板"
+    "translation": "找不到看板"
   },
   "XNxYxq": {
     "message": "Board templates",
@@ -1648,7 +1648,7 @@
         46
       ]
     ],
-    "translation": "看板 URL 只可以包含字母、數字同埋連字號"
+    "translation": "看板 URL 只可以包含字母、數字和連字號"
   },
   "gv5kbo": {
     "message": "Board URL cannot exceed 60 characters",
@@ -1660,7 +1660,7 @@
         44
       ]
     ],
-    "translation": "看板 URL 唔可以超過 60 個字元"
+    "translation": "看板 URL 不可以超過 60 個字元"
   },
   "8+BY11": {
     "message": "Board URL copied to clipboard",
@@ -1748,7 +1748,7 @@
         79
       ]
     ],
-    "translation": "你封存嘅看板會喺呢度顯示。"
+    "translation": "你封存的看板會在這裡顯示。"
   },
   "LGvHaQ": {
     "message": "Bot account",
@@ -2052,7 +2052,7 @@
         41
       ]
     ],
-    "translation": "可以編輯成員角色同埋權限"
+    "translation": "可以編輯成員角色和權限"
   },
   "iLbjv+": {
     "message": "Can edit workspace",
@@ -2328,7 +2328,7 @@
         413
       ]
     ],
-    "translation": "搵唔到卡片"
+    "translation": "找不到卡片"
   },
   "ZH7TVS": {
     "message": "Card title",
@@ -2396,7 +2396,7 @@
         63
       ]
     ],
-    "translation": "更改應用程式嘅字型大小。"
+    "translation": "更改應用程式的字型大小。"
   },
   "yD3ZSw": {
     "message": "Change your language preferences.",
@@ -2408,7 +2408,7 @@
         53
       ]
     ],
-    "translation": "更改你嘅語言偏好。"
+    "translation": "更改你的語言偏好。"
   },
   "gZxH/p": {
     "message": "changed the due date to <0>{formattedDate}</0>",
@@ -2440,7 +2440,7 @@
         61
       ]
     ],
-    "translation": "睇吓我哋一啲最鍾意嘅開源專案。"
+    "translation": "看看我們一些最喜歡的開源專案。"
   },
   "5IXWmO": {
     "message": "Check your inbox",
@@ -2460,7 +2460,7 @@
         74
       ]
     ],
-    "translation": "查看你嘅收件匣"
+    "translation": "查看你的收件匣"
   },
   "ANtE4t": {
     "message": "Checklist",
@@ -2600,7 +2600,7 @@
         79
       ]
     ],
-    "translation": "點擊我哋發送到 {magicLinkRecipient} 嘅連結嚟登入。"
+    "translation": "點擊我們發送到 {magicLinkRecipient} 的連結來登入。"
   },
   "yz7wBu": {
     "message": "Close",
@@ -2648,7 +2648,7 @@
         91
       ]
     ],
-    "translation": "與你嘅團隊無縫協作。"
+    "translation": "與你的團隊無縫協作。"
   },
   "dtQIWT": {
     "message": "Collaboration",
@@ -2728,7 +2728,7 @@
         70
       ]
     ],
-    "translation": "完全控制同埋擁有權："
+    "translation": "完全控制和擁有權："
   },
   "2PsTzL": {
     "message": "completed",
@@ -2752,7 +2752,7 @@
         137
       ]
     ],
-    "translation": "完成咗一個檢查清單項目"
+    "translation": "完成了一個檢查清單項目"
   },
   "29sSki": {
     "message": "completed checklist item <0>{0}</0>",
@@ -2768,7 +2768,7 @@
         249
       ]
     ],
-    "translation": "完成咗檢查清單項目 <0>{0}</0>"
+    "translation": "完成了檢查清單項目 <0>{0}</0>"
   },
   "tOZp9v": {
     "message": "Configurable user roles and permissions",
@@ -2780,7 +2780,7 @@
         82
       ]
     ],
-    "translation": "可自訂嘅用戶角色同埋權限"
+    "translation": "可自訂的用戶角色和權限"
   },
   "t0dTPm": {
     "message": "Configure webhooks to receive notifications when cards are created, updated, moved, or deleted.",
@@ -2792,7 +2792,7 @@
         31
       ]
     ],
-    "translation": "設定 Webhook 以喺卡片被建立、更新、移動或刪除時收到通知。"
+    "translation": "設定 Webhook 以在卡片被建立、更新、移動或刪除時收到通知。"
   },
   "/f3t6v": {
     "message": "Configure which actions are allowed for each workspace role. These permissions apply to all members with that role.",
@@ -2804,7 +2804,7 @@
         56
       ]
     ],
-    "translation": "設定每個工作區角色允許執行嘅操作。呢啲權限適用於具有該角色嘅所有成員。"
+    "translation": "設定每個工作區角色允許執行的操作。這些權限適用於具有該角色的所有成員。"
   },
   "86XI28": {
     "message": "Confirm your email preferences:",
@@ -2816,7 +2816,7 @@
         81
       ]
     ],
-    "translation": "確認你嘅電郵偏好："
+    "translation": "確認你的電郵偏好："
   },
   "479pdJ": {
     "message": "Confirm your new password",
@@ -2828,7 +2828,7 @@
         188
       ]
     ],
-    "translation": "確認你嘅新密碼"
+    "translation": "確認你的新密碼"
   },
   "iSLIjg": {
     "message": "Connect",
@@ -2876,7 +2876,7 @@
         122
       ]
     ],
-    "translation": "連接你常用嘅工具嚟簡化工作流程。"
+    "translation": "連接你常用的工具來簡化工作流程。"
   },
   "MCIXdZ": {
     "message": "Connect your GitHub account to import projects.",
@@ -2888,7 +2888,7 @@
         191
       ]
     ],
-    "translation": "連接你嘅 GitHub 帳戶以匯入專案。"
+    "translation": "連接你的 GitHub 帳戶以匯入專案。"
   },
   "5eZwRW": {
     "message": "Connect your Trello account to import boards.",
@@ -2900,7 +2900,7 @@
         149
       ]
     ],
-    "translation": "連接你嘅 Trello 帳戶以匯入看板。"
+    "translation": "連接你的 Trello 帳戶以匯入看板。"
   },
   "jfC/xh": {
     "message": "Contact",
@@ -2948,7 +2948,7 @@
         96
       ]
     ],
-    "translation": "聯絡我哋"
+    "translation": "聯絡我們"
   },
   "AX4ktp": {
     "message": "Content Creation",
@@ -3016,7 +3016,7 @@
         86
       ]
     ],
-    "translation": "控制邊個可以查看同埋編輯你嘅看板。"
+    "translation": "控制誰可以查看和編輯你的看板。"
   },
   "zQPhSa": {
     "message": "Convert to link",
@@ -3252,7 +3252,7 @@
         41
       ]
     ],
-    "translation": "建立新嘅 {0}"
+    "translation": "建立新的 {0}"
   },
   "okpxfB": {
     "message": "Create new key",
@@ -3373,7 +3373,7 @@
         124
       ]
     ],
-    "translation": "建立咗呢張卡片"
+    "translation": "建立了這張卡片"
   },
   "J5nbej": {
     "message": "Critical",
@@ -3405,7 +3405,7 @@
         253
       ]
     ],
-    "translation": "裁切你嘅頭像"
+    "translation": "裁切你的頭像"
   },
   "D3C4Yx": {
     "message": "Current password is required",
@@ -3417,7 +3417,7 @@
         19
       ]
     ],
-    "translation": "目前密碼係必填嘅"
+    "translation": "目前密碼是必填的"
   },
   "nqdIhs": {
     "message": "Custom board templates",
@@ -3781,7 +3781,7 @@
         134
       ]
     ],
-    "translation": "刪除咗一個檢查清單"
+    "translation": "刪除了一個檢查清單"
   },
   "W5r8Qh": {
     "message": "deleted a checklist item",
@@ -3793,7 +3793,7 @@
         139
       ]
     ],
-    "translation": "刪除咗一個檢查清單項目"
+    "translation": "刪除了一個檢查清單項目"
   },
   "BMkVQ3": {
     "message": "deleted checklist <0>{0}</0>",
@@ -3809,7 +3809,7 @@
         224
       ]
     ],
-    "translation": "刪除咗檢查清單 <0>{0}</0>"
+    "translation": "刪除了檢查清單 <0>{0}</0>"
   },
   "CHZ1jC": {
     "message": "deleted checklist item <0>{0}</0>",
@@ -3825,7 +3825,7 @@
         267
       ]
     ],
-    "translation": "刪除咗檢查清單項目 <0>{0}</0>"
+    "translation": "刪除了檢查清單項目 <0>{0}</0>"
   },
   "f8fH8W": {
     "message": "Design",
@@ -3873,7 +3873,7 @@
         106
       ]
     ],
-    "translation": "喺卡片度討論同埋協作。"
+    "translation": "在卡片中討論和協作。"
   },
   "pfa8F0": {
     "message": "Display name",
@@ -3897,7 +3897,7 @@
         22
       ]
     ],
-    "translation": "顯示名稱唔可以超過 280 個字元"
+    "translation": "顯示名稱不可以超過 280 個字元"
   },
   "KFJgmZ": {
     "message": "Display name must be at least 3 characters long",
@@ -3933,7 +3933,7 @@
         83
       ]
     ],
-    "translation": "你哋有冇提供免費計劃？"
+    "translation": "你們有沒有提供免費計劃？"
   },
   "jDRt4n": {
     "message": "Do you want to unsubscribe?",
@@ -4349,7 +4349,7 @@
         60
       ]
     ],
-    "translation": "提及嘅電郵通知"
+    "translation": "提及的電郵通知"
   },
   "IqjpYe": {
     "message": "Email visibility",
@@ -4441,7 +4441,7 @@
         258
       ]
     ],
-    "translation": "輸入新嘅密鑰以更新"
+    "translation": "輸入新的密鑰以更新"
   },
   "fR9laE": {
     "message": "Enter your current password",
@@ -4453,7 +4453,7 @@
         159
       ]
     ],
-    "translation": "輸入你嘅目前密碼"
+    "translation": "輸入你的目前密碼"
   },
   "O0li0W": {
     "message": "Enter your current password and choose a new secure password.",
@@ -4465,7 +4465,7 @@
         146
       ]
     ],
-    "translation": "輸入你嘅目前密碼並揀一個新嘅安全密碼。"
+    "translation": "輸入你的目前密碼並選擇一個新的安全密碼。"
   },
   "xRPn3U": {
     "message": "Enter your email address",
@@ -4477,7 +4477,7 @@
         418
       ]
     ],
-    "translation": "輸入你嘅電郵地址"
+    "translation": "輸入你的電郵地址"
   },
   "n9V+ps": {
     "message": "Enter your name",
@@ -4489,7 +4489,7 @@
         406
       ]
     ],
-    "translation": "輸入你嘅名"
+    "translation": "輸入你的名"
   },
   "0StR7t": {
     "message": "Enter your new password",
@@ -4501,7 +4501,7 @@
         174
       ]
     ],
-    "translation": "輸入你嘅新密碼"
+    "translation": "輸入你的新密碼"
   },
   "NgaR6B": {
     "message": "Enter your password",
@@ -4513,7 +4513,7 @@
         432
       ]
     ],
-    "translation": "輸入你嘅密碼"
+    "translation": "輸入你的密碼"
   },
   "GpB8YV": {
     "message": "Enterprise",
@@ -4789,7 +4789,7 @@
         52
       ]
     ],
-    "translation": "包含免費版嘅所有功能，仲有："
+    "translation": "包含免費版的所有功能，還有："
   },
   "ANyn0x": {
     "message": "Everything you need, free forever. Unlimited boards, unlimited lists, unlimited cards. Upgrade any time.",
@@ -4801,7 +4801,7 @@
         33
       ]
     ],
-    "translation": "你需要嘅一切，永久免費。無限看板、無限列表、無限卡片。隨時可以升級。"
+    "translation": "你需要的一切，永久免費。無限看板、無限列表、無限卡片。隨時可以升級。"
   },
   "t+R8+P": {
     "message": "Execution",
@@ -4901,7 +4901,7 @@
         82
       ]
     ],
-    "translation": "攞唔到影片資訊"
+    "translation": "無法取得影片資訊"
   },
   "YtUfwW": {
     "message": "Failed to login with {0}. Please try again.",
@@ -5117,7 +5117,7 @@
         150
       ]
     ],
-    "translation": "喺度搵吓關於 Banana 嘅常見問題。搵唔到你想搵嘅？歡迎<0>聯絡我哋</0>。"
+    "translation": "在這裡找找關於 Banana 的常見問題。找不到你想找的？歡迎<0>聯絡我們</0>。"
   },
   "kWEIUh": {
     "message": "Find the Win",
@@ -5153,7 +5153,7 @@
         41
       ]
     ],
-    "translation": "為咗長遠發展，我哋明白所有優秀嘅開源專案都需要收入來源。我哋嘅收入來自多位用戶工作區同埋自訂工作區 slug 嘅付費雲端方案。冇義務使用，你可以喺自己嘅基礎設施上免費自行託管。"
+    "translation": "為了長遠發展，我們明白所有優秀的開源專案都需要收入來源。我們的收入來自多位用戶工作區和自訂工作區 slug 的付費雲端方案。沒有義務使用，你可以在自己的基礎設施上免費自行託管。"
   },
   "2POOFK": {
     "message": "Free",
@@ -5357,7 +5357,7 @@
         79
       ]
     ],
-    "translation": "透過建立新嘅 {0} 開始"
+    "translation": "透過建立新的 {0} 開始"
   },
   "zC8Whw": {
     "message": "Get started by creating a new list",
@@ -5393,7 +5393,7 @@
         92
       ]
     ],
-    "translation": "免費開始使用，冇任何使用限制。需要協作嘅話，升級到適合你團隊規模嘅計劃。"
+    "translation": "免費開始使用，沒有任何使用限制。需要協作的話，升級到適合你團隊規模的計劃。"
   },
   "rD6UIt": {
     "message": "Get started on Cloud",
@@ -5405,7 +5405,7 @@
         75
       ]
     ],
-    "translation": "喺雲端開始使用"
+    "translation": "在雲端開始使用"
   },
   "7hktsm": {
     "message": "Getting started",
@@ -5585,7 +5585,7 @@
         80
       ]
     ],
-    "translation": "適合只需要基本功能嘅個人用戶起步。"
+    "translation": "適合只需要基本功能的個人用戶起步。"
   },
   "cdyS7J": {
     "message": "Google SSO",
@@ -5677,7 +5677,7 @@
         259
       ]
     ],
-    "translation": "用於簽名驗證嘅 HMAC 密鑰"
+    "translation": "用於簽名驗證的 HMAC 密鑰"
   },
   "i0qMbr": {
     "message": "Home",
@@ -5717,7 +5717,7 @@
         69
       ]
     ],
-    "translation": "喺你自己嘅基礎設施上託管 Banana。適合需要完全控制數據嘅組織。"
+    "translation": "在你自己的基礎設施上託管 Banana。適合需要完全控制數據的組織。"
   },
   "V1j0aV": {
     "message": "How are you feeling? (optional)",
@@ -5729,7 +5729,7 @@
         168
       ]
     ],
-    "translation": "你感覺點啊？（可選）"
+    "translation": "感覺如何？（可選）"
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -5741,7 +5741,7 @@
         64
       ]
     ],
-    "translation": "我點樣攞到自訂 URL？"
+    "translation": "我如何取得自訂 URL？"
   },
   "yV7o5I": {
     "message": "How do I import my Trello boards?",
@@ -5753,7 +5753,7 @@
         46
       ]
     ],
-    "translation": "我點樣匯入我嘅 Trello 看板？"
+    "translation": "我如何匯入我的 Trello 看板？"
   },
   "nol/Fb": {
     "message": "How do I invite team members?",
@@ -5765,7 +5765,7 @@
         108
       ]
     ],
-    "translation": "我點樣邀請團隊成員？"
+    "translation": "我如何邀請團隊成員？"
   },
   "KuSt9W": {
     "message": "How do I self-host?",
@@ -5777,7 +5777,7 @@
         124
       ]
     ],
-    "translation": "我點樣自行託管？"
+    "translation": "我如何自行託管？"
   },
   "UeDFpo": {
     "message": "How is the project funded?",
@@ -5789,7 +5789,7 @@
         38
       ]
     ],
-    "translation": "呢個專案點樣獲得資金？"
+    "translation": "這個專案如何獲得資金？"
   },
   "6S8zjx": {
     "message": "https://www.youtube.com/watch?v=...",
@@ -5813,7 +5813,7 @@
         82
       ]
     ],
-    "translation": "我確認我所有嘅帳戶數據將會被永久刪除，並希望繼續進行。"
+    "translation": "我確認我所有的帳戶數據將會被永久刪除，並希望繼續進行。"
   },
   "2Py5S/": {
     "message": "I acknowledge that all of the workspace data will be permanently deleted and want to proceed.",
@@ -5825,7 +5825,7 @@
         92
       ]
     ],
-    "translation": "我確認工作區嘅所有數據將會被永久刪除，並希望繼續進行。"
+    "translation": "我確認工作區的所有數據將會被永久刪除，並希望繼續進行。"
   },
   "VOwhhz": {
     "message": "ID copied",
@@ -5861,7 +5861,7 @@
         75
       ]
     ],
-    "translation": "改善呢個頁面嘅建議..."
+    "translation": "改善這個頁面的建議..."
   },
   "l3s5ri": {
     "message": "Import",
@@ -5917,7 +5917,7 @@
         96
       ]
     ],
-    "translation": "匯入你嘅 Trello 看板，即刻開始使用。"
+    "translation": "匯入你的 Trello 看板，即刻開始使用。"
   },
   "c/IAuR": {
     "message": "Important",
@@ -5953,7 +5953,7 @@
         49
       ]
     ],
-    "translation": "將你嘅 Trello 看板匯入到 Banana 好簡單。你可以按照我哋<0>呢度</0>嘅逐步指南操作。"
+    "translation": "將你的 Trello 看板匯入到 Banana 很簡單。你可以按照我們<0>這裡</0>的逐步指南操作。"
   },
   "02i3WU": {
     "message": "Imports",
@@ -5977,7 +5977,7 @@
         177
       ]
     ],
-    "translation": "喺"
+    "translation": "在"
   },
   "WbTDwg": {
     "message": "In Progress",
@@ -6081,7 +6081,7 @@
         46
       ]
     ],
-    "translation": "無效嘅電郵地址"
+    "translation": "無效的電郵地址"
   },
   "odFCYX": {
     "message": "Invalid invitation",
@@ -6093,7 +6093,7 @@
         105
       ]
     ],
-    "translation": "無效嘅邀請"
+    "translation": "無效的邀請"
   },
   "MFKlMB": {
     "message": "Invite",
@@ -6157,7 +6157,7 @@
         118
       ]
     ],
-    "translation": "邀請連結需要團隊版或專業版訂閱。請升級你嘅工作區。"
+    "translation": "邀請連結需要團隊版或專業版訂閱。請升級你的工作區。"
   },
   "+djOzj": {
     "message": "Invite member",
@@ -6237,7 +6237,7 @@
         51
       ]
     ],
-    "translation": "看板有團隊更好。適合小型成長中嘅團隊協作。"
+    "translation": "看板有團隊更好。適合小型成長中的團隊協作。"
   },
   "Xjj/kS": {
     "message": "Kanban reimagined",
@@ -6265,7 +6265,7 @@
         67
       ]
     ],
-    "translation": "請記住呢個操作係無法復原嘅。"
+    "translation": "請記住這個操作是無法復原的。"
   },
   "h7MgpO": {
     "message": "Keyboard Shortcuts",
@@ -6641,7 +6641,7 @@
         236
       ]
     ],
-    "translation": "全球團隊都鍾意用"
+    "translation": "全球團隊都喜歡用"
   },
   "O9jVbx": {
     "message": "Low Priority",
@@ -6972,7 +6972,7 @@
         28
       ]
     ],
-    "translation": "我嘅看板",
+    "translation": "我的看板",
     "obsolete": true
   },
   "oFLZ3C": {
@@ -6985,7 +6985,7 @@
         35
       ]
     ],
-    "translation": "我嘅卡片"
+    "translation": "我的卡片"
   },
   "uEGGDs": {
     "message": "My webhook",
@@ -6997,7 +6997,7 @@
         231
       ]
     ],
-    "translation": "我嘅 Webhook"
+    "translation": "我的 Webhook"
   },
   "6YtxFj": {
     "message": "Name",
@@ -7169,7 +7169,7 @@
         24
       ]
     ],
-    "translation": "新密碼係必填嘅"
+    "translation": "新密碼是必填的"
   },
   "5iplxh": {
     "message": "New password must be different from current password",
@@ -7181,7 +7181,7 @@
         36
       ]
     ],
-    "translation": "新密碼必須同目前密碼唔同"
+    "translation": "新密碼必須同目前密碼不同"
   },
   "G1Gw0v": {
     "message": "New template",
@@ -7269,7 +7269,7 @@
         76
       ]
     ],
-    "translation": "冇 {0}"
+    "translation": "沒有 {0}"
   },
   "tlhgDC": {
     "message": "No archived boards",
@@ -7281,7 +7281,7 @@
         76
       ]
     ],
-    "translation": "冇已封存嘅看板"
+    "translation": "沒有已封存的看板"
   },
   "Eg99Sc": {
     "message": "No authentication methods are currently available",
@@ -7293,7 +7293,7 @@
         385
       ]
     ],
-    "translation": "目前冇可用嘅驗證方法"
+    "translation": "目前沒有可用的驗證方法"
   },
   "2Bu8xj": {
     "message": "No boards found",
@@ -7305,10 +7305,10 @@
         432
       ]
     ],
-    "translation": "搵唔到看板"
+    "translation": "找不到看板"
   },
   "9fS0S/": {
-    "translation": "搵唔到看板。",
+    "translation": "找不到看板。",
     "message": "No boards found.",
     "placeholders": {},
     "comments": [],
@@ -7329,7 +7329,7 @@
         42
       ]
     ],
-    "translation": "仲未有看板。建立一個嚟開始啦！",
+    "translation": "目前沒有看板。建立一個即可開始！",
     "obsolete": true
   },
   "0/h2j3": {
@@ -7342,7 +7342,7 @@
         49
       ]
     ],
-    "translation": "仲未有指派俾你嘅卡片。"
+    "translation": "目前沒有指派給你的卡片。"
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7354,7 +7354,7 @@
         85
       ]
     ],
-    "translation": "唔使信用卡"
+    "translation": "不用信用卡"
   },
   "MK16u2": {
     "message": "No dates",
@@ -7366,7 +7366,7 @@
         137
       ]
     ],
-    "translation": "冇日期"
+    "translation": "沒有日期"
   },
   "sY2lzr": {
     "message": "No download URL available for this attachment.",
@@ -7378,7 +7378,7 @@
         143
       ]
     ],
-    "translation": "呢個附件冇可用嘅下載 URL。"
+    "translation": "這個附件沒有可用的下載 URL。"
   },
   "TXO5TM": {
     "message": "No keyboard shortcuts registered.",
@@ -7390,7 +7390,7 @@
         334
       ]
     ],
-    "translation": "冇已註冊嘅鍵盤快捷鍵。"
+    "translation": "沒有已註冊的鍵盤快捷鍵。"
   },
   "HOMO91": {
     "message": "No license key was provided. Please try activating again.",
@@ -7402,7 +7402,7 @@
         126
       ]
     ],
-    "translation": "冇提供授權金鑰。請再試一次啟用。"
+    "translation": "沒有提供授權金鑰。請再試一次啟用。"
   },
   "hXMFoN": {
     "message": "No lists",
@@ -7414,7 +7414,7 @@
         652
       ]
     ],
-    "translation": "冇列表"
+    "translation": "沒有列表"
   },
   "fvLNDy": {
     "message": "No lists have been created yet",
@@ -7438,7 +7438,7 @@
         283
       ]
     ],
-    "translation": "搵唔到專案"
+    "translation": "找不到專案"
   },
   "qeh+i+": {
     "message": "No recent activity on your cards.",
@@ -7450,7 +7450,7 @@
         81
       ]
     ],
-    "translation": "你嘅卡片冇近期活動。"
+    "translation": "你的卡片沒有近期活動。"
   },
   "ERpq2P": {
     "message": "No results found for \"{debouncedQuery}\".",
@@ -7466,7 +7466,7 @@
         193
       ]
     ],
-    "translation": "搵唔到「{debouncedQuery}」嘅結果。"
+    "translation": "找不到「{debouncedQuery}」的結果。"
   },
   "Q9pQaX": {
     "message": "No roles found for this workspace yet.",
@@ -7478,7 +7478,7 @@
         110
       ]
     ],
-    "translation": "呢個工作區仲未有角色。"
+    "translation": "這個工作區尚未有角色。"
   },
   "QsLCXD": {
     "message": "No side quests. Follow your curiosity!",
@@ -7490,7 +7490,7 @@
         148
       ]
     ],
-    "translation": "冇支線任務。跟住你嘅好奇心！"
+    "translation": "沒有支線任務。追隨你的好奇心！"
   },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
@@ -7514,7 +7514,7 @@
         98
       ]
     ],
-    "translation": "仲未有成就。搵啲嘢嚟慶祝啦！"
+    "translation": "尚未有成就。尋找值得慶祝的事物！"
   },
   "9h7RDh": {
     "message": "Offer",
@@ -7574,7 +7574,7 @@
         73
       ]
     ],
-    "translation": "一旦你刪除帳戶，就冇得返轉頭。呢個操作無法復原。"
+    "translation": "一旦你刪除帳戶，就無法恢復。這個操作無法復原。"
   },
   "dmKdk0": {
     "message": "Once you delete your workspace, there is no going back. This action cannot be undone.",
@@ -7586,7 +7586,7 @@
         88
       ]
     ],
-    "translation": "一旦你刪除工作區，就冇得返轉頭。呢個操作無法復原。"
+    "translation": "一旦你刪除工作區，就無法恢復。這個操作無法復原。"
   },
   "69b7aE": {
     "message": "Open command menu",
@@ -7658,7 +7658,7 @@
         101
       ]
     ],
-    "translation": "用強大嘅篩選工具快速組織同埋搵卡片。"
+    "translation": "用強大的篩選工具快速組織和找卡片。"
   },
   "Un80BR": {
     "message": "OSS Friends",
@@ -7710,7 +7710,7 @@
         73
       ]
     ],
-    "translation": "擁有你嘅數據"
+    "translation": "擁有你的數據"
   },
   "8F1i42": {
     "message": "Page not found",
@@ -7818,7 +7818,7 @@
         30
       ]
     ],
-    "translation": "密碼唔相符"
+    "translation": "密碼不相符"
   },
   "URAE3q": {
     "message": "Paused",
@@ -7906,7 +7906,7 @@
         52
       ]
     ],
-    "translation": "適合小型成長中嘅團隊協作。"
+    "translation": "適合小型成長中的團隊協作。"
   },
   "TH3Irz": {
     "message": "Permission",
@@ -7982,7 +7982,7 @@
         152
       ]
     ],
-    "translation": "揀一個計劃開始使用。所有付費計劃都包含 14 日免費試用。"
+    "translation": "選擇一個計劃開始使用。所有付費計劃都包含 14 日免費試用。"
   },
   "GdgCoi": {
     "message": "Plan",
@@ -8046,7 +8046,7 @@
         25
       ]
     ],
-    "translation": "請確認你嘅新密碼"
+    "translation": "請確認你的新密碼"
   },
   "OtjenF": {
     "message": "Please enter a valid email address",
@@ -8058,7 +8058,7 @@
         422
       ]
     ],
-    "translation": "請輸入有效嘅電郵地址"
+    "translation": "請輸入有效的電郵地址"
   },
   "CJ3zUq": {
     "message": "Please enter a valid name",
@@ -8070,7 +8070,7 @@
         410
       ]
     ],
-    "translation": "請輸入有效嘅名"
+    "translation": "請輸入有效的名"
   },
   "7b2yuC": {
     "message": "Please enter a valid password",
@@ -8082,7 +8082,7 @@
         437
       ]
     ],
-    "translation": "請輸入有效嘅密碼"
+    "translation": "請輸入有效的密碼"
   },
   "jEw0Mr": {
     "message": "Please enter a valid URL",
@@ -8094,7 +8094,7 @@
         24
       ]
     ],
-    "translation": "請輸入有效嘅 URL"
+    "translation": "請輸入有效的 URL"
   },
   "tmlJN1": {
     "message": "Please enter a valid YouTube URL",
@@ -8110,7 +8110,7 @@
         98
       ]
     ],
-    "translation": "請輸入有效嘅 YouTube URL"
+    "translation": "請輸入有效的 YouTube URL"
   },
   "wPZBpR": {
     "message": "Please select a file to upload.",
@@ -8122,7 +8122,7 @@
         70
       ]
     ],
-    "translation": "請選擇要上傳嘅檔案。"
+    "translation": "請選擇要上傳的檔案。"
   },
   "tyHiOa": {
     "message": "Please try again later, or contact customer support.",
@@ -8390,7 +8390,7 @@
         193
       ]
     ],
-    "translation": "喺列表中嘅位置（0 = 最前，留空表示最後）"
+    "translation": "在列表中的位置（0 = 最前，留空表示最後）"
   },
   "aHCEmh": {
     "message": "Pricing",
@@ -8701,7 +8701,7 @@
         116
       ]
     ],
-    "translation": "移除咗 {0} 個標籤：<0>{labelList}</0>"
+    "translation": "移除了 {0} 個標籤：<0>{labelList}</0>"
   },
   "kQwvU8": {
     "message": "removed a label from the card",
@@ -8713,7 +8713,7 @@
         129
       ]
     ],
-    "translation": "從卡片移除咗一個標籤"
+    "translation": "從卡片移除了一個標籤"
   },
   "uck1tz": {
     "message": "removed a member from the card",
@@ -8725,7 +8725,7 @@
         131
       ]
     ],
-    "translation": "從卡片移除咗一位成員"
+    "translation": "從卡片移除了一位成員"
   },
   "KEim/+": {
     "message": "removed an attachment",
@@ -8737,7 +8737,7 @@
         141
       ]
     ],
-    "translation": "移除咗一個附件"
+    "translation": "移除了一個附件"
   },
   "zwTiVn": {
     "message": "removed an attachment <0>{0}</0>",
@@ -8753,7 +8753,7 @@
         288
       ]
     ],
-    "translation": "移除咗附件 <0>{0}</0>"
+    "translation": "移除了附件 <0>{0}</0>"
   },
   "Qh7QmR": {
     "message": "Removed from favorites",
@@ -8781,7 +8781,7 @@
         200
       ]
     ],
-    "translation": "移除咗標籤 <0>{0}</0>"
+    "translation": "移除了標籤 <0>{0}</0>"
   },
   "aHRWVI": {
     "message": "removed the due date",
@@ -8797,7 +8797,7 @@
         324
       ]
     ],
-    "translation": "移除咗到期日"
+    "translation": "移除了到期日"
   },
   "NypLoL": {
     "message": "renamed a checklist",
@@ -8809,7 +8809,7 @@
         133
       ]
     ],
-    "translation": "重新命名咗一個檢查清單"
+    "translation": "重新命名了一個檢查清單"
   },
   "3ZjRJY": {
     "message": "renamed checklist <0>{0}</0>",
@@ -8825,7 +8825,7 @@
         216
       ]
     ],
-    "translation": "重新命名咗檢查清單 <0>{0}</0>"
+    "translation": "重新命名了檢查清單 <0>{0}</0>"
   },
   "NH54UR": {
     "message": "renamed checklist item to <0>{0}</0>",
@@ -8989,7 +8989,7 @@
         72
       ]
     ],
-    "translation": "喺你自己嘅基礎設施上運行"
+    "translation": "在你自己的基礎設施上運行"
   },
   "YEOVrT": {
     "message": "SAML SSO",
@@ -9057,7 +9057,7 @@
         116
       ]
     ],
-    "translation": "用可重用嘅看板範本慳時間。"
+    "translation": "用可重用的看板範本省時間。"
   },
   "cOh+MI": {
     "message": "Screening",
@@ -9081,7 +9081,7 @@
         105
       ]
     ],
-    "translation": "搜尋看板同埋卡片..."
+    "translation": "搜尋看板和卡片..."
   },
   "MpFIca": {
     "message": "seats",
@@ -9117,7 +9117,7 @@
         28
       ]
     ],
-    "translation": "密鑰唔可以超過 512 個字元"
+    "translation": "密鑰不可以超過 512 個字元"
   },
   "a3LDKx": {
     "message": "Security",
@@ -9141,7 +9141,7 @@
         239
       ]
     ],
-    "translation": "睇吓我哋用戶對 Banana 嘅評價"
+    "translation": "看看我們用戶對 Banana 的評價"
   },
   "zYRVNp": {
     "message": "Select a list",
@@ -9229,7 +9229,7 @@
         169
       ]
     ],
-    "translation": "自行分配咗呢張卡片"
+    "translation": "自行分配了這張卡片"
   },
   "RoafuO": {
     "message": "Send feedback",
@@ -9357,7 +9357,7 @@
         142
       ]
     ],
-    "translation": "設定咗到期日"
+    "translation": "設定了到期日"
   },
   "JjEJSy": {
     "message": "Set up your workspace",
@@ -9369,7 +9369,7 @@
         197
       ]
     ],
-    "translation": "設定你嘅工作區"
+    "translation": "設定你的工作區"
   },
   "Tz0i8g": {
     "message": "Settings",
@@ -9545,7 +9545,7 @@
         62
       ]
     ],
-    "translation": "登入或建立帳戶以啟用你嘅 {partnerName} 授權"
+    "translation": "登入或建立帳戶以啟用你的 {partnerName} 授權"
   },
   "4dGN6E": {
     "message": "Sign in or create an account to activate your license",
@@ -9557,7 +9557,7 @@
         67
       ]
     ],
-    "translation": "登入或建立帳戶以啟用你嘅授權"
+    "translation": "登入或建立帳戶以啟用你的授權"
   },
   "fcWrnU": {
     "message": "Sign out",
@@ -9665,7 +9665,7 @@
         139
       ]
     ],
-    "translation": "簡單、視覺化嘅任務管理，就咁易用。拖放卡片，與團隊協作，做更多嘢。"
+    "translation": "簡單、視覺化的任務管理，就這麼易用。拖放卡片，與團隊協作，做更多東西。"
   },
   "zEcnBA": {
     "message": "SLA",
@@ -9737,7 +9737,7 @@
         73
       ]
     ],
-    "translation": "啟用期間出咗問題。請再試一次。"
+    "translation": "啟用期間出了問題。請再試一次。"
   },
   "r+dxEH": {
     "message": "Something went wrong during license activation.",
@@ -9749,10 +9749,10 @@
         132
       ]
     ],
-    "translation": "授權啟用期間出咗問題。"
+    "translation": "授權啟用期間出了問題。"
   },
   "fUXc6L": {
-    "translation": "今日值得慶祝嘅事",
+    "translation": "今日值得慶祝的事",
     "message": "Something worth celebrating today",
     "placeholders": {},
     "comments": [],
@@ -9764,7 +9764,7 @@
     ]
   },
   "jOOtqe": {
-    "translation": "今日值得慶祝嘅事...",
+    "translation": "今日值得慶祝的事...",
     "message": "Something worth celebrating today...",
     "placeholders": {},
     "comments": [],
@@ -9786,7 +9786,7 @@
         131
       ]
     ],
-    "translation": "你好奇嘅嘢..."
+    "translation": "你好奇的事物..."
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -9810,7 +9810,7 @@
         37
       ]
     ],
-    "translation": "喺 GitHub 加星"
+    "translation": "在 GitHub 加星"
   },
   "veIDCY": {
     "message": "Start 14 day free trial",
@@ -9854,7 +9854,7 @@
         47
       ]
     ],
-    "translation": "免費開始。團隊成長時升級。冇隱藏收費，冇合約。"
+    "translation": "免費開始。團隊成長時升級。沒有隱藏收費，沒有合約。"
   },
   "uAQUqI": {
     "message": "Status",
@@ -9918,7 +9918,7 @@
         59
       ]
     ],
-    "translation": "以每月 $29 元超級充電你嘅工作區。以下係你會得到嘅嘢："
+    "translation": "以每月 $29 元超級充電你的工作區。以下是你會得到的東西："
   },
   "XYLcNv": {
     "message": "Support",
@@ -9946,7 +9946,7 @@
         57
       ]
     ],
-    "translation": "支持專案嘅開發"
+    "translation": "支持專案的開發"
   },
   "D+NlUC": {
     "message": "System",
@@ -10058,7 +10058,7 @@
         19
       ]
     ],
-    "translation": "範本名稱唔可以超過 100 個字元"
+    "translation": "範本名稱不可以超過 100 個字元"
   },
   "6OTo9n": {
     "message": "Template name is required",
@@ -10070,7 +10070,7 @@
         18
       ]
     ],
-    "translation": "範本名稱係必填嘅"
+    "translation": "範本名稱是必填的"
   },
   "iTylMl": {
     "message": "Templates",
@@ -10182,7 +10182,7 @@
         34
       ]
     ],
-    "translation": "多謝你嘅意見回饋！"
+    "translation": "多謝你的意見回饋！"
   },
   "ssK7k+": {
     "message": "That license key could not be found. Please contact support.",
@@ -10194,7 +10194,7 @@
         124
       ]
     ],
-    "translation": "搵唔到嗰個授權金鑰。請聯絡支援。"
+    "translation": "找不到那個授權金鑰。請聯絡支援。"
   },
   "NcFrgC": {
     "message": "The board has been archived.",
@@ -10242,7 +10242,7 @@
         114
       ]
     ],
-    "translation": "你輸入嘅目前密碼唔正確。"
+    "translation": "你輸入的目前密碼不正確。"
   },
   "lkz85l": {
     "message": "The main difference between Kan and Trello is that Kan is open source, allowing anyone to view, modify, and contribute to our code. Our cloud offering also offers no restrictions on features for individual use, whereas Trello locks basic features such as the number of boards you can create behind a paywall.",
@@ -10254,7 +10254,7 @@
         33
       ]
     ],
-    "translation": "Banana 同 Trello 嘅主要分別係 Banana 係開源嘅，任何人都可以查看、修改同埋貢獻代碼。我哋嘅雲端方案對個人使用亦都冇功能限制，而 Trello 會將基本功能（例如你可以建立嘅看板數量）鎖喺付費牆後面。"
+    "translation": "Banana 同 Trello 的主要分別是 Banana 是開源的，任何人都可以查看、修改和貢獻代碼。我們的雲端方案對個人使用亦都沒有功能限制，而 Trello 會將基本功能（例如你可以建立的看板數量）鎖在付費牆後面。"
   },
   "6tDFBe": {
     "message": "The member's permissions have been updated.",
@@ -10270,7 +10270,7 @@
         58
       ]
     ],
-    "translation": "成員嘅權限已更新。"
+    "translation": "成員的權限已更新。"
   },
   "bfZE+Y": {
     "message": "The member's role has been updated.",
@@ -10282,7 +10282,7 @@
         60
       ]
     ],
-    "translation": "成員嘅角色已更新。"
+    "translation": "成員的角色已更新。"
   },
   "gUX7b+": {
     "message": "The open source <0/> alternative to Trello",
@@ -10294,7 +10294,7 @@
         65
       ]
     ],
-    "translation": "開源嘅 <0/> Trello 替代方案"
+    "translation": "開源的 <0/> Trello 替代方案"
   },
   "0xD8Of": {
     "message": "The page you're looking for doesn't exist or has been moved.",
@@ -10306,7 +10306,7 @@
         29
       ]
     ],
-    "translation": "你搵緊嘅頁面唔存在或者已經被搬走。"
+    "translation": "你正在找的頁面不存在或者已經被搬走。"
   },
   "fQCrjt": {
     "message": "The visibility of your board has been set to {0}.",
@@ -10322,7 +10322,7 @@
         50
       ]
     ],
-    "translation": "你嘅看板可見性已設定為 {0}。"
+    "translation": "你的看板可見性已設定為 {0}。"
   },
   "FEr96N": {
     "message": "Theme",
@@ -10346,7 +10346,7 @@
         50
       ]
     ],
-    "translation": "佢哋將無法存取呢個工作區。"
+    "translation": "他們將無法存取這個工作區。"
   },
   "3LDCpD": {
     "message": "This action can't be undone.",
@@ -10374,7 +10374,7 @@
         69
       ]
     ],
-    "translation": "呢個操作無法復原。"
+    "translation": "這個操作無法復原。"
   },
   "YoyKbT": {
     "message": "This API key will only be shown once. Please save it in a secure location.",
@@ -10386,7 +10386,7 @@
         129
       ]
     ],
-    "translation": "呢支 API 金鑰只會顯示一次。請儲存喺安全嘅地方。"
+    "translation": "這支 API 金鑰只會顯示一次。請儲存在安全的地方。"
   },
   "l4asa1": {
     "message": "This board is private or does not exist",
@@ -10398,7 +10398,7 @@
         184
       ]
     ],
-    "translation": "呢個看板係私人嘅或者唔存在"
+    "translation": "這個看板是私人的或者不存在"
   },
   "wY+6Ye": {
     "message": "This board URL has already been taken",
@@ -10410,7 +10410,7 @@
         136
       ]
     ],
-    "translation": "呢個看板 URL 已經被人用咗"
+    "translation": "這個看板 URL 已經被人用了"
   },
   "mTwGOf": {
     "message": "This invitation link is invalid or has expired.",
@@ -10422,7 +10422,7 @@
         108
       ]
     ],
-    "translation": "呢條邀請連結無效或者已過期。"
+    "translation": "這條邀請連結無效或者已過期。"
   },
   "vlxQFL": {
     "message": "This member's permissions have been reset to their role defaults.",
@@ -10434,7 +10434,7 @@
         81
       ]
     ],
-    "translation": "呢位成員嘅權限已重設為其角色預設值。"
+    "translation": "這位成員的權限已重設為其角色預設值。"
   },
   "HQVm6e": {
     "message": "This URL has already been taken",
@@ -10446,7 +10446,7 @@
         83
       ]
     ],
-    "translation": "呢個 URL 已經被人用咗"
+    "translation": "這個 URL 已經被人用了"
   },
   "gKmoow": {
     "message": "This URL is reserved",
@@ -10458,7 +10458,7 @@
         85
       ]
     ],
-    "translation": "呢個 URL 已被保留"
+    "translation": "這個 URL 已被保留"
   },
   "OAYToL": {
     "message": "This will remove all custom member permissions in this workspace. Members will inherit permissions only from their roles.",
@@ -10470,7 +10470,7 @@
         35
       ]
     ],
-    "translation": "呢個操作會移除呢個工作區嘅所有自訂成員權限。成員將只從其角色繼承權限。"
+    "translation": "這個操作會移除這個工作區的所有自訂成員權限。成員將只從其角色繼承權限。"
   },
   "MeO/vH": {
     "message": "This will result in the permanent deletion of all data associated with this workspace.",
@@ -10482,7 +10482,7 @@
         70
       ]
     ],
-    "translation": "呢個操作將會永久刪除與呢個工作區相關嘅所有數據。"
+    "translation": "這個操作將會永久刪除與這個工作區相關的所有數據。"
   },
   "mwBdZ2": {
     "message": "This will result in the permanent deletion of all data associated with your account.",
@@ -10494,7 +10494,7 @@
         60
       ]
     ],
-    "translation": "呢個操作將會永久刪除與你帳戶相關嘅所有數據。"
+    "translation": "這個操作將會永久刪除與你帳戶相關的所有數據。"
   },
   "duf3Nr": {
     "message": "This workspace URL has already been taken",
@@ -10506,7 +10506,7 @@
         190
       ]
     ],
-    "translation": "呢個工作區 URL 已經被人用咗"
+    "translation": "這個工作區 URL 已經被人用了"
   },
   "bJtM0P": {
     "message": "This workspace URL is reserved",
@@ -10518,7 +10518,7 @@
         192
       ]
     ],
-    "translation": "呢個工作區 URL 已被保留"
+    "translation": "這個工作區 URL 已被保留"
   },
   "kp6L3T": {
     "message": "This workspace username has already been taken",
@@ -10530,7 +10530,7 @@
         125
       ]
     ],
-    "translation": "呢個工作區用戶名已經被人用咗"
+    "translation": "這個工作區用戶名已經被人用了"
   },
   "pEb95p": {
     "message": "Ticket ID copied to clipboard",
@@ -10606,7 +10606,7 @@
         19
       ]
     ],
-    "translation": "Token 係必填嘅"
+    "translation": "Token 是必填的"
   },
   "eEQyz+": {
     "message": "Track all card changes with detailed activity history.",
@@ -10618,7 +10618,7 @@
         111
       ]
     ],
-    "translation": "透過詳細嘅活動歷史追蹤所有卡片變更。"
+    "translation": "透過詳細的活動歷史追蹤所有卡片變更。"
   },
   "dtbpdR": {
     "message": "Trello",
@@ -10682,7 +10682,7 @@
         67
       ]
     ],
-    "translation": "全球快速發展嘅團隊都信賴<0/>"
+    "translation": "全球快速發展的團隊都信賴<0/>"
   },
   "bZSICm": {
     "message": "Unable to add checklist item",
@@ -11238,7 +11238,7 @@
         180
       ]
     ],
-    "translation": "自行取消分配咗呢張卡片"
+    "translation": "自行取消分配了這張卡片"
   },
   "9Xigls": {
     "message": "Under Review",
@@ -11306,7 +11306,7 @@
         57
       ]
     ],
-    "translation": "無限看板、無限列表、無限卡片。唔使信用卡。"
+    "translation": "無限看板、無限列表、無限卡片。不用信用卡。"
   },
   "Zz1qkk": {
     "message": "Unlimited cards",
@@ -11418,7 +11418,7 @@
         95
       ]
     ],
-    "translation": "無限成員同埋自訂工作區用戶名，適合準備擴展嘅團隊。"
+    "translation": "無限成員和自訂工作區用戶名，適合準備擴展的團隊。"
   },
   "i5yNAO": {
     "message": "Unlimited seats",
@@ -11442,7 +11442,7 @@
         75
       ]
     ],
-    "translation": "無限席位同埋進階功能，適合成長中嘅團隊。"
+    "translation": "無限席位和進階功能，適合成長中的團隊。"
   },
   "SMaFdc": {
     "message": "Unsubscribe",
@@ -11527,7 +11527,7 @@
         136
       ]
     ],
-    "translation": "更新咗一個檢查清單項目"
+    "translation": "更新了一個檢查清單項目"
   },
   "tGwwnq": {
     "message": "updated the description",
@@ -11539,7 +11539,7 @@
         126
       ]
     ],
-    "translation": "更新咗描述"
+    "translation": "更新了描述"
   },
   "RfgJqw": {
     "message": "updated the due date",
@@ -11551,7 +11551,7 @@
         143
       ]
     ],
-    "translation": "更新咗到期日"
+    "translation": "更新了到期日"
   },
   "V3MPSQ": {
     "message": "updated the title",
@@ -11563,7 +11563,7 @@
         125
       ]
     ],
-    "translation": "更新咗標題"
+    "translation": "更新了標題"
   },
   "zERArS": {
     "message": "updated the title to <0>{0}</0>",
@@ -11679,7 +11679,7 @@
         38
       ]
     ],
-    "translation": "URL 只可以包含字母、數字同埋連字號"
+    "translation": "URL 只可以包含字母、數字和連字號"
   },
   "7aONWr": {
     "message": "URL cannot exceed 2048 characters",
@@ -11691,7 +11691,7 @@
         25
       ]
     ],
-    "translation": "URL 唔可以超過 2048 個字元"
+    "translation": "URL 不可以超過 2048 個字元"
   },
   "i5rE2/": {
     "message": "URL cannot exceed 64 characters",
@@ -11707,7 +11707,7 @@
         36
       ]
     ],
-    "translation": "URL 唔可以超過 64 個字元"
+    "translation": "URL 不可以超過 64 個字元"
   },
   "SWEskc": {
     "message": "URL must be at least 3 characters long",
@@ -11771,7 +11771,7 @@
         93
       ]
     ],
-    "translation": "用戶已經係呢個工作區嘅成員"
+    "translation": "用戶已經是這個工作區的成員"
   },
   "vSJd18": {
     "message": "Video",
@@ -11795,7 +11795,7 @@
         25
       ]
     ],
-    "translation": "查看同埋管理你嘅 API 金鑰。"
+    "translation": "查看和管理你的 API 金鑰。"
   },
   "t2nDzl": {
     "message": "View and manage your billing and subscription.",
@@ -11807,7 +11807,7 @@
         91
       ]
     ],
-    "translation": "查看同埋管理你嘅帳單同埋訂閱。"
+    "translation": "查看和管理你的帳單和訂閱。"
   },
   "aiHZVP": {
     "message": "View docs",
@@ -11843,7 +11843,7 @@
         154
       ]
     ],
-    "translation": "查看我哋嘅路線圖。"
+    "translation": "查看我們的路線圖。"
   },
   "U5dMR6": {
     "message": "View workspace",
@@ -11879,7 +11879,7 @@
         94
       ]
     ],
-    "translation": "我哋使用 <0>AGPL-3.0 授權</0>。"
+    "translation": "我們使用 <0>AGPL-3.0 授權</0>。"
   },
   "+EkBs0": {
     "message": "We couldn't update your preferences. Please try again.",
@@ -11891,7 +11891,7 @@
         63
       ]
     ],
-    "translation": "我哋無法更新你嘅偏好。請再試一次。"
+    "translation": "我們無法更新你的偏好。請再試一次。"
   },
   "7sdSkl": {
     "message": "We sent a link to {magicLinkRecipient}",
@@ -11907,7 +11907,7 @@
         60
       ]
     ],
-    "translation": "我哋已向 {magicLinkRecipient} 發送咗連結"
+    "translation": "我們已向 {magicLinkRecipient} 發送了連結"
   },
   "9y1RcT": {
     "message": "We're just getting started. ",
@@ -11919,7 +11919,7 @@
         152
       ]
     ],
-    "translation": "我哋啱啱起步。 "
+    "translation": "我們剛剛起步。 "
   },
   "an6ayw": {
     "message": "Webhook created",
@@ -11979,7 +11979,7 @@
         20
       ]
     ],
-    "translation": "Webhook 名稱唔可以超過 255 個字元"
+    "translation": "Webhook 名稱不可以超過 255 個字元"
   },
   "U2+rn0": {
     "message": "Webhook name is required",
@@ -11991,7 +11991,7 @@
         19
       ]
     ],
-    "translation": "Webhook 名稱係必填嘅"
+    "translation": "Webhook 名稱是必填的"
   },
   "8iP9oQ": {
     "message": "Webhook test failed",
@@ -12043,7 +12043,7 @@
         23
       ]
     ],
-    "translation": "Webhook URL 係必填嘅"
+    "translation": "Webhook URL 是必填的"
   },
   "v1kQyJ": {
     "message": "Webhooks",
@@ -12083,7 +12083,7 @@
         46
       ]
     ],
-    "translation": "歡迎返嚟"
+    "translation": "歡迎回來"
   },
   "xEbBrW": {
     "message": "What license are you using?",
@@ -12095,7 +12095,7 @@
         91
       ]
     ],
-    "translation": "你用緊咩授權？"
+    "translation": "你正在用什麼授權？"
   },
   "H5G+qG": {
     "message": "What's the difference between Kan and Trello?",
@@ -12107,7 +12107,7 @@
         30
       ]
     ],
-    "translation": "Banana 同 Trello 有咩分別？"
+    "translation": "Banana 同 Trello 有什麼分別？"
   },
   "mVZH9V": {
     "message": "When Trello launched in 2011, it blew everyone away with its carefully designed simplicity, but over the years it lost its magic and grew into something closer to \"Jira Lite\". This project is our attempt to recapture the original magic of Trello's simplicity, in open source.",
@@ -12119,7 +12119,7 @@
         25
       ]
     ],
-    "translation": "Trello 喺 2011 年推出嗰陣，佢精心設計嘅簡約風格令所有人都驚艷，但係多年嚟佢失去咗嗰種魔力，變成咗更接近「Jira 精簡版」嘅嘢。呢個專案係我哋嘗試重拾 Trello 最初簡約嘅魔力，並以開源嘅形式呈現。"
+    "translation": "Trello 在 2011 年推出時，他精心設計的簡約風格令所有人都驚艷，但是多年來他失去了那種魔力，變成了更接近「Jira 精簡版」的東西。這個專案是我們嘗試重拾 Trello 最初簡約的魔力，並以開源的形式呈現。"
   },
   "SFnH1j": {
     "message": "Why make an open source Trello?",
@@ -12131,7 +12131,7 @@
         22
       ]
     ],
-    "translation": "點解要整一個開源嘅 Trello？"
+    "translation": "為什麼要做一個開源的 Trello？"
   },
   "pmUArF": {
     "message": "Workspace",
@@ -12207,7 +12207,7 @@
         30
       ]
     ],
-    "translation": "工作區描述唔可以超過 280 個字元"
+    "translation": "工作區描述不可以超過 280 個字元"
   },
   "XDRXbZ": {
     "message": "Workspace description must be at least 3 characters long",
@@ -12287,7 +12287,7 @@
         15
       ]
     ],
-    "translation": "工作區名稱唔可以超過 64 個字元"
+    "translation": "工作區名稱不可以超過 64 個字元"
   },
   "bcIybO": {
     "message": "Workspace name is required",
@@ -12299,7 +12299,7 @@
         22
       ]
     ],
-    "translation": "工作區名稱係必填嘅"
+    "translation": "工作區名稱是必填的"
   },
   "jZBHkN": {
     "message": "Workspace name must be at least 3 characters long",
@@ -12423,7 +12423,7 @@
         86
       ]
     ],
-    "translation": "有，我哋提供永久免費嘅個人使用計劃。冇限制、冇付費牆、冇上限。"
+    "translation": "有，我們提供永久免費的個人使用計劃。無限制、沒有付費牆、沒有上限。"
   },
   "RtlIYB": {
     "message": "You are about to change your password.",
@@ -12447,7 +12447,7 @@
         200
       ]
     ],
-    "translation": "你隨時可以之後喺設定度更改呢啲。"
+    "translation": "你隨時可以之後在設定中更改這些。"
   },
   "HmE44M": {
     "message": "You can get a custom workspace URL, like <0>banana.bn/kan</0>, by going into your <1>workspace settings</1> and purchasing a pro workspace subscription. All subscriptions help fund the development of the project!",
@@ -12459,7 +12459,7 @@
         67
       ]
     ],
-    "translation": "你可以攞到自訂工作區 URL，例如 <0>banana.bn/kan</0>，去你嘅<1>工作區設定</1>購買專業版工作區訂閱就得。所有訂閱都幫助專案嘅開發！"
+    "translation": "你可以取得自訂工作區 URL，例如 <0>banana.bn/kan</0>，去你的<1>工作區設定</1>購買專業版工作區訂閱即可。所有訂閱都幫助專案的開發！"
   },
   "kSxwQL": {
     "message": "You can invite team members by clicking the \"Invite\" button in the top right corner of the <0>members page</0> and entering their email address. They will receive an email with a link to join the workspace.",
@@ -12471,7 +12471,7 @@
         111
       ]
     ],
-    "translation": "你可以點擊<0>成員頁面</0>右上角嘅「邀請」按鈕並輸入佢哋嘅電郵地址嚟邀請團隊成員。佢哋會收到一封附有加入工作區連結嘅電郵。"
+    "translation": "你可以點擊<0>成員頁面</0>右上角的「邀請」按鈕並輸入他們的電郵地址來邀請團隊成員。他們會收到一封附有加入工作區連結的電郵。"
   },
   "vAj6xG": {
     "message": "You can self-host by following the instructions in our <0>repo</0>.",
@@ -12483,7 +12483,7 @@
         127
       ]
     ],
-    "translation": "你可以按照我哋<0>repo</0>中嘅說明自行託管。"
+    "translation": "你可以按照我們<0>repo</0>中的說明自行託管。"
   },
   "h2FKMV": {
     "message": "You don't have permission",
@@ -12523,7 +12523,7 @@
         80
       ]
     ],
-    "translation": "你冇權限"
+    "translation": "你沒有權限"
   },
   "p/hk9N": {
     "message": "You have been logged in successfully.",
@@ -12571,7 +12571,7 @@
         299
       ]
     ],
-    "translation": "你嘅專業版計劃有無限席位。新增成員唔會有額外收費！"
+    "translation": "你的專業版計劃有無限席位。新增成員不會有額外收費！"
   },
   "MdN5zD": {
     "message": "You need to be an admin to manage workspace permissions.",
@@ -12583,7 +12583,7 @@
         86
       ]
     ],
-    "translation": "你需要係管理員先可以管理工作區權限。"
+    "translation": "你需要是管理員才可以管理工作區權限。"
   },
   "ZhQoZn": {
     "message": "You signed in without a password. Set a password to enable password-based login.",
@@ -12595,7 +12595,7 @@
         147
       ]
     ],
-    "translation": "你登入時冇用密碼。設定密碼以啟用密碼登入。"
+    "translation": "你登入時沒用密碼。設定密碼以啟用密碼登入。"
   },
   "2TX7RD": {
     "message": "You've been invited to join a workspace on banana.bn.",
@@ -12607,7 +12607,7 @@
         134
       ]
     ],
-    "translation": "你已被邀請加入 banana.bn 上嘅一個工作區。"
+    "translation": "你已被邀請加入 banana.bn 上的一個工作區。"
   },
   "uOqaMC": {
     "message": "You've been invited to join a workspace.",
@@ -12631,7 +12631,7 @@
         261
       ]
     ],
-    "translation": "你嘅帳戶已經有密碼。你可以喺帳戶設定度更改。"
+    "translation": "你的帳戶已經有密碼。你可以在帳戶設定中更改。"
   },
   "GoDLB9": {
     "message": "Your account has been deleted.",
@@ -12643,7 +12643,7 @@
         28
       ]
     ],
-    "translation": "你嘅帳戶已被刪除。"
+    "translation": "你的帳戶已被刪除。"
   },
   "c4nMcR": {
     "message": "Your avatar",
@@ -12655,7 +12655,7 @@
         260
       ]
     ],
-    "translation": "你嘅頭像"
+    "translation": "你的頭像"
   },
   "evg7+A": {
     "message": "Your boards have been imported.",
@@ -12667,7 +12667,7 @@
         382
       ]
     ],
-    "translation": "你嘅看板已匯入。"
+    "translation": "你的看板已匯入。"
   },
   "LqWW5F": {
     "message": "Your display name has been updated.",
@@ -12679,7 +12679,7 @@
         42
       ]
     ],
-    "translation": "你嘅顯示名稱已更新。"
+    "translation": "你的顯示名稱已更新。"
   },
   "tca56/": {
     "message": "Your file has been uploaded successfully.",
@@ -12691,7 +12691,7 @@
         46
       ]
     ],
-    "translation": "你嘅檔案已成功上傳。"
+    "translation": "你的檔案已成功上傳。"
   },
   "HcT8J4": {
     "message": "Your GitHub account has been connected.",
@@ -12703,7 +12703,7 @@
         100
       ]
     ],
-    "translation": "你嘅 GitHub 帳戶已連接。"
+    "translation": "你的 GitHub 帳戶已連接。"
   },
   "AdxYds": {
     "message": "Your GitHub account has been disconnected.",
@@ -12715,7 +12715,7 @@
         123
       ]
     ],
-    "translation": "你嘅 GitHub 帳戶已中斷連接。"
+    "translation": "你的 GitHub 帳戶已中斷連接。"
   },
   "PELbXB": {
     "message": "Your GitHub account is connected.",
@@ -12727,7 +12727,7 @@
         220
       ]
     ],
-    "translation": "你嘅 GitHub 帳戶已連接。"
+    "translation": "你的 GitHub 帳戶已連接。"
   },
   "ygpeZ8": {
     "message": "Your license has been activated successfully.",
@@ -12739,7 +12739,7 @@
         116
       ]
     ],
-    "translation": "你嘅授權已成功啟用。"
+    "translation": "你的授權已成功啟用。"
   },
   "+A6Wuq": {
     "message": "Your license is not active. Please check your account.",
@@ -12751,7 +12751,7 @@
         125
       ]
     ],
-    "translation": "你嘅授權未啟用。請檢查你嘅帳戶。"
+    "translation": "你的授權未啟用。請檢查你的帳戶。"
   },
   "Ozt2vv": {
     "message": "Your password has been changed.",
@@ -12763,7 +12763,7 @@
         95
       ]
     ],
-    "translation": "你嘅密碼已更改。"
+    "translation": "你的密碼已更改。"
   },
   "EuK5ez": {
     "message": "Your password has been set.",
@@ -12775,7 +12775,7 @@
         96
       ]
     ],
-    "translation": "你嘅密碼已設定。"
+    "translation": "你的密碼已設定。"
   },
   "/tOdd2": {
     "message": "Your profile image has been updated.",
@@ -12787,7 +12787,7 @@
         190
       ]
     ],
-    "translation": "你嘅頭像已更新。"
+    "translation": "你的頭像已更新。"
   },
   "+jbXzb": {
     "message": "Your projects have been imported.",
@@ -12799,7 +12799,7 @@
         230
       ]
     ],
-    "translation": "你嘅專案已匯入。"
+    "translation": "你的專案已匯入。"
   },
   "CJWDTP": {
     "message": "Your Trello account has been disconnected.",
@@ -12811,7 +12811,7 @@
         80
       ]
     ],
-    "translation": "你嘅 Trello 帳戶已中斷連接。"
+    "translation": "你的 Trello 帳戶已中斷連接。"
   },
   "WRsbHO": {
     "message": "Your Trello account is connected.",
@@ -12823,7 +12823,7 @@
         171
       ]
     ],
-    "translation": "你嘅 Trello 帳戶已連接。"
+    "translation": "你的 Trello 帳戶已連接。"
   },
   "25fAUC": {
     "message": "Your unsubscribe link is missing a token. Please open the latest email and try again.",
@@ -12835,7 +12835,7 @@
         33
       ]
     ],
-    "translation": "你嘅取消訂閱連結缺少 token。請打開最新嘅電郵再試一次。"
+    "translation": "你的取消訂閱連結缺少 token。請打開最新的電郵再試一次。"
   },
   "GRAGsB": {
     "message": "Your workspace",
@@ -12847,7 +12847,7 @@
         344
       ]
     ],
-    "translation": "你嘅工作區"
+    "translation": "你的工作區"
   },
   "j0o6ml": {
     "message": "Your workspace description",
@@ -12859,7 +12859,7 @@
         347
       ]
     ],
-    "translation": "你嘅工作區描述"
+    "translation": "你的工作區描述"
   },
   "GnSSGm": {
     "message": "Your workspace description has been updated.",
@@ -12871,7 +12871,7 @@
         51
       ]
     ],
-    "translation": "你嘅工作區描述已更新。"
+    "translation": "你的工作區描述已更新。"
   },
   "qkjvgj": {
     "message": "Your workspace has been deleted.",
@@ -12883,7 +12883,7 @@
         27
       ]
     ],
-    "translation": "你嘅工作區已刪除。"
+    "translation": "你的工作區已刪除。"
   },
   "2h4PVB": {
     "message": "Your workspace name has been updated.",
@@ -12895,7 +12895,7 @@
         46
       ]
     ],
-    "translation": "你嘅工作區名稱已更新。"
+    "translation": "你的工作區名稱已更新。"
   },
   "Hg1qE9": {
     "message": "Your workspace slug has been updated.",
@@ -12907,7 +12907,7 @@
         63
       ]
     ],
-    "translation": "你嘅工作區 URL 已更新。"
+    "translation": "你的工作區 URL 已更新。"
   },
   "OTxjpR": {
     "message": "your-workspace",
@@ -12923,7 +12923,7 @@
         217
       ]
     ],
-    "translation": "你嘅工作區"
+    "translation": "你的工作區"
   },
   "4DOCMI": {
     "message": "YouTube URL",
