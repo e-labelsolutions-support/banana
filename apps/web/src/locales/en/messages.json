@@ -451,20 +451,20 @@
     "translation": "Activity logs"
   },
   "m16xKo": {
-    "translation": "Add",
     "message": "Add",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/SideQuestsSection.tsx",
-        139
+        141
       ],
       [
         "src/views/home-dashboard/WinsSection.tsx",
-        88
+        90
       ]
-    ]
+    ],
+    "translation": "Add"
   },
   "UGCIzB": {
     "message": "Add / edit label",
@@ -489,6 +489,30 @@
       ]
     ],
     "translation": "Add a card"
+  },
+  "P06aiF": {
+    "translation": "Add a quest...",
+    "message": "Add a quest...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/SideQuestsSection.tsx",
+        132
+      ]
+    ]
+  },
+  "145/oz": {
+    "translation": "Add a win...",
+    "message": "Add a win...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        81
+      ]
+    ]
   },
   "qtE5nt": {
     "message": "Add an item...",
@@ -1727,7 +1751,11 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        111
+        113
+      ],
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        28
       ],
       [
         "src/views/pricing/components/FeatureComparisonTable.tsx",
@@ -1803,7 +1831,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        123
+        125
       ],
       [
         "src/views/calendar/index.tsx",
@@ -2729,7 +2757,6 @@
     "translation": "Complete control and ownership:"
   },
   "2PsTzL": {
-    "translation": "completed",
     "message": "completed",
     "placeholders": {},
     "comments": [],
@@ -2738,7 +2765,8 @@
         "src/views/home-dashboard/DailyQuestsSection.tsx",
         81
       ]
-    ]
+    ],
+    "translation": "completed"
   },
   "Lt+ZP3": {
     "message": "completed a checklist item",
@@ -2983,7 +3011,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        443
+        453
       ]
     ],
     "translation": "Continue with "
@@ -2999,7 +3027,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        361
+        371
       ]
     ],
     "translation": "Continue with {0}"
@@ -3358,7 +3386,8 @@
         69
       ]
     ],
-    "translation": "Created {0}"
+    "translation": "Created {0}",
+    "obsolete": true
   },
   "f8lDFq": {
     "message": "created the card",
@@ -3558,7 +3587,6 @@
     "translation": "Customer Support"
   },
   "Xu7ysi": {
-    "translation": "Daily Quests",
     "message": "Daily Quests",
     "placeholders": {},
     "comments": [],
@@ -3567,7 +3595,8 @@
         "src/views/home-dashboard/DailyQuestsSection.tsx",
         77
       ]
-    ]
+    ],
+    "translation": "Daily Quests"
   },
   "pvnfJD": {
     "message": "Dark",
@@ -4316,7 +4345,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        444
+        454
       ]
     ],
     "translation": "email"
@@ -4386,16 +4415,16 @@
     "translation": "End of list"
   },
   "sJ5WJw": {
-    "translation": "Energy Check-In",
     "message": "Energy Check-In",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/EnergyCheckinSection.tsx",
-        60
+        92
       ]
-    ]
+    ],
+    "translation": "Energy Check-In"
   },
   "SUXBxp": {
     "message": "Engineering",
@@ -4484,7 +4513,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        408
+        418
       ]
     ],
     "translation": "Enter your email address"
@@ -4496,7 +4525,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        396
+        406
       ]
     ],
     "translation": "Enter your name"
@@ -4520,7 +4549,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        422
+        432
       ]
     ],
     "translation": "Enter your password"
@@ -4937,7 +4966,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        297
+        307
       ]
     ],
     "translation": "Failed to login with {0}. Please try again."
@@ -5095,16 +5124,16 @@
     "translation": "Feedback sent"
   },
   "vUDIdF": {
-    "translation": "Feel Good Productivity",
     "message": "Feel Good Productivity",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/index.tsx",
-        44
+        41
       ]
-    ]
+    ],
+    "translation": "Feel Good Productivity"
   },
   "F6m23G": {
     "message": "File uploads",
@@ -5143,7 +5172,6 @@
     "translation": "Find answers to common questions about Kan. Can't find what you're looking for? Feel free to <0>contact us</0>."
   },
   "kWEIUh": {
-    "translation": "Find the Win",
     "message": "Find the Win",
     "placeholders": {},
     "comments": [],
@@ -5152,7 +5180,8 @@
         "src/views/home-dashboard/WinsSection.tsx",
         37
       ]
-    ]
+    ],
+    "translation": "Find the Win"
   },
   "q3il6U": {
     "message": "Font size",
@@ -5517,7 +5546,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        119
+        121
       ],
       [
         "src/pages/404.tsx",
@@ -5533,7 +5562,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        131
+        133
       ]
     ],
     "translation": "Go to calendar"
@@ -5545,7 +5574,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        107
+        109
       ]
     ],
     "translation": "Go to home"
@@ -5569,7 +5598,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        155
+        157
       ]
     ],
     "translation": "Go to members"
@@ -5581,7 +5610,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        167
+        169
       ]
     ],
     "translation": "Go to settings"
@@ -5593,7 +5622,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        143
+        145
       ]
     ],
     "translation": "Go to templates"
@@ -5655,7 +5684,6 @@
     "translation": "Guest"
   },
   "2Ff4j6": {
-    "translation": "Hide explored",
     "message": "Hide explored",
     "placeholders": {},
     "comments": [],
@@ -5664,7 +5692,8 @@
         "src/views/home-dashboard/SideQuestsSection.tsx",
         71
       ]
-    ]
+    ],
+    "translation": "Hide explored"
   },
   "CB/NpV": {
     "message": "High Priority",
@@ -5709,11 +5738,11 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        99
+        101
       ],
       [
         "src/views/home-dashboard/index.tsx",
-        40
+        35
       ]
     ],
     "translation": "Home"
@@ -5725,7 +5754,7 @@
     "origin": [
       [
         "src/views/home-dashboard/index.tsx",
-        37
+        32
       ]
     ],
     "translation": "Home | banana.bn"
@@ -5743,16 +5772,16 @@
     "translation": "Host Kan on your own infrastructure. Ideal for organisations that need complete control over their data."
   },
   "V1j0aV": {
-    "translation": "How are you feeling? (optional)",
     "message": "How are you feeling? (optional)",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/EnergyCheckinSection.tsx",
-        105
+        168
       ]
-    ]
+    ],
+    "translation": "How are you feeling? (optional)"
   },
   "WI4eGo": {
     "message": "How do I get a custom URL?",
@@ -6605,6 +6634,18 @@
     ],
     "translation": "Lists"
   },
+  "yQ2kGp": {
+    "translation": "Load more",
+    "message": "Load more",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/RecentActivitySection.tsx",
+        120
+      ]
+    ]
+  },
   "1rVAfU": {
     "message": "Load more activities",
     "placeholders": {},
@@ -6637,6 +6678,10 @@
       [
         "src/views/card/components/ActivityList.tsx",
         579
+      ],
+      [
+        "src/views/home-dashboard/RecentActivitySection.tsx",
+        120
       ]
     ],
     "translation": "Loading..."
@@ -6721,7 +6766,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        444
+        454
       ]
     ],
     "translation": "magic link"
@@ -6869,7 +6914,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        147
+        149
       ],
       [
         "src/views/board/components/Filters.tsx",
@@ -7031,7 +7076,8 @@
         28
       ]
     ],
-    "translation": "My Boards"
+    "translation": "My Boards",
+    "obsolete": true
   },
   "oFLZ3C": {
     "message": "My Cards",
@@ -7348,7 +7394,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        375
+        385
       ]
     ],
     "translation": "No authentication methods are currently available"
@@ -7365,6 +7411,18 @@
     ],
     "translation": "No boards found"
   },
+  "9fS0S/": {
+    "translation": "No boards found.",
+    "message": "No boards found.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/MyBoardsSection.tsx",
+        42
+      ]
+    ]
+  },
   "PDVw/v": {
     "message": "No boards yet. Create one to get started!",
     "placeholders": {},
@@ -7375,7 +7433,8 @@
         42
       ]
     ],
-    "translation": "No boards yet. Create one to get started!"
+    "translation": "No boards yet. Create one to get started!",
+    "obsolete": true
   },
   "0/h2j3": {
     "message": "No cards assigned to you yet.",
@@ -7492,7 +7551,7 @@
     "origin": [
       [
         "src/views/home-dashboard/RecentActivitySection.tsx",
-        73
+        81
       ]
     ],
     "translation": "No recent activity on your cards."
@@ -7526,16 +7585,16 @@
     "translation": "No roles found for this workspace yet."
   },
   "QsLCXD": {
-    "translation": "No side quests. Follow your curiosity!",
     "message": "No side quests. Follow your curiosity!",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/SideQuestsSection.tsx",
-        145
+        148
       ]
-    ]
+    ],
+    "translation": "No side quests. Follow your curiosity!"
   },
   "TX0bT7": {
     "message": "No webhooks configured. Add a webhook to receive notifications.",
@@ -7550,16 +7609,16 @@
     "translation": "No webhooks configured. Add a webhook to receive notifications."
   },
   "7hw65y": {
-    "translation": "No wins yet. Find something to celebrate!",
     "message": "No wins yet. Find something to celebrate!",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/WinsSection.tsx",
-        95
+        98
       ]
-    ]
+    ],
+    "translation": "No wins yet. Find something to celebrate!"
   },
   "9h7RDh": {
     "message": "Offer",
@@ -7688,7 +7747,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        386
+        396
       ]
     ],
     "translation": "or"
@@ -7812,7 +7871,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        264
+        274
       ]
     ],
     "translation": "Password is required to login."
@@ -7824,7 +7883,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        263
+        273
       ]
     ],
     "translation": "Password is required to sign up."
@@ -8100,7 +8159,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        412
+        422
       ]
     ],
     "translation": "Please enter a valid email address"
@@ -8112,7 +8171,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        400
+        410
       ]
     ],
     "translation": "Please enter a valid name"
@@ -8124,7 +8183,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        427
+        437
       ]
     ],
     "translation": "Please enter a valid password"
@@ -8652,7 +8711,7 @@
     "origin": [
       [
         "src/views/home-dashboard/RecentActivitySection.tsx",
-        59
+        67
       ]
     ],
     "translation": "Recent Activity"
@@ -9313,16 +9372,16 @@
     "translation": "Senior"
   },
   "NfZUor": {
-    "translation": "Set",
     "message": "Set",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/DailyQuestsSection.tsx",
-        168
+        170
       ]
-    ]
+    ],
+    "translation": "Set"
   },
   "GXGbXi": {
     "message": "Set a password to enable password-based login.",
@@ -9335,6 +9394,18 @@
       ]
     ],
     "translation": "Set a password to enable password-based login."
+  },
+  "O3wNI6": {
+    "translation": "Set an action...",
+    "message": "Set an action...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/DailyQuestsSection.tsx",
+        161
+      ]
+    ]
   },
   "8AbRER": {
     "message": "Set due date",
@@ -9415,7 +9486,7 @@
       ],
       [
         "src/components/SideNavigation.tsx",
-        159
+        161
       ]
     ],
     "translation": "Settings"
@@ -9517,7 +9588,6 @@
     "translation": "Shortcuts"
   },
   "1pv3tl": {
-    "translation": "Show explored",
     "message": "Show explored",
     "placeholders": {},
     "comments": [],
@@ -9526,10 +9596,10 @@
         "src/views/home-dashboard/SideQuestsSection.tsx",
         71
       ]
-    ]
+    ],
+    "translation": "Show explored"
   },
   "8RFEAq": {
-    "translation": "Side Quests",
     "message": "Side Quests",
     "placeholders": {},
     "comments": [],
@@ -9538,7 +9608,8 @@
         "src/views/home-dashboard/SideQuestsSection.tsx",
         64
       ]
-    ]
+    ],
+    "translation": "Side Quests"
   },
   "5lWFkC": {
     "message": "Sign in",
@@ -9684,7 +9755,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        443
+        453
       ]
     ],
     "translation": "Sign up with "
@@ -9801,6 +9872,18 @@
     ],
     "translation": "Something went wrong during license activation."
   },
+  "fUXc6L": {
+    "translation": "Something worth celebrating today",
+    "message": "Something worth celebrating today",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/home-dashboard/WinsSection.tsx",
+        80
+      ]
+    ]
+  },
   "jOOtqe": {
     "translation": "Something worth celebrating today...",
     "message": "Something worth celebrating today...",
@@ -9811,19 +9894,20 @@
         "src/views/home-dashboard/WinsSection.tsx",
         79
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "TV51s2": {
-    "translation": "Something you're curious about...",
     "message": "Something you're curious about...",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/home-dashboard/SideQuestsSection.tsx",
-        130
+        131
       ]
-    ]
+    ],
+    "translation": "Something you're curious about..."
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -9868,15 +9952,15 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        251
+        253
       ],
       [
         "src/components/SideNavigation.tsx",
-        252
+        254
       ],
       [
         "src/components/SideNavigation.tsx",
-        262
+        264
       ]
     ],
     "translation": "Start free trial"
@@ -9924,11 +10008,11 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        221
+        231
       ],
       [
         "src/components/AuthForm.tsx",
-        238
+        248
       ]
     ],
     "translation": "Success"
@@ -10116,7 +10200,7 @@
     "origin": [
       [
         "src/components/SideNavigation.tsx",
-        135
+        137
       ],
       [
         "src/views/home/components/Features.tsx",
@@ -11551,7 +11635,8 @@
         68
       ]
     ],
-    "translation": "Updated {0}"
+    "translation": "Updated {0}",
+    "obsolete": true
   },
   "L5ZPjz": {
     "message": "updated a checklist item",
@@ -12594,7 +12679,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        239
+        249
       ]
     ],
     "translation": "You have been logged in successfully."
@@ -12606,7 +12691,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        222
+        232
       ]
     ],
     "translation": "You have been signed up successfully."
