@@ -94,6 +94,7 @@ export const dashboardRouter = createTRPCRouter({
             title: z.string(),
             dueDate: z.date().nullable(),
             updatedAt: z.date().nullable(),
+            createdAt: z.date(),
             boardPublicId: z.string(),
             boardName: z.string(),
             listPublicId: z.string(),

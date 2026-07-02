@@ -1156,6 +1156,7 @@ export const getAssignedCardsByUserId = async (
       title: cards.title,
       dueDate: cards.dueDate,
       updatedAt: cards.updatedAt,
+      createdAt: cards.createdAt,
       boardPublicId: boards.publicId,
       boardName: boards.name,
       listPublicId: lists.publicId,
@@ -1191,6 +1192,7 @@ export const getAssignedCardsByUserId = async (
       title: string;
       dueDate: Date | null;
       updatedAt: Date | null;
+      createdAt: Date;
       boardPublicId: string;
       boardName: string;
       listPublicId: string;
@@ -1206,6 +1208,7 @@ export const getAssignedCardsByUserId = async (
         title: row.title,
         dueDate: row.dueDate,
         updatedAt: row.updatedAt,
+        createdAt: row.createdAt,
         boardPublicId: row.boardPublicId,
         boardName: row.boardName,
         listPublicId: row.listPublicId,
