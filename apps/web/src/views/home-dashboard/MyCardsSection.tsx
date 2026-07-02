@@ -1,7 +1,10 @@
-import { t } from "@lingui/core/macro";
 import Link from "next/link";
+import { t } from "@lingui/core/macro";
+import { useState } from "react";
 import { HiCalendar } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
+
+import Toggle from "~/components/Toggle";
 
 interface CardLabel {
   name: string;
@@ -29,11 +32,26 @@ export default function MyCardsSection({
   cards,
   isLoading,
 }: MyCardsSectionProps) {
+  const [hideDone, setHideDone] = useState(false);
+
+  const visibleCards = hideDone
+    ? cards.filter((card) => card.listName !== "Done")
+    : cards;
+
   return (
     <section>
-      <h2 className="mb-3 text-sm font-semibold text-light-900 dark:text-dark-900">
-        {t`My Cards`}
-      </h2>
+      <div className="mb-3 flex items-center justify-between">
+        <h2 className="text-sm font-semibold text-light-900 dark:text-dark-900">
+          {t`My Cards`}
+        </h2>
+        <Toggle
+          isChecked={hideDone}
+          onChange={() => setHideDone(!hideDone)}
+          label={t`Hide done`}
+          showLabel
+          labelPosition="after"
+        />
+      </div>
 
       {isLoading ? (
         <div className="space-y-2">
@@ -44,13 +62,13 @@ export default function MyCardsSection({
             />
           ))}
         </div>
-      ) : cards.length === 0 ? (
+      ) : visibleCards.length === 0 ? (
         <p className="text-sm text-light-900 dark:text-dark-900">
           {t`No cards assigned to you yet.`}
         </p>
       ) : (
         <div className="space-y-2">
-          {cards.map((card) => {
+          {visibleCards.map((card) => {
             const isOverdue =
               card.dueDate && new Date(card.dueDate) < new Date();
 
