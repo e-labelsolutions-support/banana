@@ -63,3 +63,5 @@ pgdata/
 # Service Worker
 sw.js
 *.sw.js
+# Local notes
+TODO.md
