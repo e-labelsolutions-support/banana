@@ -1,6 +1,6 @@
 {
-  "id": "4cd6452c-e273-4cff-a9a3-d4d0ab3885e5",
-  "prevId": "b7e2eb80-f437-4abc-ba76-17caff305f06",
+  "id": "783b19fe-4c6d-4877-ae70-507b5bf6ad40",
+  "prevId": "4cd6452c-e273-4cff-a9a3-d4d0ab3885e5",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -1353,6 +1353,13 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false
+        },
+        "isDone": {
+          "name": "isDone",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         }
       },
       "indexes": {
@@ -1618,6 +1625,66 @@
           ]
         }
       },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": true
+    },
+    "public._checklist_item_blocking": {
+      "name": "_checklist_item_blocking",
+      "schema": "",
+      "columns": {
+        "checklistItemId": {
+          "name": "checklistItemId",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blockerCardId": {
+          "name": "blockerCardId",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "_checklist_item_blocking_checklistItemId_card_checklist_item_id_fk": {
+          "name": "_checklist_item_blocking_checklistItemId_card_checklist_item_id_fk",
+          "tableFrom": "_checklist_item_blocking",
+          "tableTo": "card_checklist_item",
+          "columnsFrom": [
+            "checklistItemId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "_checklist_item_blocking_blockerCardId_card_id_fk": {
+          "name": "_checklist_item_blocking_blockerCardId_card_id_fk",
+          "tableFrom": "_checklist_item_blocking",
+          "tableTo": "card",
+          "columnsFrom": [
+            "blockerCardId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "_checklist_item_blocking_checklistItemId_blockerCardId_pk": {
+          "name": "_checklist_item_blocking_checklistItemId_blockerCardId_pk",
+          "columns": [
+            "checklistItemId",
+            "blockerCardId"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": true
@@ -2229,9 +2296,33 @@
           "type": "bigint",
           "primaryKey": false,
           "notNull": false
+        },
+        "isDoneList": {
+          "name": "isDoneList",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "unique_done_list_per_board": {
+          "name": "unique_done_list_per_board",
+          "columns": [
+            {
+              "expression": "boardId",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "\"list\".\"isDoneList\" = true AND \"list\".\"deletedAt\" IS NULL",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
       "foreignKeys": {
         "list_createdBy_user_id_fk": {
           "name": "list_createdBy_user_id_fk",
@@ -4451,6 +4542,8 @@
         "card.updated.label.removed",
         "card.updated.member.added",
         "card.updated.member.removed",
+        "card.updated.checklist.item.blocker.added",
+        "card.updated.checklist.item.blocker.removed",
         "card.updated.blocker.added",
         "card.updated.blocker.removed",
         "card.updated.comment.added",

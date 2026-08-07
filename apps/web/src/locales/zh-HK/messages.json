@@ -59,7 +59,7 @@
       ],
       [
         "src/views/card/index.tsx",
-        317
+        361
       ]
     ],
     "translation": "{0} | {1}"
@@ -107,7 +107,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        506
+        520
       ]
     ],
     "translation": "{0} 個標籤"
@@ -123,7 +123,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        557
+        564
       ]
     ],
     "translation": "搵唔到 {0}"
@@ -391,11 +391,11 @@
     "origin": [
       [
         "src/views/card/index.tsx",
-        468
+        568
       ],
       [
         "src/views/public/board/CardModal.tsx",
-        205
+        206
       ]
     ],
     "translation": "活動"
@@ -459,13 +459,12 @@
     "origin": [
       [
         "src/views/board/components/List.tsx",
-        136
+        186
       ]
     ],
     "translation": "新增卡片"
   },
   "P06aiF": {
-    "translation": "",
     "message": "Add a quest...",
     "placeholders": {},
     "comments": [],
@@ -474,10 +473,10 @@
         "src/views/home-dashboard/SideQuestsSection.tsx",
         132
       ]
-    ]
+    ],
+    "translation": ""
   },
   "145/oz": {
-    "translation": "",
     "message": "Add a win...",
     "placeholders": {},
     "comments": [],
@@ -486,7 +485,8 @@
         "src/views/home-dashboard/WinsSection.tsx",
         81
       ]
-    ]
+    ],
+    "translation": ""
   },
   "qtE5nt": {
     "message": "Add an item...",
@@ -499,6 +499,26 @@
       ]
     ],
     "translation": "新增項目..."
+  },
+  "UlQkn3": {
+    "translation": "",
+    "message": "Add blocker",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        153
+      ],
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        166
+      ],
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        364
+      ]
+    ]
   },
   "Gxxi5J": {
     "message": "Add checklist",
@@ -547,7 +567,7 @@
     "origin": [
       [
         "src/views/card/components/ChecklistItemRow.tsx",
-        169
+        237
       ]
     ],
     "translation": "新增詳情..."
@@ -575,7 +595,7 @@
     "origin": [
       [
         "src/views/card/components/MemberSelector.tsx",
-        135
+        137
       ],
       [
         "src/views/members/components/InviteMemberForm.tsx",
@@ -622,10 +642,34 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        102
+        103
       ]
     ],
     "translation": "新增咗 {0} 個標籤：<0>{labelList}</0>"
+  },
+  "QwTiT4": {
+    "translation": "",
+    "message": "added a blocker",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        148
+      ]
+    ]
+  },
+  "Xjyrmu": {
+    "translation": "",
+    "message": "added a blocker to a checklist item",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        146
+      ]
+    ]
   },
   "h4VV67": {
     "message": "added a checklist",
@@ -634,7 +678,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        132
+        133
       ]
     ],
     "translation": "新增咗一個檢查清單"
@@ -646,7 +690,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        135
+        136
       ]
     ],
     "translation": "新增咗一個檢查清單項目"
@@ -658,7 +702,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        128
+        129
       ]
     ],
     "translation": "為卡片新增咗一個標籤"
@@ -670,7 +714,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        130
+        131
       ]
     ],
     "translation": "為卡片新增咗一位成員"
@@ -682,7 +726,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        140
+        141
       ]
     ],
     "translation": "新增咗一個附件"
@@ -698,7 +742,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        278
+        283
       ]
     ],
     "translation": "新增咗附件 <0>{0}</0>"
@@ -714,7 +758,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        208
+        213
       ]
     ],
     "translation": "新增咗檢查清單 <0>{0}</0>"
@@ -730,7 +774,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        232
+        237
       ]
     ],
     "translation": "新增咗檢查清單項目 <0>{0}</0>"
@@ -746,7 +790,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        192
+        197
       ]
     ],
     "translation": "新增咗標籤 <0>{0}</0>"
@@ -781,6 +825,18 @@
       ]
     ],
     "translation": "新增成員將會產生額外 {price}（{billingType}）嘅每位成員費用。"
+  },
+  "mDGyPe": {
+    "translation": "",
+    "message": "Adding this blocker would create a circular dependency.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        146
+      ]
+    ]
   },
   "D7/JvJ": {
     "message": "Adjust the square crop to fit your avatar.",
@@ -981,7 +1037,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        109
+        110
       ]
     ],
     "translation": "連接你嘅 GitHub 帳戶時發生錯誤。"
@@ -993,7 +1049,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        132
+        133
       ]
     ],
     "translation": "中斷你嘅 GitHub 帳戶連接時發生錯誤。"
@@ -1005,7 +1061,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        89
+        90
       ]
     ],
     "translation": "中斷你嘅 Trello 帳戶連接時發生錯誤。"
@@ -1047,16 +1103,16 @@
     "translation": "任何有呢條連結嘅人都可以加入你嘅工作區"
   },
   "xPhAJ8": {
-    "translation": "",
     "message": "Anyone with this link can view your assigned tasks. Regenerating the link invalidates the previous one.",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        94
+        90
       ]
-    ]
+    ],
+    "translation": ""
   },
   "OZtEcz": {
     "message": "API",
@@ -1329,7 +1385,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        172
+        177
       ]
     ],
     "translation": "將 <0>{0}</0> 分配到卡片"
@@ -1353,7 +1409,7 @@
     "origin": [
       [
         "src/views/card/components/AttachmentUpload.tsx",
-        45
+        46
       ]
     ],
     "translation": "附件已上傳"
@@ -1534,6 +1590,30 @@
     ],
     "translation": "帳單入口"
   },
+  "KSYOGG": {
+    "translation": "",
+    "message": "Blockers",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/index.tsx",
+        159
+      ]
+    ]
+  },
+  "2BsWNa": {
+    "translation": "",
+    "message": "Blocking",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockingIndicator.tsx",
+        30
+      ]
+    ]
+  },
   "4RoY9J": {
     "message": "Blog Post",
     "placeholders": {},
@@ -1553,11 +1633,11 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        530
+        537
       ],
       [
         "src/views/card/index.tsx",
-        317
+        361
       ],
       [
         "src/views/public/board/index.tsx",
@@ -1825,7 +1905,7 @@
       ],
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        50
+        46
       ]
     ],
     "translation": ""
@@ -1847,16 +1927,16 @@
     "translation": ""
   },
   "0MwBzk": {
-    "translation": "",
     "message": "Calendar link ready",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        33
+        29
       ]
-    ]
+    ],
+    "translation": ""
   },
   "t6FvJH": {
     "message": "Can add comments",
@@ -2264,6 +2344,10 @@
         44
       ],
       [
+        "src/views/card/components/BlockerSelector.tsx",
+        225
+      ],
+      [
         "src/views/card/components/Comment.tsx",
         195
       ],
@@ -2280,6 +2364,10 @@
         77
       ],
       [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        69
+      ],
+      [
         "src/views/members/components/DeleteMemberConfirmation.tsx",
         55
       ],
@@ -2293,7 +2381,7 @@
       ],
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        112
+        108
       ],
       [
         "src/views/settings/components/ChangePasswordConfirmation.tsx",
@@ -2329,7 +2417,7 @@
     "origin": [
       [
         "src/views/card/index.tsx",
-        317
+        361
       ]
     ],
     "translation": "卡片"
@@ -2353,11 +2441,11 @@
     "origin": [
       [
         "src/views/card/index.tsx",
-        376
+        422
       ],
       [
         "src/views/card/index.tsx",
-        413
+        465
       ]
     ],
     "translation": "搵唔到卡片"
@@ -2369,7 +2457,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        372
+        386
       ]
     ],
     "translation": "卡片標題"
@@ -2381,7 +2469,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        308
+        315
       ],
       [
         "src/views/card/components/Dropdown.tsx",
@@ -2453,11 +2541,11 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        303
+        308
       ],
       [
         "src/views/card/components/ActivityList.tsx",
-        317
+        322
       ]
     ],
     "translation": "將到期日更改為 <0>{formattedDate}</0>"
@@ -2501,7 +2589,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        641
+        674
       ]
     ],
     "translation": ""
@@ -2645,7 +2733,7 @@
       ],
       [
         "src/views/card/index.tsx",
-        367
+        413
       ],
       [
         "src/views/members/components/EditMemberPermissionsModal.tsx",
@@ -2781,7 +2869,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        137
+        138
       ]
     ],
     "translation": "完成咗一個檢查清單項目"
@@ -2797,7 +2885,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        249
+        254
       ]
     ],
     "translation": "完成咗檢查清單項目 <0>{0}</0>"
@@ -2839,16 +2927,16 @@
     "translation": "設定每個工作區角色允許執行嘅操作。呢啲權限適用於具有該角色嘅所有成員。"
   },
   "HMX3Vk": {
-    "translation": "",
     "message": "Confirm regenerate",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        106
+        102
       ]
-    ]
+    ],
+    "translation": ""
   },
   "86XI28": {
     "message": "Confirm your email preferences:",
@@ -2893,10 +2981,22 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        216
+        219
       ]
     ],
     "translation": "連接 GitHub"
+  },
+  "6hxDH1": {
+    "translation": "",
+    "message": "Connect Google Calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        94
+      ]
+    ]
   },
   "nk7caK": {
     "message": "Connect Trello",
@@ -2905,7 +3005,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        166
+        169
       ]
     ],
     "translation": "連接 Trello"
@@ -2929,10 +3029,22 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        195
+        198
       ]
     ],
     "translation": "連接你嘅 GitHub 帳戶以匯入專案。"
+  },
+  "zsAfHk": {
+    "translation": "",
+    "message": "Connect your Google Calendar to sync your assigned tasks' due dates instantly.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        86
+      ]
+    ]
   },
   "5eZwRW": {
     "message": "Connect your Trello account to import boards.",
@@ -2941,10 +3053,22 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        153
+        156
       ]
     ],
     "translation": "連接你嘅 Trello 帳戶以匯入看板。"
+  },
+  "FGWsd4": {
+    "translation": "",
+    "message": "Connection failed",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        51
+      ]
+    ]
   },
   "jfC/xh": {
     "message": "Contact",
@@ -3029,7 +3153,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        453
+        454
       ]
     ],
     "translation": "繼續使用 "
@@ -3045,7 +3169,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        371
+        372
       ]
     ],
     "translation": "繼續使用 {0}"
@@ -3087,16 +3211,16 @@
     "translation": "複製看板連結"
   },
   "zi8xW9": {
-    "translation": "",
     "message": "Copy calendar link",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        82
+        78
       ]
-    ]
+    ],
+    "translation": ""
   },
   "F0YmUY": {
     "message": "Copy card link",
@@ -3182,17 +3306,41 @@
     ],
     "translation": "核心功能"
   },
-  "ezoq36": {
+  "wwy8O5": {
     "translation": "",
+    "message": "Couldn't disconnect Google Calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        28
+      ]
+    ]
+  },
+  "LfPLuB": {
+    "translation": "",
+    "message": "Couldn't start Google Calendar connection",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        64
+      ]
+    ]
+  },
+  "ezoq36": {
     "message": "Couldn't update calendar link",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        40
+        36
       ]
-    ]
+    ],
+    "translation": ""
   },
   "b9XOHo": {
     "message": "Create {0}",
@@ -3221,11 +3369,11 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        648
+        681
       ],
       [
         "src/views/board/components/NewListForm.tsx",
-        141
+        142
       ]
     ],
     "translation": "建立另一個"
@@ -3249,7 +3397,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        658
+        691
       ]
     ],
     "translation": "建立卡片"
@@ -3297,7 +3445,7 @@
     "origin": [
       [
         "src/views/board/components/NewListForm.tsx",
-        153
+        154
       ]
     ],
     "translation": "建立列表"
@@ -3341,7 +3489,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        468
+        482
       ],
       [
         "src/views/card/components/LabelSelector.tsx",
@@ -3357,11 +3505,11 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        92
+        94
       ],
       [
         "src/views/board/index.tsx",
-        671
+        679
       ]
     ],
     "translation": "建立新列表"
@@ -3414,6 +3562,30 @@
     ],
     "translation": "已建立"
   },
+  "hqmh/S": {
+    "translation": "",
+    "message": "Created (newest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        23
+      ]
+    ]
+  },
+  "KKohDw": {
+    "translation": "",
+    "message": "Created (oldest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        25
+      ]
+    ]
+  },
   "MXSt4t": {
     "message": "Created {0}",
     "placeholders": {
@@ -3438,7 +3610,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        124
+        125
       ]
     ],
     "translation": "建立咗呢張卡片"
@@ -3790,7 +3962,7 @@
     "origin": [
       [
         "src/views/board/components/List.tsx",
-        147
+        214
       ]
     ],
     "translation": "刪除列表"
@@ -3846,7 +4018,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        134
+        135
       ]
     ],
     "translation": "刪除咗一個檢查清單"
@@ -3858,7 +4030,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        139
+        140
       ]
     ],
     "translation": "刪除咗一個檢查清單項目"
@@ -3874,7 +4046,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        224
+        229
       ]
     ],
     "translation": "刪除咗檢查清單 <0>{0}</0>"
@@ -3890,7 +4062,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        267
+        272
       ]
     ],
     "translation": "刪除咗檢查清單項目 <0>{0}</0>"
@@ -3908,7 +4080,6 @@
     "translation": "設計"
   },
   "osJmEN": {
-    "translation": "",
     "message": "Disable notifications",
     "placeholders": {},
     "comments": [],
@@ -3917,7 +4088,8 @@
         "src/views/settings/AccountSettings.tsx",
         38
       ]
-    ]
+    ],
+    "translation": ""
   },
   "Odv3J6": {
     "message": "Disconnect GitHub",
@@ -3926,10 +4098,22 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        227
+        230
       ]
     ],
     "translation": "中斷 GitHub 連接"
+  },
+  "fpxO8L": {
+    "translation": "",
+    "message": "Disconnect Google Calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        103
+      ]
+    ]
   },
   "YBBifR": {
     "message": "Disconnect Trello",
@@ -3938,7 +4122,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        181
+        184
       ]
     ],
     "translation": "中斷 Trello 連接"
@@ -4135,9 +4319,25 @@
       [
         "src/views/boards/components/TemplateBoards.tsx",
         61
+      ],
+      [
+        "src/views/card/index.tsx",
+        525
       ]
     ],
     "translation": "完成"
+  },
+  "qJDNEJ": {
+    "translation": "",
+    "message": "Done list",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/List.tsx",
+        146
+      ]
+    ]
   },
   "R3FsF4": {
     "message": "Download failed",
@@ -4162,14 +4362,38 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        523
+        537
       ],
       [
         "src/views/card/index.tsx",
-        153
+        170
       ]
     ],
     "translation": "到期日"
+  },
+  "Qbf23S": {
+    "translation": "",
+    "message": "Due date (latest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        33
+      ]
+    ]
+  },
+  "zjCzPE": {
+    "translation": "",
+    "message": "Due date (soonest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        31
+      ]
+    ]
   },
   "ri1hHe": {
     "message": "Due next month",
@@ -4386,7 +4610,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        454
+        455
       ]
     ],
     "translation": "電郵"
@@ -4444,7 +4668,6 @@
     "translation": "電郵可見性"
   },
   "I92Z+b": {
-    "translation": "",
     "message": "Enable notifications",
     "placeholders": {},
     "comments": [],
@@ -4453,7 +4676,8 @@
         "src/views/settings/AccountSettings.tsx",
         38
       ]
-    ]
+    ],
+    "translation": ""
   },
   "bFREhu": {
     "message": "End of list",
@@ -4566,7 +4790,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        418
+        419
       ]
     ],
     "translation": "輸入你嘅電郵地址"
@@ -4578,7 +4802,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        406
+        407
       ]
     ],
     "translation": "輸入你嘅名"
@@ -4602,7 +4826,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        432
+        433
       ]
     ],
     "translation": "輸入你嘅密碼"
@@ -4662,7 +4886,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        108
+        109
       ]
     ],
     "translation": "連接 GitHub 時出錯"
@@ -4734,7 +4958,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        131
+        132
       ]
     ],
     "translation": "中斷 GitHub 連接時出錯"
@@ -4746,7 +4970,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        88
+        89
       ]
     ],
     "translation": "中斷 Trello 連接時出錯"
@@ -5006,7 +5230,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        307
+        308
       ]
     ],
     "translation": "用 {0} 登入失敗。請再試一次。"
@@ -5046,7 +5270,7 @@
     "origin": [
       [
         "src/views/card/components/AttachmentUpload.tsx",
-        52
+        53
       ]
     ],
     "translation": "上傳附件失敗。請再試一次。"
@@ -5388,19 +5612,18 @@
     "translation": "一般"
   },
   "BmTgHM": {
-    "translation": "",
     "message": "Generate calendar link",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        63
+        59
       ]
-    ]
+    ],
+    "translation": ""
   },
   "/6YI6c": {
-    "translation": "",
     "message": "Get desktop notifications for mentions, comments, and board updates.",
     "placeholders": {},
     "comments": [],
@@ -5409,7 +5632,8 @@
         "src/views/settings/AccountSettings.tsx",
         30
       ]
-    ]
+    ],
+    "translation": ""
   },
   "ZDIydz": {
     "message": "Get started",
@@ -5482,7 +5706,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        656
+        664
       ]
     ],
     "translation": "透過建立新列表開始"
@@ -5546,7 +5770,7 @@
       ],
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        190
+        193
       ]
     ],
     "translation": "GitHub"
@@ -5558,7 +5782,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        101
+        102
       ]
     ],
     "translation": "GitHub 已連接"
@@ -5570,7 +5794,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        124
+        125
       ]
     ],
     "translation": "GitHub 已中斷連接"
@@ -5702,6 +5926,54 @@
       ]
     ],
     "translation": "適合只需要基本功能嘅個人用戶起步。"
+  },
+  "ebIDwV": {
+    "translation": "",
+    "message": "Google Calendar",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        80
+      ]
+    ]
+  },
+  "fn2ZON": {
+    "translation": "",
+    "message": "Google Calendar connected",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        44
+      ]
+    ]
+  },
+  "V899Yf": {
+    "translation": "",
+    "message": "Google Calendar connection was cancelled or failed.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        52
+      ]
+    ]
+  },
+  "896urx": {
+    "translation": "",
+    "message": "Google Calendar disconnected",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        21
+      ]
+    ]
   },
   "cdyS7J": {
     "message": "Google SSO",
@@ -6096,16 +6368,16 @@
     "translation": "喺"
   },
   "Gbzvg5": {
-    "translation": "",
     "message": "In Google Calendar, go to Settings → Add calendar → From URL and paste this link. Your assigned tasks with due dates appear automatically.",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        69
+        65
       ]
-    ]
+    ],
+    "translation": ""
   },
   "WbTDwg": {
     "message": "In Progress",
@@ -6395,6 +6667,18 @@
     ],
     "translation": "請記住呢個操作係無法復原嘅。"
   },
+  "64rBPS": {
+    "translation": "",
+    "message": "Keep your completed work organized in one place.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        52
+      ]
+    ]
+  },
   "h7MgpO": {
     "message": "Keyboard Shortcuts",
     "placeholders": {},
@@ -6422,11 +6706,11 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        472
+        486
       ],
       [
         "src/views/card/index.tsx",
-        133
+        138
       ]
     ],
     "translation": "標籤"
@@ -6478,6 +6762,30 @@
       ]
     ],
     "translation": "大"
+  },
+  "v9zd8O": {
+    "translation": "",
+    "message": "Last updated (newest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        19
+      ]
+    ]
+  },
+  "v2g4Rs": {
+    "translation": "",
+    "message": "Last updated (oldest)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        21
+      ]
+    ]
   },
   "8Is1ih": {
     "message": "Launch offer",
@@ -6614,7 +6922,7 @@
       ],
       [
         "src/views/board/index.tsx",
-        306
+        313
       ],
       [
         "src/views/card/components/Dropdown.tsx",
@@ -6642,7 +6950,7 @@
       ],
       [
         "src/views/card/index.tsx",
-        124
+        129
       ]
     ],
     "translation": "列表"
@@ -6654,7 +6962,7 @@
     "origin": [
       [
         "src/views/board/components/NewListForm.tsx",
-        129
+        130
       ]
     ],
     "translation": "列表名稱"
@@ -6672,7 +6980,6 @@
     "translation": "列表"
   },
   "yQ2kGp": {
-    "translation": "",
     "message": "Load more",
     "placeholders": {},
     "comments": [],
@@ -6681,7 +6988,8 @@
         "src/views/home-dashboard/RecentActivitySection.tsx",
         120
       ]
-    ]
+    ],
+    "translation": ""
   },
   "1rVAfU": {
     "message": "Load more activities",
@@ -6690,7 +6998,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        579
+        623
       ]
     ],
     "translation": "載入更多活動"
@@ -6714,7 +7022,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        579
+        623
       ],
       [
         "src/views/home-dashboard/RecentActivitySection.tsx",
@@ -6790,7 +7098,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        454
+        455
       ]
     ],
     "translation": "魔法連結"
@@ -6823,6 +7131,74 @@
     ],
     "translation": "管理成員"
   },
+  "BWTzAb": {
+    "translation": "",
+    "message": "Manual",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        17
+      ]
+    ]
+  },
+  "3Sdni6": {
+    "translation": "",
+    "message": "Mark as done",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        72
+      ],
+      [
+        "src/views/card/index.tsx",
+        560
+      ]
+    ]
+  },
+  "sKd49Y": {
+    "translation": "",
+    "message": "Mark as not done",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/index.tsx",
+        540
+      ]
+    ]
+  },
+  "kqZykd": {
+    "translation": "",
+    "message": "Mark this card as done?",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        58
+      ]
+    ]
+  },
+  "JtTwCi": {
+    "translation": "",
+    "message": "marked a checklist item as blocked by <0>{0}</0>",
+    "placeholders": {
+      "0": [
+        "truncate(toTitle)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        334
+      ]
+    ]
+  },
   "IDvohQ": {
     "message": "marked a checklist item as incomplete",
     "placeholders": {},
@@ -6830,7 +7206,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        138
+        139
       ]
     ],
     "translation": "將一個檢查清單項目標記為未完成"
@@ -6846,10 +7222,26 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        258
+        263
       ]
     ],
     "translation": "將檢查清單項目 <0>{0}</0> 標記為未完成"
+  },
+  "80PbnH": {
+    "translation": "",
+    "message": "marked this card as blocked by <0>{0}</0>",
+    "placeholders": {
+      "0": [
+        "truncate(toTitle)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        352
+      ]
+    ]
   },
   "vo2a+a": {
     "message": "Marketing",
@@ -6906,11 +7298,11 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        55
+        56
       ],
       [
         "src/views/card/components/ActivityList.tsx",
-        88
+        89
       ],
       [
         "src/views/members/index.tsx",
@@ -6946,11 +7338,11 @@
       ],
       [
         "src/views/board/components/NewCardForm.tsx",
-        430
+        444
       ],
       [
         "src/views/card/index.tsx",
-        143
+        148
       ],
       [
         "src/views/members/index.tsx",
@@ -7035,6 +7427,18 @@
     ],
     "translation": "按月計費"
   },
+  "jQ0DrF": {
+    "translation": "",
+    "message": "Move this card to the Done list?",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        49
+      ]
+    ]
+  },
   "51UCsN": {
     "message": "Move to another list",
     "placeholders": {},
@@ -7046,6 +7450,18 @@
       ]
     ],
     "translation": "移到另一個列表"
+  },
+  "CjE8qp": {
+    "translation": "",
+    "message": "Move to Done list",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        63
+      ]
+    ]
   },
   "J4+OTA": {
     "message": "Move to list",
@@ -7073,7 +7489,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        160
+        165
       ]
     ],
     "translation": "將卡片從 <0>{0}</0> 移到<1>{1}</1>"
@@ -7085,7 +7501,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        127
+        128
       ]
     ],
     "translation": "將卡片移到另一個列表"
@@ -7230,7 +7646,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        355
+        369
       ]
     ],
     "translation": "新增卡片"
@@ -7278,11 +7694,11 @@
     "origin": [
       [
         "src/views/board/components/NewListForm.tsx",
-        113
+        114
       ],
       [
         "src/views/board/index.tsx",
-        620
+        628
       ]
     ],
     "translation": "新增列表"
@@ -7418,7 +7834,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        385
+        386
       ]
     ],
     "translation": "目前冇可用嘅驗證方法"
@@ -7436,7 +7852,6 @@
     "translation": "搵唔到看板"
   },
   "9fS0S/": {
-    "translation": "",
     "message": "No boards found.",
     "placeholders": {},
     "comments": [],
@@ -7445,7 +7860,8 @@
         "src/views/home-dashboard/MyBoardsSection.tsx",
         42
       ]
-    ]
+    ],
+    "translation": ""
   },
   "PDVw/v": {
     "message": "No boards yet. Create one to get started!",
@@ -7471,6 +7887,18 @@
       ]
     ],
     "translation": ""
+  },
+  "l/Tg71": {
+    "translation": "",
+    "message": "No cards found",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        195
+      ]
+    ]
   },
   "OpNhRn": {
     "message": "No credit card required",
@@ -7539,7 +7967,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        652
+        660
       ]
     ],
     "translation": "冇列表"
@@ -7551,7 +7979,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        657
+        665
       ]
     ],
     "translation": "尚未建立任何列表"
@@ -7644,8 +8072,31 @@
     ],
     "translation": ""
   },
-  "iDNBZe": {
+  "PBxg/E": {
     "translation": "",
+    "message": "Not now",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        60
+      ]
+    ]
+  },
+  "3Xx0TS": {
+    "translation": "",
+    "message": "Nothing found.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        335
+      ]
+    ]
+  },
+  "iDNBZe": {
     "message": "Notifications",
     "placeholders": {},
     "comments": [],
@@ -7654,7 +8105,8 @@
         "src/views/settings/AccountSettings.tsx",
         101
       ]
-    ]
+    ],
+    "translation": ""
   },
   "9h7RDh": {
     "message": "Offer",
@@ -7783,7 +8235,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        396
+        397
       ]
     ],
     "translation": "或"
@@ -7907,7 +8359,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        274
+        275
       ]
     ],
     "translation": "登入需要密碼。"
@@ -7919,7 +8371,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        273
+        274
       ]
     ],
     "translation": "註冊需要密碼。"
@@ -8195,7 +8647,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        422
+        423
       ]
     ],
     "translation": "請輸入有效嘅電郵地址"
@@ -8207,7 +8659,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        410
+        411
       ]
     ],
     "translation": "請輸入有效嘅名"
@@ -8219,7 +8671,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        437
+        438
       ]
     ],
     "translation": "請輸入有效嘅密碼"
@@ -8286,12 +8738,16 @@
         68
       ],
       [
+        "src/views/board/components/List.tsx",
+        91
+      ],
+      [
         "src/views/board/components/NewCardForm.tsx",
-        203
+        206
       ],
       [
         "src/views/board/components/NewListForm.tsx",
-        79
+        80
       ],
       [
         "src/views/board/components/NewTemplateForm.tsx",
@@ -8311,11 +8767,11 @@
       ],
       [
         "src/views/board/index.tsx",
-        218
+        225
       ],
       [
         "src/views/board/index.tsx",
-        274
+        281
       ],
       [
         "src/views/boards/components/ImportBoardsForm.tsx",
@@ -8330,12 +8786,16 @@
         74
       ],
       [
-        "src/views/card/components/ChecklistItemRow.tsx",
-        67
+        "src/views/card/components/BlockerSelector.tsx",
+        49
       ],
       [
         "src/views/card/components/ChecklistItemRow.tsx",
-        95
+        105
+      ],
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        133
       ],
       [
         "src/views/card/components/ChecklistNameInput.tsx",
@@ -8343,7 +8803,7 @@
       ],
       [
         "src/views/card/components/Checklists.tsx",
-        81
+        88
       ],
       [
         "src/views/card/components/Comment.tsx",
@@ -8374,8 +8834,16 @@
         55
       ],
       [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        36
+      ],
+      [
         "src/views/card/components/MemberSelector.tsx",
         82
+      ],
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        30
       ],
       [
         "src/views/card/components/NewChecklistForm.tsx",
@@ -8391,11 +8859,11 @@
       ],
       [
         "src/views/card/index.tsx",
-        232
+        255
       ],
       [
         "src/views/card/index.tsx",
-        245
+        289
       ],
       [
         "src/views/members/components/DeleteMemberConfirmation.tsx",
@@ -8435,7 +8903,7 @@
       ],
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        41
+        37
       ],
       [
         "src/views/settings/components/DeleteAccountConfirmation.tsx",
@@ -8444,6 +8912,14 @@
       [
         "src/views/settings/components/DeleteWorkspaceConfirmation.tsx",
         46
+      ],
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        29
+      ],
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        65
       ],
       [
         "src/views/settings/components/UpdateDisplayNameForm.tsx",
@@ -8503,7 +8979,7 @@
       ],
       [
         "src/views/board/index.tsx",
-        315
+        322
       ],
       [
         "src/views/card/components/Dropdown.tsx",
@@ -8769,16 +9245,16 @@
     "translation": "招聘"
   },
   "6exX+8": {
-    "translation": "",
     "message": "Regenerate",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        120
+        116
       ]
-    ]
+    ],
+    "translation": ""
   },
   "ekCRTP": {
     "message": "Rejected",
@@ -8815,6 +9291,30 @@
       ]
     ],
     "translation": "移除"
+  },
+  "LM/utn": {
+    "translation": "",
+    "message": "Remove as Done list",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/List.tsx",
+        198
+      ]
+    ]
+  },
+  "nbwmEc": {
+    "translation": "",
+    "message": "Remove blocker",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        139
+      ]
+    ]
   },
   "T/pF0Z": {
     "message": "Remove from favorites",
@@ -8854,10 +9354,34 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        116
+        117
       ]
     ],
     "translation": "移除咗 {0} 個標籤：<0>{labelList}</0>"
+  },
+  "9xGLgk": {
+    "translation": "",
+    "message": "removed a blocker",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        149
+      ]
+    ]
+  },
+  "e9olSH": {
+    "translation": "",
+    "message": "removed a blocker from a checklist item",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        147
+      ]
+    ]
   },
   "kQwvU8": {
     "message": "removed a label from the card",
@@ -8866,7 +9390,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        129
+        130
       ]
     ],
     "translation": "從卡片移除咗一個標籤"
@@ -8878,7 +9402,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        131
+        132
       ]
     ],
     "translation": "從卡片移除咗一位成員"
@@ -8890,7 +9414,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        141
+        142
       ]
     ],
     "translation": "移除咗一個附件"
@@ -8906,10 +9430,42 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        288
+        293
       ]
     ],
     "translation": "移除咗附件 <0>{0}</0>"
+  },
+  "yIKoH5": {
+    "translation": "",
+    "message": "removed blocker <0>{0}</0>",
+    "placeholders": {
+      "0": [
+        "truncate(fromTitle)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        361
+      ]
+    ]
+  },
+  "HM6TQZ": {
+    "translation": "",
+    "message": "removed blocker <0>{0}</0> from a checklist item",
+    "placeholders": {
+      "0": [
+        "truncate(fromTitle)"
+      ]
+    },
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ActivityList.tsx",
+        343
+      ]
+    ]
   },
   "Qh7QmR": {
     "message": "Removed from favorites",
@@ -8934,7 +9490,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        200
+        205
       ]
     ],
     "translation": "移除咗標籤 <0>{0}</0>"
@@ -8946,11 +9502,11 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        144
+        145
       ],
       [
         "src/views/card/components/ActivityList.tsx",
-        324
+        329
       ]
     ],
     "translation": "移除咗到期日"
@@ -8962,7 +9518,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        133
+        134
       ]
     ],
     "translation": "重新命名咗一個檢查清單"
@@ -8978,7 +9534,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        216
+        221
       ]
     ],
     "translation": "重新命名咗檢查清單 <0>{0}</0>"
@@ -8994,7 +9550,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        240
+        245
       ]
     ],
     "translation": "將檢查清單項目重新命名為 <0>{0}</0>"
@@ -9239,6 +9795,42 @@
     ],
     "translation": "搜尋看板同埋卡片..."
   },
+  "NE0czk": {
+    "translation": "",
+    "message": "Search cards...",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        312
+      ]
+    ]
+  },
+  "PB35A6": {
+    "translation": "",
+    "message": "Search for a card…",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        183
+      ]
+    ]
+  },
+  "SBTElJ": {
+    "translation": "",
+    "message": "Searching…",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        190
+      ]
+    ]
+  },
   "MpFIca": {
     "message": "seats",
     "placeholders": {},
@@ -9382,7 +9974,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        169
+        174
       ]
     ],
     "translation": "自行分配咗呢張卡片"
@@ -9412,7 +10004,6 @@
     "translation": "發送測試"
   },
   "brMxq0": {
-    "translation": "",
     "message": "Send test notification",
     "placeholders": {},
     "comments": [],
@@ -9421,7 +10012,8 @@
         "src/views/settings/AccountSettings.tsx",
         46
       ]
-    ]
+    ],
+    "translation": ""
   },
   "v3YoMA": {
     "message": "Senior",
@@ -9460,7 +10052,6 @@
     "translation": "設定密碼以啟用密碼登入。"
   },
   "O3wNI6": {
-    "translation": "",
     "message": "Set an action...",
     "placeholders": {},
     "comments": [],
@@ -9468,6 +10059,19 @@
       [
         "src/views/home-dashboard/DailyQuestsSection.tsx",
         161
+      ]
+    ],
+    "translation": ""
+  },
+  "1crxj6": {
+    "translation": "",
+    "message": "Set as Done list",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/List.tsx",
+        199
       ]
     ]
   },
@@ -9522,7 +10126,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        142
+        143
       ]
     ],
     "translation": "設定咗到期日"
@@ -9598,7 +10202,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        140
+        141
       ]
     ],
     "translation": "設定 | 整合"
@@ -9802,7 +10406,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        453
+        454
       ]
     ],
     "translation": "註冊使用 "
@@ -9920,7 +10524,6 @@
     "translation": "授權啟用期間出咗問題。"
   },
   "fUXc6L": {
-    "translation": "",
     "message": "Something worth celebrating today",
     "placeholders": {},
     "comments": [],
@@ -9929,7 +10532,8 @@
         "src/views/home-dashboard/WinsSection.tsx",
         80
       ]
-    ]
+    ],
+    "translation": ""
   },
   "jOOtqe": {
     "translation": "",
@@ -9955,6 +10559,18 @@
       ]
     ],
     "translation": ""
+  },
+  "f6Hub0": {
+    "translation": "",
+    "message": "Sort",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        97
+      ]
+    ]
   },
   "vnS6Rf": {
     "message": "SSO",
@@ -10055,11 +10671,11 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        231
+        232
       ],
       [
         "src/components/AuthForm.tsx",
-        248
+        249
       ]
     ],
     "translation": "成功"
@@ -10117,16 +10733,16 @@
     "translation": "支持專案嘅開發"
   },
   "dbOr6j": {
-    "translation": "",
     "message": "Sync your tasks' due dates to Google Calendar (or any calendar app) using a private link.",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        56
+        52
       ]
-    ]
+    ],
+    "translation": ""
   },
   "D+NlUC": {
     "message": "System",
@@ -10195,11 +10811,11 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        530
+        537
       ],
       [
         "src/views/board/index.tsx",
-        566
+        573
       ]
     ],
     "translation": "範本"
@@ -10411,6 +11027,18 @@
       ]
     ],
     "translation": "卡片已複製。"
+  },
+  "OFy9v+": {
+    "translation": "",
+    "message": "The card will be shown as completed on the board.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        61
+      ]
+    ]
   },
   "jlB2RY": {
     "message": "The current password you entered is incorrect.",
@@ -10736,6 +11364,18 @@
     ],
     "translation": "標題"
   },
+  "ibVs8L": {
+    "translation": "",
+    "message": "Title (A–Z)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        27
+      ]
+    ]
+  },
   "wK4OTM": {
     "message": "Title (optional)",
     "placeholders": {},
@@ -10747,6 +11387,18 @@
       ]
     ],
     "translation": "標題（選填）"
+  },
+  "LQscLG": {
+    "translation": "",
+    "message": "Title (Z–A)",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/board/components/Sort.tsx",
+        29
+      ]
+    ]
   },
   "Se/UIp": {
     "message": "To Do",
@@ -10783,7 +11435,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        21
+        22
       ]
     ],
     "translation": "Token 係必填嘅"
@@ -10811,7 +11463,7 @@
       ],
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        146
+        149
       ]
     ],
     "translation": "Trello"
@@ -10823,7 +11475,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        81
+        82
       ]
     ],
     "translation": "Trello 已中斷連接"
@@ -10864,6 +11516,18 @@
     ],
     "translation": "全球快速發展嘅團隊都信賴<0/>"
   },
+  "kSTagp": {
+    "translation": "",
+    "message": "Unable to add blocker",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/ChecklistItemRow.tsx",
+        145
+      ]
+    ]
+  },
   "bZSICm": {
     "message": "Unable to add checklist item",
     "placeholders": {},
@@ -10895,7 +11559,7 @@
     "origin": [
       [
         "src/views/card/index.tsx",
-        244
+        288
       ]
     ],
     "translation": "無法新增標籤"
@@ -10931,7 +11595,7 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        313
+        320
       ],
       [
         "src/views/card/components/Dropdown.tsx",
@@ -10955,7 +11619,7 @@
     "origin": [
       [
         "src/views/board/components/NewCardForm.tsx",
-        200
+        203
       ]
     ],
     "translation": "無法建立卡片"
@@ -10979,7 +11643,7 @@
     "origin": [
       [
         "src/views/board/components/NewListForm.tsx",
-        78
+        79
       ]
     ],
     "translation": "無法建立列表"
@@ -11071,7 +11735,7 @@
     "origin": [
       [
         "src/views/card/components/ChecklistItemRow.tsx",
-        94
+        132
       ]
     ],
     "translation": "無法刪除檢查清單項目"
@@ -11112,6 +11776,18 @@
     ],
     "translation": "無法複製卡片"
   },
+  "tfNVP1": {
+    "translation": "",
+    "message": "Unable to mark card as done",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/MarkDoneConfirmation.tsx",
+        35
+      ]
+    ]
+  },
   "K7k9u3": {
     "message": "Unable to move card",
     "placeholders": {},
@@ -11120,6 +11796,10 @@
       [
         "src/views/board/components/CardContextMoveListModal.tsx",
         41
+      ],
+      [
+        "src/views/card/components/MoveToDoneListConfirmation.tsx",
+        29
       ]
     ],
     "translation": "無法移動卡片"
@@ -11143,7 +11823,7 @@
     "origin": [
       [
         "src/views/card/components/Checklists.tsx",
-        80
+        87
       ]
     ],
     "translation": "無法重新排列檢查清單項目"
@@ -11200,6 +11880,18 @@
     ],
     "translation": "無法測試 Webhook"
   },
+  "nAwvz3": {
+    "translation": "",
+    "message": "Unable to update blockers",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/card/components/BlockerSelector.tsx",
+        48
+      ]
+    ]
+  },
   "T7Mywq": {
     "message": "Unable to update board",
     "placeholders": {},
@@ -11243,11 +11935,11 @@
     "origin": [
       [
         "src/views/board/index.tsx",
-        273
+        280
       ],
       [
         "src/views/card/index.tsx",
-        231
+        254
       ]
     ],
     "translation": "無法更新卡片"
@@ -11271,7 +11963,7 @@
     "origin": [
       [
         "src/views/card/components/ChecklistItemRow.tsx",
-        66
+        104
       ]
     ],
     "translation": "無法更新檢查清單項目"
@@ -11318,8 +12010,12 @@
     "comments": [],
     "origin": [
       [
+        "src/views/board/components/List.tsx",
+        90
+      ],
+      [
         "src/views/board/index.tsx",
-        217
+        224
       ],
       [
         "src/views/card/components/ListSelector.tsx",
@@ -11403,7 +12099,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        183
+        188
       ]
     ],
     "translation": "從卡片取消分配 <0>{0}</0>"
@@ -11415,7 +12111,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        180
+        185
       ]
     ],
     "translation": "自行取消分配咗呢張卡片"
@@ -11704,7 +12400,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        136
+        137
       ]
     ],
     "translation": "更新咗一個檢查清單項目"
@@ -11716,7 +12412,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        126
+        127
       ]
     ],
     "translation": "更新咗描述"
@@ -11728,7 +12424,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        143
+        144
       ]
     ],
     "translation": "更新咗到期日"
@@ -11740,7 +12436,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        125
+        126
       ]
     ],
     "translation": "更新咗標題"
@@ -11756,7 +12452,7 @@
     "origin": [
       [
         "src/views/card/components/ActivityList.tsx",
-        152
+        157
       ]
     ],
     "translation": "將標題更新為 <0>{0}</0>"
@@ -11808,7 +12504,7 @@
     "origin": [
       [
         "src/views/card/components/AttachmentUpload.tsx",
-        51
+        52
       ]
     ],
     "translation": "上傳失敗"
@@ -12324,7 +13020,7 @@
       ],
       [
         "src/views/board/index.tsx",
-        530
+        537
       ],
       [
         "src/views/boards/index.tsx",
@@ -12672,7 +13368,7 @@
     "origin": [
       [
         "src/views/board/components/List.tsx",
-        117
+        167
       ],
       [
         "src/views/board/components/UpdateBoardSlugButton.tsx",
@@ -12684,11 +13380,11 @@
       ],
       [
         "src/views/board/index.tsx",
-        604
+        612
       ],
       [
         "src/views/board/index.tsx",
-        662
+        670
       ],
       [
         "src/views/boards/components/BoardsList.tsx",
@@ -12712,7 +13408,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        249
+        250
       ]
     ],
     "translation": "你已成功登入。"
@@ -12724,7 +13420,7 @@
     "origin": [
       [
         "src/components/AuthForm.tsx",
-        232
+        233
       ]
     ],
     "translation": "你已成功註冊。"
@@ -12850,16 +13546,16 @@
     "translation": "你嘅看板已匯入。"
   },
   "TEJ2r7": {
-    "translation": "",
     "message": "Your calendar link has been generated. Add it to Google Calendar to sync your due dates.",
     "placeholders": {},
     "comments": [],
     "origin": [
       [
         "src/views/settings/components/CalendarFeedSection.tsx",
-        34
+        30
       ]
-    ]
+    ],
+    "translation": ""
   },
   "LqWW5F": {
     "message": "Your display name has been updated.",
@@ -12880,7 +13576,7 @@
     "origin": [
       [
         "src/views/card/components/AttachmentUpload.tsx",
-        46
+        47
       ]
     ],
     "translation": "你嘅檔案已成功上傳。"
@@ -12892,7 +13588,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        102
+        103
       ]
     ],
     "translation": "你嘅 GitHub 帳戶已連接。"
@@ -12904,7 +13600,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        125
+        126
       ]
     ],
     "translation": "你嘅 GitHub 帳戶已中斷連接。"
@@ -12916,10 +13612,46 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        224
+        227
       ]
     ],
     "translation": "你嘅 GitHub 帳戶已連接。"
+  },
+  "HP1txd": {
+    "translation": "",
+    "message": "Your Google Calendar has been disconnected.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        22
+      ]
+    ]
+  },
+  "6iR8Jl": {
+    "translation": "",
+    "message": "Your Google Calendar is connected. Tasks with due dates will sync automatically.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        100
+      ]
+    ]
+  },
+  "NuYefO": {
+    "translation": "",
+    "message": "Your Google Calendar is now connected. Task due dates will sync automatically.",
+    "placeholders": {},
+    "comments": [],
+    "origin": [
+      [
+        "src/views/settings/components/GoogleCalendarSection.tsx",
+        45
+      ]
+    ]
   },
   "ygpeZ8": {
     "message": "Your license has been activated successfully.",
@@ -13000,7 +13732,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        82
+        83
       ]
     ],
     "translation": "你嘅 Trello 帳戶已中斷連接。"
@@ -13012,7 +13744,7 @@
     "origin": [
       [
         "src/views/settings/IntegrationsSettings.tsx",
-        175
+        178
       ]
     ],
     "translation": "你嘅 Trello 帳戶已連接。"
