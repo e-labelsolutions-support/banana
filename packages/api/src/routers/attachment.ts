@@ -12,6 +12,22 @@ import { attachmentConfirmResponseSchema } from "../schemas";
 import { assertPermission } from "../utils/permissions";
 import { deleteObject, generateUploadUrl } from "@banana/shared/utils";
 
+const BLOCKED_CONTENT_TYPES = new Set([
+  "text/html",
+  "application/xhtml+xml",
+  "application/javascript",
+  "text/javascript",
+  "application/ecmascript",
+  "text/ecmascript",
+  "application/svg+xml",
+]);
+
+const isSafeContentType = (contentType: string): boolean => {
+  const lower = contentType.toLowerCase().trim();
+  if (lower === "" || BLOCKED_CONTENT_TYPES.has(lower)) return false;
+  return /^[\w.+-]+\/[\w.+-]+$/.test(lower);
+};
+
 export const attachmentRouter = createTRPCRouter({
   generateUploadUrl: protectedProcedure
     .meta({
@@ -38,6 +54,12 @@ export const attachmentRouter = createTRPCRouter({
     )
     .output(z.object({ url: z.string(), key: z.string() }))
     .mutation(async ({ ctx, input }) => {
+      if (!isSafeContentType(input.contentType)) {
+        throw new TRPCError({
+          message: "Unsupported content type",
+          code: "BAD_REQUEST",
+        });
+      }
       const userId = ctx.user?.id;
 
       if (!userId)
@@ -113,6 +135,12 @@ export const attachmentRouter = createTRPCRouter({
     )
     .output(attachmentConfirmResponseSchema)
     .mutation(async ({ ctx, input }) => {
+      if (!isSafeContentType(input.contentType)) {
+        throw new TRPCError({
+          message: "Unsupported content type",
+          code: "BAD_REQUEST",
+        });
+      }
       const userId = ctx.user?.id;
 
       if (!userId)
