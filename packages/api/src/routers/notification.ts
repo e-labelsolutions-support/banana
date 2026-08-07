@@ -46,7 +46,7 @@ export const notificationRouter = createTRPCRouter({
         });
       }
 
-      await pushSubscriptionRepo.upsertByEndpoint(ctx.db, {
+      await pushSubscriptionRepo.upsertByUserAndEndpoint(ctx.db, {
         userId,
         endpoint,
         subscriptionJson: input.subscription,
@@ -64,7 +64,11 @@ export const notificationRouter = createTRPCRouter({
         throw new TRPCError({ code: "UNAUTHORIZED" });
       }
 
-      await pushSubscriptionRepo.deleteByEndpoint(ctx.db, input.endpoint);
+      await pushSubscriptionRepo.deleteByUserAndEndpoint(
+        ctx.db,
+        userId,
+        input.endpoint,
+      );
       return { success: true };
     }),
 

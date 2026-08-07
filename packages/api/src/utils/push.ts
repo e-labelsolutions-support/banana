@@ -72,7 +72,11 @@ export const sendPushToUser = async (
       } catch (err: unknown) {
         const statusCode = (err as { statusCode?: number }).statusCode;
         if (statusCode === 410 || statusCode === 404) {
-          await pushSubscriptionRepo.deleteByEndpoint(db, s.endpoint);
+          await pushSubscriptionRepo.deleteByUserAndEndpoint(
+            db,
+            userId,
+            s.endpoint,
+          );
         } else {
           log.error({ err, statusCode }, "Failed to send push notification");
         }

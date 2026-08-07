@@ -137,7 +137,7 @@ export function AttachmentThumbnails({
   };
 
   const handleDownload = (attachment: Attachment) => {
-    if (!attachment.url) {
+    if (!attachment.publicId) {
       showPopup({
         header: t`Download failed`,
         message: t`No download URL available for this attachment.`,
@@ -146,7 +146,7 @@ export function AttachmentThumbnails({
       return;
     }
 
-    const downloadUrl = `/api/download/attatchment?url=${encodeURIComponent(attachment.url)}&filename=${encodeURIComponent(attachment.originalFilename ?? "attachment")}`;
+    const downloadUrl = `/api/download/attatchment?attachmentPublicId=${encodeURIComponent(attachment.publicId)}&filename=${encodeURIComponent(attachment.originalFilename ?? "attachment")}`;
 
     const link = document.createElement("a");
     link.href = downloadUrl;

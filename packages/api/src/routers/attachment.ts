@@ -133,6 +133,24 @@ export const attachmentRouter = createTRPCRouter({
         });
       await assertPermission(ctx.db, userId, card.workspaceId, "card:edit");
 
+      const workspace = await workspaceRepo.getById(ctx.db, card.workspaceId);
+      if (!workspace)
+        throw new TRPCError({
+          message: `Workspace not found`,
+          code: "NOT_FOUND",
+        });
+
+      const expectedPrefix = `${workspace.publicId}/${input.cardPublicId}/`;
+      if (
+        !input.s3Key.startsWith(expectedPrefix) ||
+        input.s3Key.includes("..")
+      ) {
+        throw new TRPCError({
+          message: `s3Key does not match expected location`,
+          code: "BAD_REQUEST",
+        });
+      }
+
       const attachment = await cardAttachmentRepo.create(ctx.db, {
         cardId: card.id,
         filename: input.filename,
