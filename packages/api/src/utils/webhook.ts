@@ -1,4 +1,7 @@
 import crypto from "crypto";
+import dns from "node:dns/promises";
+import net from "node:net";
+
 import { z } from "zod";
 
 import type { dbClient } from "@banana/db/client";
@@ -7,6 +10,42 @@ import * as webhookRepo from "@banana/db/repository/webhook.repo";
 import { createLogger } from "@banana/logger";
 
 const log = createLogger("webhook");
+
+function isBlockedIp(ip: string): boolean {
+  if (net.isIPv4(ip)) {
+    const parts = ip.split(".").map(Number);
+    const a = parts[0] ?? 0;
+    const b = parts[1] ?? 0;
+    return (
+      a === 0 ||
+      a === 10 ||
+      a === 127 ||
+      (a === 169 && b === 254) ||
+      (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && b === 168)
+    );
+  }
+  if (net.isIPv6(ip)) {
+    const lower = ip.toLowerCase();
+    if (lower === "::1") return true;
+    if (lower.startsWith("fe80:")) return true;
+    if (lower.startsWith("fc") || lower.startsWith("fd")) return true;
+    const v4mapped = lower.match(/^::ffff:(\d+\.\d+\.\d+\.\d+)$/);
+    if (v4mapped && v4mapped[1]) return isBlockedIp(v4mapped[1]);
+  }
+  return false;
+}
+
+async function assertSafeHost(hostname: string): Promise<void> {
+  const addresses = await dns.lookup(hostname, { all: true });
+  for (const addr of addresses) {
+    if (isBlockedIp(addr.address)) {
+      throw new Error(
+        `Refusing to connect to private IP ${addr.address} for ${hostname}`,
+      );
+    }
+  }
+}
 
 export type WebhookEventType = WebhookEvent;
 
@@ -130,6 +169,17 @@ export async function sendWebhookToUrl(
   const result = webhookUrlSchema.safeParse(url);
   if (!result.success) {
     return { success: false, error: result.error.issues[0]?.message };
+  }
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(url);
+    await assertSafeHost(parsedUrl.hostname);
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "DNS validation failed",
+    };
   }
 
   const body = JSON.stringify(payload);

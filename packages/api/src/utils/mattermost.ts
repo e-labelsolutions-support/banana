@@ -104,10 +104,8 @@ async function sendMattermostDM(
   config: MattermostConfig,
   mattermostUserId: string,
   message: string,
+  botUserId: string,
 ): Promise<boolean> {
-  const botUserId = await getBotUserId(config);
-  if (!botUserId) return false;
-
   const channelId = await getDirectMessageChannel(
     config,
     botUserId,
@@ -222,6 +220,12 @@ export async function notifyBlockerCompleted(
 
     if (targets.length === 0) return;
 
+    const botUserId = await getBotUserId(config);
+    if (!botUserId) {
+      log.warn("Mattermost bot user not available, skipping blocker-done DMs");
+      return;
+    }
+
     const results = await Promise.allSettled(
       targets.map(async ({ email, cardPublicId, cardTitle }) => {
         const mmUserId = await getMattermostUserIdByEmail(config, email);
@@ -234,7 +238,7 @@ export async function notifyBlockerCompleted(
         }
         const cardUrl = `${baseUrl}/cards/${cardPublicId}`;
         const message = `**${actorName}** marked a blocker as done: [${blockerTitle}](${blockerUrl}).\nYour card [${cardTitle}](${cardUrl}) may now be unblocked.`;
-        const sent = await sendMattermostDM(config, mmUserId, message);
+        const sent = await sendMattermostDM(config, mmUserId, message, botUserId);
         log.info({ sent }, "Mattermost blocker-done DM result");
       }),
     );
@@ -305,6 +309,12 @@ export async function sendMattermostNotification(
 
     if (memberEmails.length === 0) return;
 
+    const botUserId = await getBotUserId(config);
+    if (!botUserId) {
+      log.warn("Mattermost bot user not available, skipping DMs");
+      return;
+    }
+
     const baseUrl = env("NEXT_PUBLIC_BASE_URL");
     const cardUrl = `${baseUrl}/cards/${cardPublicId}`;
 
@@ -323,7 +333,7 @@ export async function sendMattermostNotification(
           );
           return;
         }
-        const sent = await sendMattermostDM(config, mmUserId, message);
+        const sent = await sendMattermostDM(config, mmUserId, message, botUserId);
         log.info({ sent }, "Mattermost DM result");
       }),
     );

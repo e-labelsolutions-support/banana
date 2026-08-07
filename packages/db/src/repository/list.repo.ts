@@ -326,7 +326,7 @@ export const reorder = async (
           WHEN ${list.index} > ${args.newIndex} AND index >= ${args.newIndex} AND index < ${list.index} THEN index + 1
           ELSE index
         END
-      WHERE "boardId" = ${list.boardId};
+      WHERE "boardId" = ${list.boardId} AND "deletedAt" IS NULL;
     `);
 
     const countExpr = sql<number>`COUNT(*)`.mapWith(Number);

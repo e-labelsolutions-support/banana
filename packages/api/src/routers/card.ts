@@ -1,6 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
+import type { dbClient } from "@banana/db/client";
 import * as cardRepo from "@banana/db/repository/card.repo";
 import * as cardActivityRepo from "@banana/db/repository/cardActivity.repo";
 import * as cardCommentRepo from "@banana/db/repository/cardComment.repo";
@@ -167,104 +168,142 @@ export const cardRouter = createTRPCRouter({
 
       await assertPermission(ctx.db, userId, list.workspaceId, "card:create");
 
-      const newCard = await cardRepo.create(ctx.db, {
-        title: input.title,
-        description: input.description,
-        createdBy: userId,
-        listId: list.id,
-        workspaceId: list.workspaceId,
-        position: input.position,
-        dueDate: input.dueDate ?? null,
-      });
-
-      const newCardId = newCard.id;
-
-      if (!newCardId)
-        throw new TRPCError({
-          message: `Failed to create card`,
-          code: "INTERNAL_SERVER_ERROR",
+      const { newCard, assignedMembers } = await ctx.db.transaction(async (tx) => {
+        const db = tx as unknown as dbClient;
+        const newCard = await cardRepo.create(db, {
+          title: input.title,
+          description: input.description,
+          createdBy: userId,
+          listId: list.id,
+          workspaceId: list.workspaceId,
+          position: input.position,
+          dueDate: input.dueDate ?? null,
         });
 
-      if (newCardId && input.labelPublicIds.length) {
-        const labels = await labelRepo.getAllByPublicIds(
-          ctx.db,
-          input.labelPublicIds,
-        );
+        const newCardId = newCard.id;
 
-        if (!labels.length)
+        if (!newCardId)
           throw new TRPCError({
-            message: `Labels with public IDs (${input.labelPublicIds.join(", ")}) not found`,
-            code: "NOT_FOUND",
-          });
-
-        const labelsInsert = labels.map((label) => ({
-          cardId: newCardId,
-          labelId: label.id,
-        }));
-
-        const cardLabels = await cardRepo.bulkCreateCardLabelRelationships(
-          ctx.db,
-          labelsInsert,
-        );
-
-        if (!cardLabels.length)
-          throw new TRPCError({
-            message: `Failed to create card label relationships`,
+            message: `Failed to create card`,
             code: "INTERNAL_SERVER_ERROR",
           });
 
-        const cardActivitesInsert = cardLabels.map((cardLabel) => ({
-          type: "card.updated.label.added" as const,
-          cardId: cardLabel.cardId,
-          labelId: cardLabel.labelId,
-          createdBy: userId,
-        }));
-
-        await cardActivityRepo.bulkCreate(ctx.db, cardActivitesInsert);
-      }
-
-      if (newCardId && input.memberPublicIds.length) {
-        const members = await workspaceRepo.getAllMembersByPublicIds(
-          ctx.db,
-          input.memberPublicIds,
-        );
-
-        if (!members.length)
-          throw new TRPCError({
-            message: `Members with public IDs (${input.memberPublicIds.join(", ")}) not found`,
-            code: "NOT_FOUND",
-          });
-
-        const membersInsert = members.map((member) => ({
-          cardId: newCardId,
-          workspaceMemberId: member.id,
-        }));
-
-        const cardMembers =
-          await cardRepo.bulkCreateCardWorkspaceMemberRelationships(
-            ctx.db,
-            membersInsert,
+        if (input.labelPublicIds.length) {
+          const labels = await labelRepo.getAllByPublicIds(
+            db,
+            input.labelPublicIds,
           );
 
-        if (!cardMembers.length)
-          throw new TRPCError({
-            message: `Failed to create card member relationships`,
-            code: "INTERNAL_SERVER_ERROR",
-          });
+          if (!labels.length)
+            throw new TRPCError({
+              message: `Labels with public IDs (${input.labelPublicIds.join(", ")}) not found`,
+              code: "NOT_FOUND",
+            });
 
-        const cardActivitesInsert = cardMembers.map((cardMember) => ({
-          type: "card.updated.member.added" as const,
-          cardId: cardMember.cardId,
-          workspaceMemberId: cardMember.workspaceMemberId,
-          createdBy: userId,
-        }));
+          const labelsInsert = labels.map((label) => ({
+            cardId: newCardId,
+            labelId: label.id,
+          }));
 
-        await cardActivityRepo.bulkCreate(ctx.db, cardActivitesInsert);
+          const cardLabels = await cardRepo.bulkCreateCardLabelRelationships(
+            db,
+            labelsInsert,
+          );
 
-        // Notify each assigned member via Mattermost
+          if (!cardLabels.length)
+            throw new TRPCError({
+              message: `Failed to create card label relationships`,
+              code: "INTERNAL_SERVER_ERROR",
+            });
+
+          const cardActivitesInsert = cardLabels.map((cardLabel) => ({
+            type: "card.updated.label.added" as const,
+            cardId: cardLabel.cardId,
+            labelId: cardLabel.labelId,
+            createdBy: userId,
+          }));
+
+          await cardActivityRepo.bulkCreate(db, cardActivitesInsert);
+        }
+
+        let assignedMembers: { id: number; userId: string | null }[] = [];
+        if (input.memberPublicIds.length) {
+          const members = await workspaceRepo.getAllMembersByPublicIds(
+            db,
+            input.memberPublicIds,
+          );
+
+          if (!members.length)
+            throw new TRPCError({
+              message: `Members with public IDs (${input.memberPublicIds.join(", ")}) not found`,
+              code: "NOT_FOUND",
+            });
+
+          const membersInsert = members.map((member) => ({
+            cardId: newCardId,
+            workspaceMemberId: member.id,
+          }));
+
+          const cardMembers =
+            await cardRepo.bulkCreateCardWorkspaceMemberRelationships(
+              db,
+              membersInsert,
+            );
+
+          if (!cardMembers.length)
+            throw new TRPCError({
+              message: `Failed to create card member relationships`,
+              code: "INTERNAL_SERVER_ERROR",
+            });
+
+          const cardActivitesInsert = cardMembers.map((cardMember) => ({
+            type: "card.updated.member.added" as const,
+            cardId: cardMember.cardId,
+            workspaceMemberId: cardMember.workspaceMemberId,
+            createdBy: userId,
+          }));
+
+          await cardActivityRepo.bulkCreate(db, cardActivitesInsert);
+          assignedMembers = members;
+        }
+
+        if (input.checklists.length > 0) {
+          for (const cl of input.checklists) {
+            const checklist = await checklistRepo.create(db, {
+              cardId: newCardId,
+              name: cl.name,
+              createdBy: userId,
+            });
+
+            if (checklist && cl.items.length > 0) {
+              await checklistRepo.bulkCreateItems(
+                db,
+                cl.items.map((title, i) => ({
+                  checklistId: checklist.id,
+                  title,
+                  createdBy: userId,
+                  index: i,
+                  completed: false,
+                })),
+              );
+            }
+
+            await cardActivityRepo.create(db, {
+              type: "card.updated.checklist.added",
+              cardId: newCardId,
+              toTitle: cl.name,
+              createdBy: userId,
+            });
+          }
+        }
+
+        return { newCard, assignedMembers };
+      });
+
+      if (assignedMembers.length > 0) {
         sendMattermostNotification(
           ctx.db,
-          newCardId,
+          newCard.id,
           newCard.publicId,
           userId,
           ctx.user?.name ?? "Someone",
@@ -273,16 +312,15 @@ export const cardRouter = createTRPCRouter({
           console.error("Failed to send Mattermost notification:", error);
         });
 
-        // Also push to any subscribed device of each assigned member.
         void sendAssignmentPush(ctx.db, {
           cardPublicId: newCard.publicId,
           actorUserId: userId,
           actorName: ctx.user?.name ?? "Someone",
-          workspaceMemberIds: members.map((m) => m.id),
+          workspaceMemberIds: assignedMembers.map((m) => m.id),
         });
 
         if (input.dueDate) {
-          const memberUserIds = members
+          const memberUserIds = assignedMembers
             .map((m) => m.userId)
             .filter((id): id is string => id !== null);
           if (memberUserIds.length > 0) {
@@ -302,36 +340,6 @@ export const cardRouter = createTRPCRouter({
         }
       }
 
-      if (input.checklists.length > 0) {
-        for (const cl of input.checklists) {
-          const checklist = await checklistRepo.create(ctx.db, {
-            cardId: newCardId,
-            name: cl.name,
-            createdBy: userId,
-          });
-
-          if (checklist && cl.items.length > 0) {
-            await checklistRepo.bulkCreateItems(
-              ctx.db,
-              cl.items.map((title, i) => ({
-                checklistId: checklist.id,
-                title,
-                createdBy: userId,
-                index: i,
-                completed: false,
-              })),
-            );
-          }
-
-          await cardActivityRepo.create(ctx.db, {
-            type: "card.updated.checklist.added",
-            cardId: newCardId,
-            toTitle: cl.name,
-            createdBy: userId,
-          });
-        }
-      }
-
       if (input.description) {
         sendMentionEmails({
           db: ctx.db,
@@ -343,7 +351,6 @@ export const cardRouter = createTRPCRouter({
         });
       }
 
-      // Fire webhooks (non-blocking)
       sendWebhooksForWorkspace(
         ctx.db,
         list.workspaceId,
@@ -1006,7 +1013,7 @@ export const cardRouter = createTRPCRouter({
 
       return { newMember: true };
     }),
-  byId: publicProcedure
+  byId: protectedProcedure
     .meta({
       openapi: {
         summary: "Get a card by public ID",
@@ -1014,11 +1021,13 @@ export const cardRouter = createTRPCRouter({
         path: "/cards/{cardPublicId}",
         description: "Retrieves a card by its public ID",
         tags: ["Cards"],
+        protect: true,
       },
     })
     .input(z.object({ cardPublicId: z.string().min(12) }))
     .output(cardDetailSchema)
     .query(async ({ ctx, input }) => {
+      const userId = ctx.user!.id;
       const card = await cardRepo.getWorkspaceAndCardIdByCardPublicId(
         ctx.db,
         input.cardPublicId,
@@ -1030,17 +1039,7 @@ export const cardRouter = createTRPCRouter({
           code: "NOT_FOUND",
         });
 
-      if (card.workspaceVisibility === "private") {
-        const userId = ctx.user?.id;
-
-        if (!userId)
-          throw new TRPCError({
-            message: `User not authenticated`,
-            code: "UNAUTHORIZED",
-          });
-
-        await assertPermission(ctx.db, userId, card.workspaceId, "card:view");
-      }
+      await assertPermission(ctx.db, userId, card.workspaceId, "card:view");
 
       const result = await cardRepo.getWithListAndMembersByPublicId(
         ctx.db,
@@ -1103,7 +1102,7 @@ export const cardRouter = createTRPCRouter({
         },
       };
     }),
-  getActivities: publicProcedure
+  getActivities: protectedProcedure
     .meta({
       openapi: {
         summary: "Get paginated card activities",
@@ -1112,13 +1111,14 @@ export const cardRouter = createTRPCRouter({
         description:
           "Retrieves paginated activities for a card with merged frequent changes",
         tags: ["Cards"],
+        protect: true,
       },
     })
     .input(
       z.object({
         cardPublicId: z.string().min(12),
         limit: z.number().min(1).max(100).optional().default(10),
-        cursor: z.string().datetime().optional(), // ISO datetime string
+        cursor: z.string().datetime().optional(),
       }),
     )
     .output(
@@ -1129,6 +1129,7 @@ export const cardRouter = createTRPCRouter({
       }),
     )
     .query(async ({ ctx, input }) => {
+      const userId = ctx.user!.id;
       const card = await cardRepo.getWorkspaceAndCardIdByCardPublicId(
         ctx.db,
         input.cardPublicId,
@@ -1140,17 +1141,7 @@ export const cardRouter = createTRPCRouter({
           code: "NOT_FOUND",
         });
 
-      if (card.workspaceVisibility === "private") {
-        const userId = ctx.user?.id;
-
-        if (!userId)
-          throw new TRPCError({
-            message: `User not authenticated`,
-            code: "UNAUTHORIZED",
-          });
-
-        await assertPermission(ctx.db, userId, card.workspaceId, "card:view");
-      }
+      await assertPermission(ctx.db, userId, card.workspaceId, "card:view");
 
       const cursor = input.cursor ? new Date(input.cursor) : undefined;
       const result = await cardActivityRepo.getPaginatedActivities(
