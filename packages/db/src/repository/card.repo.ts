@@ -53,6 +53,10 @@ export const create = async (
   },
 ) => {
   return db.transaction(async (tx) => {
+    await tx.execute(
+      sql`SELECT id FROM list WHERE id = ${cardInput.listId} FOR UPDATE`,
+    );
+
     let index = 0;
 
     if (cardInput.position === "end") {
@@ -822,6 +826,15 @@ export const reorder = async (
         },
       },
     });
+
+    const lockIds = [card?.list.id, args.newListId].filter(
+      (id): id is number => typeof id === "number",
+    );
+    if (lockIds.length > 0) {
+      await tx.execute(
+        sql`SELECT id FROM list WHERE id IN ${sql.raw(`(${lockIds.join(",")})`)} FOR UPDATE`,
+      );
+    }
 
     if (!card?.list)
       throw new Error(`Card not found for public ID ${args.cardId}`);

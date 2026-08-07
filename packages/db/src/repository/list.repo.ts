@@ -317,6 +317,10 @@ export const reorder = async (
     if (!list)
       throw new Error(`List not found for public ID ${args.listPublicId}`);
 
+    await tx.execute(
+      sql`SELECT id FROM board WHERE id = ${list.boardId} FOR UPDATE`,
+    );
+
     await tx.execute(sql`
       UPDATE list
       SET index =
