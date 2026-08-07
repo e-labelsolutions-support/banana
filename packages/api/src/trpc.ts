@@ -178,7 +178,7 @@ const loggingMiddleware = t.middleware(async ({ path, type, next, ctx, getRawInp
     transport?: string;
     requestId?: string;
   };
-  const isCloud = process.env.NEXT_PUBLIC_KAN_ENV === "cloud";
+  const isCloud = process.env.NEXT_PUBLIC_BANANA_ENV === "cloud";
   const meta = {
     requestId,
     procedure: path,

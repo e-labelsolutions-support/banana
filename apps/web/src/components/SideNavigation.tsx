@@ -87,7 +87,7 @@ export default function SideNavigation({
 
   const { resolvedTheme } = useTheme();
 
-  const isCloudEnv = env("NEXT_PUBLIC_KAN_ENV") === "cloud";
+  const isCloudEnv = env("NEXT_PUBLIC_BANANA_ENV") === "cloud";
 
   const isDarkMode = resolvedTheme === "dark";
 

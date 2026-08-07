@@ -21,7 +21,7 @@ import Card from "~/views/board/components/Card";
 import Filters from "~/views/board/components/Filters";
 import { CardModal } from "./CardModal";
 
-const IS_CLOUD = env("NEXT_PUBLIC_KAN_ENV") === "cloud";
+const IS_CLOUD = env("NEXT_PUBLIC_BANANA_ENV") === "cloud";
 const HIDE_POWERED_BY =
   env("NEXT_PUBLIC_WHITE_LABEL_HIDE_POWERED_BY") === "true";
 

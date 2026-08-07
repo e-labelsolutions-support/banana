@@ -174,7 +174,7 @@ export function InviteMemberForm({
   };
 
   const isFreePlan =
-    env("NEXT_PUBLIC_KAN_ENV") === "cloud" &&
+    env("NEXT_PUBLIC_BANANA_ENV") === "cloud" &&
     !hasTeamSubscription &&
     !hasProSubscription;
 
@@ -284,7 +284,7 @@ export function InviteMemberForm({
             </div>
           )}
 
-        {env("NEXT_PUBLIC_KAN_ENV") === "cloud" &&
+        {env("NEXT_PUBLIC_BANANA_ENV") === "cloud" &&
           !isPartnerTier &&
           !unlimitedSeats && (
             <div className="mt-3 rounded-md bg-light-100 p-3 text-xs text-light-900 dark:bg-dark-200 dark:text-dark-900">

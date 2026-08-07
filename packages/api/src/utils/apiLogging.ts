@@ -7,7 +7,7 @@ import { createNextApiContext } from "../trpc";
 
 const log = createLogger("api");
 
-const isCloud = process.env.NEXT_PUBLIC_KAN_ENV === "cloud";
+const isCloud = process.env.NEXT_PUBLIC_BANANA_ENV === "cloud";
 
 export function withApiLogging(
   handler: (

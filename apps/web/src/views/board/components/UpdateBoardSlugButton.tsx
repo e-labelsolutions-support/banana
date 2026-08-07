@@ -7,7 +7,7 @@ import { Tooltip } from "~/components/Tooltip";
 import { usePopup } from "~/providers/popup";
 
 const displayBaseUrl =
-  env("NEXT_PUBLIC_KAN_ENV") === "cloud"
+  env("NEXT_PUBLIC_BANANA_ENV") === "cloud"
     ? "banana.bn"
     : env("NEXT_PUBLIC_BASE_URL");
 

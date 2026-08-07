@@ -99,7 +99,7 @@ const UpdateWorkspaceUrlForm = ({
   const onSubmit = (data: FormValues) => {
     if (!isWorkspaceSlugAvailable?.isAvailable) return;
 
-    if (workspacePlan !== "pro" && env("NEXT_PUBLIC_KAN_ENV") === "cloud")
+    if (workspacePlan !== "pro" && env("NEXT_PUBLIC_BANANA_ENV") === "cloud")
       return openModal("UPGRADE_TO_PRO", data.slug);
 
     updateWorkspaceSlug.mutate({
@@ -126,7 +126,7 @@ const UpdateWorkspaceUrlForm = ({
               : undefined)
           }
           prefix={
-            env("NEXT_PUBLIC_KAN_ENV") === "cloud"
+            env("NEXT_PUBLIC_BANANA_ENV") === "cloud"
               ? "banana.bn/"
               : `${env("NEXT_PUBLIC_BASE_URL")}/`
           }

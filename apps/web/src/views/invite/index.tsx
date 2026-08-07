@@ -19,7 +19,7 @@ export default function InvitePage() {
   const { data: session, isPending: isSessionLoading } =
     authClient.useSession();
 
-  const isCloudEnv = env("NEXT_PUBLIC_KAN_ENV") === "cloud";
+  const isCloudEnv = env("NEXT_PUBLIC_BANANA_ENV") === "cloud";
 
   const inviteCode = Array.isArray(code) ? code[0] : code;
 

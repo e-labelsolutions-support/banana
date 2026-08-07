@@ -58,6 +58,10 @@ export default {
         },
       },
       colors: {
+        accent: {
+          DEFAULT: "#e8b809",
+          dark: "#cda506",
+        },
         "dark-50": "#161616",
         "dark-100": "#1c1c1c",
         "dark-200": "#232323",

@@ -26,7 +26,7 @@ export default withRateLimit(
   { points: 100, duration: 60 },
   withApiLogging(
     async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
-      if (process.env.NEXT_PUBLIC_KAN_ENV !== "cloud") {
+      if (process.env.NEXT_PUBLIC_BANANA_ENV !== "cloud") {
         return res.status(404).json({
           success: false,
           error: "Unsubscribe endpoint is not available.",

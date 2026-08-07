@@ -739,7 +739,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
                                                 card.publicId.startsWith(
                                                   "PLACEHOLDER",
                                                 ) ||
-                                                env("NEXT_PUBLIC_KAN_ENV") ===
+                                                env("NEXT_PUBLIC_BANANA_ENV") ===
                                                   "cloud"
                                               )
                                                 return;

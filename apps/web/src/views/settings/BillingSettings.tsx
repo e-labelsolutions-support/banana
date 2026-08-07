@@ -15,7 +15,7 @@ import { api } from "~/utils/api";
 export default function BillingSettings() {
   const { modalContentType, isOpen } = useModal();
   const router = useRouter();
-  const isCloud = env("NEXT_PUBLIC_KAN_ENV") === "cloud";
+  const isCloud = env("NEXT_PUBLIC_BANANA_ENV") === "cloud";
   const { workspace } = useWorkspace();
 
   const { data: workspaceData } = api.workspace.byId.useQuery(

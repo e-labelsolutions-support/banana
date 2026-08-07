@@ -4,7 +4,7 @@ import { env } from "next-runtime-env";
 
 export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/") {
-    if (env("NEXT_PUBLIC_KAN_ENV") !== "cloud") {
+    if (env("NEXT_PUBLIC_BANANA_ENV") !== "cloud") {
       const loginUrl = new URL("/login", request.url);
       return NextResponse.redirect(loginUrl);
     }

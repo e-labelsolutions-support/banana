@@ -57,7 +57,7 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
       key: "billing",
       label: t`Billing`,
       icon: <HiOutlineBanknotes />,
-      condition: env("NEXT_PUBLIC_KAN_ENV") === "cloud" && isAdmin,
+      condition: env("NEXT_PUBLIC_BANANA_ENV") === "cloud" && isAdmin,
     },
     {
       key: "api",

@@ -183,7 +183,7 @@ export function Auth({
       env("NEXT_PUBLIC_ALLOW_CREDENTIALS")?.toLowerCase() === "true";
     const emailSendingEnabled =
       env("NEXT_PUBLIC_DISABLE_EMAIL")?.toLowerCase() !== "true";
-    const isCloudEnv = env("NEXT_PUBLIC_KAN_ENV") === "cloud";
+    const isCloudEnv = env("NEXT_PUBLIC_BANANA_ENV") === "cloud";
     setIsCloudEnv(isCloudEnv);
     setIsEmailSendingEnabled(emailSendingEnabled);
     setIsCredentialsEnabled(credentialsAllowed);

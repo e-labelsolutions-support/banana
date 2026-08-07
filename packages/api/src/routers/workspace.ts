@@ -231,7 +231,7 @@ export const workspaceRouter = createTRPCRouter({
       }
 
       // Check if slug is provided in cloud environment
-      if (input.slug && env("NEXT_PUBLIC_KAN_ENV") === "cloud") {
+      if (input.slug && env("NEXT_PUBLIC_BANANA_ENV") === "cloud") {
         throw new TRPCError({
           message: "Custom URLs are only available for Pro workspaces",
           code: "BAD_REQUEST",
@@ -345,7 +345,7 @@ export const workspaceRouter = createTRPCRouter({
           await workspaceRepo.isWorkspaceSlugAvailable(ctx.db, input.slug);
 
         if (
-          env("NEXT_PUBLIC_KAN_ENV") === "cloud" &&
+          env("NEXT_PUBLIC_BANANA_ENV") === "cloud" &&
           workspace.plan !== "pro" &&
           input.slug !== workspace.publicId
         ) {
@@ -477,7 +477,7 @@ export const workspaceRouter = createTRPCRouter({
         isWorkspaceSlugAvailable && workspaceSlug?.type !== "reserved";
       const isReserved = workspaceSlug?.type === "reserved";
 
-      if (env("NEXT_PUBLIC_KAN_ENV") === "cloud") {
+      if (env("NEXT_PUBLIC_BANANA_ENV") === "cloud") {
         await workspaceSlugRepo.createWorkspaceSlugCheck(ctx.db, {
           slug,
           userId,

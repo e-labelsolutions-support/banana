@@ -20,7 +20,7 @@ import { triggerWorkflow } from "./utils";
 export function createPlugins(db: dbClient) {
   return [
     socialProvidersPlugin(),
-    ...(process.env.NEXT_PUBLIC_KAN_ENV === "cloud"
+    ...(process.env.NEXT_PUBLIC_BANANA_ENV === "cloud"
       ? [
           stripe({
             stripeClient: createStripeClient(),
