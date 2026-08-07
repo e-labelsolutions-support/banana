@@ -12,7 +12,6 @@ import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { useEffect } from "react";
 
-import { InstallPwaButton } from "~/components/InstallPwaButton";
 import { SwUpdateToast } from "~/components/SwUpdateToast";
 import { FontSizeProvider } from "~/providers/font-size";
 import { KeyboardShortcutProvider } from "~/providers/keyboard-shortcuts";
@@ -99,7 +98,6 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
       )}
       <script src="/__ENV.js" />
       <main className="font-sans">
-        <InstallPwaButton />
         <SwUpdateToast />
         <KeyboardShortcutProvider>
           <LinguiProviderWrapper>
