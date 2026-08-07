@@ -21,7 +21,7 @@ export const InstallPwaButton = ({ variant = "floating", isCollapsed = false }: 
         aria-label={t`Install app`}
         className={
           isCollapsed
-            ? "flex h-9 w-9 items-center justify-center rounded-md text-light-1000 hover:bg-light-300 dark:text-dark-1000 dark:hover:bg-dark-200"
+            ? "flex h-9 w-9 items-center justify-center rounded-full text-light-1000 hover:bg-light-300 dark:text-dark-1000 dark:hover:bg-dark-200"
             : "flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-light-1000 hover:bg-light-300 dark:text-dark-1000 dark:hover:bg-dark-200"
         }
       >
