@@ -8,7 +8,7 @@ import * as listRepo from "@banana/db/repository/list.repo";
 
 import { listCreateResponseSchema, listUpdateResponseSchema } from "../schemas";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
-import { deleteCardsFromGoogleCalendars } from "../utils/googleCalendar";
+import { onCardsBulkDeleted } from "../services/calendarSync";
 import {
   assertCanDelete,
   assertCanEdit,
@@ -118,7 +118,7 @@ export const listRouter = createTRPCRouter({
       const deletedAt = new Date();
 
       const cardsToDelete = await cardRepo.getCardsByListIds(ctx.db, [list.id]);
-      await deleteCardsFromGoogleCalendars(ctx.db, cardsToDelete);
+      await onCardsBulkDeleted(ctx.db, cardsToDelete);
 
       const deletedList = await listRepo.softDeleteById(ctx.db, {
         listId: list.id,

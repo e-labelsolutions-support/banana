@@ -14,82 +14,63 @@ export default function GoogleCalendarSection() {
 
   const { data: status, refetch: refetchStatus } =
     api.googleCalendar.status.useQuery();
-  const { data: authUrlData, refetch: refetchAuthUrl } =
-    api.googleCalendar.getAuthUrl.useQuery(undefined, {
-      enabled: status?.connected === false,
-    });
-
-  const { mutateAsync: connect } = api.googleCalendar.connect.useMutation({
+  const { mutateAsync: disconnect } = api.googleCalendar.disconnect.useMutation({
     onSuccess: () => {
       void refetchStatus();
       showPopup({
-        header: t`Google Calendar connected`,
-        message: t`Your Google Calendar is now connected. Task due dates will sync automatically.`,
+        header: t`Google Calendar disconnected`,
+        message: t`Your Google Calendar has been disconnected.`,
         icon: "success",
       });
     },
     onError: () => {
       showPopup({
-        header: t`Couldn't connect Google Calendar`,
+        header: t`Couldn't disconnect Google Calendar`,
         message: t`Please try again later, or contact customer support.`,
         icon: "error",
       });
     },
   });
 
-  const { mutateAsync: disconnect } = api.googleCalendar.disconnect.useMutation(
-    {
-      onSuccess: () => {
-        void refetchStatus();
-        showPopup({
-          header: t`Google Calendar disconnected`,
-          message: t`Your Google Calendar has been disconnected.`,
-          icon: "success",
-        });
-      },
-      onError: () => {
-        showPopup({
-          header: t`Couldn't disconnect Google Calendar`,
-          message: t`Please try again later, or contact customer support.`,
-          icon: "error",
-        });
-      },
-    },
-  );
-
   useEffect(() => {
-    const { google_calendar: action, code } = router.query;
+    const { google_calendar: action } = router.query;
+    if (!action) return;
 
-    if (action === "callback" && typeof code === "string") {
-      void router.replace("/settings/integrations", undefined, {
-        shallow: true,
-      });
+    void router.replace("/settings/integrations", undefined, { shallow: true });
 
-      setIsConnecting(true);
-      connect({ code }).finally(() => {
-        setIsConnecting(false);
+    if (action === "connected") {
+      void refetchStatus();
+      showPopup({
+        header: t`Google Calendar connected`,
+        message: t`Your Google Calendar is now connected. Task due dates will sync automatically.`,
+        icon: "success",
       });
-    }
-
-    if (action === "error") {
-      void router.replace("/settings/integrations", undefined, {
-        shallow: true,
-      });
+    } else if (action === "error") {
+      setIsConnecting(false);
       showPopup({
         header: t`Connection failed`,
         message: t`Google Calendar connection was cancelled or failed.`,
         icon: "error",
       });
     }
-  }, [router.query, connect, showPopup, router]);
+  }, [router.query, refetchStatus, showPopup, router]);
 
-  const handleConnect = () => {
-    if (authUrlData?.url) {
-      window.open(
-        authUrlData.url,
-        "google_calendar_auth",
-        "height=700,width=500",
-      );
+  const handleConnect = async () => {
+    setIsConnecting(true);
+    try {
+      const resp = await fetch("/api/calendar/auth-url");
+      if (!resp.ok) {
+        showPopup({
+          header: t`Couldn't start Google Calendar connection`,
+          message: t`Please try again later, or contact customer support.`,
+          icon: "error",
+        });
+        return;
+      }
+      const { url } = (await resp.json()) as { url: string };
+      window.open(url, "google_calendar_auth", "height=700,width=500");
+    } finally {
+      setIsConnecting(false);
     }
   };
 

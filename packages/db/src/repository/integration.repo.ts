@@ -1,7 +1,10 @@
-import { and, eq, gte } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 import type { dbClient } from "@banana/db/client";
 import { integrations } from "@banana/db/schema";
+
+const forUser = (userId: string, provider: string) =>
+  and(eq(integrations.userId, userId), eq(integrations.provider, provider));
 
 export const isProviderAvailableForUser = async (
   db: dbClient,
@@ -9,13 +12,8 @@ export const isProviderAvailableForUser = async (
   provider: string,
 ) => {
   const integration = await db.query.integrations.findFirst({
-    where: and(
-      eq(integrations.userId, userId),
-      eq(integrations.provider, provider),
-      gte(integrations.expiresAt, new Date()),
-    ),
+    where: forUser(userId, provider),
   });
-
   return !!integration;
 };
 
@@ -23,28 +21,15 @@ export const getProviderForUser = async (
   db: dbClient,
   userId: string,
   provider: string,
-) => {
-  const integration = await db.query.integrations.findFirst({
-    where: and(
-      eq(integrations.userId, userId),
-      eq(integrations.provider, provider),
-      gte(integrations.expiresAt, new Date()),
-    ),
+) =>
+  db.query.integrations.findFirst({
+    where: forUser(userId, provider),
   });
 
-  return integration;
-};
-
-export const getProvidersForUser = async (db: dbClient, userId: string) => {
-  const integration = await db.query.integrations.findMany({
-    where: and(
-      eq(integrations.userId, userId),
-      gte(integrations.expiresAt, new Date()),
-    ),
+export const getProvidersForUser = async (db: dbClient, userId: string) =>
+  db.query.integrations.findMany({
+    where: eq(integrations.userId, userId),
   });
-
-  return integration;
-};
 
 export const createOrUpdateProvider = async (
   db: dbClient,

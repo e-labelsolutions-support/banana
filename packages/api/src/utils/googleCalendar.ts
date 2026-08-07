@@ -4,6 +4,8 @@ import { env } from "next-runtime-env";
 import * as integrationsRepo from "@banana/db/repository/integration.repo";
 
 import { decryptToken, encryptToken } from "./encryption";
+import type { OAuthPkce } from "./oauth";
+import { signState } from "./oauth";
 
 export interface GoogleCalendarEvent {
   id?: string;
@@ -12,12 +14,10 @@ export interface GoogleCalendarEvent {
   start: { dateTime: string; timeZone: string };
   end: { dateTime: string; timeZone: string };
   source?: { title: string; url: string };
-  extendedProperties?: {
-    private?: { cardPublicId?: string };
-  };
+  extendedProperties?: { private?: { cardPublicId?: string } };
 }
 
-interface CardEventData {
+export interface CardEventData {
   cardPublicId: string;
   title: string;
   description: string;
@@ -27,43 +27,61 @@ interface CardEventData {
 }
 
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
+const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_CALENDAR_API = "https://www.googleapis.com/calendar/v3";
+const SCOPE = "https://www.googleapis.com/auth/calendar.events";
 
-function getClientId(): string {
+const getClientId = (): string => {
   const id = process.env.GOOGLE_CLIENT_ID ?? env("GOOGLE_CLIENT_ID");
   if (!id) throw new Error("GOOGLE_CLIENT_ID not set");
   return id;
-}
+};
 
-function getClientSecret(): string {
-  const secret =
-    process.env.GOOGLE_CLIENT_SECRET ?? env("GOOGLE_CLIENT_SECRET");
+const getClientSecret = (): string => {
+  const secret = process.env.GOOGLE_CLIENT_SECRET ?? env("GOOGLE_CLIENT_SECRET");
   if (!secret) throw new Error("GOOGLE_CLIENT_SECRET not set");
   return secret;
-}
+};
 
-function getRedirectUri(): string {
+const getRedirectUri = (): string => {
   const base = env("NEXT_PUBLIC_BASE_URL") ?? "http://localhost:3000";
   return `${base}/api/calendar/oauth/callback`;
+};
+
+const getBaseUrl = (): string => env("NEXT_PUBLIC_BASE_URL") ?? "http://localhost:3000";
+
+export interface AuthUrlResult {
+  url: string;
+  nonce: string;
+  signature: string;
+  verifier: string;
 }
 
-export function buildAuthUrl(): string {
+export function buildAuthUrl(userId: string, pkce: OAuthPkce): AuthUrlResult {
+  const { nonce, signature } = signState(userId);
   const params = new URLSearchParams({
     client_id: getClientId(),
     redirect_uri: getRedirectUri(),
     response_type: "code",
-    scope: "https://www.googleapis.com/auth/calendar.events",
+    scope: SCOPE,
     access_type: "offline",
     prompt: "consent",
+    state: `${nonce}.${signature}`,
+    code_challenge: pkce.challenge,
+    code_challenge_method: pkce.challengeMethod,
   });
-  return `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+  return {
+    url: `${GOOGLE_AUTH_URL}?${params.toString()}`,
+    nonce,
+    signature,
+    verifier: pkce.verifier,
+  };
 }
 
-export async function exchangeCodeForTokens(code: string): Promise<{
-  accessToken: string;
-  refreshToken: string | null;
-  expiresAt: Date;
-}> {
+export async function exchangeCodeForTokens(
+  code: string,
+  codeVerifier: string,
+): Promise<{ accessToken: string; refreshToken: string | null; expiresAt: Date }> {
   const resp = await fetch(GOOGLE_TOKEN_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -73,12 +91,12 @@ export async function exchangeCodeForTokens(code: string): Promise<{
       client_secret: getClientSecret(),
       redirect_uri: getRedirectUri(),
       grant_type: "authorization_code",
+      code_verifier: codeVerifier,
     }),
   });
 
   if (!resp.ok) {
-    const body = await resp.text();
-    throw new Error(`Token exchange failed (${resp.status}): ${body}`);
+    throw new Error(`Token exchange failed (${resp.status}): ${await resp.text()}`);
   }
 
   const data = (await resp.json()) as {
@@ -87,18 +105,17 @@ export async function exchangeCodeForTokens(code: string): Promise<{
     expires_in: number;
   };
 
-  const expiresAt = new Date(Date.now() + (data.expires_in ?? 3600) * 1000);
-
   return {
     accessToken: data.access_token,
     refreshToken: data.refresh_token ?? null,
-    expiresAt,
+    expiresAt: new Date(Date.now() + data.expires_in * 1000),
   };
 }
 
-async function refreshAccessToken(
-  refreshToken: string,
-): Promise<{ accessToken: string; expiresAt: Date }> {
+async function refreshAccessToken(refreshToken: string): Promise<{
+  accessToken: string;
+  expiresAt: Date;
+}> {
   const resp = await fetch(GOOGLE_TOKEN_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -111,18 +128,14 @@ async function refreshAccessToken(
   });
 
   if (!resp.ok) {
-    const body = await resp.text();
-    throw new Error(`Token refresh failed (${resp.status}): ${body}`);
+    throw new Error(`Token refresh failed (${resp.status}): ${await resp.text()}`);
   }
 
-  const data = (await resp.json()) as {
-    access_token: string;
-    expires_in: number;
+  const data = (await resp.json()) as { access_token: string; expires_in: number };
+  return {
+    accessToken: data.access_token,
+    expiresAt: new Date(Date.now() + data.expires_in * 1000),
   };
-
-  const expiresAt = new Date(Date.now() + (data.expires_in ?? 3600) * 1000);
-
-  return { accessToken: data.access_token, expiresAt };
 }
 
 export async function getValidAccessToken(
@@ -134,29 +147,26 @@ export async function getValidAccessToken(
     userId,
     "google_calendar",
   );
-
   if (!integration) return null;
 
-  // Refresh if expiring within 5 minutes
   const fiveMinFromNow = new Date(Date.now() + 5 * 60 * 1000);
-  if (integration.expiresAt < fiveMinFromNow && integration.refreshToken) {
-    const decryptedRefresh = decryptToken(integration.refreshToken);
-    const { accessToken, expiresAt } =
-      await refreshAccessToken(decryptedRefresh);
-
-    const encryptedAccess = encryptToken(accessToken);
-    await integrationsRepo.createOrUpdateProvider(db, {
-      provider: "google_calendar",
-      userId,
-      accessToken: encryptedAccess,
-      refreshToken: integration.refreshToken,
-      expiresAt,
-    });
-
-    return accessToken;
+  if (integration.expiresAt > fiveMinFromNow) {
+    return decryptToken(integration.accessToken);
   }
 
-  return decryptToken(integration.accessToken);
+  if (!integration.refreshToken) return null;
+
+  const { accessToken, expiresAt } = await refreshAccessToken(
+    decryptToken(integration.refreshToken),
+  );
+  await integrationsRepo.createOrUpdateProvider(db, {
+    provider: "google_calendar",
+    userId,
+    accessToken: encryptToken(accessToken),
+    refreshToken: integration.refreshToken,
+    expiresAt,
+  });
+  return accessToken;
 }
 
 export async function storeTokens(
@@ -164,16 +174,11 @@ export async function storeTokens(
   userId: string,
   tokens: { accessToken: string; refreshToken: string | null; expiresAt: Date },
 ): Promise<void> {
-  const encryptedAccess = encryptToken(tokens.accessToken);
-  const encryptedRefresh = tokens.refreshToken
-    ? encryptToken(tokens.refreshToken)
-    : null;
-
   await integrationsRepo.createOrUpdateProvider(db, {
     provider: "google_calendar",
     userId,
-    accessToken: encryptedAccess,
-    refreshToken: encryptedRefresh,
+    accessToken: encryptToken(tokens.accessToken),
+    refreshToken: tokens.refreshToken ? encryptToken(tokens.refreshToken) : null,
     expiresAt: tokens.expiresAt,
   });
 }
@@ -185,23 +190,16 @@ function buildEvent(card: CardEventData): GoogleCalendarEvent {
     description: `${card.boardName ?? ""} › ${card.listName ?? ""}\n\n${card.description}`,
     start: { dateTime: card.dueDate.toISOString(), timeZone: "UTC" },
     end: { dateTime: oneHourLater.toISOString(), timeZone: "UTC" },
-    source: {
-      title: "Banana",
-      url: `${env("NEXT_PUBLIC_BASE_URL") ?? "http://localhost:3000"}/cards/${card.cardPublicId}`,
-    },
-    extendedProperties: {
-      private: {
-        cardPublicId: card.cardPublicId,
-      },
-    },
+    source: { title: "Banana", url: `${getBaseUrl()}/cards/${card.cardPublicId}` },
+    extendedProperties: { private: { cardPublicId: card.cardPublicId } },
   };
 }
 
-async function calendarApiFetch(
+async function calendarApiFetch<T>(
   accessToken: string,
   path: string,
   options: RequestInit = {},
-) {
+): Promise<T | null> {
   const resp = await fetch(`${GOOGLE_CALENDAR_API}${path}`, {
     ...options,
     headers: {
@@ -212,279 +210,78 @@ async function calendarApiFetch(
   });
 
   if (!resp.ok) {
-    const body = await resp.text();
     if (resp.status === 404) return null;
-    throw new Error(`Google Calendar API error (${resp.status}): ${body}`);
+    throw new Error(`Google Calendar API error (${resp.status}): ${await resp.text()}`);
   }
 
   if (resp.status === 204) return null;
-  return resp.json();
+  return (await resp.json()) as T;
 }
 
-export async function upsertCalendarEvent(
+interface GoogleEventList {
+  items?: { id: string }[];
+}
+
+interface GoogleEvent {
+  id: string;
+}
+
+export async function findEventIdByCard(
+  accessToken: string,
+  cardPublicId: string,
+): Promise<string | null> {
+  const result = await calendarApiFetch<GoogleEventList>(
+    accessToken,
+    `/calendars/primary/events?privateExtendedProperty=cardPublicId=${cardPublicId}`,
+  );
+  return result?.items?.[0]?.id ?? null;
+}
+
+export async function createEvent(
   accessToken: string,
   card: CardEventData,
-): Promise<void> {
-  // Delete existing events for this card first, then create new one
-  // This ensures updates (date change) work correctly
-  await deleteCalendarEvent(accessToken, card.cardPublicId);
-
-  const event = buildEvent(card);
-  await calendarApiFetch(accessToken, `/calendars/primary/events`, {
+): Promise<string> {
+  const event = await calendarApiFetch<GoogleEvent>(accessToken, "/calendars/primary/events", {
     method: "POST",
-    body: JSON.stringify(event),
+    body: JSON.stringify(buildEvent(card)),
+  });
+  if (!event?.id) throw new Error("Google Calendar did not return an event id");
+  return event.id;
+}
+
+export async function patchEvent(
+  accessToken: string,
+  eventId: string,
+  card: CardEventData,
+): Promise<void> {
+  await calendarApiFetch(accessToken, `/calendars/primary/events/${eventId}`, {
+    method: "PATCH",
+    body: JSON.stringify(buildEvent(card)),
   });
 }
 
-export async function deleteCalendarEvent(
+export async function deleteEvent(accessToken: string, eventId: string): Promise<void> {
+  await calendarApiFetch(accessToken, `/calendars/primary/events/${eventId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function upsertEvent(
+  accessToken: string,
+  card: CardEventData,
+): Promise<void> {
+  const existingId = await findEventIdByCard(accessToken, card.cardPublicId);
+  if (existingId) {
+    await patchEvent(accessToken, existingId, card);
+    return;
+  }
+  await createEvent(accessToken, card);
+}
+
+export async function deleteEventByCard(
   accessToken: string,
   cardPublicId: string,
 ): Promise<void> {
-  const searchResult = await calendarApiFetch(
-    accessToken,
-    `/calendars/primary/events?privateExtendedProperty=cardPublicId=${cardPublicId}`,
-    { method: "GET" },
-  );
-
-  const events = searchResult as { items?: { id: string }[] } | null;
-  if (events?.items) {
-    for (const evt of events.items) {
-      await calendarApiFetch(
-        accessToken,
-        `/calendars/primary/events/${evt.id}`,
-        { method: "DELETE" },
-      );
-    }
-  }
-}
-
-type SyncAction = "create" | "update" | "delete";
-
-interface SyncCardInfo {
-  cardPublicId: string;
-  title: string;
-  description: string;
-  dueDate: Date | null;
-  boardName?: string | null;
-  listName?: string | null;
-}
-
-export async function getCardMemberUserIds(
-  db: dbClient,
-  cardPublicId: string,
-): Promise<string[]> {
-  const { cardToWorkspaceMembers, workspaceMembers, cards } = await import(
-    "@banana/db/schema"
-  );
-  const { eq, and, isNull } = await import("drizzle-orm");
-
-  const result = await db
-    .select({ userId: workspaceMembers.userId })
-    .from(cardToWorkspaceMembers)
-    .innerJoin(
-      workspaceMembers,
-      eq(cardToWorkspaceMembers.workspaceMemberId, workspaceMembers.id),
-    )
-    .innerJoin(cards, eq(cardToWorkspaceMembers.cardId, cards.id))
-    .where(
-      and(
-        eq(cards.publicId, cardPublicId),
-        isNull(cards.deletedAt),
-        isNull(workspaceMembers.deletedAt),
-      ),
-    );
-  return result.map((r) => r.userId).filter((id): id is string => id !== null);
-}
-
-export async function getAssignedDueCardsForUser(
-  db: dbClient,
-  userId: string,
-): Promise<SyncCardInfo[]> {
-  const { cardToWorkspaceMembers, workspaceMembers, cards, lists, boards } =
-    await import("@banana/db/schema");
-  const { eq, and, isNull, isNotNull } = await import("drizzle-orm");
-
-  const result = await db
-    .select({
-      cardPublicId: cards.publicId,
-      title: cards.title,
-      description: cards.description,
-      dueDate: cards.dueDate,
-      boardName: boards.name,
-      listName: lists.name,
-    })
-    .from(cardToWorkspaceMembers)
-    .innerJoin(
-      workspaceMembers,
-      eq(cardToWorkspaceMembers.workspaceMemberId, workspaceMembers.id),
-    )
-    .innerJoin(cards, eq(cardToWorkspaceMembers.cardId, cards.id))
-    .innerJoin(lists, eq(cards.listId, lists.id))
-    .innerJoin(boards, eq(lists.boardId, boards.id))
-    .where(
-      and(
-        eq(workspaceMembers.userId, userId),
-        isNotNull(cards.dueDate),
-        isNull(cards.deletedAt),
-        isNull(workspaceMembers.deletedAt),
-        isNull(lists.deletedAt),
-        isNull(boards.deletedAt),
-      ),
-    );
-
-  return result.map((row) => ({
-    cardPublicId: row.cardPublicId,
-    title: row.title,
-    description: row.description ?? "",
-    dueDate: row.dueDate,
-    boardName: row.boardName,
-    listName: row.listName,
-  }));
-}
-
-export async function syncAllCardsForUser(
-  db: dbClient,
-  userId: string,
-): Promise<void> {
-  const accessToken = await getValidAccessToken(db, userId);
-  if (!accessToken) {
-    console.log(
-      `[GoogleCalendar] No token for user ${userId}, skipping sync all`,
-    );
-    return;
-  }
-
-  const cardsToSync = await getAssignedDueCardsForUser(db, userId);
-  console.log(
-    `[GoogleCalendar] Initial sync: pushing ${cardsToSync.length} cards for user ${userId}`,
-  );
-
-  const results = await Promise.allSettled(
-    cardsToSync.map((card) =>
-      upsertCalendarEvent(accessToken, {
-        cardPublicId: card.cardPublicId,
-        title: card.title,
-        description: card.description,
-        dueDate: card.dueDate!,
-        boardName: card.boardName,
-        listName: card.listName,
-      }),
-    ),
-  );
-
-  const failed = results.filter((r) => r.status === "rejected").length;
-  if (failed > 0) {
-    console.error(
-      `[GoogleCalendar] Initial sync: ${failed}/${cardsToSync.length} cards failed for user ${userId}`,
-    );
-  } else {
-    console.log(
-      `[GoogleCalendar] Initial sync complete for user ${userId}: ${cardsToSync.length} cards`,
-    );
-  }
-}
-
-export async function syncCardToGoogleCalendarsForMembers(
-  db: dbClient,
-  card: SyncCardInfo,
-  action: SyncAction,
-  memberUserIds: string[],
-): Promise<void> {
-  if (!card.dueDate && action !== "delete") return;
-
-  console.log(
-    `[GoogleCalendar] Syncing card ${card.cardPublicId} (action=${action}) for ${memberUserIds.length} users`,
-  );
-
-  try {
-    const results = await Promise.allSettled(
-      memberUserIds.map(async (userId) => {
-        const accessToken = await getValidAccessToken(db, userId);
-        if (!accessToken) {
-          console.log(`[GoogleCalendar] No token for user ${userId}, skipping`);
-          return;
-        }
-
-        if (action === "delete" || !card.dueDate) {
-          await deleteCalendarEvent(accessToken, card.cardPublicId);
-          console.log(
-            `[GoogleCalendar] Deleted event for card ${card.cardPublicId} for user ${userId}`,
-          );
-        } else {
-          await upsertCalendarEvent(accessToken, {
-            cardPublicId: card.cardPublicId,
-            title: card.title,
-            description: card.description ?? "",
-            dueDate: card.dueDate,
-            boardName: card.boardName,
-            listName: card.listName,
-          });
-          console.log(
-            `[GoogleCalendar] Upserted event for card ${card.cardPublicId} for user ${userId}`,
-          );
-        }
-      }),
-    );
-
-    for (const result of results) {
-      if (result.status === "rejected") {
-        console.error(
-          `[GoogleCalendar] Sync failed for card ${card.cardPublicId}:`,
-          result.reason,
-        );
-      }
-    }
-  } catch (error) {
-    console.error(
-      `[GoogleCalendar] Sync error for card ${card.cardPublicId}:`,
-      error,
-    );
-  }
-}
-
-interface CardToDelete {
-  publicId: string;
-  title: string;
-  description: string | null;
-  dueDate: Date | null;
-}
-
-export async function deleteCardsFromGoogleCalendars(
-  db: dbClient,
-  cards: CardToDelete[],
-): Promise<void> {
-  const cardsWithDueDate = cards.filter((c) => c.dueDate);
-  if (cardsWithDueDate.length === 0) return;
-
-  console.log(
-    `[GoogleCalendar] Deleting events for ${cardsWithDueDate.length} cards`,
-  );
-
-  const results = await Promise.allSettled(
-    cardsWithDueDate.map(async (card) => {
-      const memberUserIds = await getCardMemberUserIds(db, card.publicId);
-      if (memberUserIds.length === 0) return;
-
-      await syncCardToGoogleCalendarsForMembers(
-        db,
-        {
-          cardPublicId: card.publicId,
-          title: card.title,
-          description: card.description ?? "",
-          dueDate: null,
-        },
-        "delete",
-        memberUserIds,
-      );
-    }),
-  );
-
-  for (const result of results) {
-    if (result.status === "rejected") {
-      console.error(
-        `[GoogleCalendar] deleteCardsFromGoogleCalendars:`,
-        result.reason,
-      );
-    }
-  }
+  const existingId = await findEventIdByCard(accessToken, cardPublicId);
+  if (existingId) await deleteEvent(accessToken, existingId);
 }

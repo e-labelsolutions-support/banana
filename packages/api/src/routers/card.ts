@@ -21,10 +21,10 @@ import {
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { mergeActivities } from "../utils/activities";
 import {
-  deleteCardsFromGoogleCalendars,
   getCardMemberUserIds,
-  syncCardToGoogleCalendarsForMembers,
-} from "../utils/googleCalendar";
+  onCardChanged,
+  onCardDeleted,
+} from "../services/calendarSync";
 import {
   getCommenterEmails,
   notifyBlockerCompleted,
@@ -286,7 +286,7 @@ export const cardRouter = createTRPCRouter({
             .map((m) => m.userId)
             .filter((id): id is string => id !== null);
           if (memberUserIds.length > 0) {
-            syncCardToGoogleCalendarsForMembers(
+            void onCardChanged(
               ctx.db,
               {
                 cardPublicId: newCard.publicId,
@@ -296,14 +296,8 @@ export const cardRouter = createTRPCRouter({
                 boardName: list.boardName,
                 listName: list.name,
               },
-              "create",
               memberUserIds,
-            ).catch((error) => {
-              console.error(
-                `[GoogleCalendar] Failed to create event for card ${newCard.publicId}:`,
-                error,
-              );
-            });
+            );
           }
         }
       }
@@ -946,19 +940,7 @@ export const cardRouter = createTRPCRouter({
         });
 
         if (card.dueDate && member.userId) {
-          syncCardToGoogleCalendarsForMembers(
-            ctx.db,
-            {
-              cardPublicId: input.cardPublicId,
-              title: "",
-              description: "",
-              dueDate: null,
-              boardName: card.boardName,
-              listName: card.listName,
-            },
-            "delete",
-            [member.userId],
-          );
+          void onCardDeleted(ctx.db, input.cardPublicId, [member.userId]);
         }
 
         return { newMember: false };
@@ -1007,7 +989,7 @@ export const cardRouter = createTRPCRouter({
           input.cardPublicId,
         );
         if (cardData) {
-          syncCardToGoogleCalendarsForMembers(
+          void onCardChanged(
             ctx.db,
             {
               cardPublicId: input.cardPublicId,
@@ -1017,7 +999,6 @@ export const cardRouter = createTRPCRouter({
               boardName: card.boardName,
               listName: card.listName,
             },
-            "create",
             [member.userId],
           );
         }
@@ -1596,7 +1577,7 @@ export const cardRouter = createTRPCRouter({
           input.cardPublicId,
         );
         if (memberUserIds.length > 0) {
-          syncCardToGoogleCalendarsForMembers(
+          void onCardChanged(
             ctx.db,
             {
               cardPublicId: result.publicId,
@@ -1606,7 +1587,6 @@ export const cardRouter = createTRPCRouter({
               boardName: card.boardName,
               listName: currentWebhookListName,
             },
-            input.dueDate ? "update" : "delete",
             memberUserIds,
           );
         }
@@ -1618,7 +1598,7 @@ export const cardRouter = createTRPCRouter({
           input.cardPublicId,
         );
         if (memberUserIds.length > 0) {
-          syncCardToGoogleCalendarsForMembers(
+          void onCardChanged(
             ctx.db,
             {
               cardPublicId: result.publicId,
@@ -1628,7 +1608,6 @@ export const cardRouter = createTRPCRouter({
               boardName: card.boardName,
               listName: currentWebhookListName,
             },
-            "update",
             memberUserIds,
           );
         }
@@ -1702,22 +1681,7 @@ export const cardRouter = createTRPCRouter({
       });
 
       if (fullCard.dueDate && memberUserIds.length > 0) {
-        syncCardToGoogleCalendarsForMembers(
-          ctx.db,
-          {
-            cardPublicId: input.cardPublicId,
-            title: fullCard.title,
-            description: fullCard.description ?? "",
-            dueDate: null,
-          },
-          "delete",
-          memberUserIds,
-        ).catch((error) => {
-          console.error(
-            `[GoogleCalendar] Failed to delete events for card ${input.cardPublicId}:`,
-            error,
-          );
-        });
+        void onCardDeleted(ctx.db, input.cardPublicId, memberUserIds);
       }
 
       await cardActivityRepo.create(ctx.db, {
@@ -1953,7 +1917,7 @@ export const cardRouter = createTRPCRouter({
           .map((m) => m.userId)
           .filter((id): id is string => id !== null);
         if (memberUserIds.length > 0) {
-          syncCardToGoogleCalendarsForMembers(
+          void onCardChanged(
             ctx.db,
             {
               cardPublicId: newCard.publicId,
@@ -1963,7 +1927,6 @@ export const cardRouter = createTRPCRouter({
               boardName: targetList.boardName,
               listName: targetList.name,
             },
-            "create",
             memberUserIds,
           );
         }
