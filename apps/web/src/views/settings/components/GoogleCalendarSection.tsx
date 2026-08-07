@@ -57,9 +57,20 @@ export default function GoogleCalendarSection() {
 
   const handleConnect = async () => {
     setIsConnecting(true);
+    const popup = window.open("about:blank", "google_calendar_auth", "height=700,width=500");
+    if (!popup) {
+      showPopup({
+        header: t`Popup blocked`,
+        message: t`Allow popups for this site to connect Google Calendar.`,
+        icon: "error",
+      });
+      setIsConnecting(false);
+      return;
+    }
     try {
       const resp = await fetch("/api/calendar/auth-url");
       if (!resp.ok) {
+        popup.close();
         showPopup({
           header: t`Couldn't start Google Calendar connection`,
           message: t`Please try again later, or contact customer support.`,
@@ -68,8 +79,9 @@ export default function GoogleCalendarSection() {
         return;
       }
       const { url } = (await resp.json()) as { url: string };
-      window.open(url, "google_calendar_auth", "height=700,width=500");
-    } finally {
+      popup.location = url;
+    } catch {
+      popup.close();
       setIsConnecting(false);
     }
   };
